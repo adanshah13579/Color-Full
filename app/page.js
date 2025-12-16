@@ -222,8 +222,8 @@ export default function Home() {
                       {post.description}
                     </p>
                     <Link
-                      href={`/blog/${post.id}`}
-                      className="text-purple-600 dark:text-purple-400 hover:underline font-semibold"
+                      href="/blog"
+                      className="text-purple-600 dark:text-purple-400 hover:underline font-semibold inline-flex items-center"
                     >
                       Read More →
                     </Link>
