@@ -1,60 +1,33 @@
 'use client';
 
 import Link from 'next/link';
-import { useState, useEffect } from 'react';
-import { motion } from 'framer-motion';
+import { useTheme } from '../contexts/ThemeContext';
 
 export default function Header() {
-  const [darkMode, setDarkMode] = useState(false);
-
-  useEffect(() => {
-    // Check for saved theme preference or default to light mode
-    const savedTheme = localStorage.getItem('theme');
-    // Default to light mode if no preference is saved
-    const shouldBeDark = savedTheme === 'dark';
-    
-    setDarkMode(shouldBeDark);
-    if (shouldBeDark) {
-      document.documentElement.classList.add('dark');
-      document.documentElement.style.backgroundColor = '#0a0a0a';
-    } else {
-      document.documentElement.classList.remove('dark');
-      document.documentElement.style.backgroundColor = '#ffffff';
-      document.body.style.backgroundColor = '#ffffff';
-      document.body.style.color = '#171717';
-    }
-  }, []);
-
-  const toggleDarkMode = () => {
-    const newDarkMode = !darkMode;
-    setDarkMode(newDarkMode);
-    
-    if (newDarkMode) {
-      document.documentElement.classList.add('dark');
-      document.documentElement.style.backgroundColor = '#0a0a0a';
-      document.body.style.backgroundColor = '#0a0a0a';
-      document.body.style.color = '#ededed';
-      localStorage.setItem('theme', 'dark');
-    } else {
-      document.documentElement.classList.remove('dark');
-      document.documentElement.style.backgroundColor = '#ffffff';
-      document.body.style.backgroundColor = '#ffffff';
-      document.body.style.color = '#171717';
-      localStorage.setItem('theme', 'light');
-    }
-  };
+  const { theme, toggleTheme } = useTheme();
 
   return (
-    <header className="sticky top-0 z-50 bg-white/80 dark:bg-gray-900/80 backdrop-blur-md border-b border-gray-200 dark:border-gray-800">
+    <header 
+      className="sticky top-0 z-50 bg-white dark:bg-gray-900 border-b border-gray-200 dark:border-gray-800 shadow-sm"
+      style={theme === 'light' ? { backgroundColor: '#ffffff' } : {}}
+    >
       <nav className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
           <Link href="/" className="flex items-center space-x-2 group">
-            <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-purple-500 to-pink-500 flex items-center justify-center">
-              <span className="text-white font-bold text-lg">C</span>
+            <div className="relative w-10 h-10 flex items-center justify-center">
+              {/* Color circles logo */}
+              <div className="absolute inset-0 flex items-center justify-center">
+                <div className="w-6 h-6 rounded-full bg-blue-500 absolute -top-1 -left-1 shadow-md"></div>
+                <div className="w-6 h-6 rounded-full bg-purple-500 absolute top-0 right-0 shadow-md"></div>
+                <div className="w-6 h-6 rounded-full bg-pink-500 absolute -bottom-1 -right-1 shadow-md"></div>
+                <div className="w-4 h-4 rounded-full bg-yellow-400 absolute bottom-0 left-0 shadow-md"></div>
+              </div>
+              {/* Overlay circle for depth */}
+              <div className="absolute inset-0 rounded-full bg-white/20 dark:bg-gray-900/20 backdrop-blur-sm"></div>
             </div>
-            <span className="text-xl font-bold bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent">
-              ColorTool
+            <span className="text-xl font-bold text-gray-900 dark:text-white group-hover:text-purple-600 dark:group-hover:text-purple-400 transition-colors">
+              Theme & Color
             </span>
           </Link>
 
@@ -62,61 +35,65 @@ export default function Header() {
           <div className="hidden md:flex items-center space-x-8">
             <Link 
               href="/" 
-              className="text-gray-700 dark:text-gray-300 hover:text-purple-600 dark:hover:text-purple-400 transition-colors font-medium"
+              className="text-gray-900 dark:text-gray-300 hover:text-purple-600 dark:hover:text-purple-400 transition-colors font-medium"
+              style={theme === 'light' ? { color: '#111827' } : {}}
             >
               Home
             </Link>
             <Link 
               href="/tools" 
-              className="text-gray-700 dark:text-gray-300 hover:text-purple-600 dark:hover:text-purple-400 transition-colors font-medium"
+              className="text-gray-900 dark:text-gray-300 hover:text-purple-600 dark:hover:text-purple-400 transition-colors font-medium"
+              style={theme === 'light' ? { color: '#111827' } : {}}
             >
               Tools
             </Link>
             <Link 
               href="/blog" 
-              className="text-gray-700 dark:text-gray-300 hover:text-purple-600 dark:hover:text-purple-400 transition-colors font-medium"
+              className="text-gray-900 dark:text-gray-300 hover:text-purple-600 dark:hover:text-purple-400 transition-colors font-medium"
+              style={theme === 'light' ? { color: '#111827' } : {}}
             >
               Blog
             </Link>
             <Link 
               href="/contact" 
-              className="text-gray-700 dark:text-gray-300 hover:text-purple-600 dark:hover:text-purple-400 transition-colors font-medium"
+              className="text-gray-900 dark:text-gray-300 hover:text-purple-600 dark:hover:text-purple-400 transition-colors font-medium"
+              style={theme === 'light' ? { color: '#111827' } : {}}
             >
               Contact
             </Link>
           </div>
 
-          {/* Dark Mode Toggle */}
-          <button
-            onClick={toggleDarkMode}
-            className="p-2 rounded-lg bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors flex items-center gap-2"
-            aria-label="Toggle dark mode"
-            title={darkMode ? "Switch to Light Mode" : "Switch to Dark Mode"}
-          >
-            {darkMode ? (
-              <>
-                <svg className="w-5 h-5 text-yellow-500" fill="currentColor" viewBox="0 0 20 20">
-                  <path fillRule="evenodd" d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" clipRule="evenodd" />
+          {/* Theme Toggle and Mobile Menu */}
+          <div className="flex items-center space-x-4">
+            {/* Theme Toggle Button */}
+            <button
+              onClick={(e) => {
+                e.preventDefault();
+                toggleTheme();
+              }}
+              className="p-2 rounded-lg bg-gradient-to-br from-purple-500 to-pink-500 dark:from-purple-600 dark:to-pink-600 hover:from-purple-600 hover:to-pink-600 dark:hover:from-purple-700 dark:hover:to-pink-700 transition-all duration-200 shadow-md hover:shadow-lg"
+              aria-label={`Switch to ${theme === 'light' ? 'dark' : 'light'} theme`}
+              title={`Current: ${theme} theme - Click to switch`}
+            >
+              {theme === 'light' ? (
+                <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
                 </svg>
-                <span className="hidden md:inline">Light</span>
-              </>
-            ) : (
-              <>
-                <svg className="w-5 h-5 text-gray-700" fill="currentColor" viewBox="0 0 20 20">
-                  <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z" />
+              ) : (
+                <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" />
                 </svg>
-                <span className="hidden md:inline">Dark</span>
-              </>
-            )}
-          </button>
-
-          {/* Mobile Menu Button */}
-          <div className="md:hidden">
-            <button className="p-2 rounded-lg bg-gray-100 dark:bg-gray-800">
-              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
-              </svg>
+              )}
             </button>
+
+            {/* Mobile Menu Button */}
+            <div className="md:hidden">
+              <button className="p-2 rounded-lg bg-gradient-to-br from-purple-500 to-pink-500 dark:from-purple-600 dark:to-pink-600 hover:from-purple-600 hover:to-pink-600 dark:hover:from-purple-700 dark:hover:to-pink-700 transition-all duration-200 shadow-md">
+                <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+                </svg>
+              </button>
+            </div>
           </div>
         </div>
       </nav>

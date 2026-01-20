@@ -13,28 +13,70 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata = {
-  title: "ColorTool - Design Perfect Color Schemes Instantly",
-  description: "Explore color palettes, customize objects with colors, and discover the latest color trends. Create perfect color schemes instantly.",
-  keywords: "color palette, color scheme, color picker, color customizer, design tools",
+  title: "Theme & Color - Advanced Color Tools for Modern Designers",
+  description:
+    "Theme & Color helps you design professional, accessible color palettes. Explore generators, contrast checking tools, and in-depth articles on color trends and best practices.",
+  keywords:
+    "theme and color, themeandcolor, color palette, color scheme, color picker, contrast checker, palette generator, design tools, theme generator",
 };
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en" suppressHydrationWarning className="bg-white">
+    <html lang="en" suppressHydrationWarning>
       <head>
         <script
           dangerouslySetInnerHTML={{
             __html: `
               (function() {
                 try {
-                  const theme = localStorage.getItem('theme');
-                  if (theme === 'dark') {
-                    document.documentElement.classList.add('dark');
+                  const root = document.documentElement;
+                  
+                  // FORCE REMOVE DARK CLASS FIRST - This is critical
+                  root.classList.remove('dark');
+                  
+                  // Get theme from localStorage
+                  let savedTheme = localStorage.getItem('theme');
+                  
+                  // Default to 'light' if nothing saved or invalid value
+                  if (!savedTheme || savedTheme !== 'dark') {
+                    savedTheme = 'light';
+                    localStorage.setItem('theme', 'light');
+                  }
+                  
+                  // Apply theme
+                  if (savedTheme === 'dark') {
+                    root.classList.add('dark');
                   } else {
-                    document.documentElement.classList.remove('dark');
+                    root.classList.remove('dark');
+                  }
+                  
+                  // Set body styles immediately when body is available
+                  function setBodyStyles() {
+                    const body = document.body;
+                    if (body) {
+                      if (savedTheme === 'dark') {
+                        body.style.setProperty('background-color', '#0a0a0a', 'important');
+                      } else {
+                        body.style.setProperty('background-color', '#ffffff', 'important');
+                      }
+                    }
+                  }
+                  
+                  // Try to set body styles immediately
+                  setBodyStyles();
+                  
+                  // Also set when DOM is ready
+                  if (document.readyState === 'loading') {
+                    document.addEventListener('DOMContentLoaded', setBodyStyles);
+                  } else {
+                    setBodyStyles();
                   }
                 } catch (e) {
+                  // Fallback: force light theme
                   document.documentElement.classList.remove('dark');
+                  if (document.body) {
+                    document.body.style.setProperty('background-color', '#ffffff', 'important');
+                  }
                 }
               })();
             `,

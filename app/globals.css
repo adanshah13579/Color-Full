@@ -22,38 +22,155 @@
 }
 
 html {
-  background-color: #ffffff !important;
-  color: #171717 !important;
+  font-family: var(--font-geist-sans), system-ui, -apple-system, sans-serif;
 }
 
 html:not(.dark) {
   background-color: #ffffff !important;
-  color: #171717 !important;
 }
 
 html.dark {
   background-color: #0a0a0a !important;
-  color: #ededed !important;
 }
 
 body {
-  background: #ffffff !important;
-  background-color: #ffffff !important;
-  color: #171717 !important;
   font-family: var(--font-geist-sans), system-ui, -apple-system, sans-serif;
   min-height: 100vh;
+  margin: 0;
+  padding: 0;
 }
 
 html:not(.dark) body {
   background: #ffffff !important;
   background-color: #ffffff !important;
-  color: #171717 !important;
 }
 
-.dark body {
+html.dark body {
   background: #0a0a0a !important;
   background-color: #0a0a0a !important;
-  color: #ededed !important;
+}
+
+/* Ensure main content area is white in light mode */
+html:not(.dark) main {
+  background-color: #ffffff !important;
+}
+
+html.dark main {
+  background-color: #0a0a0a !important;
+}
+
+/* Force all page containers to be white in light mode */
+html:not(.dark) div[class*="min-h-screen"] {
+  background-color: #ffffff !important;
+}
+
+html:not(.dark) section {
+  background-color: transparent !important;
+}
+
+/* Ensure page-level divs respect theme */
+html:not(.dark) .bg-white {
+  background-color: #ffffff !important;
+}
+
+/* Force dark text in light theme for navigation */
+html:not(.dark) header nav a:not(:hover) {
+  color: #111827 !important; /* gray-900 - black text */
+}
+
+/* Force dark text in light theme - override Tailwind classes */
+html:not(.dark) .text-gray-900,
+html:not(.dark) h1.text-gray-900,
+html:not(.dark) h2.text-gray-900,
+html:not(.dark) h3.text-gray-900 {
+  color: #111827 !important; /* black */
+}
+
+html:not(.dark) .text-gray-800,
+html:not(.dark) p.text-gray-800,
+html:not(.dark) span.text-gray-800 {
+  color: #1f2937 !important; /* very dark gray */
+}
+
+html:not(.dark) .text-gray-700,
+html:not(.dark) p.text-gray-700,
+html:not(.dark) span.text-gray-700 {
+  color: #374151 !important; /* dark gray */
+}
+
+html:not(.dark) .text-gray-600,
+html:not(.dark) p.text-gray-600 {
+  color: #4b5563 !important; /* medium dark gray */
+}
+
+/* Force dark text for all headings in light theme */
+html:not(.dark) h1:not(.text-transparent):not(.text-white),
+html:not(.dark) h2:not(.text-transparent):not(.text-white),
+html:not(.dark) h3:not(.text-transparent):not(.text-white),
+html:not(.dark) h4:not(.text-transparent):not(.text-white),
+html:not(.dark) h5:not(.text-transparent):not(.text-white),
+html:not(.dark) h6:not(.text-transparent):not(.text-white) {
+  color: #111827 !important; /* black */
+}
+
+/* Force dark text for paragraphs and spans in light theme */
+html:not(.dark) p:not(.text-white):not(.text-transparent),
+html:not(.dark) span:not(.text-white):not(.text-transparent) {
+  color: #1f2937 !important; /* dark gray */
+}
+
+/* Keep white text for buttons and special elements */
+html:not(.dark) .text-white {
+  color: #ffffff !important;
+}
+
+/* Tag styling - white bg with black text in light theme, black bg with white text in dark theme */
+html:not(.dark) span.bg-white {
+  background-color: #ffffff !important;
+  color: #111827 !important; /* gray-900 - black text */
+}
+
+html.dark span.bg-black {
+  background-color: #000000 !important;
+  color: #ffffff !important; /* white text */
+}
+
+/* Ensure gradient text with bg-clip-text works properly - MUST come after other color rules */
+html:not(.dark) .text-transparent,
+html:not(.dark) [class*="bg-clip-text"],
+html:not(.dark) span[class*="bg-clip-text"],
+html:not(.dark) span.bg-clip-text,
+html:not(.dark) h1[class*="bg-clip-text"],
+html:not(.dark) h2[class*="bg-clip-text"],
+html:not(.dark) h3[class*="bg-clip-text"],
+html:not(.dark) h4[class*="bg-clip-text"],
+html:not(.dark) h5[class*="bg-clip-text"],
+html:not(.dark) h6[class*="bg-clip-text"],
+html:not(.dark) span.text-transparent[class*="bg-gradient"],
+html:not(.dark) span[class*="bg-gradient"][class*="bg-clip-text"] {
+  color: transparent !important;
+  -webkit-background-clip: text !important;
+  background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+}
+
+html:not(.dark) button[class*="bg-gradient"],
+html:not(.dark) a[class*="bg-gradient"] {
+  color: inherit !important;
+}
+
+/* Force white text on dark badge backgrounds */
+html:not(.dark) .bg-gray-900 span,
+html:not(.dark) [class*="bg-gray-900"] span,
+html:not(.dark) .bg-gray-900 .text-white,
+html:not(.dark) [class*="bg-gray-900"] .text-white {
+  color: #ffffff !important;
+}
+
+/* Override any paragraph/span rules for badge text */
+html:not(.dark) .bg-gray-900 span.text-white,
+html:not(.dark) .bg-gray-900 .text-white {
+  color: #ffffff !important;
 }
 
 /* Smooth transitions for theme changes */
@@ -61,4 +178,29 @@ html:not(.dark) body {
   transition-property: background-color, border-color, color, fill, stroke;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   transition-duration: 200ms;
+}
+
+/* Animated blob background */
+@keyframes blob {
+  0%, 100% {
+    transform: translate(0, 0) scale(1);
+  }
+  33% {
+    transform: translate(30px, -50px) scale(1.1);
+  }
+  66% {
+    transform: translate(-20px, 20px) scale(0.9);
+  }
+}
+
+.animate-blob {
+  animation: blob 7s infinite;
+}
+
+.animation-delay-2000 {
+  animation-delay: 2s;
+}
+
+.animation-delay-4000 {
+  animation-delay: 4s;
 }

@@ -1,6 +1,6 @@
 export const metadata = {
-  title: 'About Us - ColorTool',
-  description: 'Learn about ColorTool, our mission to help designers create perfect color schemes, and our commitment to providing free, accessible color tools.',
+  title: 'About Us - Theme & Color',
+  description: 'Learn about Theme & Color, our mission to help designers create perfect color schemes, and our commitment to providing free, accessible color tools.',
 };
 
 export default function AboutPage() {
@@ -15,7 +15,7 @@ export default function AboutPage() {
           <section className="mb-8">
             <h2 className="text-2xl font-bold mb-4 text-gray-900 dark:text-white">Our Mission</h2>
             <p className="text-gray-700 dark:text-gray-300 mb-4">
-              At ColorTool, we believe that great design starts with great colors. Our mission is to empower designers, 
+              At Theme & Color, we believe that great design starts with great colors. Our mission is to empower designers, 
               developers, and creators with powerful, accessible tools that make color selection and palette creation 
               effortless and enjoyable.
             </p>
@@ -57,7 +57,7 @@ export default function AboutPage() {
                 <h3 className="text-xl font-semibold mb-2 text-gray-900 dark:text-white">User-Focused</h3>
                 <p>
                   We continuously improve our tools based on user feedback. Your experience matters to us, and we're 
-                  committed to making ColorTool the best color tool platform available.
+                  committed to making Theme & Color the best color tool platform available.
                 </p>
               </div>
             </div>
@@ -66,13 +66,13 @@ export default function AboutPage() {
           <section className="mb-8">
             <h2 className="text-2xl font-bold mb-4 text-gray-900 dark:text-white">Who We Are</h2>
             <p className="text-gray-700 dark:text-gray-300 mb-4">
-              ColorTool is built by a team of designers and developers who are passionate about color and design. 
+              Theme & Color is built by a team of designers and developers who are passionate about color and design. 
               We understand the challenges of color selection and have created these tools to solve real problems 
               we've faced in our own design work.
             </p>
             <p className="text-gray-700 dark:text-gray-300">
               Whether you're a professional designer working on a brand identity, a developer ensuring your app 
-              meets accessibility standards, or a hobbyist exploring color theory, ColorTool is here to help you 
+              meets accessibility standards, or a hobbyist exploring color theory, Theme & Color is here to help you 
               create beautiful, accessible color schemes.
             </p>
           </section>
@@ -97,4 +97,5 @@ export default function AboutPage() {
     </div>
   );
 }
+
 

@@ -8,15 +8,23 @@ export default function Footer() {
           {/* Brand */}
           <div className="col-span-1 md:col-span-2">
             <div className="flex items-center space-x-2 mb-4">
-              <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-purple-500 to-pink-500 flex items-center justify-center">
-                <span className="text-white font-bold text-lg">C</span>
+              <div className="relative w-10 h-10 flex items-center justify-center">
+                {/* Color circles logo */}
+                <div className="absolute inset-0 flex items-center justify-center">
+                  <div className="w-6 h-6 rounded-full bg-blue-500 absolute -top-1 -left-1 shadow-md"></div>
+                  <div className="w-6 h-6 rounded-full bg-purple-500 absolute top-0 right-0 shadow-md"></div>
+                  <div className="w-6 h-6 rounded-full bg-pink-500 absolute -bottom-1 -right-1 shadow-md"></div>
+                  <div className="w-4 h-4 rounded-full bg-yellow-400 absolute bottom-0 left-0 shadow-md"></div>
+                </div>
+                {/* Overlay circle for depth */}
+                <div className="absolute inset-0 rounded-full bg-white/20 dark:bg-gray-900/20 backdrop-blur-sm"></div>
               </div>
-              <span className="text-xl font-bold bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent">
-                ColorTool
+              <span className="text-xl font-bold text-gray-900 dark:text-white">
+                Theme & Color
               </span>
             </div>
             <p className="text-gray-600 dark:text-gray-400 text-sm max-w-md">
-              Create perfect color schemes instantly. Explore palettes, customize objects, and discover the latest color trends.
+              Theme & Color helps you design professional, accessible color palettes with practical tools, trends, and deep-dive articles.
             </p>
           </div>
 
@@ -72,7 +80,7 @@ export default function Footer() {
 
         <div className="mt-8 pt-8 border-t border-gray-200 dark:border-gray-800">
           <p className="text-center text-gray-600 dark:text-gray-400 text-sm">
-            © {new Date().getFullYear()} ColorTool. All rights reserved.
+            © {new Date().getFullYear()} Theme & Color. All rights reserved.
           </p>
         </div>
       </div>

@@ -1,19 +1,18 @@
 'use client';
 
-import ThemeProvider from './ThemeProvider';
+import { ThemeProvider } from '../contexts/ThemeContext';
 import Header from './Header';
 import Footer from './Footer';
 
 export default function ClientWrapper({ children }) {
   return (
-    <>
-      <ThemeProvider />
+    <ThemeProvider>
       <Header />
-      <main className="flex-grow bg-white dark:bg-gray-900">
+      <main className="flex-grow min-h-screen bg-white dark:bg-gray-900">
         {children}
       </main>
       <Footer />
-    </>
+    </ThemeProvider>
   );
 }
 

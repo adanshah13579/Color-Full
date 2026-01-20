@@ -1,6 +1,6 @@
 export const metadata = {
-  title: 'Terms & Conditions - ColorTool',
-  description: 'Read ColorTool\'s Terms and Conditions to understand the rules and regulations for using our website and services.',
+  title: 'Terms & Conditions - Theme & Color',
+  description: 'Read Theme & Color\'s Terms and Conditions to understand the rules and regulations for using our website and services.',
 };
 
 export default function TermsPage() {
@@ -18,7 +18,7 @@ export default function TermsPage() {
           <section className="mb-8">
             <h2 className="text-2xl font-bold mb-4 text-gray-900 dark:text-white">Agreement to Terms</h2>
             <p className="text-gray-700 dark:text-gray-300 mb-4">
-              By accessing and using ColorTool ("the Website"), you accept and agree to be bound by the terms and provision 
+              By accessing and using Theme & Color ("the Website"), you accept and agree to be bound by the terms and provision 
               of this agreement. If you do not agree to abide by the above, please do not use this service.
             </p>
           </section>
@@ -26,7 +26,7 @@ export default function TermsPage() {
           <section className="mb-8">
             <h2 className="text-2xl font-bold mb-4 text-gray-900 dark:text-white">Use License</h2>
             <p className="text-gray-700 dark:text-gray-300 mb-4">
-              Permission is granted to temporarily access and use ColorTool for personal, non-commercial transitory viewing only. 
+              Permission is granted to temporarily access and use Theme & Color for personal, non-commercial transitory viewing only. 
               This is the grant of a license, not a transfer of title, and under this license you may not:
             </p>
             <ul className="list-disc list-inside space-y-2 text-gray-700 dark:text-gray-300 ml-4">
@@ -38,20 +38,20 @@ export default function TermsPage() {
             </ul>
             <p className="text-gray-700 dark:text-gray-300 mt-4">
               This license shall automatically terminate if you violate any of these restrictions and may be terminated by 
-              ColorTool at any time.
+              Theme & Color at any time.
             </p>
           </section>
 
           <section className="mb-8">
             <h2 className="text-2xl font-bold mb-4 text-gray-900 dark:text-white">Disclaimer</h2>
             <p className="text-gray-700 dark:text-gray-300 mb-4">
-              The materials on ColorTool's website are provided on an 'as is' basis. ColorTool makes no warranties, expressed 
+              The materials on Theme & Color's website are provided on an 'as is' basis. Theme & Color makes no warranties, expressed 
               or implied, and hereby disclaims and negates all other warranties including, without limitation, implied warranties 
               or conditions of merchantability, fitness for a particular purpose, or non-infringement of intellectual property 
               or other violation of rights.
             </p>
             <p className="text-gray-700 dark:text-gray-300">
-              Further, ColorTool does not warrant or make any representations concerning the accuracy, likely results, or 
+              Further, Theme & Color does not warrant or make any representations concerning the accuracy, likely results, or 
               reliability of the use of the materials on its website or otherwise relating to such materials or on any sites 
               linked to this site.
             </p>
@@ -60,9 +60,9 @@ export default function TermsPage() {
           <section className="mb-8">
             <h2 className="text-2xl font-bold mb-4 text-gray-900 dark:text-white">Limitations</h2>
             <p className="text-gray-700 dark:text-gray-300 mb-4">
-              In no event shall ColorTool or its suppliers be liable for any damages (including, without limitation, damages 
+              In no event shall Theme & Color or its suppliers be liable for any damages (including, without limitation, damages 
               for loss of data or profit, or due to business interruption) arising out of the use or inability to use the 
-              materials on ColorTool's website, even if ColorTool or a ColorTool authorized representative has been notified 
+              materials on Theme & Color's website, even if Theme & Color or a Theme & Color authorized representative has been notified 
               orally or in writing of the possibility of such damage.
             </p>
             <p className="text-gray-700 dark:text-gray-300">
@@ -74,18 +74,18 @@ export default function TermsPage() {
           <section className="mb-8">
             <h2 className="text-2xl font-bold mb-4 text-gray-900 dark:text-white">Accuracy of Materials</h2>
             <p className="text-gray-700 dark:text-gray-300">
-              The materials appearing on ColorTool's website could include technical, typographical, or photographic errors. 
-              ColorTool does not warrant that any of the materials on its website are accurate, complete, or current. 
-              ColorTool may make changes to the materials contained on its website at any time without notice. However, 
-              ColorTool does not make any commitment to update the materials.
+              The materials appearing on Theme & Color's website could include technical, typographical, or photographic errors. 
+              Theme & Color does not warrant that any of the materials on its website are accurate, complete, or current. 
+              Theme & Color may make changes to the materials contained on its website at any time without notice. However, 
+              Theme & Color does not make any commitment to update the materials.
             </p>
           </section>
 
           <section className="mb-8">
             <h2 className="text-2xl font-bold mb-4 text-gray-900 dark:text-white">Links</h2>
             <p className="text-gray-700 dark:text-gray-300 mb-4">
-              ColorTool has not reviewed all of the sites linked to its website and is not responsible for the contents of 
-              any such linked site. The inclusion of any link does not imply endorsement by ColorTool of the site. Use of 
+              Theme & Color has not reviewed all of the sites linked to its website and is not responsible for the contents of 
+              any such linked site. The inclusion of any link does not imply endorsement by Theme & Color of the site. Use of 
               any such linked website is at the user's own risk.
             </p>
           </section>
@@ -93,7 +93,7 @@ export default function TermsPage() {
           <section className="mb-8">
             <h2 className="text-2xl font-bold mb-4 text-gray-900 dark:text-white">Modifications</h2>
             <p className="text-gray-700 dark:text-gray-300">
-              ColorTool may revise these terms of service for its website at any time without notice. By using this website 
+              Theme & Color may revise these terms of service for its website at any time without notice. By using this website 
               you are agreeing to be bound by the then current version of these terms of service.
             </p>
           </section>
@@ -122,7 +122,7 @@ export default function TermsPage() {
           <section className="mb-8">
             <h2 className="text-2xl font-bold mb-4 text-gray-900 dark:text-white">Intellectual Property</h2>
             <p className="text-gray-700 dark:text-gray-300">
-              The Website and its original content, features, and functionality are owned by ColorTool and are protected by 
+              The Website and its original content, features, and functionality are owned by Theme & Color and are protected by 
               international copyright, trademark, patent, trade secret, and other intellectual property or proprietary rights laws.
             </p>
           </section>
@@ -157,4 +157,5 @@ export default function TermsPage() {
     </div>
   );
 }
+
 

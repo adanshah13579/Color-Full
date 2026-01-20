@@ -1,6 +1,6 @@
 export const metadata = {
-  title: 'Privacy Policy - ColorTool',
-  description: 'Read ColorTool\'s Privacy Policy to understand how we collect, use, and protect your personal information.',
+  title: 'Privacy Policy - Theme & Color',
+  description: 'Read Theme & Color\'s Privacy Policy to understand how we collect, use, and protect your personal information.',
 };
 
 export default function PrivacyPage() {
@@ -18,7 +18,7 @@ export default function PrivacyPage() {
           <section className="mb-8">
             <h2 className="text-2xl font-bold mb-4 text-gray-900 dark:text-white">Introduction</h2>
             <p className="text-gray-700 dark:text-gray-300 mb-4">
-              At ColorTool ("we," "our," or "us"), we respect your privacy and are committed to protecting your personal data. 
+              At Theme & Color ("we," "our," or "us"), we respect your privacy and are committed to protecting your personal data. 
               This privacy policy explains how we collect, use, and safeguard your information when you visit our website.
             </p>
           </section>
@@ -159,4 +159,5 @@ export default function PrivacyPage() {
     </div>
   );
 }
+
 
