@@ -77,6 +77,9 @@ export default function Home() {
               <p className="text-xl md:text-2xl text-gray-700 dark:text-gray-300 mb-12 max-w-3xl mx-auto leading-relaxed font-light">
                 Create stunning color palettes, check accessibility, and discover trending schemes. 
                 <span className="block mt-2 text-lg md:text-xl">All the tools you need for professional design.</span>
+                <span className="block mt-4 text-base md:text-lg font-medium">
+                  Try our free <Link href="/tools/palette-generator" className="text-purple-600 dark:text-purple-400 hover:underline">color palette generator</Link> for UI, web, and brand projects.
+                </span>
               </p>
 
               {/* CTA Buttons */}

@@ -1,501 +1,157 @@
-'use client';
+import Link from 'next/link';
+import ContrastCheckerTool from './ContrastCheckerTool';
 
-import { useState } from 'react';
-import { motion } from 'framer-motion';
-import { SketchPicker } from 'react-color';
-
-// Calculate relative luminance
-const getLuminance = (hex) => {
-  const rgb = hexToRgb(hex);
-  const [r, g, b] = [rgb.r, rgb.g, rgb.b].map(val => {
-    val = val / 255;
-    return val <= 0.03928 ? val / 12.92 : Math.pow((val + 0.055) / 1.055, 2.4);
-  });
-  return 0.2126 * r + 0.7152 * g + 0.0722 * b;
-};
-
-// Convert hex to RGB
-const hexToRgb = (hex) => {
-  const result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
-  return result ? {
-    r: parseInt(result[1], 16),
-    g: parseInt(result[2], 16),
-    b: parseInt(result[3], 16)
-  } : { r: 0, g: 0, b: 0 };
-};
-
-// Calculate contrast ratio
-const getContrastRatio = (color1, color2) => {
-  const lum1 = getLuminance(color1);
-  const lum2 = getLuminance(color2);
-  const lighter = Math.max(lum1, lum2);
-  const darker = Math.min(lum1, lum2);
-  return (lighter + 0.05) / (darker + 0.05);
-};
-
-// Get WCAG compliance
-const getWCAGCompliance = (ratio, size) => {
-  const isLarge = size === 'large';
-  const aaNormal = ratio >= 4.5;
-  const aaLarge = ratio >= 3;
-  const aaaNormal = ratio >= 7;
-  const aaaLarge = ratio >= 4.5;
-
-  return {
-    aa: isLarge ? aaLarge : aaNormal,
-    aaa: isLarge ? aaaLarge : aaaNormal,
-    ratio: ratio.toFixed(2)
-  };
+export const metadata = {
+  title: 'Accessibility Contrast Checker | Theme and Color',
+  description: 'Free color contrast checker for accessibility. Test text and background pairs against WCAG AA and AAA. UI color contrast tool for designers and developers.',
 };
 
 export default function ContrastCheckerPage() {
-  const [colorGroups, setColorGroups] = useState([
-    { id: 1, colors: ['#000000', '#FFFFFF'], labels: ['Color 1', 'Color 2'] }
-  ]);
-  const [textSize, setTextSize] = useState('normal');
-  const [openPickers, setOpenPickers] = useState({});
-
-  const addColorGroup = () => {
-    const newId = Math.max(...colorGroups.map(g => g.id), 0) + 1;
-    setColorGroups([
-      ...colorGroups,
-      { 
-        id: newId, 
-        colors: ['#000000', '#FFFFFF'],
-        labels: ['Color 1', 'Color 2']
-      }
-    ]);
-  };
-
-  const removeColorGroup = (id) => {
-    if (colorGroups.length > 1) {
-      setColorGroups(colorGroups.filter(group => group.id !== id));
-    }
-  };
-
-  const addColorToGroup = (groupId) => {
-    setColorGroups(colorGroups.map(group => 
-      group.id === groupId 
-        ? { 
-            ...group, 
-            colors: [...group.colors, '#808080'],
-            labels: [...group.labels, `Color ${group.colors.length + 1}`]
-          }
-        : group
-    ));
-  };
-
-  const removeColorFromGroup = (groupId, colorIndex) => {
-    setColorGroups(colorGroups.map(group => 
-      group.id === groupId && group.colors.length > 2
-        ? { 
-            ...group, 
-            colors: group.colors.filter((_, i) => i !== colorIndex),
-            labels: group.labels.filter((_, i) => i !== colorIndex)
-          }
-        : group
-    ));
-  };
-
-  const updateColorInGroup = (groupId, colorIndex, newColor) => {
-    setColorGroups(colorGroups.map(group => 
-      group.id === groupId 
-        ? { 
-            ...group, 
-            colors: group.colors.map((color, i) => i === colorIndex ? newColor : color)
-          }
-        : group
-    ));
-  };
-
-  const togglePicker = (groupId, colorIndex) => {
-    const key = `${groupId}-${colorIndex}`;
-    setOpenPickers(prev => ({
-      ...prev,
-      [key]: !prev[key]
-    }));
-  };
-
-  // Generate all color combinations for a group
-  const getColorCombinations = (colors) => {
-    const combinations = [];
-    for (let i = 0; i < colors.length; i++) {
-      for (let j = i + 1; j < colors.length; j++) {
-        combinations.push({
-          color1: colors[i],
-          color2: colors[j],
-          index1: i,
-          index2: j
-        });
-      }
-    }
-    return combinations;
-  };
-
   return (
     <div className="min-h-screen bg-white dark:bg-gray-900 py-12">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Header */}
-        <motion.div
-          initial={{ opacity: 0, y: -20 }}
-          animate={{ opacity: 1, y: 0 }}
-          className="text-center mb-12"
-        >
-          <h1 className="text-4xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-green-600 to-emerald-600 bg-clip-text text-transparent">
-            Accessibility Contrast Checker
-          </h1>
-          <p className="text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
-            Check color contrast ratios between multiple colors. Add as many colors as you need and see all contrast combinations.
-          </p>
-        </motion.div>
-
-        {/* Text Size Selector - Global */}
-        <div className="max-w-6xl mx-auto mb-8">
-          <div className="bg-white dark:bg-gray-800 rounded-xl shadow-lg p-6">
-            <h3 className="text-lg font-semibold mb-4 text-gray-900 dark:text-white">
-              Text Size (Applies to all checks)
-            </h3>
-            <div className="flex gap-3">
-              <button
-                onClick={() => setTextSize('normal')}
-                className={`flex-1 px-4 py-2 rounded-lg font-medium transition-colors ${
-                  textSize === 'normal'
-                    ? 'bg-green-600 text-white'
-                    : 'bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300'
-                }`}
-              >
-                Normal
-              </button>
-              <button
-                onClick={() => setTextSize('large')}
-                className={`flex-1 px-4 py-2 rounded-lg font-medium transition-colors ${
-                  textSize === 'large'
-                    ? 'bg-green-600 text-white'
-                    : 'bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300'
-                }`}
-              >
-                Large (18pt+)
-              </button>
+        <div className="max-w-4xl mx-auto mb-10">
+          <header className="mb-10">
+            <h1 className="text-3xl md:text-4xl font-bold mb-6 text-gray-900 dark:text-white">
+              Accessibility Contrast Checker
+            </h1>
+            <div className="text-gray-600 dark:text-gray-400 space-y-4 text-base leading-relaxed">
+              <p>
+                An accessibility contrast checker evaluates the contrast ratio between two colors, such as text and background. Use it to check color contrast for UI, marketing, and product design. This WCAG contrast checker reports whether pairs pass AA or AAA and supports designers, UI/UX professionals, frontend developers, and brand designers who need accessible color contrast.
+              </p>
+              <p>
+                Use the tool below to check color contrast instantly. Add your foreground and background colors, then see the ratio and pass/fail for normal and large text. The tool supports WCAG compliance by comparing your pairs to standard thresholds. Check color contrast before shipping so your interfaces and materials are readable for more users.
+              </p>
             </div>
-          </div>
-        </div>
+          </header>
 
-        {/* Color Groups */}
-        <div className="max-w-6xl mx-auto space-y-8 mb-8">
-          {colorGroups.map((group, groupIndex) => {
-            const combinations = getColorCombinations(group.colors);
-
-            return (
-              <motion.div
-                key={group.id}
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: groupIndex * 0.1 }}
-                className="bg-white dark:bg-gray-800 rounded-xl shadow-lg p-6"
-              >
-                <div className="flex items-center justify-between mb-6">
-                  <h3 className="text-lg font-semibold text-gray-900 dark:text-white">
-                    Color Group #{group.id} ({group.colors.length} colors)
-                  </h3>
-                  <div className="flex gap-2">
-                    <button
-                      onClick={() => addColorToGroup(group.id)}
-                      className="px-3 py-1 bg-green-100 dark:bg-green-900/20 hover:bg-green-200 dark:hover:bg-green-900/30 text-green-600 dark:text-green-400 rounded-lg text-sm font-medium transition-colors"
-                    >
-                      + Add Color
-                    </button>
-                    {colorGroups.length > 1 && (
-                      <button
-                        onClick={() => removeColorGroup(group.id)}
-                        className="px-3 py-1 bg-red-100 dark:bg-red-900/20 hover:bg-red-200 dark:hover:bg-red-900/30 text-red-600 dark:text-red-400 rounded-lg text-sm font-medium transition-colors"
-                      >
-                        Remove Group
-                      </button>
-                    )}
-                  </div>
-                </div>
-
-                {/* Color Pickers */}
-                <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 mb-6">
-                  {group.colors.map((color, colorIndex) => {
-                    const pickerKey = `${group.id}-${colorIndex}`;
-                    return (
-                      <div key={colorIndex} className="bg-white dark:bg-gray-700/30 rounded-lg p-4 border border-gray-200 dark:border-gray-600">
-                        <label className="block text-sm font-semibold mb-3 text-gray-900 dark:text-white">
-                          {group.labels[colorIndex]}
-                        </label>
-                        <div className="relative mb-3">
-                          <button
-                            onClick={() => togglePicker(group.id, colorIndex)}
-                            className="w-full h-24 rounded-lg border-2 border-gray-300 dark:border-gray-600 hover:border-green-400 dark:hover:border-green-600 shadow-sm transition-all hover:shadow-md cursor-pointer"
-                            style={{ backgroundColor: color }}
-                          >
-                            <span className="sr-only">Click to change color</span>
-                          </button>
-                        </div>
-                        <div className="flex items-center justify-between mb-3">
-                          <span className="text-xs font-medium text-gray-600 dark:text-gray-400">HEX:</span>
-                          <code className="text-xs font-mono bg-white dark:bg-gray-800 px-2 py-1 rounded border border-gray-200 dark:border-gray-600">
-                            {color}
-                          </code>
-                        </div>
-                        <button
-                          onClick={() => togglePicker(group.id, colorIndex)}
-                          className="w-full px-3 py-2 bg-green-600 hover:bg-green-700 text-white rounded-lg text-sm font-semibold transition-colors flex items-center justify-center gap-2 mb-2"
-                        >
-                          <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01" />
-                          </svg>
-                          Change Color
-                        </button>
-                        {openPickers[pickerKey] && (
-                          <div className="absolute z-50 mt-2 left-0 right-0">
-                            <div className="fixed inset-0 bg-black/50" onClick={() => togglePicker(group.id, colorIndex)}></div>
-                            <div className="relative flex justify-center">
-                              <SketchPicker
-                                color={color}
-                                onChange={(newColor) => updateColorInGroup(group.id, colorIndex, newColor.hex)}
-                                disableAlpha
-                              />
-                            </div>
-                          </div>
-                        )}
-                        {group.colors.length > 2 && (
-                          <button
-                            onClick={() => removeColorFromGroup(group.id, colorIndex)}
-                            className="w-full px-2 py-1.5 bg-red-100 dark:bg-red-900/20 hover:bg-red-200 dark:hover:bg-red-900/30 text-red-600 dark:text-red-400 rounded text-xs font-medium transition-colors"
-                          >
-                            Remove Color
-                          </button>
-                        )}
-                      </div>
-                    );
-                  })}
-                </div>
-
-                {/* Contrast Matrix */}
-                <div className="mt-8">
-                  <h4 className="text-md font-semibold mb-4 text-gray-900 dark:text-white">
-                    Contrast Matrix - All Color Combinations
-                  </h4>
-                  <div className="overflow-x-auto">
-                    <div className="inline-block min-w-full">
-                      <table className="w-full border-collapse">
-                        <thead>
-                          <tr>
-                            <th className="p-2 text-left font-semibold text-sm text-gray-700 dark:text-gray-300"></th>
-                            {group.colors.map((_, index) => (
-                              <th key={index} className="p-2 text-center font-semibold text-sm text-gray-700 dark:text-gray-300">
-                                {group.labels[index]}
-                              </th>
-                            ))}
-                          </tr>
-                        </thead>
-                        <tbody>
-                          {group.colors.map((color1, rowIndex) => (
-                            <tr key={rowIndex}>
-                              <td className="p-2 font-medium text-sm text-gray-700 dark:text-gray-300 align-middle">
-                                {group.labels[rowIndex]}
-                              </td>
-                              {group.colors.map((color2, colIndex) => {
-                                // Show diagonal with color swatch
-                                if (rowIndex === colIndex) {
-                                  return (
-                                    <td key={colIndex} className="p-2">
-                                      <div 
-                                        className="aspect-square rounded-lg border-2 border-gray-300 dark:border-gray-600 shadow-sm"
-                                        style={{ backgroundColor: color1 }}
-                                        title={group.labels[rowIndex]}
-                                      />
-                                    </td>
-                                  );
-                                }
-                                // Skip duplicate comparisons (only show upper triangle)
-                                if (rowIndex > colIndex) {
-                                  return <td key={colIndex} className="p-2"></td>;
-                                }
-                                
-                                const contrastRatio = getContrastRatio(color1, color2);
-                                const compliance = getWCAGCompliance(contrastRatio, textSize);
-                                const isPass = compliance.aa;
-
-                                return (
-                                  <td key={colIndex} className="p-2">
-                                    <motion.div
-                                      initial={{ opacity: 0, scale: 0.9 }}
-                                      animate={{ opacity: 1, scale: 1 }}
-                                      className={`aspect-square rounded-lg border-2 p-2 flex flex-col items-center justify-center cursor-pointer hover:shadow-lg transition-all ${
-                                        isPass 
-                                          ? 'border-green-400 bg-green-50 dark:bg-green-900/20' 
-                                          : 'border-red-400 bg-red-50 dark:bg-red-900/20'
-                                      }`}
-                                      style={{ 
-                                        background: `linear-gradient(135deg, ${color1} 50%, ${color2} 50%)`,
-                                        borderColor: isPass ? '#4ade80' : '#f87171'
-                                      }}
-                                      title={`${group.labels[rowIndex]} vs ${group.labels[colIndex]}: ${compliance.ratio}:1`}
-                                    >
-                                      <div className="text-xs font-bold mb-1 bg-white/80 dark:bg-gray-900/80 px-1.5 py-0.5 rounded" style={{ color: color1 }}>
-                                        {compliance.ratio}:1
-                                      </div>
-                                      <div className="flex gap-1">
-                                        <span className={`text-xs px-1.5 py-0.5 rounded font-semibold ${
-                                          compliance.aa 
-                                            ? 'bg-green-200 text-green-800 dark:bg-green-800 dark:text-green-200' 
-                                            : 'bg-red-200 text-red-800 dark:bg-red-800 dark:text-red-200'
-                                        }`}>
-                                          AA
-                                        </span>
-                                        <span className={`text-xs px-1.5 py-0.5 rounded font-semibold ${
-                                          compliance.aaa 
-                                            ? 'bg-green-200 text-green-800 dark:bg-green-800 dark:text-green-200' 
-                                            : 'bg-red-200 text-red-800 dark:bg-red-800 dark:text-red-200'
-                                        }`}>
-                                          AAA
-                                        </span>
-                                      </div>
-                                    </motion.div>
-                                  </td>
-                                );
-                              })}
-                            </tr>
-                          ))}
-                        </tbody>
-                      </table>
-                    </div>
-                  </div>
-                </div>
-
-                {/* Detailed Combinations List */}
-                <div className="mt-8">
-                  <h4 className="text-md font-semibold mb-4 text-gray-900 dark:text-white">
-                    Detailed Contrast Results
-                  </h4>
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                    {combinations.map((combo, index) => {
-                      const contrastRatio = getContrastRatio(combo.color1, combo.color2);
-                      const compliance = getWCAGCompliance(contrastRatio, textSize);
-                      
-                      return (
-                        <div
-                          key={index}
-                          className="bg-white dark:bg-gray-700/50 rounded-lg p-4 border border-gray-200 dark:border-gray-600"
-                        >
-                          <div className="flex items-center gap-3 mb-3">
-                            <div className="flex-1">
-                              <div className="flex items-center gap-2 mb-2">
-                                <div 
-                                  className="w-8 h-8 rounded border-2 border-gray-300 dark:border-gray-600"
-                                  style={{ backgroundColor: combo.color1 }}
-                                />
-                                <span className="text-sm font-medium text-gray-700 dark:text-gray-300">
-                                  {group.labels[combo.index1]}
-                                </span>
-                                <span className="text-gray-400">vs</span>
-                                <div 
-                                  className="w-8 h-8 rounded border-2 border-gray-300 dark:border-gray-600"
-                                  style={{ backgroundColor: combo.color2 }}
-                                />
-                                <span className="text-sm font-medium text-gray-700 dark:text-gray-300">
-                                  {group.labels[combo.index2]}
-                                </span>
-                              </div>
-                            </div>
-                          </div>
-                          <div className="flex items-center justify-between">
-                            <div>
-                              <div className="text-lg font-bold text-gray-900 dark:text-white">
-                                {compliance.ratio}:1
-                              </div>
-                              <div className="text-xs text-gray-600 dark:text-gray-400">
-                                {contrastRatio >= 7 ? 'Excellent' : contrastRatio >= 4.5 ? 'Good' : contrastRatio >= 3 ? 'Fair' : 'Poor'}
-                              </div>
-                            </div>
-                            <div className="flex gap-2">
-                              <span className={`text-xs px-2 py-1 rounded font-semibold ${
-                                compliance.aa 
-                                  ? 'bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-200' 
-                                  : 'bg-red-100 text-red-800 dark:bg-red-900 dark:text-red-200'
-                              }`}>
-                                AA {compliance.aa ? '✓' : '✗'}
-                              </span>
-                              <span className={`text-xs px-2 py-1 rounded font-semibold ${
-                                compliance.aaa 
-                                  ? 'bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-200' 
-                                  : 'bg-red-100 text-red-800 dark:bg-red-900 dark:text-red-200'
-                              }`}>
-                                AAA {compliance.aaa ? '✓' : '✗'}
-                              </span>
-                            </div>
-                          </div>
-                          {/* Preview */}
-                          <div
-                            className="mt-3 rounded p-3 text-center"
-                            style={{ backgroundColor: combo.color2 }}
-                          >
-                            <p
-                              className={textSize === 'large' ? 'text-lg' : 'text-sm'}
-                              style={{ color: combo.color1 }}
-                            >
-                              Preview Text
-                            </p>
-                          </div>
-                        </div>
-                      );
-                    })}
-                  </div>
-                </div>
-              </motion.div>
-            );
-          })}
-        </div>
-
-        {/* Add New Group Button */}
-        <div className="max-w-6xl mx-auto mb-12">
-          <motion.button
-            whileHover={{ scale: 1.02 }}
-            whileTap={{ scale: 0.98 }}
-            onClick={addColorGroup}
-            className="w-full px-6 py-4 bg-gradient-to-r from-green-600 to-emerald-600 hover:from-green-700 hover:to-emerald-700 text-white rounded-xl font-semibold transition-all duration-200 hover:shadow-lg flex items-center justify-center gap-2"
-          >
-            <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 4v16m8-8H4" />
-            </svg>
-            Add Another Color Group
-          </motion.button>
-        </div>
-
-        {/* Info Section */}
-        <motion.section
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.3 }}
-          className="mt-12 bg-white dark:bg-gray-800 rounded-xl shadow-lg p-8 max-w-4xl mx-auto"
-        >
-          <h2 className="text-2xl font-bold mb-4 text-gray-900 dark:text-white">
-            About WCAG Contrast Requirements
-          </h2>
-          <div className="prose dark:prose-invert max-w-none text-gray-600 dark:text-gray-400">
-            <p className="mb-4">
-              The Web Content Accessibility Guidelines (WCAG) require sufficient color contrast between colors to ensure readability for users with visual impairments.
+          <section className="mb-10 text-gray-600 dark:text-gray-400">
+            <h2 className="text-xl font-bold mb-4 text-gray-900 dark:text-white">
+              What Is Color Contrast?
+            </h2>
+            <p className="mb-4 leading-relaxed">
+              Color contrast is the difference in luminance between a foreground color (e.g. text) and a background color. The contrast ratio is a number from 1:1 (no difference) to 21:1 (maximum). For example, black text on a white background has a high ratio; light gray text on a light gray background has a low ratio. Text and background contrast directly affects readability: low contrast strains the eye and excludes users with low vision or in bright environments.
             </p>
-            <ul className="list-disc list-inside space-y-2 mb-4">
-              <li><strong>WCAG AA (Normal text):</strong> Requires a contrast ratio of at least 4.5:1</li>
-              <li><strong>WCAG AA (Large text):</strong> Requires a contrast ratio of at least 3:1</li>
-              <li><strong>WCAG AAA (Normal text):</strong> Requires a contrast ratio of at least 7:1</li>
-              <li><strong>WCAG AAA (Large text):</strong> Requires a contrast ratio of at least 4.5:1</li>
-            </ul>
-            <p>
-              Large text is defined as 18pt (24px) or larger, or 14pt (18.67px) or larger if bold.
+            <p className="leading-relaxed">
+              An accessibility contrast checker computes this ratio for any two colors you supply. You enter a text color and a background color; the tool returns the ratio and whether the pair meets common accessibility thresholds. This helps you choose accessible color contrast for body text, headings, buttons, and links.
+            </p>
+          </section>
+
+          <section className="mb-10 text-gray-600 dark:text-gray-400">
+            <h2 className="text-xl font-bold mb-4 text-gray-900 dark:text-white">
+              Why Accessibility Matters
+            </h2>
+            <p className="mb-4 leading-relaxed">
+              Readable contrast benefits everyone. Users with low vision, color blindness, or age-related vision changes rely on sufficient contrast to read content. In bright light or on small screens, low-contrast text becomes hard to read even for users without impairments. Accessible color contrast improves usability and supports inclusive design.
+            </p>
+            <p className="leading-relaxed">
+              Designers and developers use a color accessibility tool to test pairs before release. Checking contrast during design and development avoids rework and ensures that interfaces and marketing materials meet common expectations for readable text. This accessibility contrast checker gives you instant feedback so you can adjust colors until pairs pass.
+            </p>
+          </section>
+
+          <section className="mb-10 text-gray-600 dark:text-gray-400">
+            <h2 className="text-xl font-bold mb-4 text-gray-900 dark:text-white">
+              WCAG Contrast Basics: AA and AAA
+            </h2>
+            <p className="mb-4 leading-relaxed">
+              WCAG (Web Content Accessibility Guidelines) defines minimum contrast ratios for text. Level AA is the baseline: normal text must have at least 4.5:1 contrast against the background; large text (18pt or 14pt bold) must have at least 3:1. Level AAA is stricter: 7:1 for normal text and 4.5:1 for large text. This WCAG contrast checker evaluates your pairs against both levels so you can see whether you meet AA, AAA, or both.
+            </p>
+            <p className="leading-relaxed">
+              Normal text means typical body copy; large text means 18pt (24px) or larger, or 14pt (about 19px) or larger if bold. The tool lets you switch between normal and large text so you get the right threshold for each use case. Many projects aim for AA; AAA is recommended where possible for better readability.
+            </p>
+          </section>
+
+          <section className="mb-10 text-gray-600 dark:text-gray-400">
+            <h2 className="text-xl font-bold mb-4 text-gray-900 dark:text-white">
+              How This Tool Helps Designers
+            </h2>
+            <p className="mb-4 leading-relaxed">
+              Designers use this color contrast checker to test text-on-background pairs from palettes, mockups, and style guides. Enter the hex values for your text and background; the tool shows the ratio and AA/AAA pass or fail. You can test multiple pairs in one place (e.g. body text on surface, link on surface, button text on button) so you know which combinations are accessible before handoff.
+            </p>
+            <p className="mb-4 leading-relaxed">
+              Frontend developers can re-check the same hex values in code. Brand designers can verify that headline and body text on brand backgrounds meet contrast. The tool supports WCAG compliance by applying the same formulas and thresholds used in guidelines. Check color contrast for light and dark themes, marketing banners, and app UI so your choices are readable and consistent.
+            </p>
+          </section>
+        </div>
+
+        <ContrastCheckerTool />
+
+        <div className="max-w-4xl mx-auto mt-16 space-y-12 text-gray-600 dark:text-gray-400">
+          <section>
+            <h2 className="text-xl font-bold mb-4 text-gray-900 dark:text-white">
+              Check Contrast Instantly
+            </h2>
+            <p className="mb-4 leading-relaxed">
+              Use the accessibility contrast checker above to check color contrast for any text and background pair. Add your colors, select normal or large text, and see the ratio and pass/fail for AA and AAA. No sign-up required. Test as many pairs as you need for your project. If a pair fails, adjust the text or background color and re-check until you reach an accessible color contrast.
+            </p>
+            <p className="leading-relaxed">
+              After building a palette with a <Link href="/tools/palette-generator" className="text-blue-600 dark:text-blue-400 hover:underline">color palette generator</Link>, run your text and background combinations through this tool. Not every pair in a palette will pass; use the checker to identify which combinations work for body text, headings, and buttons so your final palette supports accessible design.
+            </p>
+          </section>
+
+          <section>
+            <h2 className="text-xl font-bold mb-4 text-gray-900 dark:text-white">
+              Practical Examples
+            </h2>
+            <p className="mb-4 leading-relaxed">
+              Common use cases: body text on a white or off-white background; link color on the same background; button text on a primary button color; placeholder text on an input background; label text on a card or modal. For each pair, enter the foreground (text) and background colors in the tool and check the ratio. Accessible color contrast for body text usually means at least 4.5:1 (AA); for large headings or buttons, 3:1 may be sufficient for AA.
+            </p>
+            <p className="leading-relaxed">
+              Dark mode and light mode each need separate checks. A background that looks dark on screen may not be dark enough for white text to pass; use the checker to confirm. The same applies to hover and focus states: if the text or background color changes on interaction, test that state as well so accessible color contrast is maintained throughout the experience.
+            </p>
+          </section>
+
+          <section>
+            <h2 className="text-xl font-bold mb-4 text-gray-900 dark:text-white">
+              Frequently Asked Questions
+            </h2>
+            <div className="space-y-6">
+              <div>
+                <h3 className="font-semibold mb-1 text-gray-900 dark:text-white">What is an accessibility contrast checker?</h3>
+                <p className="leading-relaxed">
+                  An accessibility contrast checker is a tool that calculates the contrast ratio between two colors (e.g. text and background) and indicates whether the pair meets WCAG AA or AAA. It helps you choose readable, accessible color contrast.
+                </p>
+              </div>
+              <div>
+                <h3 className="font-semibold mb-1 text-gray-900 dark:text-white">What contrast ratio is required for WCAG AA?</h3>
+                <p className="leading-relaxed">
+                  For WCAG AA, normal text needs at least 4.5:1 against the background. Large text (18pt or 14pt bold) needs at least 3:1.
+                </p>
+              </div>
+              <div>
+                <h3 className="font-semibold mb-1 text-gray-900 dark:text-white">What is the difference between AA and AAA?</h3>
+                <p className="leading-relaxed">
+                  AA is the standard level; AAA is stricter. For normal text, AAA requires 7:1 (AA requires 4.5:1). For large text, AAA requires 4.5:1 (AA requires 3:1).
+                </p>
+              </div>
+              <div>
+                <h3 className="font-semibold mb-1 text-gray-900 dark:text-white">Can I use this contrast checker for commercial projects?</h3>
+                <p className="leading-relaxed">
+                  Yes. The tool is free for personal and commercial use. Ratios are computed from standard WCAG formulas; use the results in design files and documentation as needed.
+                </p>
+              </div>
+              <div>
+                <h3 className="font-semibold mb-1 text-gray-900 dark:text-white">Does contrast apply to logos and branding?</h3>
+                <p className="leading-relaxed">
+                  Guidelines allow exceptions for logos and some brand elements. Body text, UI text, and meaningful graphics should still meet contrast requirements. When in doubt, test text and interactive elements.
+                </p>
+              </div>
+              <div>
+                <h3 className="font-semibold mb-1 text-gray-900 dark:text-white">How do I test contrast for color palettes?</h3>
+                <p className="leading-relaxed">
+                  List the text/background pairs you will use (e.g. primary text on surface, button text on button). Enter each pair in the checker and confirm AA or AAA. Adjust colors that fail until critical pairs pass.
+                </p>
+              </div>
+            </div>
+          </section>
+        </div>
+
+        <div className="mt-12 max-w-4xl mx-auto">
+          <div className="bg-white dark:bg-gray-800 rounded-lg p-8 border-2 border-dashed border-gray-300 dark:border-gray-700 text-center">
+            <p className="text-gray-500 dark:text-gray-400 text-sm">
+              Ad Space (728x90)
             </p>
           </div>
-        </motion.section>
-
-        {/* Ad Space Placeholder */}
-        <div className="mt-8 bg-white dark:bg-gray-800 rounded-lg p-8 border-2 border-dashed border-gray-300 dark:border-gray-700 text-center max-w-4xl mx-auto">
-          <p className="text-gray-500 dark:text-gray-400 text-sm">
-            Ad Space (728x90)
-          </p>
         </div>
       </div>
     </div>
