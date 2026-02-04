@@ -15,5 +15,6 @@ export default async function sitemap() {
     { url: `${baseUrl}/use-cases/colors-for-automotive-design`, lastModified: new Date() },
     { url: `${baseUrl}/use-cases/colors-for-industrial-products`, lastModified: new Date() },
     { url: `${baseUrl}/palettes/black-and-gold`, lastModified: new Date() },
+    { url: `${baseUrl}/palettes/luxury-automotive-color-palettes`, lastModified: new Date() },
   ];
 }
