@@ -78,7 +78,7 @@ export default function Home() {
                 Create stunning color palettes, check accessibility, and discover trending schemes. 
                 <span className="block mt-2 text-lg md:text-xl">All the tools you need for professional design.</span>
                 <span className="block mt-4 text-base md:text-lg font-medium">
-                  Try our free <Link href="/tools/palette-generator" className="text-purple-600 dark:text-purple-400 hover:underline">color palette generator</Link> for UI, web, and brand projects.
+                  Try our free <Link href="/tools/palette-generator" className="text-purple-600 dark:text-purple-400 hover:underline">color palette generator</Link> for UI, web, and brand projects, and our <Link href="/tools/contrast-checker" className="text-purple-600 dark:text-purple-400 hover:underline">accessibility contrast checker</Link> to verify text and background contrast.
                 </span>
               </p>
 
@@ -114,7 +114,7 @@ export default function Home() {
                 </motion.div>
               </div>
 
-              {/* Feature Highlights */}
+              {/* Feature Highlights – crawlable anchor links to tools */}
               <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto">
                 <motion.div
                   initial={{ opacity: 0, y: 20 }}
@@ -122,13 +122,15 @@ export default function Home() {
                   transition={{ duration: 0.6, delay: 0.2 }}
                   className="bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-lg border border-gray-200 dark:border-gray-700 hover:shadow-xl transition-shadow"
                 >
-                  <div className="w-16 h-16 mx-auto mb-4 bg-gradient-to-br from-purple-500 to-pink-500 rounded-2xl flex items-center justify-center">
-                    <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01" />
-                    </svg>
-                  </div>
-                  <h3 className="text-lg font-bold text-gray-900 dark:text-white mb-2">Palette Generator</h3>
-                  <p className="text-gray-600 dark:text-gray-400 text-sm">Create harmonious color schemes instantly</p>
+                  <Link href="/tools/palette-generator" className="block">
+                    <div className="w-16 h-16 mx-auto mb-4 bg-gradient-to-br from-purple-500 to-pink-500 rounded-2xl flex items-center justify-center">
+                      <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01" />
+                      </svg>
+                    </div>
+                    <h3 className="text-lg font-bold text-gray-900 dark:text-white mb-2">Palette Generator</h3>
+                    <p className="text-gray-600 dark:text-gray-400 text-sm">Create harmonious color schemes instantly</p>
+                  </Link>
                 </motion.div>
 
                 <motion.div
@@ -137,13 +139,15 @@ export default function Home() {
                   transition={{ duration: 0.6, delay: 0.4 }}
                   className="bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-lg border border-gray-200 dark:border-gray-700 hover:shadow-xl transition-shadow"
                 >
-                  <div className="w-16 h-16 mx-auto mb-4 bg-gradient-to-br from-blue-500 to-cyan-500 rounded-2xl flex items-center justify-center">
-                    <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
-                    </svg>
-                  </div>
-                  <h3 className="text-lg font-bold text-gray-900 dark:text-white mb-2">Contrast Checker</h3>
-                  <p className="text-gray-600 dark:text-gray-400 text-sm">Ensure WCAG accessibility compliance</p>
+                  <Link href="/tools/contrast-checker" className="block">
+                    <div className="w-16 h-16 mx-auto mb-4 bg-gradient-to-br from-blue-500 to-cyan-500 rounded-2xl flex items-center justify-center">
+                      <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                      </svg>
+                    </div>
+                    <h3 className="text-lg font-bold text-gray-900 dark:text-white mb-2">Contrast Checker</h3>
+                    <p className="text-gray-600 dark:text-gray-400 text-sm">Ensure WCAG accessibility compliance</p>
+                  </Link>
                 </motion.div>
 
                 <motion.div
@@ -162,6 +166,18 @@ export default function Home() {
                 </motion.div>
               </div>
             </motion.div>
+          </div>
+        </div>
+      </section>
+
+      {/* Popular Tools – contextual text links for crawl depth */}
+      <section className="py-12 bg-gray-50 dark:bg-gray-800/50 border-b border-gray-100 dark:border-gray-800">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="max-w-3xl mx-auto text-center">
+            <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">Popular Tools</h2>
+            <p className="text-gray-600 dark:text-gray-400 text-base leading-relaxed">
+              Use our <Link href="/tools/palette-generator" className="text-purple-600 dark:text-purple-400 hover:underline font-medium">color palette generator</Link> to create harmonious palettes from a base color, then verify readability with our <Link href="/tools/contrast-checker" className="text-purple-600 dark:text-purple-400 hover:underline font-medium">accessibility contrast checker</Link> for WCAG-compliant text and background pairs.
+            </p>
           </div>
         </div>
       </section>

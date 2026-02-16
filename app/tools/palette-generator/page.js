@@ -15,7 +15,7 @@ export default function PaletteGeneratorPage() {
                 A color palette generator creates coordinated color sets from a single base color. Use it to generate color palettes for web, UI, branding, and product design. This online palette generator outputs hex codes so you can copy values into design files, style guides, or code. Professional designers in web, UI/UX, branding, fashion, industrial, and automotive rely on a consistent color palette tool to keep interfaces and brands coherent.
               </p>
               <p>
-                Choose a base color and the tool produces multiple harmony types: monochromatic, analogous, complementary, triadic, split-complementary, and tetradic. Each set follows color theory so primary, secondary, and accent roles stay clear. Use the tool below to generate palettes and copy hex codes for your projects.
+                Choose a base color and the tool produces multiple harmony types: monochromatic, analogous, complementary, triadic, split-complementary, and tetradic. Each set follows color theory so primary, secondary, and accent roles stay clear. After building a palette, use our <Link href="/tools/contrast-checker" className="text-blue-600 dark:text-blue-400 hover:underline">accessibility contrast checker</Link> to verify text and background pairs meet WCAG guidelines. Use the tool below to generate palettes and copy hex codes for your projects.
               </p>
             </div>
           </header>
@@ -134,6 +134,24 @@ export default function PaletteGeneratorPage() {
                 </p>
               </div>
             </div>
+          </section>
+
+          <section className="mt-12">
+            <h2 className="text-xl font-bold mb-4 text-gray-900 dark:text-white">Related Tools</h2>
+            <p className="text-gray-600 dark:text-gray-400 mb-4 leading-relaxed">
+              Pair this palette generator with our other color tools for a full workflow:
+            </p>
+            <ul className="list-disc list-inside space-y-2 text-gray-600 dark:text-gray-400">
+              <li>
+                <Link href="/tools/contrast-checker" className="text-blue-600 dark:text-blue-400 hover:underline">
+                  Accessibility contrast checker
+                </Link>
+                — test text and background contrast for WCAG AA and AAA.
+              </li>
+            </ul>
+            <p className="mt-4 text-gray-600 dark:text-gray-400 leading-relaxed">
+              <Link href="/tools" className="text-blue-600 dark:text-blue-400 hover:underline">View all color tools</Link> for palette generation, contrast checking, and more.
+            </p>
           </section>
         </div>
 

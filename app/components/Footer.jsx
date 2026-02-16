@@ -4,9 +4,9 @@ export default function Footer() {
   return (
     <footer className="bg-white dark:bg-gray-900 border-t border-gray-200 dark:border-gray-800 mt-auto">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8">
           {/* Brand */}
-          <div className="col-span-1 md:col-span-2">
+          <div className="lg:col-span-2">
             <div className="flex items-center space-x-2 mb-4">
               <div className="relative w-10 h-10 flex items-center justify-center">
                 {/* Color circles logo */}
@@ -43,8 +43,45 @@ export default function Footer() {
                 </Link>
               </li>
               <li>
+                <Link href="/tools/palette-generator" className="text-gray-600 dark:text-gray-400 hover:text-purple-600 dark:hover:text-purple-400 transition-colors text-sm">
+                  Palette Generator
+                </Link>
+              </li>
+              <li>
+                <Link href="/tools/contrast-checker" className="text-gray-600 dark:text-gray-400 hover:text-purple-600 dark:hover:text-purple-400 transition-colors text-sm">
+                  Contrast Checker
+                </Link>
+              </li>
+              <li>
                 <Link href="/blog" className="text-gray-600 dark:text-gray-400 hover:text-purple-600 dark:hover:text-purple-400 transition-colors text-sm">
                   Blog
+                </Link>
+              </li>
+            </ul>
+          </div>
+
+          {/* Use cases & palettes – improves crawl discovery */}
+          <div>
+            <h3 className="font-semibold text-gray-900 dark:text-white mb-4">Explore</h3>
+            <ul className="space-y-2">
+              <li>
+                <Link href="/use-cases/colors-for-ui-and-web-design" className="text-gray-600 dark:text-gray-400 hover:text-purple-600 dark:hover:text-purple-400 transition-colors text-sm">
+                  Colors for UI & Web
+                </Link>
+              </li>
+              <li>
+                <Link href="/use-cases/colors-for-branding-and-logos" className="text-gray-600 dark:text-gray-400 hover:text-purple-600 dark:hover:text-purple-400 transition-colors text-sm">
+                  Colors for Branding
+                </Link>
+              </li>
+              <li>
+                <Link href="/palettes/black-and-gold" className="text-gray-600 dark:text-gray-400 hover:text-purple-600 dark:hover:text-purple-400 transition-colors text-sm">
+                  Black & Gold Palette
+                </Link>
+              </li>
+              <li>
+                <Link href="/palettes/luxury-automotive-color-palettes" className="text-gray-600 dark:text-gray-400 hover:text-purple-600 dark:hover:text-purple-400 transition-colors text-sm">
+                  Luxury Automotive Palettes
                 </Link>
               </li>
             </ul>

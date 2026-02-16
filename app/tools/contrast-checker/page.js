@@ -20,7 +20,7 @@ export default function ContrastCheckerPage() {
                 An accessibility contrast checker evaluates the contrast ratio between two colors, such as text and background. Use it to check color contrast for UI, marketing, and product design. This WCAG contrast checker reports whether pairs pass AA or AAA and supports designers, UI/UX professionals, frontend developers, and brand designers who need accessible color contrast.
               </p>
               <p>
-                Use the tool below to check color contrast instantly. Add your foreground and background colors, then see the ratio and pass/fail for normal and large text. The tool supports WCAG compliance by comparing your pairs to standard thresholds. Check color contrast before shipping so your interfaces and materials are readable for more users.
+                If you are building a palette first, use our <Link href="/tools/palette-generator" className="text-blue-600 dark:text-blue-400 hover:underline">color palette generator</Link> to create harmonious color sets, then bring those colors here to check contrast. Use the tool below to check color contrast instantly. Add your foreground and background colors, then see the ratio and pass/fail for normal and large text. The tool supports WCAG compliance by comparing your pairs to standard thresholds. Check color contrast before shipping so your interfaces and materials are readable for more users.
               </p>
             </div>
           </header>
@@ -143,6 +143,24 @@ export default function ContrastCheckerPage() {
                 </p>
               </div>
             </div>
+          </section>
+
+          <section className="mt-12">
+            <h2 className="text-xl font-bold mb-4 text-gray-900 dark:text-white">Related Tools</h2>
+            <p className="text-gray-600 dark:text-gray-400 mb-4 leading-relaxed">
+              Use these color tools together for accessible design:
+            </p>
+            <ul className="list-disc list-inside space-y-2 text-gray-600 dark:text-gray-400">
+              <li>
+                <Link href="/tools/palette-generator" className="text-blue-600 dark:text-blue-400 hover:underline">
+                  Color palette generator
+                </Link>
+                — create harmonious palettes from a base color with multiple harmony types.
+              </li>
+            </ul>
+            <p className="mt-4 text-gray-600 dark:text-gray-400 leading-relaxed">
+              <Link href="/tools" className="text-blue-600 dark:text-blue-400 hover:underline">View all color tools</Link> for palette generation, contrast checking, and more.
+            </p>
           </section>
         </div>
 
