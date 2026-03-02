@@ -5,6 +5,7 @@ const blogPosts = [
   "how-to-generate-color-palette-for-brand",
   "best-color-palette-tools-for-designers",
   "10-color-trends-for-2025",
+  "color-palette-ideas-for-small-business",
 ];
 
 /** Static routes (non-blog). No URL changes. */
