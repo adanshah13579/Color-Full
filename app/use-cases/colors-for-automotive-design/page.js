@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import InlineTagLink from '../../components/InlineTagLink';
 
 export const metadata = {
   title: 'Colors for Automotive Design: Exterior, Interior, and Brand Systems | Theme and Color',
@@ -24,10 +25,10 @@ export default function ColorsForAutomotiveDesignPage() {
               Exterior and Interior Color Systems
             </h2>
             <p className="mb-4 leading-relaxed">
-              Automotive exterior colors are tied to paint systems and often have names and codes that span marketing, configurators, and manufacturing. A coherent palette balances trend, brand heritage, and production feasibility. Luxury and performance segments often use deep blacks, metallics, and restrained accents; a <Link href="/palettes/black-and-gold" className="text-blue-600 dark:text-blue-400 hover:underline">black and gold color palette</Link> maps well to premium trim, badges, and interior details. Defining these colors in HEX or equivalent for digital configurators and marketing keeps the on-screen representation aligned with the physical vehicle.
+              Automotive exterior colors are tied to paint systems and often have names and codes that span marketing, configurators, and manufacturing. A coherent palette balances trend, brand heritage, and production feasibility. Luxury and performance segments often use deep blacks, metallics, and restrained accents; a <InlineTagLink href="/palettes/black-and-gold">black and gold color palette</InlineTagLink> maps well to premium trim, badges, and interior details. Defining these colors in HEX or equivalent for digital configurators and marketing keeps the on-screen representation aligned with the physical vehicle.
             </p>
             <p className="mb-4 leading-relaxed">
-              Interior color extends to leather, fabric, trim, and ambient lighting. The same design language used on the exterior can carry inside: dark surfaces with metallic or gold accents for a premium feel. Palettes should be documented so that interior designers, material suppliers, and HMI (human-machine interface) teams use consistent values for screens and lit elements. Reference established <Link href="/palettes/black-and-gold" className="text-blue-600 dark:text-blue-400 hover:underline">luxury palettes</Link> when defining premium tiers so that color choices feel intentional and recognizable.
+              Interior color extends to leather, fabric, trim, and ambient lighting. The same design language used on the exterior can carry inside: dark surfaces with metallic or gold accents for a premium feel. Palettes should be documented so that interior designers, material suppliers, and HMI (human-machine interface) teams use consistent values for screens and lit elements. Reference established <InlineTagLink href="/palettes/black-and-gold">luxury palettes</InlineTagLink> when defining premium tiers so that color choices feel intentional and recognizable.
             </p>
           </section>
 
@@ -36,10 +37,10 @@ export default function ColorsForAutomotiveDesignPage() {
               Brand and Digital Consistency
             </h2>
             <p className="mb-4 leading-relaxed">
-              Automotive brands use color in configurators, websites, and ads. The same palette that appears on the vehicle should appear in UI, headlines, and key graphics so that the digital experience reinforces the physical one. A <Link href="/tools/palette-generator" className="text-blue-600 dark:text-blue-400 hover:underline">color palette generator</Link> can help expand a base color (e.g. brand blue or signature gold) into a full set of shades for backgrounds, text, and accents in web and app experiences. Locking those values into design tokens ensures that configurators and marketing sites stay on-brand across regions and campaigns.
+              Automotive brands use color in configurators, websites, and ads. The same palette that appears on the vehicle should appear in UI, headlines, and key graphics so that the digital experience reinforces the physical one. A <InlineTagLink href="/tools/palette-generator">color palette generator</InlineTagLink> can help expand a base color (e.g. brand blue or signature gold) into a full set of shades for backgrounds, text, and accents in web and app experiences. Locking those values into design tokens ensures that configurators and marketing sites stay on-brand across regions and campaigns.
             </p>
             <p className="mb-4 leading-relaxed">
-              In-vehicle screens and HMI also require defined color systems. Readability in daylight and at night, and compliance with driver-distraction guidelines, depend on contrast and legibility. An <Link href="/tools/contrast-checker" className="text-blue-600 dark:text-blue-400 hover:underline">accessibility contrast checker</Link> helps validate text and icon colors against dashboard and infotainment backgrounds so that critical information remains readable in all conditions. Use high-contrast pairs for primary content and reserve accent colors for status or decorative elements.
+              In-vehicle screens and HMI also require defined color systems. Readability in daylight and at night, and compliance with driver-distraction guidelines, depend on contrast and legibility. An <InlineTagLink href="/tools/contrast-checker">accessibility contrast checker</InlineTagLink> helps validate text and icon colors against dashboard and infotainment backgrounds so that critical information remains readable in all conditions. Use high-contrast pairs for primary content and reserve accent colors for status or decorative elements.
             </p>
           </section>
 

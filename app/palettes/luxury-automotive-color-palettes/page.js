@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import InlineTagLink from '../../components/InlineTagLink';
 
 export const metadata = {
   title: 'Luxury Automotive Color Palettes for Exterior and Interior Design | Theme and Color',
@@ -42,7 +43,7 @@ export default function LuxuryAutomotiveColorPalettesPage() {
               Premium car colors and luxury vehicle color combinations favor depth and restraint over saturation. Deep blacks and charcoals (#0A0A0A, #1A1A1A, #2D2D2D) read as serious and high-end; mid grays (#4A4A4A) suggest metallic finishes and trim. Warm neutrals (#7A6E5D, #B8A88A, #E8E2D8) work as interior leather, wood, and surface tones without competing with the exterior. Together they form an automotive interior color palette and exterior system that scales from body paint to HMI screens.
             </p>
             <p className="leading-relaxed">
-              Automotive brand colors that stay within this range remain recognizable across showrooms, configurators, and ads. For more on how to structure palettes for vehicles and brand touchpoints, see our guide on <Link href="/use-cases/colors-for-automotive-design" className="text-blue-600 dark:text-blue-400 hover:underline">colors for automotive design</Link>.
+              Automotive brand colors that stay within this range remain recognizable across showrooms, configurators, and ads. For more on how to structure palettes for vehicles and brand touchpoints, see our guide on <InlineTagLink href="/use-cases/colors-for-automotive-design">colors for automotive design</InlineTagLink>.
             </p>
           </section>
 
@@ -54,7 +55,7 @@ export default function LuxuryAutomotiveColorPalettesPage() {
               The darkest values (#0A0A0A, #1A1A1A) suit exterior black and near-black paint; #2D2D2D and #4A4A4A work for charcoal and metallic gray finishes. Trim, badges, and accent details can use the warm metallic (#7A6E5D, #B8A88A) for a subtle premium cue without shifting to bright gold or chrome. Document these hex values alongside paint codes and material specs so that configurators and marketing visuals match the physical vehicle.
             </p>
             <p className="leading-relaxed">
-              Consistency between showroom and screen matters. Use the same palette in configurator UI so that the on-screen car reflects the same luxury automotive color palettes a customer can order. A <Link href="/tools/palette-generator" className="text-blue-600 dark:text-blue-400 hover:underline">color palette generator</Link> can extend this set with additional shades for states, gradients, or secondary surfaces if needed.
+              Consistency between showroom and screen matters. Use the same palette in configurator UI so that the on-screen car reflects the same luxury automotive color palettes a customer can order. A <InlineTagLink href="/tools/palette-generator">color palette generator</InlineTagLink> can extend this set with additional shades for states, gradients, or secondary surfaces if needed.
             </p>
           </section>
 
@@ -87,7 +88,7 @@ export default function LuxuryAutomotiveColorPalettesPage() {
               Accessibility and In-Vehicle Displays
             </h2>
             <p className="mb-4 leading-relaxed">
-              In-vehicle screens and HMI require sufficient contrast for text and critical indicators. Dark backgrounds with light text (e.g. #E8E2D8 or white on #0A0A0A) meet readability needs; warm metallics (#B8A88A) on dark may be acceptable for labels or accents but often fail for body text. Run text-and-background pairs through an <Link href="/tools/contrast-checker" className="text-blue-600 dark:text-blue-400 hover:underline">accessibility contrast checker</Link> before locking dashboard and configurator UI so that content remains readable in daylight and at night and complies with driver-distraction and accessibility expectations.
+              In-vehicle screens and HMI require sufficient contrast for text and critical indicators. Dark backgrounds with light text (e.g. #E8E2D8 or white on #0A0A0A) meet readability needs; warm metallics (#B8A88A) on dark may be acceptable for labels or accents but often fail for body text. Run text-and-background pairs through an <InlineTagLink href="/tools/contrast-checker">accessibility contrast checker</InlineTagLink> before locking dashboard and configurator UI so that content remains readable in daylight and at night and complies with driver-distraction and accessibility expectations.
             </p>
           </section>
 

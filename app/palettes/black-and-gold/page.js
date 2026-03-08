@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import InlineTagLink from '../../components/InlineTagLink';
 
 export const metadata = {
   title: 'Black and Gold Color Palette for Luxury Design | Theme and Color',
@@ -63,7 +64,7 @@ export default function BlackAndGoldPalettePage() {
               Extending and Customizing the Palette
             </h2>
             <p className="mb-4 leading-relaxed">
-              Designers can extend this set by adding mid-tones or slight variations. Introduce a warm gray or charcoal between #000000 and #1C1C1C for gradients or secondary surfaces. Lighter gold (#F5E6A8) works for large areas or light-mode accents; darker gold (#B89B2E) suits borders, icons, and small highlights. A <Link href="/tools/palette-generator" className="text-blue-600 dark:text-blue-400 hover:underline">color palette generator</Link> can produce additional harmonies from any of these hex values if you need more options for states, hover, or secondary UI.
+              Designers can extend this set by adding mid-tones or slight variations. Introduce a warm gray or charcoal between #000000 and #1C1C1C for gradients or secondary surfaces. Lighter gold (#F5E6A8) works for large areas or light-mode accents; darker gold (#B89B2E) suits borders, icons, and small highlights. A <InlineTagLink href="/tools/palette-generator">color palette generator</InlineTagLink> can produce additional harmonies from any of these hex values if you need more options for states, hover, or secondary UI.
             </p>
             <p className="leading-relaxed">
               Document the five core colors in your style guide with clear roles: primary black, secondary dark, primary gold, secondary gold, and light gold. Assign semantic names (e.g. brand-black, gold-accent, gold-light) so developers and other designers use the same values. For print, convert hex to CMYK or specify Pantone equivalents where brand standards require it.
@@ -78,7 +79,7 @@ export default function BlackAndGoldPalettePage() {
               Text on black or near-black backgrounds must use a light color for sufficient contrast. Gold (#D4AF37, #B89B2E) on black can fail contrast guidelines for body text; reserve gold for headings, labels, or decorative use and use white or very light gold (#F5E6A8) for body copy on dark backgrounds. Light-mode implementations (gold on white or off-white) need the darker gold tones for text to meet minimum ratios.
             </p>
             <p className="leading-relaxed">
-              Run text-and-background pairs through an <Link href="/tools/contrast-checker" className="text-blue-600 dark:text-blue-400 hover:underline">accessibility contrast checker</Link> before locking the palette in code or design systems. Prioritize body text and interactive elements; accent and decorative uses of gold can sit at lower contrast. Testing both light and dark contexts ensures the luxury color palette remains readable and compliant.
+              Run text-and-background pairs through an <InlineTagLink href="/tools/contrast-checker">accessibility contrast checker</InlineTagLink> before locking the palette in code or design systems. Prioritize body text and interactive elements; accent and decorative uses of gold can sit at lower contrast. Testing both light and dark contexts ensures the luxury color palette remains readable and compliant.
             </p>
           </section>
 

@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import InlineTagLink from '../components/InlineTagLink';
 
 export const metadata = {
   title: 'Best Color Palette Tools for Designers | Theme and Color',
@@ -27,7 +28,7 @@ export default function BestColorPaletteToolsForDesignersPage() {
               A good color palette generator accepts a base color (e.g. a brand primary) and outputs multiple palette types based on color theory: monochromatic, analogous, complementary, triadic, split-complementary, and tetradic. Each palette should show hex codes so you can copy them into design files or code. No sign-up or payment should be required for basic use.
             </p>
             <p className="leading-relaxed">
-              The tool should render palettes in real time as you change the base color, so you can explore options quickly. Export options (copy hex, copy list) support handoff to developers and style guides. Some tools also suggest neutrals or check contrast; others focus only on harmony generation. For most workflows, a dedicated <Link href="/tools/palette-generator" className="text-blue-600 dark:text-blue-400 hover:underline">color palette generator</Link> plus a separate contrast checker is enough.
+              The tool should render palettes in real time as you change the base color, so you can explore options quickly. Export options (copy hex, copy list) support handoff to developers and style guides. Some tools also suggest neutrals or check contrast; others focus only on harmony generation. For most workflows, a dedicated <InlineTagLink href="/tools/palette-generator">color palette generator</InlineTagLink> plus a separate contrast checker is enough.
             </p>
           </section>
 
@@ -39,7 +40,7 @@ export default function BestColorPaletteToolsForDesignersPage() {
               In UI and web design, palettes define primary buttons, links, backgrounds, and borders. Designers often start with one brand color and need a full set for light and dark themes. A palette generator that outputs hex codes lets you build that set in minutes: pick the base, copy the hex values, and map them to semantic names (e.g. primary-500, surface-100) in your design system.
             </p>
             <p className="leading-relaxed">
-              After generating a palette, test text-on-background pairs with a contrast checker. Not every combination in a harmony will meet WCAG AA; choose the pairs that do for body text and buttons. A <Link href="/tools/palette-generator" className="text-blue-600 dark:text-blue-400 hover:underline">color palette generator</Link> gives you options; contrast checking and documentation make them usable in production.
+              After generating a palette, test text-on-background pairs with a contrast checker. Not every combination in a harmony will meet WCAG AA; choose the pairs that do for body text and buttons. A <InlineTagLink href="/tools/palette-generator">color palette generator</InlineTagLink> gives you options; contrast checking and documentation make them usable in production.
             </p>
           </section>
 
@@ -63,7 +64,7 @@ export default function BestColorPaletteToolsForDesignersPage() {
               Design systems and codebases often store colors as design tokens or CSS variables. A palette generator does not replace that layer; it feeds it. Use the generator to decide which colors belong in the palette, then add those hex values to your token file or variables. That way, the palette is defined once and used everywhere.
             </p>
             <p className="leading-relaxed">
-              When updating a brand palette, regenerate from the new primary, compare with the old palette, and update only the tokens that changed. This keeps implementation in sync with design. Designers and developers can both use the same <Link href="/tools/palette-generator" className="text-blue-600 dark:text-blue-400 hover:underline">color palette generator</Link> to reference hex codes during handoff and implementation.
+              When updating a brand palette, regenerate from the new primary, compare with the old palette, and update only the tokens that changed. This keeps implementation in sync with design. Designers and developers can both use the same <InlineTagLink href="/tools/palette-generator">color palette generator</InlineTagLink> to reference hex codes during handoff and implementation.
             </p>
           </section>
 
@@ -72,7 +73,7 @@ export default function BestColorPaletteToolsForDesignersPage() {
               Summary
             </h2>
             <p className="leading-relaxed">
-              The best color palette tools for designers are fast, free to use, and output hex codes for immediate use in design and code. They should support multiple harmony types from a single base color. Pair a <Link href="/tools/palette-generator" className="text-blue-600 dark:text-blue-400 hover:underline">color palette generator</Link> with a contrast checker and a clear style guide so that palettes are not only consistent but also accessible and documented for teams and vendors.
+              The best color palette tools for designers are fast, free to use, and output hex codes for immediate use in design and code. They should support multiple harmony types from a single base color. Pair a <InlineTagLink href="/tools/palette-generator">color palette generator</InlineTagLink> with a contrast checker and a clear style guide so that palettes are not only consistent but also accessible and documented for teams and vendors.
             </p>
           </section>
         </article>

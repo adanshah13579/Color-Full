@@ -1,8 +1,11 @@
 import Link from 'next/link'
+import { Fragment } from 'react'
 import { notFound } from 'next/navigation'
 import ColorPaletteClient from './ColorPaletteClient'
 import ColorSwatch from './ColorSwatch'
 import GradientSwatch from './GradientSwatch'
+import BlogToolsCTA from '../components/BlogToolsCTA'
+import BlogToolsCTAInline from '../components/BlogToolsCTAInline'
 
 // Static blog posts data
 const staticPosts = {
@@ -419,17 +422,20 @@ export default async function BlogPostPage({ params }) {
                     if (block._key === 'h2') {
                       // Trend 2: Soft Pastels
                       return (
-                        <div key={block._key || index}>
-                          <h2 className="text-2xl font-bold text-gray-900 dark:text-white mt-8 mb-4">
-                            {block.children[0]?.text}
-                          </h2>
-                          <div className="flex gap-4 mb-6 flex-wrap">
-                            <ColorSwatch color="#E0B0FF" name="Lavender" hexCode="#E0B0FF" />
-                            <ColorSwatch color="#B5E5CF" name="Mint Green" hexCode="#B5E5CF" />
-                            <ColorSwatch color="#FFD1DC" name="Peach" hexCode="#FFD1DC" />
-                            <ColorSwatch color="#B0E0E6" name="Powder Blue" hexCode="#B0E0E6" />
+                        <Fragment key={block._key || index}>
+                          <div>
+                            <h2 className="text-2xl font-bold text-gray-900 dark:text-white mt-8 mb-4">
+                              {block.children[0]?.text}
+                            </h2>
+                            <div className="flex gap-4 mb-6 flex-wrap">
+                              <ColorSwatch color="#E0B0FF" name="Lavender" hexCode="#E0B0FF" />
+                              <ColorSwatch color="#B5E5CF" name="Mint Green" hexCode="#B5E5CF" />
+                              <ColorSwatch color="#FFD1DC" name="Peach" hexCode="#FFD1DC" />
+                              <ColorSwatch color="#B0E0E6" name="Powder Blue" hexCode="#B0E0E6" />
+                            </div>
                           </div>
-                        </div>
+                          <BlogToolsCTAInline />
+                        </Fragment>
                       );
                     }
                     if (block._key === 'h3') {
@@ -615,24 +621,8 @@ export default async function BlogPostPage({ params }) {
                   })}
                 </article>
 
-                {/* Call to Action */}
-                <div className="mt-12 p-6 bg-gradient-to-r from-purple-50 to-pink-50 dark:from-purple-900/20 dark:to-pink-900/20 rounded-xl border border-purple-200 dark:border-purple-800">
-                  <h3 className="text-xl font-bold mb-3 text-gray-900 dark:text-white">
-                    Ready to Create Your Color Palette?
-                  </h3>
-                  <p className="text-gray-700 dark:text-gray-300 mb-4">
-                    Use our free color palette generator to create harmonious color schemes based on these 2025 trends.
-                  </p>
-                  <Link
-                    href="/tools/palette-generator"
-                    className="inline-flex items-center px-6 py-3 bg-gradient-to-r from-purple-600 to-pink-600 text-white rounded-lg font-semibold hover:shadow-lg transition-all"
-                  >
-                    Try Palette Generator
-                    <svg className="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
-                    </svg>
-                  </Link>
-                </div>
+                {/* Prominent tools CTA – big, attractive, animated */}
+                <BlogToolsCTA />
 
                 {/* Share Section */}
                 <div className="mt-12 pt-6 border-t border-gray-200 dark:border-gray-800">

@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import InlineTagLink from '../../components/InlineTagLink';
 
 export const metadata = {
   title: 'Colors for Branding and Logos: Building Recognizable Identity | Theme and Color',
@@ -27,7 +28,7 @@ export default function ColorsForBrandingAndLogosPage() {
               Brand colors carry meaning and consistency. Consumers associate specific hues with specific companies even without seeing a wordmark. In logo design, color choices affect memorability, differentiation from competitors, and suitability for different media. A brand palette is not just the colors inside the logo; it includes backgrounds, secondary accents, and neutrals used in campaigns, UI, and collateral so that every asset feels like one family.
             </p>
             <p className="mb-4 leading-relaxed">
-              Most brands define a primary color (or two) for the logo and key moments, plus secondary colors for support and variation. Luxury and premium brands often use restrained palettes: black or deep neutrals with a single metallic or accent, as in a <Link href="/palettes/black-and-gold" className="text-blue-600 dark:text-blue-400 hover:underline">black and gold color palette</Link>. That restraint reinforces premium positioning. Consumer and lifestyle brands may use brighter, more varied palettes. The goal is coherence: every use of color should feel intentional and traceable to the same system.
+              Most brands define a primary color (or two) for the logo and key moments, plus secondary colors for support and variation. Luxury and premium brands often use restrained palettes: black or deep neutrals with a single metallic or accent, as in a <InlineTagLink href="/palettes/black-and-gold">black and gold color palette</InlineTagLink>. That restraint reinforces premium positioning. Consumer and lifestyle brands may use brighter, more varied palettes. The goal is coherence: every use of color should feel intentional and traceable to the same system.
             </p>
           </section>
 
@@ -39,7 +40,7 @@ export default function ColorsForBrandingAndLogosPage() {
               Logos need to work in full color, single color (e.g. black or white), and sometimes reversed or on dark backgrounds. The brand style guide should specify exact values: HEX for digital, CMYK for print, and optionally Pantone or other standards where reproduction must match globally. Defining these values once and documenting them prevents drift when different vendors or teams implement the logo.
             </p>
             <p className="mb-4 leading-relaxed">
-              Logo applications also require contrast rules. A logo on a photograph or textured background must remain legible; guidelines often specify minimum clear space, safe backgrounds (e.g. white, black, or approved brand colors), and when to use a knockout or outline version. A <Link href="/tools/contrast-checker" className="text-blue-600 dark:text-blue-400 hover:underline">accessibility contrast checker</Link> helps verify that logo-on-background combinations meet readability standards for both print and screen, especially when the logo appears on web or in apps with user-generated or dynamic backgrounds.
+              Logo applications also require contrast rules. A logo on a photograph or textured background must remain legible; guidelines often specify minimum clear space, safe backgrounds (e.g. white, black, or approved brand colors), and when to use a knockout or outline version. A <InlineTagLink href="/tools/contrast-checker">accessibility contrast checker</InlineTagLink> helps verify that logo-on-background combinations meet readability standards for both print and screen, especially when the logo appears on web or in apps with user-generated or dynamic backgrounds.
             </p>
           </section>
 
@@ -48,10 +49,10 @@ export default function ColorsForBrandingAndLogosPage() {
               From Palette to Guidelines
             </h2>
             <p className="mb-4 leading-relaxed">
-              A brand color palette typically includes three to seven core colors: one or two primaries, one or two secondaries, and neutrals. Designers can build palettes from a single inspiration color using a <Link href="/tools/palette-generator" className="text-blue-600 dark:text-blue-400 hover:underline">color palette generator</Link>, then lock the chosen hex values into the style guide. Naming conventions (e.g. Brand Primary, Brand Secondary, Accent Gold) help internal and external teams reference the same colors across tools and code.
+              A brand color palette typically includes three to seven core colors: one or two primaries, one or two secondaries, and neutrals. Designers can build palettes from a single inspiration color using a <InlineTagLink href="/tools/palette-generator">color palette generator</InlineTagLink>, then lock the chosen hex values into the style guide. Naming conventions (e.g. Brand Primary, Brand Secondary, Accent Gold) help internal and external teams reference the same colors across tools and code.
             </p>
             <p className="mb-4 leading-relaxed">
-              Guidelines should specify usage: which colors are for logos only, which for backgrounds, and which for text or CTAs. Reference palettes that match the brand’s positioning speed up decisions; for example, premium and financial brands can draw from established <Link href="/palettes/black-and-gold" className="text-blue-600 dark:text-blue-400 hover:underline">luxury color palettes</Link> and then customize tints or add one accent. Documenting these choices in a single source of truth reduces ad-hoc decisions and keeps the brand consistent over time.
+              Guidelines should specify usage: which colors are for logos only, which for backgrounds, and which for text or CTAs. Reference palettes that match the brand’s positioning speed up decisions; for example, premium and financial brands can draw from established <InlineTagLink href="/palettes/black-and-gold">luxury color palettes</InlineTagLink> and then customize tints or add one accent. Documenting these choices in a single source of truth reduces ad-hoc decisions and keeps the brand consistent over time.
             </p>
           </section>
 

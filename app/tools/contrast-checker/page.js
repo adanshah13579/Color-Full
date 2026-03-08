@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import InlineTagLink from '../../components/InlineTagLink';
 import ContrastCheckerTool from './ContrastCheckerTool';
 
 export const metadata = {
@@ -10,34 +11,33 @@ export default function ContrastCheckerPage() {
   return (
     <div className="min-h-screen bg-white dark:bg-gray-900 py-12">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="max-w-4xl mx-auto mb-10">
-          <header className="mb-10">
-            <h1 className="text-3xl md:text-4xl font-bold mb-6 text-gray-900 dark:text-white">
+        <div className="max-w-4xl mx-auto mb-6">
+          <header>
+            <h1 className="text-3xl md:text-4xl font-bold mb-3 text-gray-900 dark:text-white">
               Accessibility Contrast Checker
             </h1>
-            <div className="text-gray-600 dark:text-gray-400 space-y-4 text-base leading-relaxed">
-              <p>
-                An accessibility contrast checker evaluates the contrast ratio between two colors, such as text and background. Use it to check color contrast for UI, marketing, and product design. This WCAG contrast checker reports whether pairs pass AA or AAA and supports designers, UI/UX professionals, frontend developers, and brand designers who need accessible color contrast.
-              </p>
-              <p>
-                If you are building a palette first, use our <Link href="/tools/palette-generator" className="text-blue-600 dark:text-blue-400 hover:underline">color palette generator</Link> to create harmonious color sets, then bring those colors here to check contrast. Use the tool below to check color contrast instantly. Add your foreground and background colors, then see the ratio and pass/fail for normal and large text. The tool supports WCAG compliance by comparing your pairs to standard thresholds. Check color contrast before shipping so your interfaces and materials are readable for more users.
-              </p>
-            </div>
+            <p className="text-gray-600 dark:text-gray-400 text-base leading-relaxed">
+              Check contrast between text and background colors. Enter your colors below to see the ratio and WCAG AA/AAA pass or fail. Build palettes first with our <InlineTagLink href="/tools/palette-generator">palette generator</InlineTagLink>, then test pairs here.
+            </p>
           </header>
+        </div>
 
-          <section className="mb-10 text-gray-600 dark:text-gray-400">
+        <ContrastCheckerTool />
+
+        <div className="max-w-4xl mx-auto mt-16 space-y-12 text-gray-600 dark:text-gray-400">
+          <section>
             <h2 className="text-xl font-bold mb-4 text-gray-900 dark:text-white">
               What Is Color Contrast?
             </h2>
             <p className="mb-4 leading-relaxed">
               Color contrast is the difference in luminance between a foreground color (e.g. text) and a background color. The contrast ratio is a number from 1:1 (no difference) to 21:1 (maximum). For example, black text on a white background has a high ratio; light gray text on a light gray background has a low ratio. Text and background contrast directly affects readability: low contrast strains the eye and excludes users with low vision or in bright environments.
             </p>
-            <p className="leading-relaxed">
+            <p className="mb-4 leading-relaxed">
               An accessibility contrast checker computes this ratio for any two colors you supply. You enter a text color and a background color; the tool returns the ratio and whether the pair meets common accessibility thresholds. This helps you choose accessible color contrast for body text, headings, buttons, and links.
             </p>
           </section>
 
-          <section className="mb-10 text-gray-600 dark:text-gray-400">
+          <section>
             <h2 className="text-xl font-bold mb-4 text-gray-900 dark:text-white">
               Why Accessibility Matters
             </h2>
@@ -45,11 +45,11 @@ export default function ContrastCheckerPage() {
               Readable contrast benefits everyone. Users with low vision, color blindness, or age-related vision changes rely on sufficient contrast to read content. In bright light or on small screens, low-contrast text becomes hard to read even for users without impairments. Accessible color contrast improves usability and supports inclusive design.
             </p>
             <p className="leading-relaxed">
-              Designers and developers use a color accessibility tool to test pairs before release. Checking contrast during design and development avoids rework and ensures that interfaces and marketing materials meet common expectations for readable text. This accessibility contrast checker gives you instant feedback so you can adjust colors until pairs pass.
+              Designers and developers use a color accessibility tool to test pairs before release. Checking contrast during design and development avoids rework and ensures that interfaces and marketing materials meet common expectations for readable text.
             </p>
           </section>
 
-          <section className="mb-10 text-gray-600 dark:text-gray-400">
+          <section>
             <h2 className="text-xl font-bold mb-4 text-gray-900 dark:text-white">
               WCAG Contrast Basics: AA and AAA
             </h2>
@@ -61,7 +61,7 @@ export default function ContrastCheckerPage() {
             </p>
           </section>
 
-          <section className="mb-10 text-gray-600 dark:text-gray-400">
+          <section>
             <h2 className="text-xl font-bold mb-4 text-gray-900 dark:text-white">
               How This Tool Helps Designers
             </h2>
@@ -72,11 +72,7 @@ export default function ContrastCheckerPage() {
               Frontend developers can re-check the same hex values in code. Brand designers can verify that headline and body text on brand backgrounds meet contrast. The tool supports WCAG compliance by applying the same formulas and thresholds used in guidelines. Check color contrast for light and dark themes, marketing banners, and app UI so your choices are readable and consistent.
             </p>
           </section>
-        </div>
 
-        <ContrastCheckerTool />
-
-        <div className="max-w-4xl mx-auto mt-16 space-y-12 text-gray-600 dark:text-gray-400">
           <section>
             <h2 className="text-xl font-bold mb-4 text-gray-900 dark:text-white">
               Check Contrast Instantly
@@ -85,7 +81,7 @@ export default function ContrastCheckerPage() {
               Use the accessibility contrast checker above to check color contrast for any text and background pair. Add your colors, select normal or large text, and see the ratio and pass/fail for AA and AAA. No sign-up required. Test as many pairs as you need for your project. If a pair fails, adjust the text or background color and re-check until you reach an accessible color contrast.
             </p>
             <p className="leading-relaxed">
-              After building a palette with a <Link href="/tools/palette-generator" className="text-blue-600 dark:text-blue-400 hover:underline">color palette generator</Link>, run your text and background combinations through this tool. Not every pair in a palette will pass; use the checker to identify which combinations work for body text, headings, and buttons so your final palette supports accessible design.
+              After building a palette with a <InlineTagLink href="/tools/palette-generator">color palette generator</InlineTagLink>, run your text and background combinations through this tool. Not every pair in a palette will pass; use the checker to identify which combinations work for body text, headings, and buttons so your final palette supports accessible design.
             </p>
           </section>
 
@@ -152,14 +148,12 @@ export default function ContrastCheckerPage() {
             </p>
             <ul className="list-disc list-inside space-y-2 text-gray-600 dark:text-gray-400">
               <li>
-                <Link href="/tools/palette-generator" className="text-blue-600 dark:text-blue-400 hover:underline">
-                  Color palette generator
-                </Link>
+                <InlineTagLink href="/tools/palette-generator">Color palette generator</InlineTagLink>
                 — create harmonious palettes from a base color with multiple harmony types.
               </li>
             </ul>
             <p className="mt-4 text-gray-600 dark:text-gray-400 leading-relaxed">
-              <Link href="/tools" className="text-blue-600 dark:text-blue-400 hover:underline">View all color tools</Link> for palette generation, contrast checking, and more.
+              <InlineTagLink href="/tools">View all color tools</InlineTagLink> for palette generation, contrast checking, and more.
             </p>
           </section>
         </div>

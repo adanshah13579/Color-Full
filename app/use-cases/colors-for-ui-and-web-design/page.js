@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import InlineTagLink from '../../components/InlineTagLink';
 
 export const metadata = {
   title: 'Colors for UI and Web Design: Choosing the Right Color Systems | Theme and Color',
@@ -27,7 +28,7 @@ export default function ColorsForUIAndWebDesignPage() {
               A UI color palette is not a random set of swatches. It is a structured set of values that answer specific questions: What color indicates the main action? What color is used for body text, headings, and captions? What backgrounds and surfaces are available? How do interactive elements change on hover, focus, or error? Design systems document these as named tokens (e.g. primary-500, surface-100, text-primary) so that designers and developers share one vocabulary. When a brand updates its primary color, changing a single token updates every button, link, and accent across the product.
             </p>
             <p className="mb-4 leading-relaxed">
-              Web projects often need both light and dark modes. That doubles the number of surface and text roles but does not double the number of hue decisions. Teams typically keep the same primary and secondary hues and shift only neutrals and backgrounds. Dark UI color palettes, such as a <Link href="/palettes/black-and-gold" className="text-blue-600 dark:text-blue-400 hover:underline">black-and-gold system</Link> for premium products, use the same semantic roles: dark backgrounds, light or gold text and accents, with contrast ratios verified for each pair. Exploring established palettes like our <Link href="/palettes/black-and-gold" className="text-blue-600 dark:text-blue-400 hover:underline">black and gold color palette</Link> can clarify how dark themes assign roles to a small set of hex values.
+              Web projects often need both light and dark modes. That doubles the number of surface and text roles but does not double the number of hue decisions. Teams typically keep the same primary and secondary hues and shift only neutrals and backgrounds. Dark UI color palettes, such as a <InlineTagLink href="/palettes/black-and-gold">black-and-gold system</InlineTagLink> for premium products, use the same semantic roles: dark backgrounds, light or gold text and accents, with contrast ratios verified for each pair. Exploring established palettes like our <InlineTagLink href="/palettes/black-and-gold">black and gold color palette</InlineTagLink> can clarify how dark themes assign roles to a small set of hex values.
             </p>
           </section>
 
@@ -51,7 +52,7 @@ export default function ColorsForUIAndWebDesignPage() {
               Accessible UI colors require sufficient contrast between text and its background. WCAG 2.1 sets minimum ratios: 4.5:1 for normal body text (3:1 for large text) at Level AA, and 7:1 at Level AAA. Decorative elements and large graphics have more flexibility, but any text that conveys information must meet at least AA. Designers should test every text-and-background pair used in the interface, including placeholder text, disabled states, and labels on form controls.
             </p>
             <p className="mb-4 leading-relaxed">
-              An <Link href="/tools/contrast-checker" className="text-blue-600 dark:text-blue-400 hover:underline">accessibility contrast checker</Link> is essential before locking a palette in code or a design system. Gold or metallic accents on dark backgrounds often fail for body text; they work better for headings, icons, or borders. Use the same tool to verify both light and dark themes and to catch pairs that look fine on a large monitor but fail on dimmer screens or for users with low vision. Prioritize body text and interactive elements; accent colors can sit at lower contrast when they are not carrying critical information.
+              An <InlineTagLink href="/tools/contrast-checker">accessibility contrast checker</InlineTagLink> is essential before locking a palette in code or a design system. Gold or metallic accents on dark backgrounds often fail for body text; they work better for headings, icons, or borders. Use the same tool to verify both light and dark themes and to catch pairs that look fine on a large monitor but fail on dimmer screens or for users with low vision. Prioritize body text and interactive elements; accent colors can sit at lower contrast when they are not carrying critical information.
             </p>
           </section>
 
@@ -60,7 +61,7 @@ export default function ColorsForUIAndWebDesignPage() {
               From Palette to Implementation
             </h2>
             <p className="mb-4 leading-relaxed">
-              After defining the palette, teams document hex or RGB values in a style guide and map them to semantic names. Those names become design tokens in Figma, Sketch, or Adobe XD and the same tokens in code as CSS custom properties or theme objects. A <Link href="/tools/palette-generator" className="text-blue-600 dark:text-blue-400 hover:underline">color palette generator</Link> can help explore harmonies from a single base color and export hex codes for primary, secondary, and neutral scales. Once values are chosen, plug them into variables so that one change propagates across the entire product.
+              After defining the palette, teams document hex or RGB values in a style guide and map them to semantic names. Those names become design tokens in Figma, Sketch, or Adobe XD and the same tokens in code as CSS custom properties or theme objects. A <InlineTagLink href="/tools/palette-generator">color palette generator</InlineTagLink> can help explore harmonies from a single base color and export hex codes for primary, secondary, and neutral scales. Once values are chosen, plug them into variables so that one change propagates across the entire product.
             </p>
             <p className="leading-relaxed">
               For teams building a new design system, starting from an existing palette (such as a luxury black and gold palette for premium or finance products) can speed up decisions. Use the palette generator to derive additional shades or to create complementary palettes for different product lines, then validate every text and interactive combination with the contrast checker. This workflow keeps UI color systems consistent, accessible, and aligned with brand.

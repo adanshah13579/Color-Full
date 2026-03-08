@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import InlineTagLink from '../components/InlineTagLink';
 
 export const metadata = {
   title: 'How to Generate a Color Palette for a Brand | Theme and Color',
@@ -78,13 +79,13 @@ export default function HowToGenerateColorPaletteForBrandPage() {
               Tools for Generating Brand Color Palettes
             </h2>
             <p className="mb-4 leading-relaxed">
-              A <Link href="/tools/palette-generator" className="text-blue-600 dark:text-blue-400 hover:underline">color palette generator</Link> takes a base color and produces harmonies (monochromatic, analogous, complementary, triadic, and others) with hex codes. Designers can paste a brand primary and get a full set of options in seconds. This speeds up exploration and keeps relationships between colors consistent.
+              A <InlineTagLink href="/tools/palette-generator">color palette generator</InlineTagLink> takes a base color and produces harmonies (monochromatic, analogous, complementary, triadic, and others) with hex codes. Designers can paste a brand primary and get a full set of options in seconds. This speeds up exploration and keeps relationships between colors consistent.
             </p>
             <p className="mb-4 leading-relaxed">
               Contrast checkers verify that text and background pairs meet WCAG AA or AAA. Use them after generating a palette to ensure that the neutrals and primary work for body text and buttons. Design tools (Figma, Sketch, Adobe XD) support style libraries where you can save palette colors and reuse them across files. For code, design tokens or CSS variables keep palette values in one place so that design and development stay in sync.
             </p>
             <p className="leading-relaxed">
-              Using a <Link href="/tools/palette-generator" className="text-blue-600 dark:text-blue-400 hover:underline">color palette generator</Link> for brand work reduces guesswork and keeps palettes consistent. Combine it with contrast checking and clear documentation for a brand palette that works across channels and meets accessibility standards.
+              Using a <InlineTagLink href="/tools/palette-generator">color palette generator</InlineTagLink> for brand work reduces guesswork and keeps palettes consistent. Combine it with contrast checking and clear documentation for a brand palette that works across channels and meets accessibility standards.
             </p>
           </section>
         </article>

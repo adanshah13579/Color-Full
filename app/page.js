@@ -1,6 +1,7 @@
 'use client';
 
 import Link from 'next/link';
+import InlineTagLink from './components/InlineTagLink';
 import Image from 'next/image';
 import { motion } from 'framer-motion';
 
@@ -12,7 +13,7 @@ const featuredPalettes = [
   { id: 4, name: 'Purple Dream', colors: ['#581C87', '#7C3AED', '#8B5CF6', '#A78BFA', '#C4B5FD'] },
 ];
 
-// Dummy blog posts
+// Latest blog posts (match actual blog pages)
 const latestPosts = [
   {
     id: 1,
@@ -20,20 +21,15 @@ const latestPosts = [
     description: 'Discover the most popular color palettes and trends shaping design in 2025.',
     image: '/api/placeholder/400/250',
     slug: '10-color-trends-for-2025',
+    publishedAt: '2025-01-15',
   },
   {
     id: 2,
-    title: 'Color Theory Fundamentals: A Complete Guide',
-    description: 'Master the basics of color theory, including hue, saturation, and value relationships.',
+    title: 'Color Palette Ideas for Small Business: A Practical Guide',
+    description: 'Practical color palette ideas for small business: how many colors to use, industry examples, and where to apply them on your website and branding.',
     image: '/api/placeholder/400/250',
-    slug: 'color-theory-fundamentals',
-  },
-  {
-    id: 3,
-    title: 'Accessibility in Color Design: WCAG Guidelines',
-    description: 'Learn how to create accessible color combinations that meet WCAG standards for all users.',
-    image: '/api/placeholder/400/250',
-    slug: 'accessibility-color-design-wcag',
+    slug: 'color-palette-ideas-for-small-business',
+    publishedAt: '2025-02-08',
   },
 ];
 
@@ -78,7 +74,7 @@ export default function Home() {
                 Create stunning color palettes, check accessibility, and discover trending schemes. 
                 <span className="block mt-2 text-lg md:text-xl">All the tools you need for professional design.</span>
                 <span className="block mt-4 text-base md:text-lg font-medium">
-                  Try our free <Link href="/tools/palette-generator" className="text-purple-600 dark:text-purple-400 hover:underline">color palette generator</Link> for UI, web, and brand projects, and our <Link href="/tools/contrast-checker" className="text-purple-600 dark:text-purple-400 hover:underline">accessibility contrast checker</Link> to verify text and background contrast.
+                  Try our free <InlineTagLink href="/tools/palette-generator">color palette generator</InlineTagLink> for UI, web, and brand projects, and our <InlineTagLink href="/tools/contrast-checker">accessibility contrast checker</InlineTagLink> to verify text and background contrast.
                 </span>
               </p>
 
@@ -176,7 +172,7 @@ export default function Home() {
           <div className="max-w-3xl mx-auto text-center">
             <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">Popular Tools</h2>
             <p className="text-gray-600 dark:text-gray-400 text-base leading-relaxed">
-              Use our <Link href="/tools/palette-generator" className="text-purple-600 dark:text-purple-400 hover:underline font-medium">color palette generator</Link> to create harmonious palettes from a base color, then verify readability with our <Link href="/tools/contrast-checker" className="text-purple-600 dark:text-purple-400 hover:underline font-medium">accessibility contrast checker</Link> for WCAG-compliant text and background pairs.
+              Use our <InlineTagLink href="/tools/palette-generator">color palette generator</InlineTagLink> to create harmonious palettes from a base color, then verify readability with our <InlineTagLink href="/tools/contrast-checker">accessibility contrast checker</InlineTagLink> for WCAG-compliant text and background pairs.
             </p>
           </div>
         </div>
@@ -316,7 +312,7 @@ export default function Home() {
               </Link>
             </div>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {latestPosts.slice(0, 1).map((post, index) => (
+              {latestPosts.map((post, index) => (
                 <motion.article
                   key={post.id}
                   initial={{ opacity: 0, y: 20 }}
