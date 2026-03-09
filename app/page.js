@@ -5,31 +5,51 @@ import InlineTagLink from './components/InlineTagLink';
 import Image from 'next/image';
 import { motion } from 'framer-motion';
 
-// Dummy data for featured palettes
+// Featured palettes (each links to a blog post)
 const featuredPalettes = [
-  { id: 1, name: 'Ocean Breeze', colors: ['#0EA5E9', '#06B6D4', '#14B8A6', '#10B981', '#34D399'] },
-  { id: 2, name: 'Sunset Vibes', colors: ['#F59E0B', '#F97316', '#EF4444', '#EC4899', '#A855F7'] },
-  { id: 3, name: 'Forest Green', colors: ['#065F46', '#047857', '#059669', '#10B981', '#34D399'] },
-  { id: 4, name: 'Purple Dream', colors: ['#581C87', '#7C3AED', '#8B5CF6', '#A78BFA', '#C4B5FD'] },
+  { id: 1, name: 'Ocean Breeze', colors: ['#0EA5E9', '#06B6D4', '#14B8A6', '#10B981', '#34D399'], slug: 'ocean-breeze' },
+  { id: 2, name: 'Sunset Vibes', colors: ['#F59E0B', '#F97316', '#EF4444', '#EC4899', '#A855F7'], slug: 'sunset-vibes' },
+  { id: 3, name: 'Forest Green', colors: ['#065F46', '#047857', '#059669', '#10B981', '#34D399'], slug: 'forest-green' },
+  { id: 4, name: 'Purple Dream', colors: ['#581C87', '#7C3AED', '#8B5CF6', '#A78BFA', '#C4B5FD'], slug: 'purple-dream' },
 ];
 
 // Latest blog posts (match actual blog pages)
 const latestPosts = [
   {
     id: 1,
-    title: '10 Color Trends for 2025: Modern Color Palettes for Web & UI Design',
-    description: 'Discover the most popular color palettes and trends shaping design in 2025.',
+    title: 'Ocean Breeze: A Calm Blue-to-Green Palette',
+    description:
+      'A soothing palette of sky blue, teal, and mint green for calm, professional design.',
     image: '/api/placeholder/400/250',
-    slug: '10-color-trends-for-2025',
-    publishedAt: '2025-01-15',
+    slug: 'ocean-breeze',
+    publishedAt: '2025-02-10',
   },
   {
     id: 2,
-    title: 'Color Palette Ideas for Small Business: A Practical Guide',
-    description: 'Practical color palette ideas for small business: how many colors to use, industry examples, and where to apply them on your website and branding.',
+    title: 'Sunset Vibes: Bold Orange-to-Purple Palette',
+    description:
+      'Vibrant orange, red, pink, and purple for energetic, creative brands.',
     image: '/api/placeholder/400/250',
-    slug: 'color-palette-ideas-for-small-business',
-    publishedAt: '2025-02-08',
+    slug: 'sunset-vibes',
+    publishedAt: '2025-02-10',
+  },
+  {
+    id: 3,
+    title: 'Forest Green: A Natural Green Palette',
+    description:
+      'Deep to light greens for eco brands, wellness, and nature-inspired design.',
+    image: '/api/placeholder/400/250',
+    slug: 'forest-green',
+    publishedAt: '2025-02-10',
+  },
+  {
+    id: 4,
+    title: 'Purple Dream: Royal to Lavender Palette',
+    description:
+      'Royal purple to soft lavender for creative brands and luxury design.',
+    image: '/api/placeholder/400/250',
+    slug: 'purple-dream',
+    publishedAt: '2025-02-10',
   },
 ];
 
@@ -47,122 +67,170 @@ export default function Home() {
         </div>
 
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 pt-12 pb-16 md:pt-16 md:pb-20 lg:pt-20 lg:pb-24 relative">
-          <div className="max-w-5xl mx-auto text-center">
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.7 }}
-            >
-              {/* Main Heading */}
-              <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-black mb-8 leading-tight">
-                <span className="block text-gray-900 dark:text-white mb-2">Design with</span>
-                <span 
-                  className="block bg-gradient-to-r from-purple-600 via-pink-600 to-blue-600 bg-clip-text text-transparent"
-                  style={{ 
-                    WebkitBackgroundClip: 'text',
-                    WebkitTextFillColor: 'transparent',
-                    backgroundClip: 'text',
-                    color: 'transparent'
-                  }}
-                >
-                  Perfect Colors
-                </span>
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7 }}
+            className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-center"
+          >
+            {/* Left: Messaging */}
+            <div>
+              <p className="inline-flex items-center rounded-full bg-purple-50 dark:bg-purple-900/40 px-3 py-1 text-xs font-semibold text-purple-700 dark:text-purple-200 mb-4 border border-purple-100 dark:border-purple-800">
+                Color workflow for designers & developers
+              </p>
+              <h1 className="text-4xl sm:text-5xl md:text-6xl font-extrabold mb-6 leading-tight text-gray-900 dark:text-white">
+                Professional color tools for modern brands.
               </h1>
-
-              {/* Description */}
-              <p className="text-xl md:text-2xl text-gray-700 dark:text-gray-300 mb-12 max-w-3xl mx-auto leading-relaxed font-light">
-                Create stunning color palettes, check accessibility, and discover trending schemes. 
-                <span className="block mt-2 text-lg md:text-xl">All the tools you need for professional design.</span>
-                <span className="block mt-4 text-base md:text-lg font-medium">
-                  Try our free <InlineTagLink href="/tools/palette-generator">color palette generator</InlineTagLink> for UI, web, and brand projects, and our <InlineTagLink href="/tools/contrast-checker">accessibility contrast checker</InlineTagLink> to verify text and background contrast.
-                </span>
+              <p className="text-lg md:text-xl text-gray-700 dark:text-gray-300 mb-6 max-w-xl leading-relaxed">
+                Generate dependable color systems, verify accessibility, and document palettes your whole team can use—without wrestling with hex codes in a spreadsheet.
+              </p>
+              <p className="text-sm md:text-base text-gray-600 dark:text-gray-400 mb-8 max-w-xl">
+                Start with the{' '}
+                <InlineTagLink href="/tools/palette-generator">palette generator</InlineTagLink>{' '}
+                for UI and brand work, then confirm readable text and backgrounds with the{' '}
+                <InlineTagLink href="/tools/contrast-checker">WCAG contrast checker</InlineTagLink>.
               </p>
 
               {/* CTA Buttons */}
-              <div className="flex flex-col sm:flex-row gap-4 justify-center mb-16">
-                <motion.div
-                  whileHover={{ scale: 1.05, y: -2 }}
-                  whileTap={{ scale: 0.95 }}
-                >
+              <div className="flex flex-col sm:flex-row gap-4 items-stretch sm:items-center">
+                <motion.div whileHover={{ scale: 1.03, y: -1 }} whileTap={{ scale: 0.97 }}>
                   <Link
                     href="/tools"
-                    className="inline-flex items-center justify-center px-10 py-5 bg-gradient-to-r from-purple-600 to-pink-600 text-white rounded-2xl font-bold text-lg hover:shadow-2xl hover:shadow-purple-500/30 transition-all duration-300 shadow-xl group"
+                    className="inline-flex items-center justify-center px-8 py-4 bg-gradient-to-r from-purple-600 to-indigo-600 text-white rounded-xl font-semibold text-base md:text-lg hover:shadow-xl hover:shadow-purple-500/30 transition-all duration-300"
                   >
-                    <svg className="w-6 h-6 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01" />
-                    </svg>
-                    <span>Explore Tools</span>
-                    <svg className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
+                    <span>Open color tools</span>
+                    <svg
+                      className="w-5 h-5 ml-2"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M13 7l5 5m0 0l-5 5m5-5H6"
+                      />
                     </svg>
                   </Link>
                 </motion.div>
-                <motion.div
-                  whileHover={{ scale: 1.05, y: -2 }}
-                  whileTap={{ scale: 0.95 }}
-                >
+                <motion.div whileHover={{ scale: 1.03, y: -1 }} whileTap={{ scale: 0.97 }}>
                   <Link
                     href="/blog"
-                    className="inline-flex items-center justify-center px-10 py-5 bg-white dark:bg-gray-800 text-gray-900 dark:text-white border-2 border-gray-300 dark:border-gray-700 rounded-2xl font-bold text-lg hover:border-purple-500 dark:hover:border-purple-500 hover:bg-gray-50 dark:hover:bg-gray-700 transition-all duration-300 shadow-lg"
+                    className="inline-flex items-center justify-center px-8 py-4 bg-white dark:bg-gray-900 text-gray-900 dark:text-white border border-gray-200 dark:border-gray-700 rounded-xl font-semibold text-base md:text-lg hover:border-purple-500 dark:hover:border-purple-400 hover:bg-gray-50 dark:hover:bg-gray-800 transition-all duration-300"
                   >
-                    View Blog
+                    Browse color palettes
                   </Link>
                 </motion.div>
               </div>
 
-              {/* Feature Highlights – crawlable anchor links to tools */}
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto">
-                <motion.div
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.6, delay: 0.2 }}
-                  className="bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-lg border border-gray-200 dark:border-gray-700 hover:shadow-xl transition-shadow"
-                >
-                  <Link href="/tools/palette-generator" className="block">
-                    <div className="w-16 h-16 mx-auto mb-4 bg-gradient-to-br from-purple-500 to-pink-500 rounded-2xl flex items-center justify-center">
-                      <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01" />
-                      </svg>
-                    </div>
-                    <h3 className="text-lg font-bold text-gray-900 dark:text-white mb-2">Palette Generator</h3>
-                    <p className="text-gray-600 dark:text-gray-400 text-sm">Create harmonious color schemes instantly</p>
-                  </Link>
-                </motion.div>
+              <p className="mt-6 text-xs md:text-sm text-gray-500 dark:text-gray-400">
+                Built for product designers, front-end engineers, and brand teams who need consistent, accessible color—without guesswork.
+              </p>
+            </div>
 
-                <motion.div
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.6, delay: 0.4 }}
-                  className="bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-lg border border-gray-200 dark:border-gray-700 hover:shadow-xl transition-shadow"
-                >
-                  <Link href="/tools/contrast-checker" className="block">
-                    <div className="w-16 h-16 mx-auto mb-4 bg-gradient-to-br from-blue-500 to-cyan-500 rounded-2xl flex items-center justify-center">
-                      <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
-                      </svg>
-                    </div>
-                    <h3 className="text-lg font-bold text-gray-900 dark:text-white mb-2">Contrast Checker</h3>
-                    <p className="text-gray-600 dark:text-gray-400 text-sm">Ensure WCAG accessibility compliance</p>
-                  </Link>
-                </motion.div>
+            {/* Right: Product-style preview */}
+            <div className="relative">
+              <div className="absolute -top-6 -right-4 w-24 h-24 bg-gradient-to-br from-purple-500/40 to-blue-500/20 rounded-full blur-3xl pointer-events-none" />
+              <div className="absolute -bottom-10 -left-6 w-32 h-32 bg-gradient-to-tr from-emerald-400/20 to-purple-400/20 rounded-full blur-3xl pointer-events-none" />
 
-                <motion.div
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.6, delay: 0.6 }}
-                  className="bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-lg border border-gray-200 dark:border-gray-700 hover:shadow-xl transition-shadow"
-                >
-                  <div className="w-16 h-16 mx-auto mb-4 bg-gradient-to-br from-green-500 to-emerald-500 rounded-2xl flex items-center justify-center">
-                    <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9a2 2 0 00-2-2h-2m-4-3H9M7 16h6M7 8h6v4H7V8z" />
-                    </svg>
+              <div className="relative bg-white dark:bg-gray-900 border border-gray-100 dark:border-gray-800 rounded-2xl shadow-2xl p-5 md:p-6">
+                {/* Top bar */}
+                <div className="flex items-center justify-between mb-4">
+                  <div className="flex items-center gap-2">
+                    <span className="w-2.5 h-2.5 rounded-full bg-rose-400" />
+                    <span className="w-2.5 h-2.5 rounded-full bg-amber-300" />
+                    <span className="w-2.5 h-2.5 rounded-full bg-emerald-400" />
                   </div>
-                  <h3 className="text-lg font-bold text-gray-900 dark:text-white mb-2">Color Trends</h3>
-                  <p className="text-gray-600 dark:text-gray-400 text-sm">Discover latest design trends & insights</p>
-                </motion.div>
+                  <span className="text-xs font-medium text-gray-500 dark:text-gray-400">
+                    Palette generator
+                  </span>
+                </div>
+
+                <div className="grid grid-cols-5 gap-2 mb-5">
+                  {['#0EA5E9', '#06B6D4', '#10B981', '#F97316', '#8B5CF6'].map((color) => (
+                    <div key={color} className="flex flex-col gap-2">
+                      <div
+                        className="h-16 rounded-lg border border-gray-100 dark:border-gray-800"
+                        style={{ backgroundColor: color }}
+                      />
+                      <p className="text-[10px] font-medium text-gray-600 dark:text-gray-400 text-center truncate">
+                        {color}
+                      </p>
+                    </div>
+                  ))}
+                </div>
+
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 items-start mb-4">
+                  <div className="space-y-2">
+                    <p className="text-xs font-semibold text-gray-500 dark:text-gray-400 uppercase tracking-wide">
+                      Contrast check
+                    </p>
+                    <div className="rounded-xl border border-gray-100 dark:border-gray-800 overflow-hidden">
+                      <div className="px-3 py-3 bg-gray-900 text-white text-xs flex items-center justify-between">
+                        <span>Heading on background</span>
+                        <span className="inline-flex items-center rounded-full bg-emerald-500/20 text-emerald-400 px-2 py-0.5 text-[10px] font-semibold">
+                          AA 4.6:1
+                        </span>
+                      </div>
+                      <div className="px-3 py-3 text-xs text-gray-700 dark:text-gray-300 bg-white dark:bg-gray-900">
+                        <div className="mb-2">
+                          <span className="inline-flex items-center rounded-full bg-gray-100 dark:bg-gray-800 px-2 py-0.5 text-[10px] font-medium text-gray-700 dark:text-gray-200 mr-1">
+                            Text
+                          </span>
+                          <span className="font-mono text-[11px]">#0F172A</span>
+                        </div>
+                        <div>
+                          <span className="inline-flex items-center rounded-full bg-gray-100 dark:bg-gray-800 px-2 py-0.5 text-[10px] font-medium text-gray-700 dark:text-gray-200 mr-1">
+                            Background
+                          </span>
+                          <span className="font-mono text-[11px]">#F9FAFB</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div className="space-y-2">
+                    <p className="text-xs font-semibold text-gray-500 dark:text-gray-400 uppercase tracking-wide">
+                      Saved palettes
+                    </p>
+                    <div className="space-y-2">
+                      <div className="flex items-center justify-between rounded-xl border border-gray-100 dark:border-gray-800 px-3 py-2">
+                        <div className="flex items-center gap-2">
+                          <span className="inline-flex h-6 w-6 rounded-full bg-gradient-to-br from-sky-400 via-cyan-400 to-emerald-400" />
+                          <span className="text-xs font-medium text-gray-800 dark:text-gray-200">
+                            Ocean Breeze
+                          </span>
+                        </div>
+                        <span className="text-[10px] text-gray-500 dark:text-gray-400">UI kit</span>
+                      </div>
+                      <div className="flex items-center justify-between rounded-xl border border-gray-100 dark:border-gray-800 px-3 py-2">
+                        <div className="flex items-center gap-2">
+                          <span className="inline-flex h-6 w-6 rounded-full bg-gradient-to-br from-emerald-500 to-lime-400" />
+                          <span className="text-xs font-medium text-gray-800 dark:text-gray-200">
+                            Forest Green
+                          </span>
+                        </div>
+                        <span className="text-[10px] text-gray-500 dark:text-gray-400">Brand</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="flex items-center justify-between pt-2 border-t border-gray-100 dark:border-gray-800">
+                  <p className="text-[11px] text-gray-500 dark:text-gray-400">
+                    Generate, test, and ship color decisions in one place.
+                  </p>
+                  <Link
+                    href="/tools"
+                    className="text-[11px] font-semibold text-purple-600 dark:text-purple-400 hover:underline"
+                  >
+                    Try it free →
+                  </Link>
+                </div>
               </div>
-            </motion.div>
-          </div>
+            </div>
+          </motion.div>
         </div>
       </section>
 
@@ -201,22 +269,23 @@ export default function Home() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.6, delay: index * 0.1 }}
-                  className="bg-white dark:bg-gray-800 rounded-xl shadow-md hover:shadow-xl hover:border-2 hover:border-purple-200 dark:hover:border-purple-800 transition-all duration-300 overflow-hidden group cursor-pointer border-2 border-transparent"
                 >
-                  <div className="h-32 flex">
-                    {palette.colors.map((color, i) => (
-                      <div
-                        key={i}
-                        className="flex-1"
-                        style={{ backgroundColor: color }}
-                      />
-                    ))}
-                  </div>
-                  <div className="p-4">
-                    <h3 className="font-semibold text-gray-900 dark:text-white group-hover:text-purple-600 dark:group-hover:text-purple-400 transition-colors duration-200">
-                      {palette.name}
-                    </h3>
-                  </div>
+                  <Link href={`/blog/${palette.slug}`} className="block bg-white dark:bg-gray-800 rounded-xl shadow-md hover:shadow-xl hover:border-2 hover:border-purple-200 dark:hover:border-purple-800 transition-all duration-300 overflow-hidden group cursor-pointer border-2 border-transparent">
+                    <div className="h-32 flex">
+                      {palette.colors.map((color, i) => (
+                        <div
+                          key={i}
+                          className="flex-1"
+                          style={{ backgroundColor: color }}
+                        />
+                      ))}
+                    </div>
+                    <div className="p-4">
+                      <h3 className="font-semibold text-gray-900 dark:text-white group-hover:text-purple-600 dark:group-hover:text-purple-400 transition-colors duration-200">
+                        {palette.name}
+                      </h3>
+                    </div>
+                  </Link>
                 </motion.div>
               ))}
             </div>

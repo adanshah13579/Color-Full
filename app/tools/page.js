@@ -33,10 +33,11 @@ export default function ToolsPage() {
           className="text-center mb-12"
         >
           <h1 className="text-4xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent">
-            Color Tools
+            Color Tools for Designers &amp; Developers
           </h1>
           <p className="text-gray-600 dark:text-gray-400 max-w-2xl mx-auto text-lg">
-            Powerful tools to help you create perfect color schemes and visualize your designs
+            A focused toolkit for building accessible, on-brand color systems&mdash;from generating palettes
+            to checking WCAG contrast for real-world interfaces.
           </p>
         </motion.div>
 
@@ -101,17 +102,37 @@ export default function ToolsPage() {
           className="mt-16 bg-white dark:bg-gray-800 rounded-xl shadow-lg p-8 max-w-4xl mx-auto"
         >
           <h2 className="text-2xl font-bold mb-4 text-gray-900 dark:text-white">
-            Professional Color Tools for Designers
+            Professional color tools for modern design workflows
           </h2>
-          <div className="prose dark:prose-invert max-w-none text-gray-600 dark:text-gray-400">
+          <div className="prose prose-sm sm:prose-base dark:prose-invert max-w-none text-gray-600 dark:text-gray-400">
             <p className="mb-4">
-              Our collection of color tools helps designers, developers, and creators work more efficiently with colors. 
-              Whether you're designing a website, creating a brand identity, or planning an interior space, these tools 
-              provide the functionality you need to make informed color decisions.
+              The Theme &amp; Color tools are built for product designers, front-end developers, and brand teams who
+              need reliable, repeatable color decisions&mdash;not guesswork. Instead of juggling screenshots and
+              spreadsheets, you can generate palettes, document decisions, and check accessibility in one place.
+            </p>
+            <h3>Color palette generator</h3>
+            <p className="mb-3">
+              Use the{' '}
+              <Link href="/tools/palette-generator" className="text-purple-600 dark:text-purple-400 font-semibold">
+                color palette generator
+              </Link>{' '}
+              to build harmonious palettes for websites, design systems, or brand identities. Start from a single base
+              color and explore complementary, analogous, or triadic schemes with hex values ready to paste into Figma,
+              CSS, or your component library.
+            </p>
+            <h3>Accessibility contrast checker</h3>
+            <p className="mb-3">
+              The{' '}
+              <Link href="/tools/contrast-checker" className="text-purple-600 dark:text-purple-400 font-semibold">
+                accessibility contrast checker
+              </Link>{' '}
+              helps you validate text and background pairs against WCAG contrast ratios. Quickly see which combinations
+              pass AA or AAA, then adjust your palette before development so your interface ships accessible by default.
             </p>
             <p>
-              From visualizing colors on real objects to generating harmonious palettes and checking accessibility compliance, 
-              our tools are designed to streamline your workflow and improve your design outcomes.
+              Together, these free online color tools give you a practical way to design, test, and maintain a
+              professional color system across marketing sites, apps, and design systems&mdash;without sacrificing
+              performance, legibility, or brand consistency.
             </p>
           </div>
         </motion.section>

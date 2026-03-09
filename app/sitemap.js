@@ -6,6 +6,10 @@ const blogPosts = [
   "best-color-palette-tools-for-designers",
   "10-color-trends-for-2025",
   "color-palette-ideas-for-small-business",
+  "ocean-breeze",
+  "sunset-vibes",
+  "forest-green",
+  "purple-dream",
 ];
 
 /** Static routes (non-blog). No URL changes. */
