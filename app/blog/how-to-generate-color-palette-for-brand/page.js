@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import InlineTagLink from '../components/InlineTagLink';
+import InlineTagLink from '../../components/InlineTagLink';
 
 export const metadata = {
   title: 'How to Generate a Color Palette for a Brand | Theme and Color',

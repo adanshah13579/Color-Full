@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import InlineTagLink from '../components/InlineTagLink';
+import InlineTagLink from '../../components/InlineTagLink';
 
 export const metadata = {
   title: 'Best Color Palette Tools for Designers | Theme and Color',
