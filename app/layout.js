@@ -12,18 +12,94 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
+const SITE_URL = "https://themeandcolor.com";
+
 export const metadata = {
-  title: "Theme & Color - Advanced Color Tools for Modern Designers",
+  metadataBase: new URL(SITE_URL),
+  title: {
+    default: "Theme & Color - Advanced Color Tools for Modern Designers",
+    template: "%s | Theme & Color",
+  },
   description:
     "Theme & Color helps you design professional, accessible color palettes. Explore generators, contrast checking tools, and in-depth articles on color trends and best practices.",
   keywords:
-    "theme and color, themeandcolor, color palette, color scheme, color picker, contrast checker, palette generator, design tools, theme generator",
+    "theme and color, themeandcolor, color palette, color scheme, color picker, contrast checker, palette generator, design tools, theme generator, WCAG contrast",
+  authors: [{ name: "Theme & Color", url: SITE_URL }],
+  creator: "Theme & Color",
+  publisher: "Theme & Color",
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: { index: true, follow: true },
+  },
+  openGraph: {
+    type: "website",
+    locale: "en_US",
+    url: SITE_URL,
+    siteName: "Theme & Color",
+    title: "Theme & Color - Advanced Color Tools for Modern Designers",
+    description:
+      "Theme & Color helps you design professional, accessible color palettes. Free palette generator, contrast checker, and color design articles.",
+    images: [
+      {
+        url: "/icon.png",
+        width: 512,
+        height: 512,
+        alt: "Theme & Color",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Theme & Color - Advanced Color Tools for Modern Designers",
+    description:
+      "Theme & Color helps you design professional, accessible color palettes. Free palette generator, contrast checker, and color design articles.",
+  },
+  alternates: {
+    canonical: SITE_URL,
+  },
+  verification: {
+    // When you get Google Search Console verification code, add: google: "your-code"
+    // When you add AdSense, add: other: { "google-site-verification": "..." } if provided
+  },
+};
+
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": `${SITE_URL}/#organization`,
+      name: "Theme & Color",
+      url: SITE_URL,
+      logo: { "@type": "ImageObject", url: `${SITE_URL}/icon.png` },
+      sameAs: [],
+    },
+    {
+      "@type": "WebSite",
+      "@id": `${SITE_URL}/#website`,
+      url: SITE_URL,
+      name: "Theme & Color",
+      description: "Advanced color tools for designers: palette generator, contrast checker, and color design articles.",
+      publisher: { "@id": `${SITE_URL}/#organization` },
+      inLanguage: "en-US",
+      potentialAction: {
+        "@type": "SearchAction",
+        target: { "@type": "EntryPoint", urlTemplate: `${SITE_URL}/blog?q={search_term_string}` },
+        "query-input": "required name=search_term_string",
+      },
+    },
+  ],
 };
 
 export default function RootLayout({ children }) {
   return (
     <html lang="en" suppressHydrationWarning>
       <head>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
         <script
           dangerouslySetInnerHTML={{
             __html: `

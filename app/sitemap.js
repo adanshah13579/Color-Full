@@ -6,6 +6,8 @@ const blogPosts = [
   "best-color-palette-tools-for-designers",
   "10-color-trends-for-2025",
   "color-palette-ideas-for-small-business",
+  "how-to-check-color-contrast-accessibility",
+  "best-neutral-colors-pair-with-brand",
   "ocean-breeze",
   "sunset-vibes",
   "forest-green",

@@ -2,9 +2,10 @@
 
 import Link from 'next/link';
 import { motion } from 'framer-motion';
-import Image from 'next/image';
 
-export default function BlogClient({ posts }) {
+const DEFAULT_PALETTE = ['#8B5CF6', '#EC4899', '#F59E0B', '#10B981', '#3B82F6'];
+
+export default function BlogClient({ posts, cardPalettes = {} }) {
   return (
     <div className="min-h-screen bg-gray-50 dark:bg-gray-950">
       {/* Hero Section */}
@@ -59,19 +60,15 @@ export default function BlogClient({ posts }) {
                     >
                       <Link href={`/blog/${post.slug.current}`}>
                         <div className="bg-white dark:bg-gray-900 rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 overflow-hidden h-full flex flex-col">
-                          {/* Image Preview */}
-                          <div className="h-48 bg-gradient-to-br from-gray-200 to-gray-300 dark:from-gray-700 dark:to-gray-800 relative overflow-hidden">
-                            {index === 0 ? (
-                              <Image
-                                src="/img1.avif"
-                                alt={post.title}
-                                fill
-                                className="object-cover"
-                                sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"
+                          {/* Card image: color palette strips per post */}
+                          <div className="h-48 flex relative overflow-hidden" aria-hidden>
+                            {(cardPalettes[post.slug.current] || DEFAULT_PALETTE).map((hex, i) => (
+                              <div
+                                key={i}
+                                className="flex-1 min-w-0 transition-all duration-300 group-hover:flex-[1.08]"
+                                style={{ backgroundColor: hex }}
                               />
-                            ) : (
-                              <div className="absolute inset-0 bg-gradient-to-br from-purple-400 via-pink-400 to-blue-400" />
-                            )}
+                            ))}
                           </div>
                           
                           {/* Post Content */}

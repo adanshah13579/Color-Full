@@ -83,6 +83,15 @@ export default function PrivacyPage() {
           </section>
 
           <section className="mb-8">
+            <h2 className="text-2xl font-bold mb-4 text-gray-900 dark:text-white">Advertising</h2>
+            <p className="text-gray-700 dark:text-gray-300 mb-4">
+              We may display third-party advertisements (e.g. via Google AdSense) to support the site. These partners may use 
+              cookies and similar technologies to show relevant ads, measure performance, and prevent fraud. You can manage 
+              ad preferences at <a href="https://adssettings.google.com" target="_blank" rel="noopener noreferrer" className="text-purple-600 dark:text-purple-400 hover:underline">Google Ad Settings</a> or opt out of personalized ads. Our tools and core content remain usable without accepting advertising cookies.
+            </p>
+          </section>
+
+          <section className="mb-8">
             <h2 className="text-2xl font-bold mb-4 text-gray-900 dark:text-white">Third-Party Services</h2>
             <p className="text-gray-700 dark:text-gray-300 mb-4">
               We may use third-party services that collect, monitor, and analyze information, including:
