@@ -2,8 +2,8 @@
 
 import Link from 'next/link';
 import InlineTagLink from './components/InlineTagLink';
-import Image from 'next/image';
 import { motion } from 'framer-motion';
+import { useMemo, useState } from 'react';
 
 // Featured palettes (each links to a blog post)
 const featuredPalettes = [
@@ -13,47 +13,93 @@ const featuredPalettes = [
   { id: 4, name: 'Purple Dream', colors: ['#581C87', '#7C3AED', '#8B5CF6', '#A78BFA', '#C4B5FD'], slug: 'purple-dream' },
 ];
 
-// Latest blog posts (match actual blog pages)
+// Latest blog cards (image-only slider)
 const latestPosts = [
   {
     id: 1,
-    title: 'Ocean Breeze: A Calm Blue-to-Green Palette',
-    description:
-      'A soothing palette of sky blue, teal, and mint green for calm, professional design.',
-    image: '/api/placeholder/400/250',
-    slug: 'ocean-breeze',
-    publishedAt: '2025-02-10',
+    title: '10 Color Trends for 2025: Modern Color Palettes for Web & UI Design',
+    slug: '10-color-trends-for-2025',
+    palette: ['#8B5CF6', '#EC4899', '#F59E0B', '#10B981', '#3B82F6'],
+    publishedAt: '2025-01-15',
   },
   {
     id: 2,
-    title: 'Sunset Vibes: Bold Orange-to-Purple Palette',
-    description:
-      'Vibrant orange, red, pink, and purple for energetic, creative brands.',
-    image: '/api/placeholder/400/250',
-    slug: 'sunset-vibes',
-    publishedAt: '2025-02-10',
+    title: 'Color Palette Ideas for Small Business: A Practical Guide',
+    slug: 'color-palette-ideas-for-small-business',
+    palette: ['#1e3a8a', '#ffffff', '#d4af37', '#059669', '#6b7280'],
+    publishedAt: '2025-02-08',
   },
   {
     id: 3,
-    title: 'Forest Green: A Natural Green Palette',
-    description:
-      'Deep to light greens for eco brands, wellness, and nature-inspired design.',
-    image: '/api/placeholder/400/250',
-    slug: 'forest-green',
-    publishedAt: '2025-02-10',
+    title: 'Ocean Breeze: A Calm Blue-to-Green Palette',
+    slug: 'ocean-breeze',
+    palette: ['#0EA5E9', '#06B6D4', '#14B8A6', '#10B981', '#34D399'],
+    publishedAt: '2025-02-09',
   },
   {
     id: 4,
-    title: 'Purple Dream: Royal to Lavender Palette',
-    description:
-      'Royal purple to soft lavender for creative brands and luxury design.',
-    image: '/api/placeholder/400/250',
-    slug: 'purple-dream',
+    title: 'Sunset Vibes: Bold Orange-to-Purple Palette',
+    slug: 'sunset-vibes',
+    palette: ['#F59E0B', '#F97316', '#EF4444', '#EC4899', '#A855F7'],
     publishedAt: '2025-02-10',
+  },
+  {
+    id: 5,
+    title: 'Forest Green: A Natural Green Palette',
+    slug: 'forest-green',
+    palette: ['#065F46', '#047857', '#059669', '#10B981', '#34D399'],
+    publishedAt: '2025-02-11',
+  },
+  {
+    id: 6,
+    title: 'Purple Dream: Royal to Lavender Palette',
+    slug: 'purple-dream',
+    palette: ['#581C87', '#7C3AED', '#8B5CF6', '#A78BFA', '#C4B5FD'],
+    publishedAt: '2025-02-12',
+  },
+  {
+    id: 7,
+    title: 'How to Check Color Contrast for Accessibility (WCAG Guide)',
+    slug: 'how-to-check-color-contrast-accessibility',
+    palette: ['#111827', '#374151', '#6b7280', '#9ca3af', '#ffffff'],
+    publishedAt: '2025-03-13',
+  },
+  {
+    id: 8,
+    title: 'Best Neutral Colors to Pair With Your Brand Color',
+    slug: 'best-neutral-colors-pair-with-brand',
+    palette: ['#1c1917', '#57534e', '#a8a29e', '#e7e5e4', '#fafaf9'],
+    publishedAt: '2025-03-15',
+  },
+  {
+    id: 9,
+    title: 'E-commerce Color Palettes: Product-First vs Brand-First Approaches',
+    slug: 'ecommerce-color-palettes-product-first-vs-brand-first',
+    palette: ['#2563eb', '#0ea5e9', '#f59e0b', '#ef4444', '#111827'],
+    publishedAt: '2025-03-19',
   },
 ];
 
 export default function Home() {
+  const [blogPage, setBlogPage] = useState(1);
+  const BLOG_CARDS_PER_PAGE = 50;
+  const totalBlogPages = Math.ceil(latestPosts.length / BLOG_CARDS_PER_PAGE);
+
+  const paginatedPosts = useMemo(() => {
+    const start = (blogPage - 1) * BLOG_CARDS_PER_PAGE;
+    const end = start + BLOG_CARDS_PER_PAGE;
+    return latestPosts.slice(start, end);
+  }, [blogPage]);
+
+  const goToBlogPage = (nextPage) => {
+    const page = Math.max(1, Math.min(totalBlogPages, nextPage));
+    setBlogPage(page);
+    const section = document.getElementById('latest-blog-section');
+    if (section) {
+      section.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  };
+
   return (
     <div className="min-h-screen bg-white dark:bg-gray-900">
       {/* Hero Section */}
@@ -247,7 +293,7 @@ export default function Home() {
       </section>
 
       {/* Popular Color Palettes Section */}
-      <section className="py-20 bg-white dark:bg-gray-900">
+      <section id="latest-blog-section" className="py-20 bg-white dark:bg-gray-900">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -293,65 +339,16 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Featured Tool Section */}
-      <section className="py-20 bg-gray-50 dark:bg-gray-800">
+      {/* Ad Space Placeholder (moved where Featured Tool was) */}
+      <section className="py-12 bg-gray-100 dark:bg-gray-800">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="max-w-4xl mx-auto"
-          >
-            <h2 className="text-3xl md:text-4xl font-bold text-center mb-4 text-gray-900 dark:text-white">
-              Featured Tool
-            </h2>
-            <p className="text-center text-gray-800 dark:text-gray-400 mb-12 max-w-2xl mx-auto">
-              Professional tools to generate palettes and ensure accessibility compliance
-            </p>
-            <div className="bg-white dark:bg-gray-900 rounded-2xl shadow-xl p-8 md:p-12">
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                <div className="text-center">
-                  <div className="w-20 h-20 mx-auto mb-4 bg-gradient-to-br from-blue-500 to-cyan-500 rounded-2xl flex items-center justify-center">
-                    <svg className="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01" />
-                    </svg>
-                  </div>
-                  <h3 className="text-xl font-bold mb-2 text-gray-900 dark:text-white">
-                    Palette Generator
-                  </h3>
-                  <p className="text-gray-800 dark:text-gray-400 mb-4 text-sm">
-                    Generate harmonious color palettes using color theory principles.
-                  </p>
-                  <Link
-                    href="/tools/palette-generator"
-                    className="inline-block px-4 py-2 bg-gradient-to-r from-blue-600 to-cyan-600 text-white rounded-lg text-sm font-semibold hover:shadow-lg transition-all"
-                  >
-                    Try Now
-                  </Link>
-                </div>
-                <div className="text-center">
-                  <div className="w-20 h-20 mx-auto mb-4 bg-gradient-to-br from-green-500 to-emerald-500 rounded-2xl flex items-center justify-center">
-                    <svg className="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
-                    </svg>
-                  </div>
-                  <h3 className="text-xl font-bold mb-2 text-gray-900 dark:text-white">
-                    Contrast Checker
-                  </h3>
-                  <p className="text-gray-800 dark:text-gray-400 mb-4 text-sm">
-                    Check color contrast ratios for WCAG accessibility compliance.
-                  </p>
-                  <Link
-                    href="/tools/contrast-checker"
-                    className="inline-block px-4 py-2 bg-gradient-to-r from-green-600 to-emerald-600 text-white rounded-lg text-sm font-semibold hover:shadow-lg transition-all"
-                  >
-                    Try Now
-                  </Link>
-                </div>
-              </div>
+          <div className="max-w-4xl mx-auto text-center">
+            <div className="bg-white dark:bg-gray-900 rounded-lg p-8 border-2 border-dashed border-gray-300 dark:border-gray-700">
+              <p className="text-gray-700 dark:text-gray-400 text-sm">
+                Ad Space (728x90)
+              </p>
             </div>
-          </motion.div>
+          </div>
         </div>
       </section>
 
@@ -380,8 +377,8 @@ export default function Home() {
                 View All →
               </Link>
             </div>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {latestPosts.map((post, index) => (
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+              {paginatedPosts.map((post, index) => (
                 <motion.article
                   key={post.id}
                   initial={{ opacity: 0, y: 20 }}
@@ -391,52 +388,51 @@ export default function Home() {
                   className="group"
                 >
                   <Link href={`/blog/${post.slug}`}>
-                    <div className="bg-white dark:bg-gray-900 rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 overflow-hidden h-full flex flex-col">
-                      {/* Image Preview */}
-                      <div className="h-48 bg-gradient-to-br from-gray-200 to-gray-300 dark:from-gray-700 dark:to-gray-800 relative overflow-hidden">
-                        {index === 0 ? (
-                          <Image
-                            src="/img1.avif"
-                            alt={post.title}
-                            fill
-                            className="object-cover"
-                            sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"
+                    <div className="bg-white dark:bg-gray-900 rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 overflow-hidden border border-gray-100 dark:border-gray-800">
+                      {/* Image-only card */}
+                      <div className="h-40 md:h-44 lg:h-48 flex relative overflow-hidden">
+                        {post.palette.map((color, i) => (
+                          <div
+                            key={i}
+                            className="flex-1 min-w-0 transition-all duration-300 group-hover:flex-[1.08]"
+                            style={{ backgroundColor: color }}
                           />
-                        ) : (
-                          <div className="absolute inset-0 bg-gradient-to-br from-purple-400 via-pink-400 to-blue-400" />
-                        )}
-                      </div>
-                      
-                      {/* Post Content */}
-                      <div className="p-6 flex-grow flex flex-col">
-                        <div className="mb-3">
-                          {post.publishedAt && (
-                            <time className="text-xs font-medium text-gray-500 dark:text-gray-400">
-                              {new Date(post.publishedAt).toLocaleDateString('en-US', {
-                                month: 'short',
-                                day: 'numeric',
-                                year: 'numeric',
-                              })}
-                            </time>
-                          )}
-                        </div>
-                        <h3 className="text-xl font-bold mb-3 text-gray-900 dark:text-white group-hover:text-purple-600 dark:group-hover:text-purple-400 transition-colors line-clamp-2">
-                          {post.title}
-                        </h3>
-                        <p className="text-gray-600 dark:text-gray-400 mb-4 line-clamp-3 flex-grow">
-                          {post.description}
-                        </p>
-                        <div className="flex items-center text-purple-600 dark:text-purple-400 font-semibold text-sm group-hover:gap-2 transition-all">
-                          <span>Read More</span>
-                          <svg className="w-4 h-4 ml-1 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                          </svg>
-                        </div>
+                        ))}
+                        <span className="sr-only">{post.title}</span>
                       </div>
                     </div>
                   </Link>
                 </motion.article>
               ))}
+            </div>
+            <div className="mt-8 flex items-center justify-center gap-2 flex-wrap">
+              <button
+                onClick={() => goToBlogPage(blogPage - 1)}
+                disabled={blogPage === 1}
+                className="px-3 py-2 rounded-lg border border-gray-200 dark:border-gray-700 text-sm font-medium text-gray-700 dark:text-gray-200 disabled:opacity-50 disabled:cursor-not-allowed hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors"
+              >
+                Prev
+              </button>
+              {Array.from({ length: totalBlogPages }, (_, i) => i + 1).map((page) => (
+                <button
+                  key={page}
+                  onClick={() => goToBlogPage(page)}
+                  className={`w-9 h-9 rounded-lg text-sm font-semibold transition-colors ${
+                    blogPage === page
+                      ? 'bg-purple-600 text-white'
+                      : 'border border-gray-200 dark:border-gray-700 text-gray-700 dark:text-gray-200 hover:bg-gray-50 dark:hover:bg-gray-800'
+                  }`}
+                >
+                  {page}
+                </button>
+              ))}
+              <button
+                onClick={() => goToBlogPage(blogPage + 1)}
+                disabled={blogPage === totalBlogPages}
+                className="px-3 py-2 rounded-lg border border-gray-200 dark:border-gray-700 text-sm font-medium text-gray-700 dark:text-gray-200 disabled:opacity-50 disabled:cursor-not-allowed hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors"
+              >
+                Next
+              </button>
             </div>
             <div className="text-center mt-8 md:hidden">
               <Link
@@ -450,18 +446,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Ad Space Placeholder */}
-      <section className="py-12 bg-gray-100 dark:bg-gray-800">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="max-w-4xl mx-auto text-center">
-            <div className="bg-white dark:bg-gray-900 rounded-lg p-8 border-2 border-dashed border-gray-300 dark:border-gray-700">
-              <p className="text-gray-700 dark:text-gray-400 text-sm">
-                Ad Space (728x90)
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
     </div>
   );
 }

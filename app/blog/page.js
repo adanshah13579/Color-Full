@@ -10,6 +10,7 @@ const CARD_PALETTES = {
   'purple-dream': ['#4c1d95', '#7c3aed', '#a78bfa', '#c4b5fd', '#e9d5ff'],
   'how-to-check-color-contrast-accessibility': ['#111827', '#374151', '#6b7280', '#9ca3af', '#ffffff'],
   'best-neutral-colors-pair-with-brand': ['#1c1917', '#57534e', '#a8a29e', '#e7e5e4', '#fafaf9'],
+  'ecommerce-color-palettes-product-first-vs-brand-first': ['#2563eb', '#0ea5e9', '#f59e0b', '#ef4444', '#111827'],
 };
 
 // Static blog posts data
@@ -33,7 +34,7 @@ const staticPosts = [
     title: 'Ocean Breeze: A Calm Blue-to-Green Palette',
     slug: { current: 'ocean-breeze' },
     excerpt: 'A soothing palette of sky blue, teal, and mint green for calm, professional design.',
-    publishedAt: '2025-02-10',
+    publishedAt: '2025-02-09',
   },
   {
     _id: '4',
@@ -47,21 +48,21 @@ const staticPosts = [
     title: 'Forest Green: A Natural Green Palette',
     slug: { current: 'forest-green' },
     excerpt: 'Deep to light greens for eco brands, wellness, and nature-inspired design.',
-    publishedAt: '2025-02-10',
+    publishedAt: '2025-02-11',
   },
   {
     _id: '6',
     title: 'Purple Dream: Royal to Lavender Palette',
     slug: { current: 'purple-dream' },
     excerpt: 'Royal purple to soft lavender for creative brands and luxury design.',
-    publishedAt: '2025-02-10',
+    publishedAt: '2025-02-12',
   },
   {
     _id: '7',
     title: 'How to Check Color Contrast for Accessibility (WCAG Guide)',
     slug: { current: 'how-to-check-color-contrast-accessibility' },
     excerpt: 'Learn how to check color contrast for accessibility. WCAG AA and AAA ratios, contrast checker tools, and practical tips for readable, compliant text and UI.',
-    publishedAt: '2025-03-15',
+    publishedAt: '2025-03-13',
   },
   {
     _id: '8',
@@ -69,6 +70,13 @@ const staticPosts = [
     slug: { current: 'best-neutral-colors-pair-with-brand' },
     excerpt: 'Neutral colors for branding: grays, off-whites, and warm vs cool neutrals that pair with blue, green, and any brand color. Plus contrast-safe text and background combos.',
     publishedAt: '2025-03-15',
+  },
+  {
+    _id: '9',
+    title: 'E-commerce Color Palettes: Product-First vs Brand-First Approaches',
+    slug: { current: 'ecommerce-color-palettes-product-first-vs-brand-first' },
+    excerpt: 'Learn ecommerce color palette strategies: product-first vs brand-first store colors, with hex examples and WCAG-safe testing using our palette generator and contrast checker.',
+    publishedAt: '2025-03-19',
   },
 ];
 

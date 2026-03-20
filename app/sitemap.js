@@ -8,6 +8,7 @@ const blogPosts = [
   "color-palette-ideas-for-small-business",
   "how-to-check-color-contrast-accessibility",
   "best-neutral-colors-pair-with-brand",
+  "ecommerce-color-palettes-product-first-vs-brand-first",
   "ocean-breeze",
   "sunset-vibes",
   "forest-green",
