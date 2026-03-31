@@ -78,6 +78,20 @@ const latestPosts = [
     palette: ['#2563eb', '#0ea5e9', '#f59e0b', '#ef4444', '#111827'],
     publishedAt: '2025-03-19',
   },
+  {
+    id: 10,
+    title: 'How to Build an Accessible Dark Mode Color Palette (With Hex Examples)',
+    slug: 'accessible-dark-mode-color-palette',
+    palette: ['#0a0a0a', '#171717', '#3f3f46', '#e4e4e7', '#818cf8'],
+    publishedAt: '2026-04-01',
+  },
+  {
+    id: 11,
+    title: 'WCAG Contrast for Buttons and Links: Hex Examples for Web UI',
+    slug: 'wcag-accessible-buttons-and-links',
+    palette: ['#ffffff', '#1e40af', '#1d4ed8', '#1e293b', '#0ea5e9'],
+    publishedAt: '2026-04-02',
+  },
 ];
 
 export default function Home() {

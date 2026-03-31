@@ -11,6 +11,8 @@ const CARD_PALETTES = {
   'how-to-check-color-contrast-accessibility': ['#111827', '#374151', '#6b7280', '#9ca3af', '#ffffff'],
   'best-neutral-colors-pair-with-brand': ['#1c1917', '#57534e', '#a8a29e', '#e7e5e4', '#fafaf9'],
   'ecommerce-color-palettes-product-first-vs-brand-first': ['#2563eb', '#0ea5e9', '#f59e0b', '#ef4444', '#111827'],
+  'accessible-dark-mode-color-palette': ['#0a0a0a', '#171717', '#3f3f46', '#e4e4e7', '#818cf8'],
+  'wcag-accessible-buttons-and-links': ['#ffffff', '#1e40af', '#1d4ed8', '#1e293b', '#0ea5e9'],
 };
 
 // Static blog posts data
@@ -77,6 +79,22 @@ const staticPosts = [
     slug: { current: 'ecommerce-color-palettes-product-first-vs-brand-first' },
     excerpt: 'Learn ecommerce color palette strategies: product-first vs brand-first store colors, with hex examples and WCAG-safe testing using our palette generator and contrast checker.',
     publishedAt: '2025-03-19',
+  },
+  {
+    _id: '10',
+    title: 'How to Build an Accessible Dark Mode Color Palette (With Hex Examples)',
+    slug: { current: 'accessible-dark-mode-color-palette' },
+    excerpt:
+      'Define canvas, surface, text, and accent roles for dark UI. Three WCAG-oriented palette examples with hex codes, plus how to test with a contrast checker and palette generator.',
+    publishedAt: '2026-04-01',
+  },
+  {
+    _id: '11',
+    title: 'WCAG Contrast for Buttons and Links: Hex Examples for Web UI',
+    slug: { current: 'wcag-accessible-buttons-and-links' },
+    excerpt:
+      'Pick link and button colors that pass WCAG AA: filled CTAs, outline buttons, dark bands, focus rings—with hex swatches next to each tip and our contrast checker to verify.',
+    publishedAt: '2026-04-02',
   },
 ];
 

@@ -9,6 +9,8 @@ const blogPosts = [
   "how-to-check-color-contrast-accessibility",
   "best-neutral-colors-pair-with-brand",
   "ecommerce-color-palettes-product-first-vs-brand-first",
+  "accessible-dark-mode-color-palette",
+  "wcag-accessible-buttons-and-links",
   "ocean-breeze",
   "sunset-vibes",
   "forest-green",
