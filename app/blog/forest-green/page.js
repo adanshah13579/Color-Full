@@ -59,6 +59,11 @@ export default function ForestGreenPage() {
                   <p className="mb-6">
                     On this page, you&apos;ll find a practical breakdown of how to use Forest Green in branding, UI design, interiors, and product styling. We&apos;ll cover color psychology, best pairings, hex codes, and concrete use cases, so you can decide if this palette actually fits your brand—or if you should keep it as a supporting accent instead.
                   </p>
+                  <p className="mb-6">
+                    Need the fastest copy-paste values first? See our{' '}
+                    <InlineTagLink href="/blog/forest-green-hex-code">Forest Green hex code and color reference</InlineTagLink>{' '}
+                    for CSS <code className="bg-gray-100 dark:bg-gray-800 px-1.5 py-0.5 rounded text-sm">forestgreen</code>, deep UI greens, palette hex list, and Ocean Breeze codes side by side.
+                  </p>
 
                   <h2 className="text-2xl font-bold text-gray-900 dark:text-white mt-8 mb-4">
                     What Is the Forest Green Palette?
@@ -76,6 +81,74 @@ export default function ForestGreenPage() {
                     If you need more variations, you can quickly generate tints, shades, and complementary colors with the{' '}
                     <InlineTagLink href="/tools/palette-generator">palette generator</InlineTagLink>. Start from any one of these hex codes and build a larger system instead of guessing by eye in your design tool.
                   </p>
+
+                  <h2 className="text-2xl font-bold text-gray-900 dark:text-white mt-8 mb-4">
+                    Forest Green color plates: full hex access
+                  </h2>
+                  <p className="mb-4">
+                    Use the swatches below to copy any Forest Green hex or RGB in one click. The same five stops appear in the sticky sidebar on large screens; this block keeps every plate within reach on mobile and when you are reading top to bottom.
+                  </p>
+                  <div className="not-prose flex flex-wrap gap-4 mb-6">
+                    {PALETTE.map((c) => (
+                      <ColorSwatch key={c.hexCode} color={c.hexCode} name={c.colorName} hexCode={c.hexCode} />
+                    ))}
+                  </div>
+                  <div className="not-prose lg:hidden mb-8">
+                    <ColorPaletteClient colors={PALETTE} designTitle="Forest Green" />
+                  </div>
+
+                  <div className="not-prose my-8 rounded-xl border border-emerald-200 dark:border-emerald-800 bg-emerald-50/90 dark:bg-emerald-950/50 p-6 md:p-8">
+                    <h3 className="text-xl font-bold text-emerald-950 dark:text-emerald-100 mb-2">
+                      Palette generator: Forest Green shades and codes
+                    </h3>
+                    <p className="text-emerald-900/90 dark:text-emerald-200/90 text-base leading-relaxed mb-4">
+                      Open our free{' '}
+                      <Link
+                        href="/tools/palette-generator"
+                        className="font-semibold text-emerald-800 dark:text-emerald-300 underline underline-offset-2 hover:text-emerald-950 dark:hover:text-white"
+                      >
+                        color palette generator
+                      </Link>{' '}
+                      with Forest Green preloaded as the base color. Choose <strong className="text-emerald-950 dark:text-emerald-50">Monochromatic</strong> for lighter and darker shades of the same hue (ideal for hover, borders, and surfaces), or try analogous or complementary harmonies from the same anchor.
+                    </p>
+                    <p className="text-sm font-medium text-emerald-950 dark:text-emerald-100 mb-3">
+                      Monochromatic shades from each plate (one-click):
+                    </p>
+                    <div className="flex flex-wrap gap-2 mb-4">
+                      {PALETTE.map((c) => (
+                        <Link
+                          key={`gen-mono-${c.hexCode}`}
+                          href={`/tools/palette-generator?hex=${c.hexCode.replace('#', '')}&harmony=monochromatic`}
+                          className="inline-flex items-center rounded-lg bg-emerald-700 px-3 py-2 text-sm font-medium text-white shadow-sm hover:bg-emerald-800 dark:hover:bg-emerald-600 transition-colors"
+                        >
+                          Shades from {c.colorName}
+                        </Link>
+                      ))}
+                    </div>
+                    <p className="text-sm font-medium text-emerald-950 dark:text-emerald-100 mb-2">
+                      From deep forest (#065F46), explore full harmonies:
+                    </p>
+                    <div className="flex flex-wrap gap-2">
+                      <Link
+                        href="/tools/palette-generator?hex=065F46&harmony=analogous"
+                        className="inline-flex rounded-lg border border-emerald-700 bg-white/80 dark:bg-emerald-900/60 px-3 py-2 text-sm font-medium text-emerald-900 dark:text-emerald-100 hover:bg-white dark:hover:bg-emerald-900 transition-colors"
+                      >
+                        Analogous palette
+                      </Link>
+                      <Link
+                        href="/tools/palette-generator?hex=065F46&harmony=complementary"
+                        className="inline-flex rounded-lg border border-emerald-700 bg-white/80 dark:bg-emerald-900/60 px-3 py-2 text-sm font-medium text-emerald-900 dark:text-emerald-100 hover:bg-white dark:hover:bg-emerald-900 transition-colors"
+                      >
+                        Complementary palette
+                      </Link>
+                      <Link
+                        href="/tools/palette-generator?hex=065F46&harmony=triadic"
+                        className="inline-flex rounded-lg border border-emerald-700 bg-white/80 dark:bg-emerald-900/60 px-3 py-2 text-sm font-medium text-emerald-900 dark:text-emerald-100 hover:bg-white dark:hover:bg-emerald-900 transition-colors"
+                      >
+                        Triadic palette
+                      </Link>
+                    </div>
+                  </div>
 
                   <h2 className="text-2xl font-bold text-gray-900 dark:text-white mt-8 mb-4">
                     The Psychology of Forest Green

@@ -7,6 +7,7 @@ const CARD_PALETTES = {
   'ocean-breeze': ['#0ea5e9', '#14b8a6', '#2dd4bf', '#6ee7b7', '#a7f3d0'],
   'sunset-vibes': ['#ea580c', '#dc2626', '#ec4899', '#a855f7', '#7c3aed'],
   'forest-green': ['#14532d', '#15803d', '#22c55e', '#4ade80', '#bbf7d0'],
+  'forest-green-hex-code': ['#228b22', '#065f46', '#047857', '#10b981', '#34d399'],
   'purple-dream': ['#4c1d95', '#7c3aed', '#a78bfa', '#c4b5fd', '#e9d5ff'],
   'how-to-check-color-contrast-accessibility': ['#111827', '#374151', '#6b7280', '#9ca3af', '#ffffff'],
   'best-neutral-colors-pair-with-brand': ['#1c1917', '#57534e', '#a8a29e', '#e7e5e4', '#fafaf9'],
@@ -51,6 +52,14 @@ const staticPosts = [
     slug: { current: 'forest-green' },
     excerpt: 'Deep to light greens for eco brands, wellness, and nature-inspired design.',
     publishedAt: '2025-02-11',
+  },
+  {
+    _id: '12',
+    title: 'Forest Green Hex Code & Color Codes (Palette, Schemes + Ocean Breeze)',
+    slug: { current: 'forest-green-hex-code' },
+    excerpt:
+      'Forest green hex, RGB, and colour codes: CSS #228B22, deep UI greens, a five-color palette, scheme ideas, and Ocean Breeze hex codes with copy-ready swatches.',
+    publishedAt: '2026-04-11',
   },
   {
     _id: '6',

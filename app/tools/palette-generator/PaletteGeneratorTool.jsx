@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { SketchPicker } from 'react-color';
 
@@ -130,11 +130,31 @@ const generateRandomColor = () => {
   return color;
 };
 
+/** Accepts `065F46` or `#065F46` from URL query `hex` or `color`. */
+const normalizeHexQuery = (raw) => {
+  if (!raw || typeof raw !== 'string') return null;
+  let h = raw.trim();
+  if (h.startsWith('#')) h = h.slice(1);
+  if (!/^[a-fA-F0-9]{6}$/.test(h)) return null;
+  return `#${h.toUpperCase()}`;
+};
+
 export default function PaletteGeneratorTool() {
   const [baseColor, setBaseColor] = useState('#3B82F6');
   const [showPicker, setShowPicker] = useState(false);
   const [selectedPalette, setSelectedPalette] = useState('monochromatic');
   const palettes = generatePalettes(baseColor);
+
+  useEffect(() => {
+    if (typeof window === 'undefined') return;
+    const params = new URLSearchParams(window.location.search);
+    const fromQuery = normalizeHexQuery(params.get('hex') || params.get('color'));
+    if (fromQuery) setBaseColor(fromQuery);
+    const harmony = params.get('harmony');
+    if (harmony && paletteNames[harmony]) {
+      setSelectedPalette(harmony);
+    }
+  }, []);
 
   const copyColor = (color) => navigator.clipboard.writeText(color);
   const copyPalette = (paletteKey) => navigator.clipboard.writeText(palettes[paletteKey].join(', '));
