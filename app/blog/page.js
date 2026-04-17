@@ -8,6 +8,7 @@ const CARD_PALETTES = {
   'sunset-vibes': ['#ea580c', '#dc2626', '#ec4899', '#a855f7', '#7c3aed'],
   'forest-green': ['#14532d', '#15803d', '#22c55e', '#4ade80', '#bbf7d0'],
   'forest-green-hex-code': ['#228b22', '#065f46', '#047857', '#10b981', '#34d399'],
+  'ocean-breeze-hex-code': ['#0ea5e9', '#06b6d4', '#14b8a6', '#10b981', '#34d399'],
   'purple-dream': ['#4c1d95', '#7c3aed', '#a78bfa', '#c4b5fd', '#e9d5ff'],
   'how-to-check-color-contrast-accessibility': ['#111827', '#374151', '#6b7280', '#9ca3af', '#ffffff'],
   'best-neutral-colors-pair-with-brand': ['#1c1917', '#57534e', '#a8a29e', '#e7e5e4', '#fafaf9'],
@@ -55,11 +56,19 @@ const staticPosts = [
   },
   {
     _id: '12',
-    title: 'Forest Green Hex Code & Color Codes (Palette, Schemes + Ocean Breeze)',
+    title: 'Forest Green Hex Code: #228B22, RGB & UI greens (copy-paste)',
     slug: { current: 'forest-green-hex-code' },
     excerpt:
-      'Forest green hex, RGB, and colour codes: CSS #228B22, deep UI greens, a five-color palette, scheme ideas, and Ocean Breeze hex codes with copy-ready swatches.',
+      'Forest green hex code (#228B22 for CSS), deeper UI greens, RGB, a five-color palette, scheme ideas, and Ocean Breeze pairings—with copy-ready swatches.',
     publishedAt: '2026-04-11',
+  },
+  {
+    _id: '13',
+    title: 'Ocean Breeze Hex Codes: Color & Colour Codes (Copy-Paste)',
+    slug: { current: 'ocean-breeze-hex-code' },
+    excerpt:
+      'Ocean Breeze color and colour codes with RGB values: #0EA5E9, #06B6D4, #14B8A6, #10B981, and #34D399. Copy-ready swatches, CSS variables, and contrast tips.',
+    publishedAt: '2026-04-17',
   },
   {
     _id: '6',

@@ -15,6 +15,7 @@ const blogPosts = [
   "sunset-vibes",
   "forest-green",
   "forest-green-hex-code",
+  "ocean-breeze-hex-code",
   "purple-dream",
 ];
 

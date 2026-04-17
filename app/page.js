@@ -4,6 +4,7 @@ import Link from 'next/link';
 import InlineTagLink from './components/InlineTagLink';
 import { motion } from 'framer-motion';
 import { useMemo, useState } from 'react';
+import { PILLAR_GUIDES, TOOL_HUB_LINKS } from '../lib/site-pillar-links';
 
 // Featured palettes (each links to a blog post)
 const featuredPalettes = [
@@ -52,41 +53,55 @@ const latestPosts = [
   },
   {
     id: 6,
+    title: 'Forest Green Hex Code: #228B22, RGB & UI greens (copy-paste)',
+    slug: 'forest-green-hex-code',
+    palette: ['#228b22', '#065f46', '#047857', '#10b981', '#34d399'],
+    publishedAt: '2026-04-11',
+  },
+  {
+    id: 7,
+    title: 'Ocean Breeze Hex Codes: Color & Colour Codes (Copy-Paste)',
+    slug: 'ocean-breeze-hex-code',
+    palette: ['#0ea5e9', '#06b6d4', '#14b8a6', '#10b981', '#34d399'],
+    publishedAt: '2026-04-17',
+  },
+  {
+    id: 8,
     title: 'Purple Dream: Royal to Lavender Palette',
     slug: 'purple-dream',
     palette: ['#581C87', '#7C3AED', '#8B5CF6', '#A78BFA', '#C4B5FD'],
     publishedAt: '2025-02-12',
   },
   {
-    id: 7,
+    id: 9,
     title: 'How to Check Color Contrast for Accessibility (WCAG Guide)',
     slug: 'how-to-check-color-contrast-accessibility',
     palette: ['#111827', '#374151', '#6b7280', '#9ca3af', '#ffffff'],
     publishedAt: '2025-03-13',
   },
   {
-    id: 8,
+    id: 10,
     title: 'Best Neutral Colors to Pair With Your Brand Color',
     slug: 'best-neutral-colors-pair-with-brand',
     palette: ['#1c1917', '#57534e', '#a8a29e', '#e7e5e4', '#fafaf9'],
     publishedAt: '2025-03-15',
   },
   {
-    id: 9,
+    id: 11,
     title: 'E-commerce Color Palettes: Product-First vs Brand-First Approaches',
     slug: 'ecommerce-color-palettes-product-first-vs-brand-first',
     palette: ['#2563eb', '#0ea5e9', '#f59e0b', '#ef4444', '#111827'],
     publishedAt: '2025-03-19',
   },
   {
-    id: 10,
+    id: 12,
     title: 'How to Build an Accessible Dark Mode Color Palette (With Hex Examples)',
     slug: 'accessible-dark-mode-color-palette',
     palette: ['#0a0a0a', '#171717', '#3f3f46', '#e4e4e7', '#818cf8'],
     publishedAt: '2026-04-01',
   },
   {
-    id: 11,
+    id: 13,
     title: 'WCAG Contrast for Buttons and Links: Hex Examples for Web UI',
     slug: 'wcag-accessible-buttons-and-links',
     palette: ['#ffffff', '#1e40af', '#1d4ed8', '#1e293b', '#0ea5e9'],
@@ -348,6 +363,32 @@ export default function Home() {
                   </Link>
                 </motion.div>
               ))}
+            </div>
+            <div className="mt-10 max-w-3xl mx-auto rounded-2xl border border-gray-200 dark:border-gray-800 bg-gray-50 dark:bg-gray-800/50 px-4 py-5 sm:px-6 text-left">
+              <p className="text-xs font-semibold uppercase tracking-wide text-gray-500 dark:text-gray-400 mb-3">
+                Guides &amp; hex references
+              </p>
+              <p className="text-sm text-gray-700 dark:text-gray-300 leading-relaxed mb-3">
+                Jump to our most-read references—then use the{' '}
+                {TOOL_HUB_LINKS.map(({ href, label }, i) => (
+                  <span key={href}>
+                    {i > 0 ? ' or ' : ''}
+                    <InlineTagLink href={href}>{label}</InlineTagLink>
+                  </span>
+                ))}{' '}
+                to build and verify palettes.
+              </p>
+              <div className="flex flex-wrap gap-x-3 gap-y-2 text-sm">
+                {PILLAR_GUIDES.map(({ href, label }) => (
+                  <Link
+                    key={href}
+                    href={href}
+                    className="text-purple-600 dark:text-purple-400 font-medium hover:underline"
+                  >
+                    {label}
+                  </Link>
+                ))}
+              </div>
             </div>
           </motion.div>
         </div>

@@ -2,6 +2,7 @@
 
 import Link from 'next/link';
 import { motion } from 'framer-motion';
+import { PILLAR_GUIDES, TOOL_HUB_LINKS } from '../../lib/site-pillar-links';
 
 const DEFAULT_PALETTE = ['#8B5CF6', '#EC4899', '#F59E0B', '#10B981', '#3B82F6'];
 
@@ -26,6 +27,40 @@ export default function BlogClient({ posts, cardPalettes = {} }) {
               Discover the latest color palettes, design tips, and professional guidance
             </p>
           </motion.div>
+        </div>
+      </section>
+
+      {/* Pillar links: pass equity from /blog to guides + tools */}
+      <section className="pb-0 pt-4 bg-gray-50 dark:bg-gray-950">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="max-w-6xl mx-auto rounded-2xl border border-gray-200 dark:border-gray-800 bg-white dark:bg-gray-900 px-4 py-5 sm:px-6">
+            <p className="text-xs font-semibold uppercase tracking-wide text-gray-500 dark:text-gray-400 mb-3">
+              Popular guides &amp; tools
+            </p>
+            <div className="flex flex-wrap gap-x-4 gap-y-2 text-sm">
+              {PILLAR_GUIDES.map(({ href, label }) => (
+                <Link
+                  key={href}
+                  href={href}
+                  className="text-purple-600 dark:text-purple-400 font-medium hover:underline"
+                >
+                  {label}
+                </Link>
+              ))}
+              <span className="text-gray-300 dark:text-gray-600 hidden sm:inline" aria-hidden>
+                |
+              </span>
+              {TOOL_HUB_LINKS.map(({ href, label }) => (
+                <Link
+                  key={href}
+                  href={href}
+                  className="text-gray-700 dark:text-gray-300 font-medium hover:text-purple-600 dark:hover:text-purple-400 hover:underline"
+                >
+                  {label}
+                </Link>
+              ))}
+            </div>
+          </div>
         </div>
       </section>
 

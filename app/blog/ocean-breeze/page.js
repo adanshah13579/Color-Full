@@ -84,6 +84,11 @@ export default function OceanBreezePage() {
                   <p className="mb-6">
                     For dashboards and data-heavy UIs, Ocean Breeze can drive charts and status indicators: for example, Sky Blue for primary data series, Teal for secondary, and Emerald for positive or “on” states. Keep neutrals (white, light gray, dark gray) for text and surfaces so the palette does not overwhelm the content.
                   </p>
+                  <p className="mb-6">
+                    Need just the quick copy values? Jump to the{' '}
+                    <InlineTagLink href="/blog/ocean-breeze-hex-code">Ocean Breeze hex code reference</InlineTagLink>{' '}
+                    for color/colour spellings, RGB values, and copy-paste swatches.
+                  </p>
 
                   <h2 className="text-2xl font-bold text-gray-900 dark:text-white mt-8 mb-4">Using Ocean Breeze in Code: CSS Variables and Design Tokens</h2>
                   <p className="mb-4">

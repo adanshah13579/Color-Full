@@ -5,9 +5,9 @@ import ColorSwatch from '../[slug]/ColorSwatch';
 import BlogToolsCTA from '../components/BlogToolsCTA';
 
 export const metadata = {
-  title: 'Forest Green Hex Code & Color Codes (Palette, Schemes + Ocean Breeze) | Theme & Color',
+  title: 'Forest Green Hex Code: #228B22, RGB & UI greens (copy-paste) | Theme & Color',
   description:
-    'Forest green hex and colour codes: CSS #228B22, common web greens, full palette with RGB, color scheme ideas, and Ocean Breeze hex codes—with copy-ready swatches and links to our tools.',
+    'Forest green hex code (#228B22 for CSS forestgreen), deeper UI greens, RGB, a five-color palette, scheme ideas, and Ocean Breeze pairings—copy-ready swatches.',
 };
 
 const FOREST_PALETTE = [

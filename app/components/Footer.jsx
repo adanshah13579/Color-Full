@@ -1,10 +1,11 @@
 import Link from 'next/link';
+import { PILLAR_GUIDES } from '../../lib/site-pillar-links';
 
 export default function Footer() {
   return (
     <footer className="bg-white dark:bg-gray-900 border-t border-gray-200 dark:border-gray-800 mt-auto">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-8">
           {/* Brand */}
           <div className="lg:col-span-2">
             <div className="flex items-center space-x-2 mb-4">
@@ -84,6 +85,23 @@ export default function Footer() {
                   Luxury Automotive Palettes
                 </Link>
               </li>
+            </ul>
+          </div>
+
+          {/* Guides – pillar internal links for crawl + discovery */}
+          <div>
+            <h3 className="font-semibold text-gray-900 dark:text-white mb-4">Guides</h3>
+            <ul className="space-y-2">
+              {PILLAR_GUIDES.map(({ href, label }) => (
+                <li key={href}>
+                  <Link
+                    href={href}
+                    className="text-gray-600 dark:text-gray-400 hover:text-purple-600 dark:hover:text-purple-400 transition-colors text-sm"
+                  >
+                    {label}
+                  </Link>
+                </li>
+              ))}
             </ul>
           </div>
 

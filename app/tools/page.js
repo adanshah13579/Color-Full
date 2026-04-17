@@ -2,6 +2,7 @@
 
 import Link from 'next/link';
 import { motion } from 'framer-motion';
+import { PILLAR_GUIDES } from '../../lib/site-pillar-links';
 
 const tools = [
   {
@@ -133,6 +134,23 @@ export default function ToolsPage() {
               Together, these free online color tools give you a practical way to design, test, and maintain a
               professional color system across marketing sites, apps, and design systems&mdash;without sacrificing
               performance, legibility, or brand consistency.
+            </p>
+            <h3 className="mt-8 mb-3 text-gray-900 dark:text-white">Related guides</h3>
+            <p className="mb-3">
+              Deep dives that pair with these tools:{' '}
+              {PILLAR_GUIDES.map(({ href, label }, i) => (
+                <span key={href}>
+                  {i > 0 ? ', ' : ''}
+                  <Link href={href} className="text-purple-600 dark:text-purple-400 font-semibold hover:underline">
+                    {label}
+                  </Link>
+                </span>
+              ))}
+              . See the full list on the{' '}
+              <Link href="/blog" className="text-purple-600 dark:text-purple-400 font-semibold hover:underline">
+                color blog
+              </Link>
+              .
             </p>
           </div>
         </motion.section>
