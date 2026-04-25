@@ -48,6 +48,13 @@ export default function Header() {
               Tools
             </Link>
             <Link 
+              href="/tools/color-mixer" 
+              className="text-gray-900 dark:text-gray-300 hover:text-purple-600 dark:hover:text-purple-400 transition-colors font-medium"
+              style={theme === 'light' ? { color: '#111827' } : {}}
+            >
+              Color Mixer
+            </Link>
+            <Link 
               href="/blog" 
               className="text-gray-900 dark:text-gray-300 hover:text-purple-600 dark:hover:text-purple-400 transition-colors font-medium"
               style={theme === 'light' ? { color: '#111827' } : {}}

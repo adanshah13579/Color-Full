@@ -89,6 +89,10 @@ export default function OceanBreezePage() {
                     <InlineTagLink href="/blog/ocean-breeze-hex-code">Ocean Breeze hex code reference</InlineTagLink>{' '}
                     for color/colour spellings, RGB values, and copy-paste swatches.
                   </p>
+                  <p className="mb-6">
+                    For paint-style experiments, try our{' '}
+                    <InlineTagLink href="/tools/color-mixer">Color Mixing Simulator</InlineTagLink> to mix Ocean Breeze colors with warm complements and compare practical blend outcomes.
+                  </p>
 
                   <h2 className="text-2xl font-bold text-gray-900 dark:text-white mt-8 mb-4">Using Ocean Breeze in Code: CSS Variables and Design Tokens</h2>
                   <p className="mb-4">

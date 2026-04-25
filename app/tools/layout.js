@@ -1,6 +1,6 @@
 export const metadata = {
   title: 'Color Tools - Design Tools for Color Schemes',
-  description: 'Explore our collection of color tools including color customizer, palette generator, and contrast checker.',
+  description: 'Explore color tools including palette generator, contrast checker, and color mixing simulator for paint-style RYB blends.',
 };
 
 export default function ToolsLayout({ children }) {

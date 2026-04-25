@@ -181,6 +181,10 @@ export default function ForestGreenHexCodePage() {
                     To extend this range (hover, disabled, dark mode), use the{' '}
                     <InlineTagLink href="/tools/palette-generator">palette generator</InlineTagLink> starting from any of these hex values.
                   </p>
+                  <p className="mb-6">
+                    If you are planning physical-media palettes or art-style blends, test combinations in our{' '}
+                    <InlineTagLink href="/tools/color-mixer">Color Mixing Simulator</InlineTagLink> to see how forest tones shift in an RYB paint model.
+                  </p>
 
                   <h2 className="text-2xl font-bold text-gray-900 dark:text-white mt-8 mb-4">
                     Forest green color scheme ideas
@@ -231,6 +235,9 @@ export default function ForestGreenHexCodePage() {
                     </li>
                     <li>
                       <InlineTagLink href="/tools/palette-generator">Generate harmonies from any forest green hex</InlineTagLink>
+                    </li>
+                    <li>
+                      <InlineTagLink href="/tools/color-mixer">Mix forest green with accent colors in the Color Mixing Simulator</InlineTagLink>
                     </li>
                   </ul>
 

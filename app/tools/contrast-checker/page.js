@@ -37,6 +37,9 @@ export default function ContrastCheckerPage() {
             <p className="text-gray-600 dark:text-gray-400 text-base leading-relaxed">
               Check contrast between text and background colors. Enter your colors below to see the ratio and WCAG AA/AAA pass or fail. Build palettes first with our <InlineTagLink href="/tools/palette-generator">palette generator</InlineTagLink>, then test pairs here.
             </p>
+            <p className="text-gray-600 dark:text-gray-400 text-sm mt-2">
+              Also try our <InlineTagLink href="/tools/color-mixer">Color Mixing Simulator</InlineTagLink> for paint-style RYB color blends.
+            </p>
           </header>
         </div>
 

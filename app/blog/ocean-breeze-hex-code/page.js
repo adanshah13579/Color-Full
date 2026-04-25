@@ -158,6 +158,10 @@ export default function OceanBreezeHexCodePage() {
                     Need more shades from these anchors? Open the{' '}
                     <InlineTagLink href="/tools/palette-generator">palette generator</InlineTagLink> and generate monochromatic or analogous variants from any Ocean Breeze hex above.
                   </p>
+                  <p className="mb-8">
+                    Want to test what colors make when mixed like paint? Use the{' '}
+                    <InlineTagLink href="/tools/color-mixer">Color Mixing Simulator</InlineTagLink> to blend Ocean Breeze tones with warm or neutral accents using an RYB model.
+                  </p>
 
                   <BlogToolsCTA />
                 </div>

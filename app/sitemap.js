@@ -1,5 +1,6 @@
 import { readdir, readFile } from 'node:fs/promises';
 import path from 'node:path';
+import { MIX_COMBINATIONS } from './tools/color-mixer/colorMixing';
 
 const BASE_URL = 'https://themeandcolor.com';
 const APP_DIR = path.join(process.cwd(), 'app');
@@ -52,6 +53,7 @@ const staticRoutes = [
   { path: 'tools', priority: 0.9, changeFrequency: 'weekly' },
   { path: 'tools/palette-generator', priority: 0.9, changeFrequency: 'weekly' },
   { path: 'tools/contrast-checker', priority: 0.9, changeFrequency: 'weekly' },
+  { path: 'tools/color-mixer', priority: 0.9, changeFrequency: 'weekly' },
   { path: 'blog', priority: 0.8, changeFrequency: 'weekly' },
   { path: 'use-cases/colors-for-ui-and-web-design', priority: 0.8, changeFrequency: 'monthly' },
   { path: 'use-cases/colors-for-branding-and-logos', priority: 0.8, changeFrequency: 'monthly' },
@@ -69,7 +71,13 @@ export default async function sitemap() {
     priority: 0.7,
     changeFrequency: 'monthly',
   }));
-  const routes = [...staticRoutes, ...blogRoutes];
+  const colorMixRoutes = MIX_COMBINATIONS.map(([a, b]) => ({
+    path: `tools/color-mixer/${a}-and-${b}`,
+    priority: 0.7,
+    changeFrequency: 'monthly',
+  }));
+
+  const routes = [...staticRoutes, ...blogRoutes, ...colorMixRoutes];
   const lastModified = new Date();
 
   return routes.map(({ path, priority, changeFrequency }) => ({

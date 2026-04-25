@@ -163,7 +163,8 @@ export default function Home() {
                 Start with the{' '}
                 <InlineTagLink href="/tools/palette-generator">palette generator</InlineTagLink>{' '}
                 for UI and brand work, then confirm readable text and backgrounds with the{' '}
-                <InlineTagLink href="/tools/contrast-checker">WCAG contrast checker</InlineTagLink>.
+                <InlineTagLink href="/tools/contrast-checker">WCAG contrast checker</InlineTagLink>. Need paint-style results too? Try the{' '}
+                <InlineTagLink href="/tools/color-mixer">color mixing simulator</InlineTagLink>.
               </p>
 
               {/* CTA Buttons */}
@@ -315,7 +316,7 @@ export default function Home() {
           <div className="max-w-3xl mx-auto text-center">
             <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">Popular Tools</h2>
             <p className="text-gray-600 dark:text-gray-400 text-base leading-relaxed">
-              Use our <InlineTagLink href="/tools/palette-generator">color palette generator</InlineTagLink> to create harmonious palettes from a base color, then verify readability with our <InlineTagLink href="/tools/contrast-checker">accessibility contrast checker</InlineTagLink> for WCAG-compliant text and background pairs.
+              Use our <InlineTagLink href="/tools/palette-generator">color palette generator</InlineTagLink> to create harmonious palettes from a base color, verify readability with our <InlineTagLink href="/tools/contrast-checker">accessibility contrast checker</InlineTagLink> for WCAG-compliant text/background pairs, and test paint-style blends in the <InlineTagLink href="/tools/color-mixer">color mixing simulator</InlineTagLink>.
             </p>
           </div>
         </div>

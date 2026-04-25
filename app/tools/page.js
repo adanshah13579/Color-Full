@@ -21,6 +21,14 @@ const tools = [
     href: '/tools/contrast-checker',
     gradient: 'from-green-500 to-emerald-500',
   },
+  {
+    id: 'color-mixer',
+    name: 'Color Mixing Simulator',
+    description: 'Mix two colors using real paint-style RYB logic. See mixed hex, RGB values, and closest color names instantly.',
+    icon: '🎨',
+    href: '/tools/color-mixer',
+    gradient: 'from-fuchsia-500 to-orange-500',
+  },
 ];
 
 export default function ToolsPage() {
@@ -129,6 +137,15 @@ export default function ToolsPage() {
               </Link>{' '}
               helps you validate text and background pairs against WCAG contrast ratios. Quickly see which combinations
               pass AA or AAA, then adjust your palette before development so your interface ships accessible by default.
+            </p>
+            <h3>Color mixing simulator</h3>
+            <p className="mb-3">
+              Try the{' '}
+              <Link href="/tools/color-mixer" className="text-purple-600 dark:text-purple-400 font-semibold">
+                color mixing simulator
+              </Link>{' '}
+              to see what colors make when mixed like paint, not digital light. It uses an RYB color model so combinations
+              like blue + yellow resolve to realistic green-style mixes.
             </p>
             <p>
               Together, these free online color tools give you a practical way to design, test, and maintain a
