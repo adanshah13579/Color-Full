@@ -362,13 +362,16 @@ export async function generateMetadata({ params }) {
       }
     }
 
+  const resolvedTitle = post.metaTitle || `${post.title} - Theme & Color Blog`
+  const resolvedDescription = post.metaDescription || post.excerpt
+
     return {
-    title: post.metaTitle || `${post.title} - Theme & Color Blog`,
-      description: post.metaDescription || post.excerpt,
+    title: resolvedTitle,
+      description: resolvedDescription,
     keywords: 'color trends 2025, web design colors, UI design palettes, color psychology, design trends, color schemes, modern color palettes',
     openGraph: {
-      title: post.title,
-      description: post.excerpt,
+      title: resolvedTitle,
+      description: resolvedDescription,
       type: 'article',
       publishedTime: post.publishedAt,
     },

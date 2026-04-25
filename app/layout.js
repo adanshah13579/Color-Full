@@ -17,11 +17,10 @@ const SITE_URL = "https://themeandcolor.com";
 export const metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
-    default: "Theme & Color - Advanced Color Tools for Modern Designers",
-    template: "%s | Theme & Color",
+    default: 'Theme & Color — Advanced Color Tools for Modern Designers',
+    template: '%s | Theme & Color',
   },
-  description:
-    "Theme & Color helps you design professional, accessible color palettes. Explore generators, contrast checking tools, and in-depth articles on color trends and best practices.",
+  description: 'Professional color tools for designers and developers. Generate accessible palettes, check WCAG contrast, and document color systems.',
   keywords:
     "theme and color, themeandcolor, color palette, color scheme, color picker, contrast checker, palette generator, design tools, theme generator, WCAG contrast",
   authors: [{ name: "Theme & Color", url: SITE_URL }],
@@ -33,27 +32,20 @@ export const metadata = {
     googleBot: { index: true, follow: true },
   },
   openGraph: {
-    type: "website",
-    locale: "en_US",
-    url: SITE_URL,
-    siteName: "Theme & Color",
-    title: "Theme & Color - Advanced Color Tools for Modern Designers",
-    description:
-      "Theme & Color helps you design professional, accessible color palettes. Free palette generator, contrast checker, and color design articles.",
+    siteName: 'Theme & Color',
+    type: 'website',
     images: [
       {
-        url: "/icon.png",
-        width: 512,
-        height: 512,
-        alt: "Theme & Color",
+        url: '/og-default.png',
+        width: 1200,
+        height: 630,
+        alt: 'Theme & Color — Color Tools for Designers',
       },
     ],
   },
   twitter: {
-    card: "summary_large_image",
-    title: "Theme & Color - Advanced Color Tools for Modern Designers",
-    description:
-      "Theme & Color helps you design professional, accessible color palettes. Free palette generator, contrast checker, and color design articles.",
+    card: 'summary_large_image',
+    site: '@themeandcolor',
   },
   alternates: {
     canonical: SITE_URL,
