@@ -6,14 +6,24 @@ import {
   PRESET_COLORS,
   getClosestNamedColor,
   getColorLabel,
-  hexToRgb,
   mixHexColorsRyb,
-} from './colorMixing';
+} from '../colorMixing';
 
 const DEFAULT_COLOR_1 = '#FF0000';
 const DEFAULT_COLOR_2 = '#0000FF';
 
-function PresetGrid({ onSelect, activeHex }) {
+type ColorMixerProps = {
+  initialColor1?: string;
+  initialColor2?: string;
+  showRelated?: boolean;
+};
+
+type PresetGridProps = {
+  onSelect: (hex: string) => void;
+  activeHex: string;
+};
+
+function PresetGrid({ onSelect, activeHex }: PresetGridProps) {
   return (
     <div className="grid grid-cols-5 gap-2">
       {PRESET_COLORS.map((preset) => {
@@ -39,7 +49,11 @@ function PresetGrid({ onSelect, activeHex }) {
   );
 }
 
-export default function ColorMixerTool({ initialColor1 = DEFAULT_COLOR_1, initialColor2 = DEFAULT_COLOR_2, showRelated = false }) {
+export default function ColorMixer({
+  initialColor1 = DEFAULT_COLOR_1,
+  initialColor2 = DEFAULT_COLOR_2,
+  showRelated = false,
+}: ColorMixerProps) {
   const [color1, setColor1] = useState(initialColor1.toUpperCase());
   const [color2, setColor2] = useState(initialColor2.toUpperCase());
   const [copied, setCopied] = useState(false);

@@ -230,6 +230,12 @@ export const MIX_COMBINATIONS = [
   ['blue', 'white'],
   ['black', 'white'],
   ['red', 'black'],
+  ['yellow', 'green'],
+  ['orange', 'red'],
+  ['blue', 'purple'],
+  ['green', 'yellow'],
+  ['pink', 'blue'],
+  ['brown', 'orange'],
 ];
 
 export const PRESET_MAP = Object.fromEntries(

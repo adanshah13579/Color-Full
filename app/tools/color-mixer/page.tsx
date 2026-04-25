@@ -1,4 +1,4 @@
-import ColorMixerTool from './ColorMixerTool';
+import ColorMixer from './components/ColorMixer';
 import { getCombinationMix } from './colorMixing';
 
 export const metadata = {
@@ -61,11 +61,11 @@ const faqSchema = {
   })),
 };
 
-function InlineSwatch({ hex }) {
+function InlineSwatch({ hex }: { hex: string }) {
   return <span className="inline-block w-4 h-4 rounded align-middle mx-1 border border-gray-300 dark:border-gray-600" style={{ backgroundColor: hex }} />;
 }
 
-function FAQItem({ item }) {
+function FAQItem({ item }: { item: (typeof faqData)[number] }) {
   return (
     <div className="rounded-lg border border-gray-200 dark:border-gray-700 p-4 bg-white dark:bg-gray-800">
       <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-2">
@@ -103,7 +103,7 @@ export default function ColorMixerPage() {
         </div>
 
         <div className="max-w-5xl mx-auto">
-          <ColorMixerTool />
+          <ColorMixer />
         </div>
 
         <section className="max-w-5xl mx-auto mt-12 space-y-4">
