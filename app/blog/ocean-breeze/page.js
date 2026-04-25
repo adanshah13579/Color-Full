@@ -5,9 +5,9 @@ import ColorSwatch from '../[slug]/ColorSwatch';
 import BlogToolsCTA from '../components/BlogToolsCTA';
 
 export const metadata = {
-  title: 'Ocean Breeze Color Palette: Hex Codes, Uses & Accessibility | Theme & Color',
+  title: 'Ocean Breeze Color Palette: Hex Codes, Shades & Pairings | Theme & Color',
   description:
-    'Complete guide to the Ocean Breeze color palette: all five hex codes, RGB values, best uses for web and UI design, CSS variables, and WCAG contrast tips.',
+    'The ocean breeze color palette combines calming blues and teals. Get all hex codes, see shade variations, and explore pairings for UI and brand design.',
 };
 
 const PALETTE = [

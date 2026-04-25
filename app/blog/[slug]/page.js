@@ -7,6 +7,47 @@ import GradientSwatch from './GradientSwatch'
 import BlogToolsCTA from '../components/BlogToolsCTA'
 import BlogToolsCTAInline from '../components/BlogToolsCTAInline'
 
+const TOOL_LINKS = {
+  'palette generator': '/tools/palette-generator',
+  'contrast checker': '/tools/contrast-checker',
+  'color contrast': '/tools/contrast-checker',
+  wcag: '/tools/contrast-checker',
+}
+
+const TOOL_TERM_REGEX = /\b(palette generator|contrast checker|color contrast|WCAG)\b/gi
+
+function renderTextWithToolLinks(text) {
+  if (!text || typeof text !== 'string') return text
+
+  const nodes = []
+  let lastIndex = 0
+
+  for (const match of text.matchAll(TOOL_TERM_REGEX)) {
+    const matchText = match[0]
+    const start = match.index ?? 0
+    const end = start + matchText.length
+    const href = TOOL_LINKS[matchText.toLowerCase()]
+
+    if (start > lastIndex) {
+      nodes.push(text.slice(lastIndex, start))
+    }
+
+    nodes.push(
+      <Link key={`${start}-${matchText}`} href={href} className="text-purple-600 dark:text-purple-400 underline hover:no-underline">
+        {matchText}
+      </Link>
+    )
+
+    lastIndex = end
+  }
+
+  if (lastIndex < text.length) {
+    nodes.push(text.slice(lastIndex))
+  }
+
+  return nodes.length > 0 ? nodes : text
+}
+
 // Static blog posts data
 const staticPosts = {
   '10-color-trends-for-2025': {
@@ -408,7 +449,7 @@ export default async function BlogPostPage({ params }) {
                       return (
                         <div key={block._key || index}>
                           <h2 className="text-2xl font-bold text-gray-900 dark:text-white mt-8 mb-4">
-                            {block.children[0]?.text}
+                            {renderTextWithToolLinks(block.children[0]?.text)}
                           </h2>
                           <div className="flex gap-4 mb-6 flex-wrap">
                             <ColorSwatch color="#00F5FF" name="Electric Cyan" hexCode="#00F5FF" />
@@ -425,7 +466,7 @@ export default async function BlogPostPage({ params }) {
                         <Fragment key={block._key || index}>
                           <div>
                             <h2 className="text-2xl font-bold text-gray-900 dark:text-white mt-8 mb-4">
-                              {block.children[0]?.text}
+                              {renderTextWithToolLinks(block.children[0]?.text)}
                             </h2>
                             <div className="flex gap-4 mb-6 flex-wrap">
                               <ColorSwatch color="#E0B0FF" name="Lavender" hexCode="#E0B0FF" />
@@ -443,7 +484,7 @@ export default async function BlogPostPage({ params }) {
                       return (
                         <div key={block._key || index}>
                           <h2 className="text-2xl font-bold text-gray-900 dark:text-white mt-8 mb-4">
-                            {block.children[0]?.text}
+                            {renderTextWithToolLinks(block.children[0]?.text)}
                           </h2>
                           <div className="flex gap-4 mb-6 flex-wrap">
                             <ColorSwatch color="#E07A5F" name="Terracotta" hexCode="#E07A5F" />
@@ -459,7 +500,7 @@ export default async function BlogPostPage({ params }) {
                       return (
                         <div key={block._key || index}>
                           <h2 className="text-2xl font-bold text-gray-900 dark:text-white mt-8 mb-4">
-                            {block.children[0]?.text}
+                            {renderTextWithToolLinks(block.children[0]?.text)}
                           </h2>
                           <div className="flex gap-4 mb-6 flex-wrap">
                             <GradientSwatch
@@ -491,7 +532,7 @@ export default async function BlogPostPage({ params }) {
                       return (
                         <div key={block._key || index}>
                           <h2 className="text-2xl font-bold text-gray-900 dark:text-white mt-8 mb-4">
-                            {block.children[0]?.text}
+                            {renderTextWithToolLinks(block.children[0]?.text)}
                           </h2>
                           <div className="flex gap-4 mb-6 flex-wrap">
                             <ColorSwatch color="#000000" name="Black" hexCode="#000000" />
@@ -507,7 +548,7 @@ export default async function BlogPostPage({ params }) {
                       return (
                         <div key={block._key || index}>
                           <h2 className="text-2xl font-bold text-gray-900 dark:text-white mt-8 mb-4">
-                            {block.children[0]?.text}
+                            {renderTextWithToolLinks(block.children[0]?.text)}
                           </h2>
                           <div className="flex gap-4 mb-6 flex-wrap">
                             <ColorSwatch color="#FF7F50" name="Coral" hexCode="#FF7F50" />
@@ -523,7 +564,7 @@ export default async function BlogPostPage({ params }) {
                       return (
                         <div key={block._key || index}>
                           <h2 className="text-2xl font-bold text-gray-900 dark:text-white mt-8 mb-4">
-                            {block.children[0]?.text}
+                            {renderTextWithToolLinks(block.children[0]?.text)}
                           </h2>
                           <div className="flex gap-4 mb-6 flex-wrap">
                             <ColorSwatch color="#1E3A8A" name="Deep Navy" hexCode="#1E3A8A" />
@@ -539,7 +580,7 @@ export default async function BlogPostPage({ params }) {
                       return (
                         <div key={block._key || index}>
                           <h2 className="text-2xl font-bold text-gray-900 dark:text-white mt-8 mb-4">
-                            {block.children[0]?.text}
+                            {renderTextWithToolLinks(block.children[0]?.text)}
                           </h2>
                           <div className="flex gap-4 mb-6 flex-wrap">
                             <ColorSwatch color="#6B21A8" name="Deep Violet" hexCode="#6B21A8" />
@@ -555,7 +596,7 @@ export default async function BlogPostPage({ params }) {
                       return (
                         <div key={block._key || index}>
                           <h2 className="text-2xl font-bold text-gray-900 dark:text-white mt-8 mb-4">
-                            {block.children[0]?.text}
+                            {renderTextWithToolLinks(block.children[0]?.text)}
                           </h2>
                           <div className="flex gap-4 mb-6 flex-wrap">
                             <ColorSwatch color="#059669" name="Emerald" hexCode="#059669" />
@@ -571,7 +612,7 @@ export default async function BlogPostPage({ params }) {
                       return (
                         <div key={block._key || index}>
                           <h2 className="text-2xl font-bold text-gray-900 dark:text-white mt-8 mb-4">
-                            {block.children[0]?.text}
+                            {renderTextWithToolLinks(block.children[0]?.text)}
                           </h2>
                           <div className="flex gap-4 mb-6 flex-wrap">
                             <GradientSwatch
@@ -602,20 +643,20 @@ export default async function BlogPostPage({ params }) {
                       const HeadingTag = `h${block.style.replace('h', '')}`;
                       return (
                         <HeadingTag key={block._key || index} className="font-bold text-gray-900 dark:text-white mt-8 mb-4">
-                          {block.children[0]?.text}
+                          {renderTextWithToolLinks(block.children[0]?.text)}
                         </HeadingTag>
                       );
                     }
                     if (block.listItem) {
                       return (
                         <li key={block._key || index} className="mb-2 text-gray-700 dark:text-gray-300">
-                          {block.children[0]?.text}
+                          {renderTextWithToolLinks(block.children[0]?.text)}
                         </li>
                       );
                     }
                     return (
                       <p key={block._key || index} className="text-gray-700 dark:text-gray-300 leading-relaxed mb-6">
-                        {block.children[0]?.text}
+                        {renderTextWithToolLinks(block.children[0]?.text)}
                       </p>
                     );
                   })}

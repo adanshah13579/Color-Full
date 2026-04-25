@@ -5,9 +5,9 @@ import ColorSwatch from '../[slug]/ColorSwatch';
 import BlogToolsCTA from '../components/BlogToolsCTA';
 
 export const metadata = {
-  title: 'Ocean Breeze Hex Codes: Color & Colour Codes (Copy-Paste) | Theme & Color',
+  title: 'Ocean Breeze Hex Codes: Blue & Teal Color Codes (Copy-Paste)',
   description:
-    'Ocean Breeze color hex and colour codes with RGB values: #0EA5E9, #06B6D4, #14B8A6, #10B981, #34D399. Copy-ready swatches, CSS variables, and contrast tips.',
+    'Ocean breeze hex codes include #0EA5E9, #06B6D4 and more. Copy the full palette, see shades and pairings, and build your own with our free color tool.',
 };
 
 const OCEAN_BREEZE = [
@@ -67,7 +67,7 @@ export default function OceanBreezeHexCodePage() {
               Back to Blog
             </Link>
             <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4 leading-tight">
-              Ocean Breeze Hex Codes: Color and Colour Reference
+              Ocean Breeze Hex Codes: Blue &amp; Teal Palette
             </h1>
             <div className="flex items-center gap-4 text-cyan-100 text-sm">
               <time dateTime="2026-04-17">April 17, 2026</time>
@@ -90,7 +90,7 @@ export default function OceanBreezeHexCodePage() {
               <div className="lg:col-span-2">
                 <div className="prose prose-lg max-w-none prose-headings:font-bold prose-headings:text-gray-900 dark:prose-headings:text-white prose-p:text-gray-700 dark:prose-p:text-gray-300 prose-p:leading-relaxed">
                   <p className="mb-6">
-                    If you searched for <strong className="text-gray-900 dark:text-white">Ocean Breeze color</strong>,{' '}
+                    Ocean Breeze starts with <strong className="text-gray-900 dark:text-white">#0EA5E9</strong> and <strong className="text-gray-900 dark:text-white">#06B6D4</strong>. If you searched for <strong className="text-gray-900 dark:text-white">Ocean Breeze color</strong>,{' '}
                     <strong className="text-gray-900 dark:text-white">Ocean Breeze colour</strong>, or{' '}
                     <strong className="text-gray-900 dark:text-white">Ocean Breeze hex code</strong>, you likely need copy-paste values fast. This page gives every hex and RGB code in one place, plus practical guidance for UI and brand usage.
                   </p>

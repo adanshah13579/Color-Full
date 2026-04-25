@@ -5,9 +5,9 @@ import ColorSwatch from '../[slug]/ColorSwatch';
 import BlogToolsCTA from '../components/BlogToolsCTA';
 
 export const metadata = {
-  title: 'Forest Green Hex Code: #228B22, RGB & UI greens (copy-paste) | Theme & Color',
+  title: 'Forest Green Hex Code: #228B22 — Shades, Palettes & Copy-Paste Codes',
   description:
-    'Forest green hex code (#228B22 for CSS forestgreen), deeper UI greens, RGB, a five-color palette, scheme ideas, and Ocean Breeze pairings—copy-ready swatches.',
+    'Forest green hex code is #228B22. Copy hex codes for 12 shades of forest green, see palette pairings, and use our free color tool. No sign-up needed.',
 };
 
 const FOREST_PALETTE = [
@@ -100,7 +100,7 @@ export default function ForestGreenHexCodePage() {
               Back to Blog
             </Link>
             <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4 leading-tight">
-              Forest Green Hex Code: Color Codes, Palette &amp; Schemes
+              Forest Green Hex Code: #228B22
             </h1>
             <p className="text-emerald-100 text-lg max-w-3xl mb-6">
               Quick reference for forest green hex, RGB, and colour codes—plus a ready-made forest green color palette, scheme ideas, and Ocean Breeze colors in one place.
@@ -126,7 +126,7 @@ export default function ForestGreenHexCodePage() {
               <div className="lg:col-span-2">
                 <div className="prose prose-lg max-w-none prose-headings:font-bold prose-headings:text-gray-900 dark:prose-headings:text-white prose-p:text-gray-700 dark:prose-p:text-gray-300 prose-p:leading-relaxed">
                   <p className="mb-6">
-                    If you searched for <strong className="text-gray-900 dark:text-white">forest green hex code</strong>,{' '}
+                    <strong className="text-gray-900 dark:text-white">#228B22</strong> is the forest green hex code most people need first. If you searched for <strong className="text-gray-900 dark:text-white">forest green hex code</strong>,{' '}
                     <strong className="text-gray-900 dark:text-white">forest green color code</strong>, or{' '}
                     <strong className="text-gray-900 dark:text-white">forest green colour code</strong>, you want a number you can paste into CSS, Figma, or a style guide. This page gives the most common web values, explains why they differ, and shows a full{' '}
                     <strong className="text-gray-900 dark:text-white">forest green color palette</strong> and{' '}
