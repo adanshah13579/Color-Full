@@ -4,12 +4,15 @@ import ColorPaletteClient from '../[slug]/ColorPaletteClient';
 import ColorSwatch from '../[slug]/ColorSwatch';
 import BlogToolsCTA from '../components/BlogToolsCTA';
 import BlogToolsCTAInline from '../components/BlogToolsCTAInline';
+import { buildPageMetadata } from '../../../lib/buildPageMetadata';
 
-export const metadata = {
+export const metadata = buildPageMetadata({
+  path: '/blog/accessible-dark-mode-color-palette',
   title: 'How to Build an Accessible Dark Mode Color Palette (With Hex Examples) | Theme & Color',
   description:
     'Build a WCAG-friendly dark mode color palette: surfaces, text, borders, and accents with hex examples. Test contrast and generate harmonies with free tools.',
-};
+  keywords: ['dark mode palette', 'WCAG', 'accessible UI', 'hex examples', 'Theme & Color'],
+});
 
 const SIDEBAR_PALETTE = [
   { hexCode: '#0a0a0a', colorName: 'Canvas', rgbCode: 'rgb(10, 10, 10)' },

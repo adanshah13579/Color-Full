@@ -3,12 +3,15 @@ import InlineTagLink from '../../components/InlineTagLink';
 import ColorPaletteClient from '../[slug]/ColorPaletteClient';
 import BlogToolsCTA from '../components/BlogToolsCTA';
 import BlogToolsCTAInline from '../components/BlogToolsCTAInline';
+import { buildPageMetadata } from '../../../lib/buildPageMetadata';
 
-export const metadata = {
+export const metadata = buildPageMetadata({
+  path: '/blog/how-to-check-color-contrast-accessibility',
   title: 'How to Check Color Contrast for Accessibility (WCAG Guide) | Theme & Color',
   description:
     'Learn how to check color contrast for accessibility. WCAG AA and AAA ratios, contrast checker tools, and practical tips for readable, compliant text and UI.',
-};
+  keywords: ['color contrast', 'WCAG', 'accessibility', 'AA AAA', 'Theme & Color'],
+});
 
 const SIDEBAR_PALETTE = [
   { hexCode: '#1a1a2e', colorName: 'Dark text', rgbCode: 'rgb(26, 26, 46)' },

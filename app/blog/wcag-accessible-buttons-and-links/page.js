@@ -4,12 +4,15 @@ import ColorPaletteClient from '../[slug]/ColorPaletteClient';
 import ColorSwatch from '../[slug]/ColorSwatch';
 import BlogToolsCTA from '../components/BlogToolsCTA';
 import BlogToolsCTAInline from '../components/BlogToolsCTAInline';
+import { buildPageMetadata } from '../../../lib/buildPageMetadata';
 
-export const metadata = {
+export const metadata = buildPageMetadata({
+  path: '/blog/wcag-accessible-buttons-and-links',
   title: 'WCAG Contrast for Buttons and Links: Hex Examples for Web UI | Theme & Color',
   description:
     'Pick accessible link and button colors for WCAG AA: contrast ratios, filled and outline CTAs, dark sections, focus rings. Hex swatches inline with each tip—test pairs in our free contrast checker.',
-};
+  keywords: ['WCAG buttons', 'link contrast', 'CTA colors', 'focus ring', 'Theme & Color'],
+});
 
 const SIDEBAR_PALETTE = [
   { hexCode: '#ffffff', colorName: 'Page', rgbCode: 'rgb(255, 255, 255)' },

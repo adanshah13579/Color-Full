@@ -3,12 +3,15 @@ import InlineTagLink from '../../components/InlineTagLink';
 import ColorPaletteClient from '../[slug]/ColorPaletteClient';
 import ColorSwatch from '../[slug]/ColorSwatch';
 import BlogToolsCTA from '../components/BlogToolsCTA';
+import { buildPageMetadata } from '../../../lib/buildPageMetadata';
 
-export const metadata = {
+export const metadata = buildPageMetadata({
+  path: '/blog/forest-green',
   title: 'Forest Green Color Palette: Meaning, Hex Codes & Best Uses | Theme & Color',
   description:
     'Forest Green is a deep, natural green palette for modern brands. Explore its meaning, psychology, hex codes, and best uses in branding, web design, UI, interiors, and products.',
-};
+  keywords: ['forest green', 'natural palette', 'green hex', 'branding', 'Theme & Color'],
+});
 
 const PALETTE = [
   { hexCode: '#065F46', colorName: 'Forest', rgbCode: 'rgb(6, 95, 70)' },
@@ -63,6 +66,10 @@ export default function ForestGreenPage() {
                     Need the fastest copy-paste values first? See our{' '}
                     <InlineTagLink href="/blog/forest-green-hex-code">Forest Green hex code and color reference</InlineTagLink>{' '}
                     for CSS <code className="bg-gray-100 dark:bg-gray-800 px-1.5 py-0.5 rounded text-sm">forestgreen</code>, deep UI greens, palette hex list, and Ocean Breeze codes side by side.
+                  </p>
+                  <p className="mb-6">
+                    Want to see what forest green looks like when mixed with other colors? Try our{' '}
+                    <InlineTagLink href="/tools/color-mixer">Color Mixing Simulator</InlineTagLink>.
                   </p>
 
                   <h2 className="text-2xl font-bold text-gray-900 dark:text-white mt-8 mb-4">

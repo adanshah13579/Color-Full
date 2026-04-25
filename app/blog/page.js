@@ -1,4 +1,21 @@
 import BlogClient from './BlogClient'
+import { buildPageMetadata } from '../../lib/buildPageMetadata'
+
+export const metadata = buildPageMetadata({
+  path: '/blog',
+  title: 'Color Design Blog',
+  description:
+    'Articles on color trends, WCAG accessibility, palette ideas, hex codes, and practical guides for web, UI, and brand design — from Theme & Color.',
+  keywords: [
+    'color blog',
+    'design trends',
+    'color palettes',
+    'WCAG',
+    'hex codes',
+    'UI color',
+    'Theme & Color',
+  ],
+})
 
 // Card image: color palette (array of hex) per post — matches Theme & Color brand
 const CARD_PALETTES = {

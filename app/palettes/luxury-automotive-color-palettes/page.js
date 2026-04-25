@@ -1,10 +1,14 @@
 import Link from 'next/link';
 import InlineTagLink from '../../components/InlineTagLink';
+import { buildPageMetadata } from '../../../lib/buildPageMetadata';
 
-export const metadata = {
-  title: 'Luxury Automotive Color Palettes for Exterior and Interior Design | Theme and Color',
-  description: 'Luxury automotive color palettes for exterior paint, interior materials, and digital configurators. Premium car colors and automotive brand colors with hex codes.',
-};
+export const metadata = buildPageMetadata({
+  path: '/palettes/luxury-automotive-color-palettes',
+  title: 'Luxury Automotive Color Palettes for Exterior and Interior Design',
+  description:
+    'Luxury automotive color palettes for exterior paint, interior materials, and digital configurators. Premium car colors and automotive brand colors with hex codes.',
+  keywords: ['automotive palette', 'luxury car colors', 'interior trim', 'configurator UI', 'Theme & Color'],
+});
 
 const PALETTE_COLORS = ['#0A0A0A', '#1A1A1A', '#2D2D2D', '#4A4A4A', '#7A6E5D', '#B8A88A', '#E8E2D8'];
 

@@ -1,10 +1,14 @@
 import Link from 'next/link';
 import InlineTagLink from '../../components/InlineTagLink';
+import { buildPageMetadata } from '../../../lib/buildPageMetadata';
 
-export const metadata = {
-  title: 'Colors for Industrial Products: Palettes for Durable and Product Design | Theme and Color',
-  description: 'How to use color systems in industrial and product design. Durables, packaging, machinery, and brand-consistent product color palettes.',
-};
+export const metadata = buildPageMetadata({
+  path: '/use-cases/colors-for-industrial-products',
+  title: 'Colors for Industrial Products: Palettes for Durable and Product Design',
+  description:
+    'How to use color systems in industrial and product design. Durables, packaging, machinery, and brand-consistent product color palettes.',
+  keywords: ['industrial design', 'product colors', 'packaging palette', 'durables', 'Theme & Color'],
+});
 
 export default function ColorsForIndustrialProductsPage() {
   return (

@@ -1,10 +1,14 @@
 import Link from 'next/link';
 import InlineTagLink from '../../components/InlineTagLink';
+import { buildPageMetadata } from '../../../lib/buildPageMetadata';
 
-export const metadata = {
-  title: 'Colors for Branding and Logos: Building Recognizable Identity | Theme and Color',
-  description: 'How to choose and apply colors for branding and logos. Logo color systems, brand guidelines, and palette structure for professional brand designers.',
-};
+export const metadata = buildPageMetadata({
+  path: '/use-cases/colors-for-branding-and-logos',
+  title: 'Colors for Branding and Logos: Building Recognizable Identity',
+  description:
+    'How to choose and apply colors for branding and logos. Logo color systems, brand guidelines, and palette structure for professional brand designers.',
+  keywords: ['branding colors', 'logo palette', 'brand guidelines', 'identity design', 'Theme & Color'],
+});
 
 export default function ColorsForBrandingAndLogosPage() {
   return (

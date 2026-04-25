@@ -1,10 +1,14 @@
 import Link from 'next/link';
 import InlineTagLink from '../../components/InlineTagLink';
+import { buildPageMetadata } from '../../../lib/buildPageMetadata';
 
-export const metadata = {
-  title: 'Colors for Fashion Design: Palettes for Apparel and Collections | Theme and Color',
-  description: 'How to use color palettes in fashion design. Seasonal collections, fabric and print coordination, and brand-aligned apparel color systems.',
-};
+export const metadata = buildPageMetadata({
+  path: '/use-cases/colors-for-fashion-design',
+  title: 'Colors for Fashion Design: Palettes for Apparel and Collections',
+  description:
+    'How to use color palettes in fashion design. Seasonal collections, fabric and print coordination, and brand-aligned apparel color systems.',
+  keywords: ['fashion colors', 'apparel palette', 'seasonal colors', 'collections', 'Theme & Color'],
+});
 
 export default function ColorsForFashionDesignPage() {
   return (

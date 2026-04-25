@@ -1,7 +1,12 @@
-export const metadata = {
-  title: 'Terms & Conditions - Theme & Color',
-  description: 'Read Theme & Color\'s Terms and Conditions to understand the rules and regulations for using our website and services.',
-};
+import { buildPageMetadata } from '../../lib/buildPageMetadata';
+
+export const metadata = buildPageMetadata({
+  path: '/terms',
+  title: 'Terms & Conditions',
+  description:
+    "Read Theme & Color's Terms and Conditions to understand the rules and regulations for using our website and services.",
+  keywords: ['terms of service', 'terms and conditions', 'Theme & Color', 'website rules'],
+});
 
 export default function TermsPage() {
   return (

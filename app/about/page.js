@@ -1,7 +1,12 @@
-export const metadata = {
-  title: 'About Us - Theme & Color',
-  description: 'Learn about Theme & Color, our mission to help designers create perfect color schemes, and our commitment to providing free, accessible color tools.',
-};
+import { buildPageMetadata } from '../../lib/buildPageMetadata';
+
+export const metadata = buildPageMetadata({
+  path: '/about',
+  title: 'About Us',
+  description:
+    'Learn about Theme & Color, our mission to help designers create perfect color schemes, and our commitment to providing free, accessible color tools.',
+  keywords: ['about Theme & Color', 'color tools', 'design mission', 'accessibility', 'color schemes'],
+});
 
 export default function AboutPage() {
   return (

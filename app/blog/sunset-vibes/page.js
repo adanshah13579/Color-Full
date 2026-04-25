@@ -3,12 +3,15 @@ import InlineTagLink from '../../components/InlineTagLink';
 import ColorPaletteClient from '../[slug]/ColorPaletteClient';
 import ColorSwatch from '../[slug]/ColorSwatch';
 import BlogToolsCTA from '../components/BlogToolsCTA';
+import { buildPageMetadata } from '../../../lib/buildPageMetadata';
 
-export const metadata = {
+export const metadata = buildPageMetadata({
+  path: '/blog/sunset-vibes',
   title: 'Sunset Vibes Color Palette: Hex Codes, Uses & Accessibility | Theme & Color',
   description:
     'Complete guide to the Sunset Vibes palette: all five hex codes, RGB values, best uses for web and UI, CSS variables, and WCAG contrast tips.',
-};
+  keywords: ['sunset palette', 'warm colors', 'WCAG', 'hex codes', 'Theme & Color'],
+});
 
 const PALETTE = [
   { hexCode: '#F59E0B', colorName: 'Amber', rgbCode: 'rgb(245, 158, 11)' },

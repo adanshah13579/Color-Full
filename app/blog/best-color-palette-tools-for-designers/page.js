@@ -1,10 +1,14 @@
 import Link from 'next/link';
 import InlineTagLink from '../../components/InlineTagLink';
+import { buildPageMetadata } from '../../../lib/buildPageMetadata';
 
-export const metadata = {
-  title: 'Best Color Palette Tools for Designers | Theme and Color',
-  description: 'Overview of color palette tools for UI, web, and brand design. What to look for in a palette generator and how to use them in your workflow.',
-};
+export const metadata = buildPageMetadata({
+  path: '/blog/best-color-palette-tools-for-designers',
+  title: 'Best Color Palette Tools for Designers',
+  description:
+    'Overview of color palette tools for UI, web, and brand design. What to look for in a palette generator and how to use them in your workflow.',
+  keywords: ['palette tools', 'color generator', 'UI design', 'workflow', 'Theme & Color'],
+});
 
 export default function BestColorPaletteToolsForDesignersPage() {
   return (

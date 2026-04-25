@@ -1,10 +1,14 @@
 import Link from 'next/link';
 import InlineTagLink from '../../components/InlineTagLink';
+import { buildPageMetadata } from '../../../lib/buildPageMetadata';
 
-export const metadata = {
-  title: 'Black and Gold Color Palette for Luxury Design | Theme and Color',
-  description: 'Black and gold color palette for luxury design. Hex codes for branding, UI, fashion, and premium products. Black gold hex colors and accessibility notes.',
-};
+export const metadata = buildPageMetadata({
+  path: '/palettes/black-and-gold',
+  title: 'Black and Gold Color Palette for Luxury Design',
+  description:
+    'Black and gold color palette for luxury design. Hex codes for branding, UI, fashion, and premium products. Black gold hex colors and accessibility notes.',
+  keywords: ['black and gold', 'luxury palette', 'gold hex', 'premium UI', 'Theme & Color'],
+});
 
 const PALETTE_COLORS = ['#000000', '#1C1C1C', '#D4AF37', '#B89B2E', '#F5E6A8'];
 

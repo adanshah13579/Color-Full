@@ -1,10 +1,14 @@
 import Link from 'next/link';
 import InlineTagLink from '../../components/InlineTagLink';
+import { buildPageMetadata } from '../../../lib/buildPageMetadata';
 
-export const metadata = {
-  title: 'Colors for UI and Web Design: Choosing the Right Color Systems | Theme and Color',
-  description: 'How color systems work in UI and web design. Brand consistency, usability, accessible UI colors, and design system colors for professional designers.',
-};
+export const metadata = buildPageMetadata({
+  path: '/use-cases/colors-for-ui-and-web-design',
+  title: 'Colors for UI and Web Design: Choosing the Right Color Systems',
+  description:
+    'How color systems work in UI and web design. Brand consistency, usability, accessible UI colors, and design system colors for professional designers.',
+  keywords: ['UI colors', 'web design', 'color system', 'design tokens', 'Theme & Color'],
+});
 
 export default function ColorsForUIAndWebDesignPage() {
   return (

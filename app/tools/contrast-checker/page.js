@@ -1,10 +1,22 @@
 import InlineTagLink from '../../components/InlineTagLink';
 import ContrastCheckerTool from './ContrastCheckerTool';
+import { buildPageMetadata } from '../../../lib/buildPageMetadata';
 
-export const metadata = {
-  title: 'WCAG Color Contrast Checker — AA/AAA | Theme & Color',
-  description: 'Check your color contrast ratio for WCAG 2.1 AA and AAA compliance. Free tool for designers and developers — instant results for text and background colors.',
-};
+export const metadata = buildPageMetadata({
+  path: '/tools/contrast-checker',
+  title: 'WCAG Color Contrast Checker — AA/AAA',
+  description:
+    'Check color contrast ratios for WCAG 2.1 AA and AAA compliance. Free tool for designers and developers — instant results for text and background pairs.',
+  keywords: [
+    'contrast checker',
+    'WCAG',
+    'accessibility',
+    'AA',
+    'AAA',
+    'color contrast ratio',
+    'Theme & Color',
+  ],
+});
 
 const contrastCheckerStructuredData = {
   '@context': 'https://schema.org',
@@ -127,6 +139,11 @@ export default function ContrastCheckerPage() {
               </div>
             </div>
           </section>
+
+          <p className="mt-10 text-gray-600 dark:text-gray-400 leading-relaxed">
+            Also try our{' '}
+            <InlineTagLink href="/tools/color-mixer">Color Mixing Simulator</InlineTagLink> to see what colors produce when mixed together.
+          </p>
         </div>
 
         <div className="mt-12 max-w-4xl mx-auto">

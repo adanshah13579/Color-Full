@@ -3,12 +3,15 @@ import InlineTagLink from '../../components/InlineTagLink';
 import ColorPaletteClient from '../[slug]/ColorPaletteClient';
 import ColorSwatch from '../[slug]/ColorSwatch';
 import BlogToolsCTA from '../components/BlogToolsCTA';
+import { buildPageMetadata } from '../../../lib/buildPageMetadata';
 
-export const metadata = {
+export const metadata = buildPageMetadata({
+  path: '/blog/ocean-breeze',
   title: 'Ocean Breeze Color Palette: Hex Codes, Shades & Pairings | Theme & Color',
   description:
     'The ocean breeze color palette combines calming blues and teals. Get all hex codes, see shade variations, and explore pairings for UI and brand design.',
-};
+  keywords: ['ocean breeze palette', 'blue teal hex', 'calm colors', 'UI palette', 'Theme & Color'],
+});
 
 const PALETTE = [
   { hexCode: '#0EA5E9', colorName: 'Sky Blue', rgbCode: 'rgb(14, 165, 233)' },
@@ -55,6 +58,10 @@ export default function OceanBreezePage() {
                 <div className="prose prose-lg max-w-none prose-headings:font-bold prose-headings:text-gray-900 dark:prose-headings:text-white prose-p:text-gray-700 dark:prose-p:text-gray-300 prose-p:leading-relaxed">
                   <p className="mb-6">
                     The Ocean Breeze color palette is a curated set of five colors that move from sky blue through cyan and teal to emerald and mint green. It is one of the most popular blue-green palettes for web design, branding, and UI because it feels calm, clear, and professional without feeling cold or corporate. In this guide we cover every hex code, where and how to use each color, how to implement the palette in code (including CSS variables and design tokens), and how to keep it accessible with proper contrast. Whether you are a designer choosing colors for a new project or a developer implementing a design system, you will have everything you need to use the Ocean Breeze palette effectively.
+                  </p>
+                  <p className="mb-6">
+                    Want to see what these blues and teals look like when mixed with other colors? Try our{' '}
+                    <InlineTagLink href="/tools/color-mixer">Color Mixing Simulator</InlineTagLink>.
                   </p>
 
                   <h2 className="text-2xl font-bold text-gray-900 dark:text-white mt-8 mb-4">What Is the Ocean Breeze Color Palette?</h2>

@@ -4,11 +4,15 @@ import ColorPaletteClient from '../[slug]/ColorPaletteClient';
 import ColorSwatch from '../[slug]/ColorSwatch';
 import BlogToolsCTA from '../components/BlogToolsCTA';
 
-export const metadata = {
+import { buildPageMetadata } from '../../../lib/buildPageMetadata';
+
+export const metadata = buildPageMetadata({
+  path: '/blog/ocean-breeze-hex-code',
   title: 'Ocean Breeze Hex Codes: Blue & Teal Color Codes (Copy-Paste)',
   description:
     'Ocean breeze hex codes include #0EA5E9, #06B6D4 and more. Copy the full palette, see shades and pairings, and build your own with our free color tool.',
-};
+  keywords: ['ocean breeze hex', 'teal hex codes', 'blue palette', 'copy paste colors', 'Theme & Color'],
+});
 
 const OCEAN_BREEZE = [
   { hexCode: '#0EA5E9', colorName: 'Sky Blue', rgbCode: 'rgb(14, 165, 233)' },

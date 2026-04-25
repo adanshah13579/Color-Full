@@ -2,6 +2,7 @@ import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import ColorMixer from '../components/ColorMixer';
 import { PRESET_MAP, getCombinationMix, toTitleCase } from '../colorMixing';
+import { buildPageMetadata } from '../../../../lib/buildPageMetadata';
 
 const COMBINATIONS = [
   'red-and-blue',
@@ -64,29 +65,52 @@ export async function generateStaticParams() {
   return COMBINATIONS.map((combo) => ({ combo }));
 }
 
-export async function generateMetadata({ params }: { params: { combo: string } }) {
-  const parsed = parseCombo(params.combo);
+export async function generateMetadata({ params }: { params: Promise<{ combo: string }> }) {
+  const { combo } = await params;
+  const parsed = parseCombo(combo);
   if (!parsed) {
-    return {
-      title: 'Color Mixing Simulator | Theme & Color',
-    };
+    return buildPageMetadata({
+      path: '/tools/color-mixer',
+      title: 'Color Mixing Simulator',
+      description:
+        'Mix any two colors with RYB paint-style blending. See hex, RGB, and closest color names instantly.',
+      keywords: ['color mixing', 'RYB', 'Theme & Color'],
+      openGraph: {
+        images: [
+          { url: '/og-color-mixer.png', width: 1200, height: 630, alt: 'Color Mixing Simulator preview' },
+        ],
+      },
+      twitter: { images: ['/og-color-mixer.png'] },
+    });
   }
 
   const c1 = parsed.color1.charAt(0).toUpperCase() + parsed.color1.slice(1);
   const c2 = parsed.color2.charAt(0).toUpperCase() + parsed.color2.slice(1);
-  return {
-    title: `What Color Does ${c1} and ${c2} Make? | Theme & Color`,
+  const comboPath = `/tools/color-mixer/${combo}`;
+  return buildPageMetadata({
+    path: comboPath,
+    title: `What Color Does ${c1} and ${c2} Make?`,
     description: `Mix ${c1} and ${c2} and see the exact result instantly. Find out what color ${c1.toLowerCase()} and ${c2.toLowerCase()} make using real RYB paint color theory with hex codes.`,
+    keywords: [
+      'color mixing',
+      `${c1.toLowerCase()} and ${c2.toLowerCase()}`,
+      'RYB',
+      'paint colors',
+      'hex',
+      'Theme & Color',
+    ],
     openGraph: {
-      title: `What Color Does ${c1} and ${c2} Make?`,
-      description: `See what happens when you mix ${c1} and ${c2}`,
-      url: `https://themeandcolor.com/tools/color-mixer/${params.combo}`,
+      images: [
+        { url: '/og-color-mixer.png', width: 1200, height: 630, alt: `Mix ${c1} and ${c2} — color mixer` },
+      ],
     },
-  };
+    twitter: { images: ['/og-color-mixer.png'] },
+  });
 }
 
-export default function ColorMixerCombinationPage({ params }: { params: { combo: string } }) {
-  const parsed = parseCombo(params.combo);
+export default async function ColorMixerCombinationPage({ params }: { params: Promise<{ combo: string }> }) {
+  const { combo } = await params;
+  const parsed = parseCombo(combo);
   if (!parsed) notFound();
 
   const mix = getCombinationMix(parsed.color1, parsed.color2);
@@ -94,7 +118,7 @@ export default function ColorMixerCombinationPage({ params }: { params: { combo:
 
   const c1 = parsed.color1.charAt(0).toUpperCase() + parsed.color1.slice(1);
   const c2 = parsed.color2.charAt(0).toUpperCase() + parsed.color2.slice(1);
-  const related = (RELATED[params.combo] || COMBINATIONS.filter((c) => c !== params.combo)).slice(0, 4);
+  const related = (RELATED[combo] || COMBINATIONS.filter((c) => c !== combo)).slice(0, 4);
 
   return (
     <div className="min-h-screen bg-white dark:bg-gray-900 py-12">

@@ -4,12 +4,15 @@ import ColorPaletteClient from '../[slug]/ColorPaletteClient';
 import ColorSwatch from '../[slug]/ColorSwatch';
 import BlogToolsCTA from '../components/BlogToolsCTA';
 import BlogToolsCTAInline from '../components/BlogToolsCTAInline';
+import { buildPageMetadata } from '../../../lib/buildPageMetadata';
 
-export const metadata = {
+export const metadata = buildPageMetadata({
+  path: '/blog/ecommerce-color-palettes-product-first-vs-brand-first',
   title: 'E-commerce Color Palettes: Product-First vs Brand-First Approaches | Theme & Color',
   description:
     'E-commerce color palettes for product-first and brand-first online stores, with hex codes and examples. Learn how to choose store colors and test them with palette and contrast tools.',
-};
+  keywords: ['ecommerce colors', 'store palette', 'product pages', 'branding', 'Theme & Color'],
+});
 
 const SIDEBAR_PALETTE = [
   { hexCode: '#020617', colorName: 'Near-black', rgbCode: 'rgb(2, 6, 23)' },

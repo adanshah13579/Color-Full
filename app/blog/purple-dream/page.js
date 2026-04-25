@@ -3,12 +3,15 @@ import InlineTagLink from '../../components/InlineTagLink';
 import ColorPaletteClient from '../[slug]/ColorPaletteClient';
 import ColorSwatch from '../[slug]/ColorSwatch';
 import BlogToolsCTA from '../components/BlogToolsCTA';
+import { buildPageMetadata } from '../../../lib/buildPageMetadata';
 
-export const metadata = {
+export const metadata = buildPageMetadata({
+  path: '/blog/purple-dream',
   title: 'Purple Dream Color Palette: Meaning, Hex Codes & Best Uses | Theme & Color',
   description:
     'Purple Dream is a royal-to-lavender purple palette for modern brands. Explore its meaning, psychology, hex codes, and best uses in branding, web design, UI, beauty, and creative products.',
-};
+  keywords: ['purple palette', 'lavender hex', 'brand colors', 'UI design', 'Theme & Color'],
+});
 
 const PALETTE = [
   { hexCode: '#581C87', colorName: 'Royal Purple', rgbCode: 'rgb(88, 28, 135)' },

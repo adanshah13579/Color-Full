@@ -1,5 +1,22 @@
 import InlineTagLink from '../../components/InlineTagLink';
 import PaletteGeneratorTool from './PaletteGeneratorTool';
+import { buildPageMetadata } from '../../../lib/buildPageMetadata';
+
+export const metadata = buildPageMetadata({
+  path: '/tools/palette-generator',
+  title: 'Color Palette Generator',
+  description:
+    'Free online color palette generator for UI, web, and brand design. Create harmonious palettes from one base color and export hex codes.',
+  keywords: [
+    'palette generator',
+    'color palette',
+    'hex codes',
+    'brand colors',
+    'UI design',
+    'harmony',
+    'Theme & Color',
+  ],
+});
 
 const paletteGeneratorStructuredData = {
   '@context': 'https://schema.org',

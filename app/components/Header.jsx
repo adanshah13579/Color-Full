@@ -1,10 +1,19 @@
 'use client';
 
 import Link from 'next/link';
+import { useState } from 'react';
 import { useTheme } from '../contexts/ThemeContext';
+
+const toolsSubLinks = [
+  { href: '/tools', label: 'All tools' },
+  { href: '/tools/palette-generator', label: 'Palette generator' },
+  { href: '/tools/contrast-checker', label: 'Contrast checker' },
+  { href: '/tools/color-mixer', label: 'Color Mixer' },
+];
 
 export default function Header() {
   const { theme, toggleTheme } = useTheme();
+  const [mobileOpen, setMobileOpen] = useState(false);
 
   return (
     <header 
@@ -40,20 +49,36 @@ export default function Header() {
             >
               Home
             </Link>
-            <Link 
-              href="/tools" 
-              className="text-gray-900 dark:text-gray-300 hover:text-purple-600 dark:hover:text-purple-400 transition-colors font-medium"
-              style={theme === 'light' ? { color: '#111827' } : {}}
-            >
-              Tools
-            </Link>
-            <Link 
-              href="/tools/color-mixer" 
-              className="text-gray-900 dark:text-gray-300 hover:text-purple-600 dark:hover:text-purple-400 transition-colors font-medium"
-              style={theme === 'light' ? { color: '#111827' } : {}}
-            >
-              Color Mixer
-            </Link>
+            <div className="relative group">
+              <Link
+                href="/tools"
+                className="inline-flex items-center gap-1 text-gray-900 dark:text-gray-300 group-hover:text-purple-600 dark:group-hover:text-purple-400 transition-colors font-medium"
+                style={theme === 'light' ? { color: '#111827' } : {}}
+                aria-haspopup="menu"
+              >
+                Tools
+                <svg className="w-4 h-4 opacity-70" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden>
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                </svg>
+              </Link>
+              <div
+                className="absolute left-0 top-full pt-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-[opacity,visibility] duration-150 z-50 min-w-[14rem]"
+                role="menu"
+              >
+                <div className="rounded-lg border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-900 shadow-lg py-1">
+                  {toolsSubLinks.map(({ href, label }) => (
+                    <Link
+                      key={href}
+                      href={href}
+                      className="block px-4 py-2.5 text-sm text-gray-800 dark:text-gray-200 hover:bg-purple-50 dark:hover:bg-gray-800 hover:text-purple-700 dark:hover:text-purple-300"
+                      role="menuitem"
+                    >
+                      {label}
+                    </Link>
+                  ))}
+                </div>
+              </div>
+            </div>
             <Link 
               href="/blog" 
               className="text-gray-900 dark:text-gray-300 hover:text-purple-600 dark:hover:text-purple-400 transition-colors font-medium"
@@ -95,14 +120,64 @@ export default function Header() {
 
             {/* Mobile Menu Button */}
             <div className="md:hidden">
-              <button className="p-2 rounded-lg bg-gradient-to-br from-purple-500 to-pink-500 dark:from-purple-600 dark:to-pink-600 hover:from-purple-600 hover:to-pink-600 dark:hover:from-purple-700 dark:hover:to-pink-700 transition-all duration-200 shadow-md">
-                <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+              <button
+                type="button"
+                onClick={() => setMobileOpen((o) => !o)}
+                className="p-2 rounded-lg bg-gradient-to-br from-purple-500 to-pink-500 dark:from-purple-600 dark:to-pink-600 hover:from-purple-600 hover:to-pink-600 dark:hover:from-purple-700 dark:hover:to-pink-700 transition-all duration-200 shadow-md"
+                aria-expanded={mobileOpen}
+                aria-controls="mobile-nav-menu"
+              >
+                <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden>
+                  {mobileOpen ? (
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                  ) : (
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+                  )}
                 </svg>
               </button>
             </div>
           </div>
         </div>
+
+        {mobileOpen && (
+          <div
+            id="mobile-nav-menu"
+            className="md:hidden border-t border-gray-200 dark:border-gray-800 py-4 px-2 space-y-1 bg-white dark:bg-gray-900"
+          >
+            <Link
+              href="/"
+              className="block px-3 py-2 rounded-lg text-gray-900 dark:text-gray-200 font-medium hover:bg-gray-100 dark:hover:bg-gray-800"
+              onClick={() => setMobileOpen(false)}
+            >
+              Home
+            </Link>
+            <p className="px-3 pt-2 text-xs font-semibold uppercase tracking-wide text-gray-500 dark:text-gray-400">Tools</p>
+            {toolsSubLinks.map(({ href, label }) => (
+              <Link
+                key={href}
+                href={href}
+                className="block pl-6 pr-3 py-2 rounded-lg text-gray-800 dark:text-gray-200 text-sm hover:bg-gray-100 dark:hover:bg-gray-800"
+                onClick={() => setMobileOpen(false)}
+              >
+                {label}
+              </Link>
+            ))}
+            <Link
+              href="/blog"
+              className="block px-3 py-2 rounded-lg text-gray-900 dark:text-gray-200 font-medium hover:bg-gray-100 dark:hover:bg-gray-800"
+              onClick={() => setMobileOpen(false)}
+            >
+              Blog
+            </Link>
+            <Link
+              href="/contact"
+              className="block px-3 py-2 rounded-lg text-gray-900 dark:text-gray-200 font-medium hover:bg-gray-100 dark:hover:bg-gray-800"
+              onClick={() => setMobileOpen(false)}
+            >
+              Contact
+            </Link>
+          </div>
+        )}
       </nav>
     </header>
   );

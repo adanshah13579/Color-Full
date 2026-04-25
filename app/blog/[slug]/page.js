@@ -1,6 +1,7 @@
 import Link from 'next/link'
 import { Fragment } from 'react'
 import { notFound } from 'next/navigation'
+import { buildPageMetadata } from '../../../lib/buildPageMetadata'
 import ColorPaletteClient from './ColorPaletteClient'
 import ColorSwatch from './ColorSwatch'
 import GradientSwatch from './GradientSwatch'
@@ -349,33 +350,38 @@ export async function generateMetadata({ params }) {
   const slug = resolvedParams?.slug || ''
 
   if (!slug) {
-    return {
-      title: 'Post Not Found - Theme & Color',
-    }
+    return buildPageMetadata({
+      path: '/blog',
+      title: 'Blog',
+      description: 'Color design articles and guides from Theme & Color.',
+      keywords: ['blog', 'color design', 'Theme & Color'],
+    })
   }
 
   const post = staticPosts[slug]
+  if (!post) {
+    return buildPageMetadata({
+      path: '/blog',
+      title: 'Post Not Found',
+      description: 'This blog post could not be found.',
+      keywords: ['Theme & Color', 'blog'],
+    })
+  }
 
-    if (!post) {
-      return {
-      title: 'Post Not Found - Theme & Color',
-      }
-    }
+  const titleForPage = post.metaTitle || post.title
+  const description = post.metaDescription || post.excerpt
+  const slugKeywords = slug.split('-').filter((w) => w.length > 2).slice(0, 10)
 
-  const resolvedTitle = post.metaTitle || `${post.title} - Theme & Color Blog`
-  const resolvedDescription = post.metaDescription || post.excerpt
-
-    return {
-    title: resolvedTitle,
-      description: resolvedDescription,
-    keywords: 'color trends 2025, web design colors, UI design palettes, color psychology, design trends, color schemes, modern color palettes',
+  return buildPageMetadata({
+    path: `/blog/${slug}`,
+    title: titleForPage,
+    description,
+    keywords: ['color design', 'web design', 'UI', ...slugKeywords],
+    openGraphType: 'article',
     openGraph: {
-      title: resolvedTitle,
-      description: resolvedDescription,
-      type: 'article',
       publishedTime: post.publishedAt,
     },
-  }
+  })
 }
 
 export default async function BlogPostPage({ params }) {

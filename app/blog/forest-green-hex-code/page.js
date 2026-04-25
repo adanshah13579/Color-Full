@@ -3,12 +3,15 @@ import InlineTagLink from '../../components/InlineTagLink';
 import ColorPaletteClient from '../[slug]/ColorPaletteClient';
 import ColorSwatch from '../[slug]/ColorSwatch';
 import BlogToolsCTA from '../components/BlogToolsCTA';
+import { buildPageMetadata } from '../../../lib/buildPageMetadata';
 
-export const metadata = {
+export const metadata = buildPageMetadata({
+  path: '/blog/forest-green-hex-code',
   title: 'Forest Green Hex Code: #228B22 — Shades, Palettes & Copy-Paste Codes',
   description:
     'Forest green hex code is #228B22. Copy hex codes for 12 shades of forest green, see palette pairings, and use our free color tool. No sign-up needed.',
-};
+  keywords: ['forest green hex', '#228B22', 'green shades', 'palette', 'Theme & Color'],
+});
 
 const FOREST_PALETTE = [
   { hexCode: '#065F46', colorName: 'Forest', rgbCode: 'rgb(6, 95, 70)' },

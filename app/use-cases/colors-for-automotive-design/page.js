@@ -1,10 +1,14 @@
 import Link from 'next/link';
 import InlineTagLink from '../../components/InlineTagLink';
+import { buildPageMetadata } from '../../../lib/buildPageMetadata';
 
-export const metadata = {
-  title: 'Colors for Automotive Design: Exterior, Interior, and Brand Systems | Theme and Color',
-  description: 'How color systems work in automotive design. Exterior and interior palettes, trim and materials, and brand-aligned color for the automotive industry.',
-};
+export const metadata = buildPageMetadata({
+  path: '/use-cases/colors-for-automotive-design',
+  title: 'Colors for Automotive Design: Exterior, Interior, and Brand Systems',
+  description:
+    'How color systems work in automotive design. Exterior and interior palettes, trim and materials, and brand-aligned color for the automotive industry.',
+  keywords: ['automotive colors', 'car interior', 'exterior paint', 'brand palette', 'Theme & Color'],
+});
 
 export default function ColorsForAutomotiveDesignPage() {
   return (

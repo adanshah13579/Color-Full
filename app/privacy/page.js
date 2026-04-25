@@ -1,7 +1,12 @@
-export const metadata = {
-  title: 'Privacy Policy - Theme & Color',
-  description: 'Read Theme & Color\'s Privacy Policy to understand how we collect, use, and protect your personal information.',
-};
+import { buildPageMetadata } from '../../lib/buildPageMetadata';
+
+export const metadata = buildPageMetadata({
+  path: '/privacy',
+  title: 'Privacy Policy',
+  description:
+    "Read Theme & Color's Privacy Policy to understand how we collect, use, and protect your personal information.",
+  keywords: ['privacy policy', 'data protection', 'Theme & Color', 'personal information'],
+});
 
 export default function PrivacyPage() {
   return (

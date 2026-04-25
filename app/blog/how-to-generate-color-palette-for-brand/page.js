@@ -1,10 +1,14 @@
 import Link from 'next/link';
 import InlineTagLink from '../../components/InlineTagLink';
+import { buildPageMetadata } from '../../../lib/buildPageMetadata';
 
-export const metadata = {
-  title: 'How to Generate a Color Palette for a Brand | Theme and Color',
-  description: 'Steps and factors for generating a brand color palette. What influences brand colors, common mistakes, and tools for creating consistent palettes.',
-};
+export const metadata = buildPageMetadata({
+  path: '/blog/how-to-generate-color-palette-for-brand',
+  title: 'How to Generate a Color Palette for a Brand',
+  description:
+    'Steps and factors for generating a brand color palette. What influences brand colors, common mistakes, and tools for creating consistent palettes.',
+  keywords: ['brand palette', 'color generation', 'logo colors', 'design system', 'Theme & Color'],
+});
 
 export default function HowToGenerateColorPaletteForBrandPage() {
   return (

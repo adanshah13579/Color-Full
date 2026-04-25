@@ -4,12 +4,15 @@ import ColorPaletteClient from '../[slug]/ColorPaletteClient';
 import ColorSwatch from '../[slug]/ColorSwatch';
 import BlogToolsCTA from '../components/BlogToolsCTA';
 import BlogToolsCTAInline from '../components/BlogToolsCTAInline';
+import { buildPageMetadata } from '../../../lib/buildPageMetadata';
 
-export const metadata = {
+export const metadata = buildPageMetadata({
+  path: '/blog/color-palette-ideas-for-small-business',
   title: 'Color Palette Ideas for Small Business (With Examples) | Theme & Color',
   description:
     'Practical color palette ideas for small business: how many colors to use, industry examples, and where to apply them on your website and branding.',
-};
+  keywords: ['small business colors', 'brand palette', 'website colors', 'Theme & Color'],
+});
 
 const SIDEBAR_PALETTE = [
   { hexCode: '#1e3a8a', colorName: 'Navy', rgbCode: 'rgb(30, 58, 138)' },

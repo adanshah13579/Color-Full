@@ -1,14 +1,21 @@
 import ColorMixer from './components/ColorMixer';
 import { getCombinationMix } from './colorMixing';
+import { buildPageMetadata } from '../../../lib/buildPageMetadata';
 
-export const metadata = {
-  title: 'Color Mixing Simulator — What Color Do They Make? | Theme & Color',
+export const metadata = buildPageMetadata({
+  path: '/tools/color-mixer',
+  title: 'Color Mixing Simulator — What Color Do They Make?',
   description:
     'Mix any two colors and see the result instantly. Our color mixing simulator uses real paint color theory (RYB) to show you exactly what color red and blue make, yellow and blue make, and more.',
+  keywords: [
+    'color mixing',
+    'RYB',
+    'paint colors',
+    'hex mixer',
+    'what color makes',
+    'Theme & Color',
+  ],
   openGraph: {
-    title: 'Color Mixing Simulator — What Color Do They Make? | Theme & Color',
-    description:
-      'Mix any two colors and see real paint-style results with the RYB color model. Instantly view the mixed hex, RGB, and closest color name.',
     images: [
       {
         url: '/og-color-mixer.png',
@@ -19,15 +26,11 @@ export const metadata = {
     ],
   },
   twitter: {
-    card: 'summary_large_image',
-    title: 'Color Mixing Simulator — What Color Do They Make? | Theme & Color',
-    description:
-      'Mix any two colors and see real paint-style results with the RYB color model.',
     images: ['/og-color-mixer.png'],
   },
-};
+});
 
-const appSchema = {
+const colorMixerWebApplicationJsonLd = {
   '@context': 'https://schema.org',
   '@type': 'WebApplication',
   name: 'Color Mixing Simulator',
@@ -35,6 +38,58 @@ const appSchema = {
   description: 'Mix any two colors and see the real paint mixing result using RYB color theory',
   applicationCategory: 'DesignApplication',
   operatingSystem: 'Web',
+  offers: {
+    '@type': 'Offer',
+    price: '0',
+    priceCurrency: 'USD',
+  },
+};
+
+const colorMixerFaqPageJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: [
+    {
+      '@type': 'Question',
+      name: 'What color does red and blue make?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Red and blue make purple (#800080) when mixed using RYB paint color theory. The exact shade depends on the ratio — equal parts red and blue produce a true purple.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'What color does blue and yellow make?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Blue and yellow make green (#008000) when mixed. This is one of the most fundamental color mixing rules in traditional RYB color theory used by artists and painters.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'What color does red and yellow make?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Red and yellow make orange (#FFA500) when mixed together. Orange is a secondary color created by combining the primary colors red and yellow in equal proportions.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'What color does red and white make?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Red and white make pink (#FFB6C1). The more white you add, the lighter and softer the pink becomes. This is called a tint of red.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'What color does blue and white make?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Blue and white make light blue (#ADD8E6), also called baby blue. Adding white to any color creates a tint — a lighter, pastel version of the original color.',
+      },
+    },
+  ],
 };
 
 const faqData = [
@@ -47,19 +102,6 @@ const faqData = [
   ['orange', 'blue'],
   ['purple', 'yellow'],
 ].map(([a, b]) => getCombinationMix(a, b));
-
-const faqSchema = {
-  '@context': 'https://schema.org',
-  '@type': 'FAQPage',
-  mainEntity: faqData.map((item) => ({
-    '@type': 'Question',
-    name: `What color does ${item.color1.name.toLowerCase()} and ${item.color2.name.toLowerCase()} make?`,
-    acceptedAnswer: {
-      '@type': 'Answer',
-      text: `${item.color1.name} and ${item.color2.name} mix to ${item.result.closestName} in this RYB simulator, around ${item.result.hex}. Actual paint brands vary by pigment strength, but this gives a practical reference for planning palettes and illustrations.`,
-    },
-  })),
-};
 
 function InlineSwatch({ hex }: { hex: string }) {
   return <span className="inline-block w-4 h-4 rounded align-middle mx-1 border border-gray-300 dark:border-gray-600" style={{ backgroundColor: hex }} />;
@@ -88,8 +130,14 @@ function FAQItem({ item }: { item: (typeof faqData)[number] }) {
 export default function ColorMixerPage() {
   return (
     <div className="min-h-screen bg-white dark:bg-gray-900 py-12">
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(appSchema) }} />
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(colorMixerWebApplicationJsonLd) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(colorMixerFaqPageJsonLd) }}
+      />
 
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="max-w-5xl mx-auto mb-8">

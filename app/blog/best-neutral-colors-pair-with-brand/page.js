@@ -4,12 +4,15 @@ import ColorPaletteClient from '../[slug]/ColorPaletteClient';
 import ColorSwatch from '../[slug]/ColorSwatch';
 import BlogToolsCTA from '../components/BlogToolsCTA';
 import BlogToolsCTAInline from '../components/BlogToolsCTAInline';
+import { buildPageMetadata } from '../../../lib/buildPageMetadata';
 
-export const metadata = {
+export const metadata = buildPageMetadata({
+  path: '/blog/best-neutral-colors-pair-with-brand',
   title: 'Best Neutral Colors to Pair With Your Brand Color | Theme & Color',
   description:
     'Neutral colors for branding: grays, off-whites, and warm vs cool neutrals that pair with blue, green, and any brand color. Plus contrast-safe text and background combos.',
-};
+  keywords: ['neutral colors', 'brand pairing', 'gray palette', 'contrast', 'Theme & Color'],
+});
 
 const SIDEBAR_PALETTE = [
   { hexCode: '#374151', colorName: 'Slate gray', rgbCode: 'rgb(55, 65, 81)' },
