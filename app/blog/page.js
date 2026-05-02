@@ -21,12 +21,12 @@ export const metadata = buildPageMetadata({
 const CARD_PALETTES = {
   '10-color-trends-for-2025': ['#8B5CF6', '#EC4899', '#F59E0B', '#10B981', '#3B82F6'],
   'color-palette-ideas-for-small-business': ['#1e3a8a', '#ffffff', '#d4af37', '#059669', '#6b7280'],
-  'ocean-breeze': ['#0ea5e9', '#14b8a6', '#2dd4bf', '#6ee7b7', '#a7f3d0'],
-  'sunset-vibes': ['#ea580c', '#dc2626', '#ec4899', '#a855f7', '#7c3aed'],
-  'forest-green': ['#14532d', '#15803d', '#22c55e', '#4ade80', '#bbf7d0'],
+  'ocean-breeze': ['#0ea5e9', '#06b6d4', '#14b8a6', '#10b981'],
+  'sunset-vibes': ['#f97316', '#ef4444', '#ec4899', '#8b5cf6'],
+  'forest-green': ['#228b22', '#166534', '#15803d', '#86efac', '#dcfce7'],
   'forest-green-hex-code': ['#228b22', '#065f46', '#047857', '#10b981', '#34d399'],
   'ocean-breeze-hex-code': ['#0ea5e9', '#06b6d4', '#14b8a6', '#10b981', '#34d399'],
-  'purple-dream': ['#4c1d95', '#7c3aed', '#a78bfa', '#c4b5fd', '#e9d5ff'],
+  'purple-dream': ['#7c3aed', '#8b5cf6', '#a78bfa', '#c4b5fd', '#ede9fe'],
   'how-to-check-color-contrast-accessibility': ['#111827', '#374151', '#6b7280', '#9ca3af', '#ffffff'],
   'best-neutral-colors-pair-with-brand': ['#1c1917', '#57534e', '#a8a29e', '#e7e5e4', '#fafaf9'],
   'ecommerce-color-palettes-product-first-vs-brand-first': ['#2563eb', '#0ea5e9', '#f59e0b', '#ef4444', '#111827'],
@@ -52,23 +52,26 @@ const staticPosts = [
   },
   {
     _id: '3',
-    title: 'Ocean Breeze: A Calm Blue-to-Green Palette',
+    title: 'Ocean Breeze Color Palette: Hex Codes, Shades & Pairings',
     slug: { current: 'ocean-breeze' },
-    excerpt: 'A soothing palette of sky blue, teal, and mint green for calm, professional design.',
+    excerpt:
+      'Ocean breeze hex anchors (#0EA5E9–#10B981), eight blue-teal shades, UI pairings, and links to our palette generator and contrast checker.',
     publishedAt: '2025-02-09',
   },
   {
     _id: '4',
-    title: 'Sunset Vibes: Bold Orange-to-Purple Palette',
+    title: 'Sunset Vibes Color Palette: Hex Codes, Shades & Pairings',
     slug: { current: 'sunset-vibes' },
-    excerpt: 'Vibrant orange, red, pink, and purple for energetic, creative brands.',
+    excerpt:
+      'Sunset vibes hex codes (#F97316, #EF4444, #EC4899, #8B5CF6), eight warm shades, pairings, and UI usage with accessibility reminders.',
     publishedAt: '2025-02-10',
   },
   {
     _id: '5',
-    title: 'Forest Green: A Natural Green Palette',
+    title: 'Forest Green Color Palette: Hex Codes, Shades & Pairings',
     slug: { current: 'forest-green' },
-    excerpt: 'Deep to light greens for eco brands, wellness, and nature-inspired design.',
+    excerpt:
+      'Forest green palette from #228B22 through mint tints—shades table, pairings, UI guidance, and generator links for eco and fintech brands.',
     publishedAt: '2025-02-11',
   },
   {
@@ -89,9 +92,10 @@ const staticPosts = [
   },
   {
     _id: '6',
-    title: 'Purple Dream: Royal to Lavender Palette',
+    title: 'Purple Dream Color Palette: Hex Codes, Shades & Pairings',
     slug: { current: 'purple-dream' },
-    excerpt: 'Royal purple to soft lavender for creative brands and luxury design.',
+    excerpt:
+      'Purple dream hex ramp (#7C3AED–#EDE9FE), eight lavender shades, pairings for luxury and creative brands, plus tool links.',
     publishedAt: '2025-02-12',
   },
   {

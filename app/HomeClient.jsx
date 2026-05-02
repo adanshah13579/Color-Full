@@ -29,10 +29,10 @@ const homeToolCards = [
 ];
 
 const featuredPalettes = [
-  { id: 1, name: 'Ocean Breeze', colors: ['#0EA5E9', '#06B6D4', '#14B8A6', '#10B981', '#34D399'], slug: 'ocean-breeze' },
-  { id: 2, name: 'Sunset Vibes', colors: ['#F59E0B', '#F97316', '#EF4444', '#EC4899', '#A855F7'], slug: 'sunset-vibes' },
-  { id: 3, name: 'Forest Green', colors: ['#065F46', '#047857', '#059669', '#10B981', '#34D399'], slug: 'forest-green' },
-  { id: 4, name: 'Purple Dream', colors: ['#581C87', '#7C3AED', '#8B5CF6', '#A78BFA', '#C4B5FD'], slug: 'purple-dream' },
+  { id: 1, name: 'Ocean Breeze', colors: ['#0EA5E9', '#06B6D4', '#14B8A6', '#10B981'], slug: 'ocean-breeze' },
+  { id: 2, name: 'Sunset Vibes', colors: ['#F97316', '#EF4444', '#EC4899', '#8B5CF6'], slug: 'sunset-vibes' },
+  { id: 3, name: 'Forest Green', colors: ['#228B22', '#166534', '#15803D', '#86EFAC', '#DCFCE7'], slug: 'forest-green' },
+  { id: 4, name: 'Purple Dream', colors: ['#7C3AED', '#8B5CF6', '#A78BFA', '#C4B5FD', '#EDE9FE'], slug: 'purple-dream' },
 ];
 
 // Latest blog cards (image-only slider)
@@ -53,23 +53,23 @@ const latestPosts = [
   },
   {
     id: 3,
-    title: 'Ocean Breeze: A Calm Blue-to-Green Palette',
+    title: 'Ocean Breeze Color Palette: Hex Codes, Shades & Pairings',
     slug: 'ocean-breeze',
-    palette: ['#0EA5E9', '#06B6D4', '#14B8A6', '#10B981', '#34D399'],
+    palette: ['#0EA5E9', '#06B6D4', '#14B8A6', '#10B981'],
     publishedAt: '2025-02-09',
   },
   {
     id: 4,
-    title: 'Sunset Vibes: Bold Orange-to-Purple Palette',
+    title: 'Sunset Vibes Color Palette: Hex Codes, Shades & Pairings',
     slug: 'sunset-vibes',
-    palette: ['#F59E0B', '#F97316', '#EF4444', '#EC4899', '#A855F7'],
+    palette: ['#F97316', '#EF4444', '#EC4899', '#8B5CF6'],
     publishedAt: '2025-02-10',
   },
   {
     id: 5,
-    title: 'Forest Green: A Natural Green Palette',
+    title: 'Forest Green Color Palette: Hex Codes, Shades & Pairings',
     slug: 'forest-green',
-    palette: ['#065F46', '#047857', '#059669', '#10B981', '#34D399'],
+    palette: ['#228B22', '#166534', '#15803D', '#86EFAC', '#DCFCE7'],
     publishedAt: '2025-02-11',
   },
   {
@@ -88,9 +88,9 @@ const latestPosts = [
   },
   {
     id: 8,
-    title: 'Purple Dream: Royal to Lavender Palette',
+    title: 'Purple Dream Color Palette: Hex Codes, Shades & Pairings',
     slug: 'purple-dream',
-    palette: ['#581C87', '#7C3AED', '#8B5CF6', '#A78BFA', '#C4B5FD'],
+    palette: ['#7C3AED', '#8B5CF6', '#A78BFA', '#C4B5FD', '#EDE9FE'],
     publishedAt: '2025-02-12',
   },
   {

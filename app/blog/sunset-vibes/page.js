@@ -3,22 +3,68 @@ import InlineTagLink from '../../components/InlineTagLink';
 import ColorPaletteClient from '../[slug]/ColorPaletteClient';
 import ColorSwatch from '../[slug]/ColorSwatch';
 import BlogToolsCTA from '../components/BlogToolsCTA';
+import {
+  PaletteQuickAnswer,
+  PaletteShadesTable,
+  PalettePairingsSection,
+  PaletteUiUsageSection,
+} from '../components/PaletteReferenceBlocks';
 import { buildPageMetadata } from '../../../lib/buildPageMetadata';
 
 export const metadata = buildPageMetadata({
   path: '/blog/sunset-vibes',
-  title: 'Sunset Vibes Color Palette: Hex Codes, Uses & Accessibility | Theme & Color',
+  title: 'Sunset Vibes Color Palette: Hex Codes, Shades & Pairings',
   description:
-    'Complete guide to the Sunset Vibes palette: all five hex codes, RGB values, best uses for web and UI, CSS variables, and WCAG contrast tips.',
-  keywords: ['sunset palette', 'warm colors', 'WCAG', 'hex codes', 'Theme & Color'],
+    'Sunset vibes palette hex codes: #F97316 (orange), #EF4444 (red), #EC4899 (pink), #8B5CF6 (purple). Copy codes, see shades, and explore UI examples.',
+  keywords: ['sunset palette', 'warm colors', 'orange hex', 'purple hex', 'Theme & Color'],
 });
 
 const PALETTE = [
-  { hexCode: '#F59E0B', colorName: 'Amber', rgbCode: 'rgb(245, 158, 11)' },
   { hexCode: '#F97316', colorName: 'Orange', rgbCode: 'rgb(249, 115, 22)' },
   { hexCode: '#EF4444', colorName: 'Red', rgbCode: 'rgb(239, 68, 68)' },
   { hexCode: '#EC4899', colorName: 'Pink', rgbCode: 'rgb(236, 72, 153)' },
-  { hexCode: '#A855F7', colorName: 'Purple', rgbCode: 'rgb(168, 85, 247)' },
+  { hexCode: '#8B5CF6', colorName: 'Purple', rgbCode: 'rgb(139, 92, 246)' },
+];
+
+const QUICK_ROWS = [
+  { label: 'Orange', value: '#F97316' },
+  { label: 'Red', value: '#EF4444' },
+  { label: 'Pink', value: '#EC4899' },
+  { label: 'Purple', value: '#8B5CF6' },
+];
+
+const SHADES = [
+  { name: 'Dawn cream', hex: '#FFFBEB' },
+  { name: 'Soft amber', hex: '#FDE68A' },
+  { name: 'Sunset orange', hex: '#F97316' },
+  { name: 'Burnt orange', hex: '#EA580C' },
+  { name: 'Ember red', hex: '#EF4444' },
+  { name: 'Deep red', hex: '#DC2626' },
+  { name: 'Twilight pink', hex: '#EC4899' },
+  { name: 'Royal violet', hex: '#6D28D9' },
+];
+
+const PAIRINGS = [
+  {
+    title: 'Sunset + charcoal structure',
+    body: 'Use #111827 or #0F172A for body copy and navigation on white so warm CTAs stay loud without muddying type.',
+    swatches: ['#F97316', '#111827', '#F8FAFC'],
+  },
+  {
+    title: 'Sunset + cream wash',
+    body: 'Large cream or ivory fields (#FFFBEB, #FEF3C7) soften orange–pink gradients for editorial and lifestyle layouts.',
+    swatches: ['#EC4899', '#FFFBEB', '#F97316'],
+  },
+  {
+    title: 'Gradient hero (orange → purple)',
+    body: 'Hero bands from #F97316 through #EC4899 to #8B5CF6 read as one sunset—keep UI chrome in neutrals below the fold.',
+    swatches: ['#F97316', '#EC4899', '#8B5CF6'],
+  },
+  {
+    title: 'Sunset + cool gray balance',
+    body: 'Cool slate (#64748B) for secondary text cools down loud primaries so dashboards stay scannable.',
+    swatches: ['#EF4444', '#64748B', '#F1F5F9'],
+  },
 ];
 
 export default function SunsetVibesPage() {
@@ -34,16 +80,24 @@ export default function SunsetVibesPage() {
               Back to Blog
             </Link>
             <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4 leading-tight">
-              Sunset Vibes: Bold Orange-to-Purple Palette
+              Sunset Vibes Color Palette: Hex Codes, Shades &amp; Pairings
             </h1>
+            <p className="text-amber-100 text-lg max-w-3xl mb-6">
+              Orange → red → pink → purple for campaigns, music, and lifestyle brands that need energy without muddy gradients.
+            </p>
+            <div
+              className="w-full max-w-2xl h-36 md:h-44 rounded-2xl border-2 border-white/25 shadow-2xl mb-6 bg-[#F97316]"
+              role="img"
+              aria-label="Sunset Vibes primary orange"
+            />
             <div className="flex items-center gap-4 text-amber-100 text-sm">
               <time dateTime="2025-02-10">February 10, 2025</time>
               <span>•</span>
-              <span>5 min read</span>
+              <span>6 min read</span>
             </div>
             <div className="flex gap-3 mt-6 flex-wrap">
               {PALETTE.map((c) => (
-                <ColorSwatch key={c.hexCode} color={c.hexCode} name={c.colorName} hexCode={c.hexCode} />
+                <ColorSwatch key={c.hexCode} color={c.hexCode} name={c.colorName} hexCode={c.hexCode} showHexCopyIcon />
               ))}
             </div>
           </div>
@@ -54,69 +108,101 @@ export default function SunsetVibesPage() {
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-6xl mx-auto">
             <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-              <div className="lg:col-span-2">
+              <div className="lg:col-span-2 space-y-8">
+                <PaletteQuickAnswer
+                  theme="sunset"
+                  ariaLabel="Sunset Vibes hex quick reference"
+                  headline="Sunset Vibes — core hex codes"
+                  subtext="Four anchors for CTAs, gradients, and accents. Add amber (#F59E0B) separately if you need a fifth warm highlight."
+                  rows={QUICK_ROWS}
+                />
+                <PaletteShadesTable
+                  title="Sunset shades (light → dark)"
+                  description="Eight stops from pale dawn cream to deep violet—use light rows for backgrounds and saturated rows for buttons and heroes."
+                  shades={SHADES}
+                />
+                <PalettePairingsSection
+                  title="Palette pairings"
+                  intro="Sunset Vibes fails when everything screams at once. These pairings give hierarchy and readable type."
+                  pairings={PAIRINGS}
+                />
+                <PaletteUiUsageSection title="When to use Sunset Vibes in UI">
+                  <p>
+                    Put <strong className="text-gray-900 dark:text-white">Orange</strong> or <strong className="text-gray-900 dark:text-white">Red</strong> on
+                    primary CTAs; reserve <strong className="text-gray-900 dark:text-white">Pink</strong> for secondary highlights and{' '}
+                    <strong className="text-gray-900 dark:text-white">Purple</strong> for tabs, tags, or dark-mode accents. Never ship small text on saturated
+                    swatches without running the <InlineTagLink href="/tools/contrast-checker">contrast checker</InlineTagLink>.
+                  </p>
+                  <p>
+                    Build hover and disabled ramps with the <InlineTagLink href="/tools/palette-generator">palette generator</InlineTagLink> from #F97316 or
+                    #8B5CF6 so states stay on-brand.
+                  </p>
+                </PaletteUiUsageSection>
+
                 <div className="prose prose-lg max-w-none prose-headings:font-bold prose-headings:text-gray-900 dark:prose-headings:text-white prose-p:text-gray-700 dark:prose-p:text-gray-300 prose-p:leading-relaxed">
                   <p className="mb-6">
-                    The Sunset Vibes color palette is a bold, warm-to-cool progression from amber and orange through red and pink to purple. It captures the energy of a sunset and works for brands and products that want to feel creative, lively, and memorable. In this guide we cover every hex code and RGB value, how to assign each color in your UI or design system, how to implement Sunset Vibes in code with CSS variables and design tokens, and how to keep contrast and accessibility in check. Whether you are designing a lifestyle app, event branding, or a standout marketing campaign, you will have the full technical and creative reference for the Sunset Vibes palette.
+                    Sunset Vibes is a warm-to-cool progression built for brands that want energy, nightlife, and creative edge. The sections above give
+                    copy-ready hex codes; below is the full breakdown of roles, code, and accessibility limits.
                   </p>
 
                   <h2 className="text-2xl font-bold text-gray-900 dark:text-white mt-8 mb-4">What Is the Sunset Vibes Color Palette?</h2>
                   <p className="mb-4">
-                    Sunset Vibes is an analogous palette with a warm-to-cool shift: the five hues move from the warm side of the wheel (amber, orange, red) through pink into the cooler purple range. That transition gives the palette both energy and depth. It is often used for lifestyle and consumer brands, event and entertainment sites, creative portfolios, and apps that want to feel dynamic rather than corporate. Because the colors are saturated and high-contrast against neutrals, they work well for CTAs, headlines, and key visual moments—but they need careful pairing with text and backgrounds to meet accessibility standards. We cover contrast and WCAG below.
+                    The palette moves from saturated orange and red through pink into purple—analogous with a temperature swing. It suits lifestyle, events,
+                    entertainment, and portfolios that should feel dynamic, not corporate.
                   </p>
 
-                  <h2 className="text-2xl font-bold text-gray-900 dark:text-white mt-8 mb-4">The Five Colors: Hex Codes and Roles</h2>
-                  <p className="mb-4">
-                    Each color in the Sunset Vibes palette has a precise hex and RGB value and a suggested role in your design system. Use these as your single source of truth in Figma, code, or brand guidelines.
-                  </p>
+                  <h2 className="text-2xl font-bold text-gray-900 dark:text-white mt-8 mb-4">The Four Anchors: Hex Codes and Roles</h2>
                   <ul className="list-disc list-inside space-y-2 mb-6 text-gray-700 dark:text-gray-300">
-                    <li><strong className="text-gray-900 dark:text-white">Amber (#F59E0B, rgb(245, 158, 11))</strong> — The warmest tone. Use for primary CTAs, key buttons, and headlines when you want a friendly, energetic feel. Works on white and dark backgrounds; test contrast for any text on top.</li>
-                    <li><strong className="text-gray-900 dark:text-white">Orange (#F97316, rgb(249, 115, 22))</strong> — Strong and attention-grabbing. Ideal for sale or urgency cues, secondary CTAs, and hover states. Pairs well with Amber for a warm primary pair.</li>
-                    <li><strong className="text-gray-900 dark:text-white">Red (#EF4444, rgb(239, 68, 68))</strong> — Use for errors, destructive actions, or high-emphasis alerts. Can also work as an accent for limited-time or hot-topic content. Avoid large areas of red for body text backgrounds.</li>
-                    <li><strong className="text-gray-900 dark:text-white">Pink (#EC4899, rgb(236, 72, 153))</strong> — The bridge between red and purple. Great for links, highlights, and creative or playful accents. Works in gradients with Red or Purple.</li>
-                    <li><strong className="text-gray-900 dark:text-white">Purple (#A855F7, rgb(168, 85, 247))</strong> — The coolest tone. Use for secondary navigation, badges, or dark-mode accents. Adds depth and variety without competing with the warmer primaries.</li>
+                    <li>
+                      <strong className="text-gray-900 dark:text-white">Orange (#F97316)</strong> — Primary CTA, sale strips, and hero emphasis.
+                    </li>
+                    <li>
+                      <strong className="text-gray-900 dark:text-white">Red (#EF4444)</strong> — Urgency, errors, and destructive actions when used sparingly.
+                    </li>
+                    <li>
+                      <strong className="text-gray-900 dark:text-white">Pink (#EC4899)</strong> — Links, secondary highlights, and gradient mid-tones.
+                    </li>
+                    <li>
+                      <strong className="text-gray-900 dark:text-white">Purple (#8B5CF6)</strong> — Cooler accent for navigation chrome and dark-mode glow.
+                    </li>
                   </ul>
-                  <p className="mb-4 font-mono text-sm text-gray-600 dark:text-gray-400 bg-gray-100 dark:bg-gray-800 p-4 rounded-lg">
-                    #F59E0B · #F97316 · #EF4444 · #EC4899 · #A855F7
-                  </p>
 
                   <h2 className="text-2xl font-bold text-gray-900 dark:text-white mt-8 mb-4">Best Uses in Web and UI Design</h2>
                   <p className="mb-4">
-                    In web and app UI, assign Sunset Vibes with clear roles so the interface stays coherent. Use Amber or Orange for the main call-to-action and primary buttons; reserve Red for destructive or critical actions and Pink for links or secondary highlights. Purple works well for tabs, tags, or tertiary accents. Avoid using more than two or three of these colors in a single view so the design does not feel chaotic. On dark backgrounds, the warmer tones (Amber, Orange) and Purple pop; use white or light text on top and verify ratios with an <InlineTagLink href="/tools/contrast-checker">accessibility contrast checker</InlineTagLink>. On light backgrounds, use dark text for body copy and reserve Sunset Vibes for interactive and decorative elements.
-                  </p>
-                  <p className="mb-6">
-                    For marketing and landing pages, Sunset Vibes can drive hero sections, sale banners, and event graphics. Gradient overlays from Amber to Pink or Orange to Purple are effective for headers and cards. Keep body text and key UI on neutral backgrounds so the palette supports the message without hurting readability.
+                    Limit visible primaries to two or three per view. On dark backgrounds, warm tones pop—verify text with the{' '}
+                    <InlineTagLink href="/tools/contrast-checker">accessibility contrast checker</InlineTagLink>. On light backgrounds, keep paragraphs in dark
+                    neutrals.
                   </p>
 
                   <h2 className="text-2xl font-bold text-gray-900 dark:text-white mt-8 mb-4">Using Sunset Vibes in Code: CSS Variables and Design Tokens</h2>
                   <p className="mb-4">
-                    Implement the Sunset Vibes palette in code with CSS custom properties or a design token file. Define each hex as a variable (e.g. <code className="bg-gray-100 dark:bg-gray-800 px-1.5 py-0.5 rounded text-sm">--sunset-amber</code>, <code className="bg-gray-100 dark:bg-gray-800 px-1.5 py-0.5 rounded text-sm">--sunset-orange</code>) and map them to semantic names like <code className="bg-gray-100 dark:bg-gray-800 px-1.5 py-0.5 rounded text-sm">primary</code>, <code className="bg-gray-100 dark:bg-gray-800 px-1.5 py-0.5 rounded text-sm">accent</code>, and <code className="bg-gray-100 dark:bg-gray-800 px-1.5 py-0.5 rounded text-sm">destructive</code> so your team uses the same values everywhere. For hover and disabled states, generate lighter or darker shades from any of the five hex codes using a <InlineTagLink href="/tools/palette-generator">color palette generator</InlineTagLink>; add those to your token set so buttons and links stay consistent across the app.
+                    Map hex values to semantic tokens (<code className="bg-gray-100 dark:bg-gray-800 px-1.5 py-0.5 rounded text-sm">primary</code>,{' '}
+                    <code className="bg-gray-100 dark:bg-gray-800 px-1.5 py-0.5 rounded text-sm">destructive</code>). Generate hover shades with the{' '}
+                    <InlineTagLink href="/tools/palette-generator">color palette generator</InlineTagLink>.
                   </p>
 
                   <h2 className="text-2xl font-bold text-gray-900 dark:text-white mt-8 mb-4">Accessibility and Contrast</h2>
                   <p className="mb-4">
-                    Sunset Vibes colors are vivid; several fail WCAG AA for normal text on white. Amber (#F59E0B) and Orange (#F97316) on white are typically below 4.5:1 for body text; use them for large headings or non-text elements. Red (#EF4444) and Pink (#EC4899) can work for large text or icons but often fail for small copy. Purple (#A855F7) on white usually fails for body text. For accessible UI, use black or dark gray for body text on white or light gray, and use Sunset Vibes for buttons, links, and accents only. Always test your exact combinations—especially on dark mode and colored backgrounds—with a contrast checker so your design meets WCAG AA or AAA where required.
+                    Saturated oranges, reds, and purples often fail WCAG AA for normal text on white. Use them for buttons, icons, and large headings; use dark
+                    gray or black for body copy.
                   </p>
 
                   <h2 className="text-2xl font-bold text-gray-900 dark:text-white mt-8 mb-4">Sunset Vibes for Branding and Marketing</h2>
                   <p className="mb-4">
-                    In branding, Sunset Vibes suits lifestyle, entertainment, and creative positioning. Use Amber or Orange as the primary brand color for logos and key touchpoints; add Pink or Purple for social assets, campaigns, and event materials. Document the five hex codes (and CMYK for print) in your brand guidelines so marketing and design stay consistent. The palette is strong enough to own a category when applied consistently across website, app, and collateral.
+                    Document the four hex anchors in brand guidelines; extend with generator output for seasonal campaigns.
                   </p>
 
                   <h2 className="text-2xl font-bold text-gray-900 dark:text-white mt-8 mb-4">How to Extend or Adjust the Palette</h2>
-                  <p className="mb-4">
-                    If you need more shades—for gradients, disabled states, or hover variants—use any Sunset Vibes hex as the base in our palette generator and create monochromatic or analogous variations. You can also combine this palette with a neutral scale (white, grays, black) for a full design system. Keep the core five as the anchor and add only the shades you need; too many similar warm tones can make the palette feel muddy or overwhelming.
-                  </p>
-
                   <p className="mb-8">
-                    Use our <InlineTagLink href="/tools/palette-generator">palette generator</InlineTagLink> to extend Sunset Vibes or create new palettes from any of the five colors. Test every text and background pair with our <InlineTagLink href="/tools/contrast-checker">contrast checker</InlineTagLink> so your implementation stays accessible and on-brand.
+                    Use our <InlineTagLink href="/tools/palette-generator">palette generator</InlineTagLink> and validate every pair in the{' '}
+                    <InlineTagLink href="/tools/contrast-checker">contrast checker</InlineTagLink>.
                   </p>
                   <BlogToolsCTA />
                 </div>
               </div>
               <aside className="lg:col-span-1">
                 <div className="lg:sticky lg:top-20">
-                  <ColorPaletteClient colors={PALETTE} designTitle="Sunset Vibes" />
+                  <ColorPaletteClient colors={PALETTE} designTitle="Sunset Vibes" showHexCopyIcon />
                 </div>
               </aside>
             </div>

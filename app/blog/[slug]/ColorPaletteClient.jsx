@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from 'react';
 
-export default function ColorPaletteClient({ colors, designTitle, className = '' }) {
+export default function ColorPaletteClient({ colors, designTitle, className = '', showHexCopyIcon = false }) {
   const [copiedIndex, setCopiedIndex] = useState(null);
   const [isDark, setIsDark] = useState(false);
 
@@ -106,9 +106,31 @@ export default function ColorPaletteClient({ colors, designTitle, className = ''
                     <p className="text-xs font-semibold text-gray-900 dark:text-white truncate">
                       {color.colorName || `Color ${i + 1}`}
                     </p>
-                    <code className="text-xs font-mono text-gray-600 dark:text-gray-400">
-                      {color.hexCode}
-                    </code>
+                    <div className="flex items-center gap-1">
+                      <code className="text-xs font-mono text-gray-600 dark:text-gray-400">
+                        {color.hexCode}
+                      </code>
+                      {showHexCopyIcon && (
+                        <button
+                          type="button"
+                          className="inline-flex rounded p-0.5 text-gray-500 hover:bg-gray-200 dark:hover:bg-gray-600 dark:text-gray-400 shrink-0"
+                          aria-label={`Copy ${color.hexCode}`}
+                          onClick={(e) => {
+                            e.stopPropagation();
+                            copyToClipboard(color.hexCode, `color-${i}`);
+                          }}
+                        >
+                          <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path
+                              strokeLinecap="round"
+                              strokeLinejoin="round"
+                              strokeWidth={2}
+                              d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"
+                            />
+                          </svg>
+                        </button>
+                      )}
+                    </div>
                   </div>
                   {copiedIndex === `color-${i}` && (
                     <span className="text-xs text-green-600 dark:text-green-400 font-medium">Copied!</span>

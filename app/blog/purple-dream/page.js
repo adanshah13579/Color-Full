@@ -3,22 +3,70 @@ import InlineTagLink from '../../components/InlineTagLink';
 import ColorPaletteClient from '../[slug]/ColorPaletteClient';
 import ColorSwatch from '../[slug]/ColorSwatch';
 import BlogToolsCTA from '../components/BlogToolsCTA';
+import {
+  PaletteQuickAnswer,
+  PaletteShadesTable,
+  PalettePairingsSection,
+  PaletteUiUsageSection,
+} from '../components/PaletteReferenceBlocks';
 import { buildPageMetadata } from '../../../lib/buildPageMetadata';
 
 export const metadata = buildPageMetadata({
   path: '/blog/purple-dream',
-  title: 'Purple Dream Color Palette: Meaning, Hex Codes & Best Uses | Theme & Color',
+  title: 'Purple Dream Color Palette: Hex Codes, Shades & Pairings',
   description:
-    'Purple Dream is a royal-to-lavender purple palette for modern brands. Explore its meaning, psychology, hex codes, and best uses in branding, web design, UI, beauty, and creative products.',
-  keywords: ['purple palette', 'lavender hex', 'brand colors', 'UI design', 'Theme & Color'],
+    'Purple dream palette hex codes: #7C3AED (royal purple) to #EDE9FE (lavender). Copy hex codes, see shades, and explore pairings for creative and luxury brands.',
+  keywords: ['purple palette', 'lavender hex', '#7C3AED', 'brand colors', 'Theme & Color'],
 });
 
 const PALETTE = [
-  { hexCode: '#581C87', colorName: 'Royal Purple', rgbCode: 'rgb(88, 28, 135)' },
-  { hexCode: '#7C3AED', colorName: 'Violet', rgbCode: 'rgb(124, 58, 237)' },
+  { hexCode: '#7C3AED', colorName: 'Royal violet', rgbCode: 'rgb(124, 58, 237)' },
   { hexCode: '#8B5CF6', colorName: 'Purple', rgbCode: 'rgb(139, 92, 246)' },
-  { hexCode: '#A78BFA', colorName: 'Lavender', rgbCode: 'rgb(167, 139, 250)' },
-  { hexCode: '#C4B5FD', colorName: 'Light Lavender', rgbCode: 'rgb(196, 181, 253)' },
+  { hexCode: '#A78BFA', colorName: 'Soft lavender', rgbCode: 'rgb(167, 139, 250)' },
+  { hexCode: '#C4B5FD', colorName: 'Pastel lavender', rgbCode: 'rgb(196, 181, 253)' },
+  { hexCode: '#EDE9FE', colorName: 'Mist lavender', rgbCode: 'rgb(237, 233, 254)' },
+];
+
+const QUICK_ROWS = [
+  { label: 'Royal violet', value: '#7C3AED' },
+  { label: 'Purple', value: '#8B5CF6' },
+  { label: 'Soft lavender', value: '#A78BFA' },
+  { label: 'Pastel lavender', value: '#C4B5FD' },
+  { label: 'Mist lavender', value: '#EDE9FE' },
+];
+
+const SHADES = [
+  { name: 'Snow violet', hex: '#FAF5FF' },
+  { name: 'Mist lavender', hex: '#EDE9FE' },
+  { name: 'Pale violet', hex: '#DDD6FE' },
+  { name: 'Pastel lavender', hex: '#C4B5FD' },
+  { name: 'Soft lavender', hex: '#A78BFA' },
+  { name: 'Purple', hex: '#8B5CF6' },
+  { name: 'Royal violet', hex: '#7C3AED' },
+  { name: 'Deep aubergine', hex: '#4C1D95' },
+];
+
+const PURPLE_PAIRINGS = [
+  {
+    title: 'Purple Dream + warm cream',
+    body: 'Cream and sand (#FFFBEB, #F5F5F4) keep luxury beauty layouts soft while violets handle CTAs.',
+    swatches: ['#7C3AED', '#FFFBEB', '#EDE9FE'],
+  },
+  {
+    title: 'Purple Dream + charcoal frame',
+    body: 'Charcoal #111827 for body copy and dividers balances expressive purple heroes without dulling the brand.',
+    swatches: ['#8B5CF6', '#111827', '#F8FAFC'],
+  },
+  {
+    title: 'Purple Dream + blush accent',
+    body: 'Dusty blush (#FBCFE8) as a rare secondary accent reads modern for skincare and creator brands.',
+    swatches: ['#A78BFA', '#FBCFE8', '#FFFFFF'],
+  },
+  {
+    title: 'Purple Dream + muted gold',
+    body: 'Muted gold (#CA8A04) on deep violet reads upscale for premium drops—keep gold to rules, icons, and thin strokes.',
+    swatches: ['#7C3AED', '#CA8A04', '#FEFCE8'],
+  },
 ];
 
 export default function PurpleDreamPage() {
@@ -34,16 +82,24 @@ export default function PurpleDreamPage() {
               Back to Blog
             </Link>
             <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4 leading-tight">
-              Purple Dream: Royal to Lavender Palette
+              Purple Dream Color Palette: Hex Codes, Shades &amp; Pairings
             </h1>
+            <p className="text-purple-100 text-lg max-w-3xl mb-6">
+              Royal violet through mist lavender for creative, beauty, and luxury-adjacent brands that want expressive color with a coherent ramp.
+            </p>
+            <div
+              className="w-full max-w-2xl h-36 md:h-44 rounded-2xl border-2 border-white/25 shadow-2xl mb-6 bg-[#7C3AED]"
+              role="img"
+              aria-label="Purple Dream royal violet"
+            />
             <div className="flex items-center gap-4 text-purple-100 text-sm">
               <time dateTime="2025-02-10">February 10, 2025</time>
               <span>•</span>
-              <span>8 min read</span>
+              <span>9 min read</span>
             </div>
             <div className="flex gap-3 mt-6 flex-wrap">
               {PALETTE.map((c) => (
-                <ColorSwatch key={c.hexCode} color={c.hexCode} name={c.colorName} hexCode={c.hexCode} />
+                <ColorSwatch key={c.hexCode} color={c.hexCode} name={c.colorName} hexCode={c.hexCode} showHexCopyIcon />
               ))}
             </div>
           </div>
@@ -54,196 +110,195 @@ export default function PurpleDreamPage() {
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-6xl mx-auto">
             <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-              <div className="lg:col-span-2">
+              <div className="lg:col-span-2 space-y-8">
+                <PaletteQuickAnswer
+                  theme="purple"
+                  ariaLabel="Purple Dream hex quick reference"
+                  headline="Purple Dream — core hex codes"
+                  subtext="Five-step ramp from airy mist to royal violet. Need a deeper anchor? Add #4C1D95 sparingly for footers and dark heroes."
+                  rows={QUICK_ROWS}
+                />
+                <PaletteShadesTable
+                  title="Purple Dream shades (light → dark)"
+                  description="Eight lavender-to-aubergine stops—use light rows for surfaces, saturated rows for CTAs, deep row for type on tinted cards."
+                  shades={SHADES}
+                />
+                <PalettePairingsSection
+                  title="Palette pairings"
+                  intro="Purple Dream fails when every surface is saturated. These neutrals and accents give hierarchy without killing personality."
+                  pairings={PURPLE_PAIRINGS}
+                />
+                <PaletteUiUsageSection title="When to use Purple Dream in UI">
+                  <p>
+                    Anchor dark UI with <strong className="text-gray-900 dark:text-white">#7C3AED</strong>, use{' '}
+                    <strong className="text-gray-900 dark:text-white">#8B5CF6</strong> for primary buttons on white, and{' '}
+                    <strong className="text-gray-900 dark:text-white">#EDE9FE</strong> / <strong className="text-gray-900 dark:text-white">#C4B5FD</strong> for
+                    cards and backgrounds. Run every white-on-purple pair through the <InlineTagLink href="/tools/contrast-checker">contrast checker</InlineTagLink>
+                    .
+                  </p>
+                  <p>
+                    Build focus, hover, and disabled ramps with the <InlineTagLink href="/tools/palette-generator">palette generator</InlineTagLink> from #7C3AED
+                    or #8B5CF6 so states stay in-gamut.
+                  </p>
+                </PaletteUiUsageSection>
+
                 <div className="prose prose-lg max-w-none prose-headings:font-bold prose-headings:text-gray-900 dark:prose-headings:text-white prose-p:text-gray-700 dark:prose-p:text-gray-300 prose-p:leading-relaxed">
                   <p className="mb-6">
-                    Purple Dream is a monochromatic purple palette that runs from deep royal tones to soft lavender. It immediately reads as creative and expressive, but it can also lean luxurious and premium when used with discipline. This is not a subtle, background kind of palette—it&apos;s for brands that actually want color to do visible work.
+                    Purple Dream is a monochromatic purple palette that runs from mist lavender to royal violet. It reads as creative and expressive, and can lean
+                    luxurious when paired with cream, charcoal, or restrained gold accents.
                   </p>
                   <p className="mb-6">
-                    The trade-off is simple: Purple Dream helps you stand out, but it will also amplify any confusion in your brand story. If your positioning is vague, the palette can slide into cheap or chaotic quickly. If your offer is sharp and your design system is tight, it becomes a powerful visual differentiator for beauty, fashion, tech, and creative brands.
+                    The trade-off is simple: Purple Dream helps you stand out, but it amplifies weak strategy. If your positioning is sharp and your system is
+                    tight, it differentiates beauty, fashion, tech, and creative brands.
                   </p>
 
-                  <h2 className="text-2xl font-bold text-gray-900 dark:text-white mt-8 mb-4">
-                    What Is the Purple Dream Palette?
-                  </h2>
-                  <p className="mb-4">
-                    This palette is built around five steps of purple, from dark royal to light lavender:
-                  </p>
+                  <h2 className="text-2xl font-bold text-gray-900 dark:text-white mt-8 mb-4">What Is the Purple Dream Palette?</h2>
+                  <p className="mb-4">This palette is built around five steps of purple:</p>
                   <p className="mb-4 font-mono text-sm text-gray-600 dark:text-gray-400">
-                    #581C87 &middot; #7C3AED &middot; #8B5CF6 &middot; #A78BFA &middot; #C4B5FD
+                    #7C3AED · #8B5CF6 · #A78BFA · #C4B5FD · #EDE9FE
                   </p>
                   <p className="mb-4">
-                    Because it&apos;s monochromatic, the palette is visually coherent by default. You don&apos;t have to worry about clashing hues—but you do need to plan contrast and hierarchy carefully. The darkest value anchors navigation, headlines, and key UI elements. Mid-tones carry buttons and links. The lightest lavender tones work best for backgrounds, highlights, and soft surfaces.
+                    Because it&apos;s monochromatic, the ramp is coherent by default—your job is contrast. Dark violets anchor navigation and heroes; mid tones
+                    carry buttons; mist tones carry large surfaces behind dark text.
                   </p>
                   <p className="mb-6">
-                    If you want to extend this palette into complementary or triadic schemes (for example, pairing purple with green or orange), the fastest route is the{' '}
-                    <InlineTagLink href="/tools/palette-generator">palette generator</InlineTagLink>. Start from royal purple or violet, then test schemes as components instead of flat swatches.
+                    Extend into complementary schemes with the <InlineTagLink href="/tools/palette-generator">palette generator</InlineTagLink>, then test real
+                    components—not flat swatches.
                   </p>
 
                   <h2 className="text-2xl font-bold text-gray-900 dark:text-white mt-8 mb-4">
                     The Psychology of Purple: Where It Helps and Where It Hurts
                   </h2>
-                  <p className="mb-4">
-                    Purple carries a specific set of associations that are different from blue or green. In user research and brand work, it usually signals:
-                  </p>
+                  <p className="mb-4">Purple carries a specific set of associations that differ from blue or green:</p>
                   <ul className="mb-6">
                     <li>
-                      <strong>Creativity and imagination</strong>: Purple is strongly linked with art, fantasy, and original thinking. It works when you want &quot;not another generic SaaS&quot;.
+                      <strong>Creativity and imagination</strong>: Purple is strongly linked with art, fantasy, and original thinking.
                     </li>
                     <li>
-                      <strong>Luxury and indulgence</strong>: Historically tied to rarity and royalty, deep purples can feel premium—if the typography and layout are equally considered.
+                      <strong>Luxury and indulgence</strong>: Deep violets can feel premium—if typography and layout are equally considered.
                     </li>
                     <li>
-                      <strong>Individuality</strong>: Purple is less common in mainstream corporate brands. That&apos;s an asset if your positioning is genuinely different.
+                      <strong>Individuality</strong>: Purple is less common in mainstream corporate brands—an asset when positioning is genuinely different.
                     </li>
                   </ul>
                   <p className="mb-6">
-                    The flip side: purple can quickly feel childish, cheap, or &quot;fake premium&quot; when it&apos;s over-saturated, paired with random neons, or shipped with weak content. The palette doesn&apos;t fix strategy. It only amplifies whatever is already there—good or bad.
+                    The flip side: purple can feel childish or &quot;fake premium&quot; when over-saturated or paired with random neons. Color amplifies strategy—it
+                    does not replace it.
                   </p>
 
-                  <h2 className="text-2xl font-bold text-gray-900 dark:text-white mt-8 mb-4">
-                    Hex Codes and Roles in the Palette
-                  </h2>
-                  <p className="mb-4">
-                    Treat each color as a tool with a job, not just another swatch in the tray:
-                  </p>
+                  <h2 className="text-2xl font-bold text-gray-900 dark:text-white mt-8 mb-4">Hex Codes and Roles in the Palette</h2>
+                  <p className="mb-4">Treat each color as a tool with a job:</p>
                   <ul className="mb-6">
                     <li>
-                      <strong>#581C87 – Royal Purple</strong>: Your primary anchor. Use it for logos, top-level navigation, dark hero backgrounds, and strong callouts.
+                      <strong>#7C3AED – Royal violet</strong>: Primary anchor for dark heroes, navigation, and high-emphasis bands.
                     </li>
                     <li>
-                      <strong>#7C3AED – Violet</strong>: A bold primary action color on light backgrounds. Great for main CTAs and form buttons.
+                      <strong>#8B5CF6 – Purple</strong>: Primary actions on white; secondary emphasis beside royal violet.
                     </li>
                     <li>
-                      <strong>#8B5CF6 – Purple</strong>: Works well for secondary CTAs, badges, and focus states without overpowering everything else.
+                      <strong>#A78BFA – Soft lavender</strong>: Cards, tabs, and chart fills where you need purple identity without harsh contrast.
                     </li>
                     <li>
-                      <strong>#A78BFA – Lavender</strong>: Ideal for subtle backgrounds, cards, tab surfaces, and chart fills where you want a clear purple identity without harsh contrast.
+                      <strong>#C4B5FD – Pastel lavender</strong>: Large soft surfaces; pair with charcoal type for paragraphs.
                     </li>
                     <li>
-                      <strong>#C4B5FD – Light Lavender</strong>: A soft wash for large areas, especially behind content blocks or in illustrations.
+                      <strong>#EDE9FE – Mist lavender</strong>: Airy backgrounds and subtle dividers in light UI.
                     </li>
                   </ul>
                   <p className="mb-6">
-                    From an accessibility standpoint, assume that white text over mid-purple backgrounds will fail more often than you expect. Always verify exact combos in the{' '}
-                    <InlineTagLink href="/tools/contrast-checker">contrast checker</InlineTagLink>, and don&apos;t be afraid to switch to dark text on light lavender for long paragraphs.
+                    Always verify exact combos in the <InlineTagLink href="/tools/contrast-checker">contrast checker</InlineTagLink>; default to dark text on
+                    mist/pastel for long reading.
                   </p>
 
-                  <h2 className="text-2xl font-bold text-gray-900 dark:text-white mt-8 mb-4">
-                    Best Uses in Branding and Visual Identity
-                  </h2>
-                  <p className="mb-4">
-                    Purple Dream is not neutral. It will shape how your brand is perceived from the first second. It works best when your positioning aligns with at least one of these directions:
-                  </p>
+                  <h2 className="text-2xl font-bold text-gray-900 dark:text-white mt-8 mb-4">Best Uses in Branding and Visual Identity</h2>
+                  <p className="mb-4">Purple Dream works when positioning aligns with at least one of these directions:</p>
                   <ul className="mb-6">
                     <li>
-                      <strong>Beauty and skincare</strong>: Purple signals indulgence and self-care when paired with clean product photography and plenty of white space.
+                      <strong>Beauty and skincare</strong>: Purple signals indulgence when paired with clean photography and white space.
                     </li>
                     <li>
-                      <strong>Creative studios and agencies</strong>: It immediately differentiates you from blue-and-gray agency sites that all look the same.
+                      <strong>Creative studios and agencies</strong>: Differentiates from blue-and-gray agency defaults.
                     </li>
                     <li>
-                      <strong>Modern tech and SaaS</strong>: For products with playful or imaginative features (AI tools, design apps, creator platforms), purple builds a more expressive identity.
+                      <strong>Modern tech and SaaS</strong>: Expressive identity for AI, design, and creator tools.
                     </li>
                     <li>
-                      <strong>Entertainment and lifestyle</strong>: Events, music, gaming, and cultural brands that aim for a bold, energetic, slightly surreal vibe.
+                      <strong>Entertainment and lifestyle</strong>: Events, music, and gaming brands that want bold, slightly surreal energy.
                     </li>
                   </ul>
                   <p className="mb-6">
-                    If your brand promise is ultra-serious, conservative, or compliance-driven, Purple Dream may be a mismatch. In those cases, you can still use it in small doses—illustrations, charts, or product states—while a more neutral palette does the heavy lifting.
+                    If your promise is ultra-conservative or compliance-first, Purple Dream may belong in campaigns—not the entire core system.
                   </p>
 
-                  <h2 className="text-2xl font-bold text-gray-900 dark:text-white mt-8 mb-4">
-                    Purple Dream in Web and UI Design
-                  </h2>
-                  <p className="mb-4">
-                    In UI, purple can be both a strength and a trap. You get instant character, but you also risk eye strain if you lean too hard on heavy backgrounds. Some practical guidelines:
-                  </p>
+                  <h2 className="text-2xl font-bold text-gray-900 dark:text-white mt-8 mb-4">Purple Dream in Web and UI Design</h2>
+                  <p className="mb-4">Practical UI guidelines:</p>
                   <ul className="mb-6">
                     <li>
-                      <strong>Use dark purple strategically</strong>: Reserve royal purple for headers, footers, and key sections—not for endless scrolling content blocks.
+                      <strong>Use royal violet strategically</strong>: Headers, footers, and key sections—not endless full-bleed scroll.
                     </li>
                     <li>
-                      <strong>Keep content on lighter surfaces</strong>: Put long-form text on white or very light lavender for comfortable reading.
+                      <strong>Keep long copy on light surfaces</strong>: White or mist lavender with charcoal body text.
                     </li>
                     <li>
-                      <strong>Pick one primary action color</strong>: Assign violet or mid-purple as the main CTA and don&apos;t compete with it using other bright colors.
+                      <strong>One primary action hue</strong>: Pick #7C3AED or #8B5CF6 as the main CTA and avoid competing brights.
                     </li>
                     <li>
-                      <strong>Use gradients with intent</strong>: The header gradient you see here works because it&apos;s controlled and limited. Don&apos;t smear gradients behind every element.
+                      <strong>Gradients with intent</strong>: Controlled hero gradients work; avoid smearing purple behind every module.
                     </li>
                   </ul>
                   <p className="mb-6">
-                    If you&apos;re building complex dashboards or data-heavy products, consider using Purple Dream mainly for navigation, active states, and high-level branding, with more neutral grays behind the data itself. That keeps the product usable while preserving a strong identity.
+                    For dense dashboards, keep Purple Dream on chrome and states; keep chart grids on neutral grays for legibility.
                   </p>
 
-                  <h2 className="text-2xl font-bold text-gray-900 dark:text-white mt-8 mb-4">
-                    Color Combinations That Elevate Purple Dream
-                  </h2>
-                  <p className="mb-4">
-                    On its own, this palette is already strong. But pairing it intelligently can move you from &quot;nice&quot; to genuinely distinctive:
-                  </p>
+                  <h2 className="text-2xl font-bold text-gray-900 dark:text-white mt-8 mb-4">Color Combinations That Elevate Purple Dream</h2>
+                  <p className="mb-4">Pairing ideas beyond the cards above:</p>
                   <ul className="mb-6">
                     <li>
-                      <strong>Purple + Warm Neutrals</strong>: Cream, sand, and soft beige warm up the palette and prevent it from feeling too digital or cold.
+                      <strong>Purple + Warm Neutrals</strong>: Cream and sand warm the system and reduce digital coldness.
                     </li>
                     <li>
-                      <strong>Purple + Charcoal Gray</strong>: Adds seriousness and balance for more complex or B2B products.
+                      <strong>Purple + Charcoal Gray</strong>: Adds seriousness for hybrid B2B / creative products.
                     </li>
                     <li>
-                      <strong>Purple + Soft Pink</strong>: Works well for beauty and lifestyle, but only if you keep typography sharp and layouts minimal.
+                      <strong>Purple + Soft Pink</strong>: Beauty-forward when typography stays sharp and layouts stay minimal.
                     </li>
                     <li>
-                      <strong>Purple + Forest Green</strong>: A bold, high-contrast pairing that can work for editorial design or special campaigns when you manage hierarchy carefully.
+                      <strong>Purple + Forest Green</strong>: High-contrast editorial moves—manage hierarchy so both hues are not fighting at full saturation.
                     </li>
                   </ul>
                   <p className="mb-6">
-                    To validate these combinations quickly, plug them into the{' '}
-                    <InlineTagLink href="/tools/palette-generator">palette generator</InlineTagLink> and preview them in real UI elements instead of guessing from flat rectangles.
+                    Validate combinations in the <InlineTagLink href="/tools/palette-generator">palette generator</InlineTagLink> and lock passing pairs with
+                    the <InlineTagLink href="/tools/contrast-checker">contrast checker</InlineTagLink>.
                   </p>
 
-                  <h2 className="text-2xl font-bold text-gray-900 dark:text-white mt-8 mb-4">
-                    When Purple Dream Is the Wrong Call
-                  </h2>
-                  <p className="mb-4">
-                    You shouldn&apos;t force this palette just because it&apos;s visually interesting. It&apos;s a bad fit when:
-                  </p>
+                  <h2 className="text-2xl font-bold text-gray-900 dark:text-white mt-8 mb-4">When Purple Dream Is the Wrong Call</h2>
+                  <p className="mb-4">It&apos;s a bad fit when:</p>
                   <ul className="mb-6">
-                    <li>
-                      Your audience expects conservative visuals (traditional finance, law, regulated healthcare) and you haven&apos;t prepared them for something more expressive.
-                    </li>
-                    <li>
-                      You try to stack purple on top of an existing, loud multi-color system, ending in a noisy, inconsistent brand.
-                    </li>
-                    <li>
-                      You rely on it to create &quot;luxe&quot; while everything else—copy, product shots, layout—still looks cheap.
-                    </li>
+                    <li>Your audience expects conservative visuals and you have not earned expressive color.</li>
+                    <li>You stack purple on an already loud system and lose hierarchy.</li>
+                    <li>You rely on purple for &quot;luxe&quot; while layout, copy, and photography still feel cheap.</li>
                   </ul>
                   <p className="mb-6">
-                    In those scenarios, you can either simplify your system and give Purple Dream room to breathe, or keep it in the toolbox for specific campaigns instead of the core identity.
+                    In those cases, simplify the system or reserve Purple Dream for launches and seasonal art direction.
                   </p>
 
-                  <h2 className="text-2xl font-bold text-gray-900 dark:text-white mt-8 mb-4">
-                    Should You Build Your Brand on Purple Dream?
-                  </h2>
-                  <p className="mb-4">
-                    Before you commit, run a quick stress test:
-                  </p>
+                  <h2 className="text-2xl font-bold text-gray-900 dark:text-white mt-8 mb-4">Should You Build Your Brand on Purple Dream?</h2>
+                  <p className="mb-4">Before you commit:</p>
                   <ul className="mb-6">
                     <li>
                       <strong>Does your brand benefit from feeling creative, expressive, and slightly unconventional?</strong>
                     </li>
                     <li>
-                      <strong>Can you keep the rest of the system (type, layout, imagery) as disciplined as the color is expressive?</strong>
+                      <strong>Can you keep type, layout, and imagery as disciplined as the color is expressive?</strong>
                     </li>
                     <li>
-                      <strong>Are you ready to use purple consistently across product, marketing, and offline touchpoints?</strong>
+                      <strong>Will you use purple consistently across product, marketing, and offline touchpoints?</strong>
                     </li>
                   </ul>
                   <p className="mb-8">
-                    If the honest answer is &quot;yes,&quot; Purple Dream can be a defensible, memorable foundation for your visual identity. If not, treat it as a strong accent palette and explore more neutral bases like our{' '}
-                    <InlineTagLink href="/blog/forest-green">Forest Green</InlineTagLink> or{' '}
-                    <InlineTagLink href="/blog/ocean-breeze">Ocean Breeze</InlineTagLink> palettes instead.
+                    If the answer is &quot;yes,&quot; Purple Dream can anchor identity. If not, use it as accent and explore{' '}
+                    <InlineTagLink href="/blog/forest-green">Forest Green</InlineTagLink> or <InlineTagLink href="/blog/ocean-breeze">Ocean Breeze</InlineTagLink>{' '}
+                    for calmer bases.
                   </p>
 
                   <BlogToolsCTA />
@@ -251,7 +306,7 @@ export default function PurpleDreamPage() {
               </div>
               <aside className="lg:col-span-1">
                 <div className="lg:sticky lg:top-20">
-                  <ColorPaletteClient colors={PALETTE} designTitle="Purple Dream" />
+                  <ColorPaletteClient colors={PALETTE} designTitle="Purple Dream" showHexCopyIcon />
                 </div>
               </aside>
             </div>

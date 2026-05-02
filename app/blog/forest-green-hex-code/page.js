@@ -4,13 +4,15 @@ import ColorPaletteClient from '../[slug]/ColorPaletteClient';
 import ColorSwatch from '../[slug]/ColorSwatch';
 import BlogToolsCTA from '../components/BlogToolsCTA';
 import { buildPageMetadata } from '../../../lib/buildPageMetadata';
+import CopyableHex from './CopyableHex';
+import { ForestGreenQuickAnswer, ForestGreenShadesTable } from './ForestGreenHexLead';
 
 export const metadata = buildPageMetadata({
   path: '/blog/forest-green-hex-code',
-  title: 'Forest Green Hex Code: #228B22 — Shades, Palettes & Copy-Paste Codes',
+  title: 'Forest Green Hex Code: #228B22 — Shades, RGB, HSL & Copy-Paste',
   description:
-    'Forest green hex code is #228B22. Copy hex codes for 12 shades of forest green, see palette pairings, and use our free color tool. No sign-up needed.',
-  keywords: ['forest green hex', '#228B22', 'green shades', 'palette', 'Theme & Color'],
+    'Forest green hex #228B22 with RGB, HSL, one-click copy, 10 named shades from honeydew to hunter green, palette pairings, and free tools. Faster than generic color encyclopedias.',
+  keywords: ['forest green hex', '#228B22', 'green shades', 'RGB', 'HSL', 'palette', 'Theme & Color'],
 });
 
 const FOREST_PALETTE = [
@@ -106,8 +108,13 @@ export default function ForestGreenHexCodePage() {
               Forest Green Hex Code: #228B22
             </h1>
             <p className="text-emerald-100 text-lg max-w-3xl mb-6">
-              Quick reference for forest green hex, RGB, and colour codes—plus a ready-made forest green color palette, scheme ideas, and Ocean Breeze colors in one place.
+              Quick reference for forest green hex, RGB, HSL, and colour codes—plus named shades, a UI palette, scheme ideas, and Ocean Breeze colors in one place.
             </p>
+            <div
+              className="w-full max-w-2xl h-36 md:h-44 rounded-2xl border-2 border-white/25 shadow-2xl mb-6 bg-[#228B22]"
+              role="img"
+              aria-label="Forest green color sample, hex 228B22"
+            />
             <div className="flex items-center gap-4 text-emerald-100 text-sm">
               <time dateTime="2026-04-11">April 11, 2026</time>
               <span>•</span>
@@ -115,7 +122,7 @@ export default function ForestGreenHexCodePage() {
             </div>
             <div className="flex gap-3 mt-6 flex-wrap">
               {HERO_SWATCHES.map((c) => (
-                <ColorSwatch key={c.hexCode} color={c.hexCode} name={c.colorName} hexCode={c.hexCode} />
+                <ColorSwatch key={c.hexCode} color={c.hexCode} name={c.colorName} hexCode={c.hexCode} showHexCopyIcon />
               ))}
             </div>
           </div>
@@ -126,10 +133,16 @@ export default function ForestGreenHexCodePage() {
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-6xl mx-auto">
             <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-              <div className="lg:col-span-2">
+              <div className="lg:col-span-2 space-y-8">
+                <ForestGreenQuickAnswer />
+                <ForestGreenShadesTable />
+
                 <div className="prose prose-lg max-w-none prose-headings:font-bold prose-headings:text-gray-900 dark:prose-headings:text-white prose-p:text-gray-700 dark:prose-p:text-gray-300 prose-p:leading-relaxed">
                   <p className="mb-6">
-                    <strong className="text-gray-900 dark:text-white">#228B22</strong> is the forest green hex code most people need first. If you searched for <strong className="text-gray-900 dark:text-white">forest green hex code</strong>,{' '}
+                    <strong className="text-gray-900 dark:text-white">
+                      <CopyableHex hex="#228B22" />
+                    </strong>{' '}
+                    is the forest green hex code most people need first. If you searched for <strong className="text-gray-900 dark:text-white">forest green hex code</strong>,{' '}
                     <strong className="text-gray-900 dark:text-white">forest green color code</strong>, or{' '}
                     <strong className="text-gray-900 dark:text-white">forest green colour code</strong>, you want a number you can paste into CSS, Figma, or a style guide. This page gives the most common web values, explains why they differ, and shows a full{' '}
                     <strong className="text-gray-900 dark:text-white">forest green color palette</strong> and{' '}
@@ -143,16 +156,29 @@ export default function ForestGreenHexCodePage() {
                   <p className="mb-4">
                     The closest thing to a single canonical <strong className="text-gray-900 dark:text-white">forest green hex</strong> on the web is the CSS named color{' '}
                     <code className="bg-gray-100 dark:bg-gray-800 px-1.5 py-0.5 rounded text-sm">forestgreen</code>, which is{' '}
-                    <strong className="text-gray-900 dark:text-white">#228B22</strong> — rgb(34, 139, 34). That is the value browsers resolve when you write{' '}
+                    <strong className="text-gray-900 dark:text-white not-prose">
+                      <CopyableHex hex="#228B22" />
+                    </strong>{' '}
+                    — rgb(34, 139, 34). That is the value browsers resolve when you write{' '}
                     <code className="bg-gray-100 dark:bg-gray-800 px-1.5 py-0.5 rounded text-sm">color: forestgreen;</code>.
                   </p>
                   <p className="mb-4">
                     In product and UI design, <strong className="text-gray-900 dark:text-white">color forest green</strong> often means something darker and more evergreen. A widely used deep green is{' '}
-                    <strong className="text-gray-900 dark:text-white">#065F46</strong> (rgb(6, 95, 70)), which anchors the five-step forest palette we use across Theme &amp; Color. Another deep option you may see in branding is{' '}
-                    <strong className="text-gray-900 dark:text-white">#2d5016</strong> (rgb(45, 80, 22)).
+                    <strong className="text-gray-900 dark:text-white not-prose">
+                      <CopyableHex hex="#065F46" />
+                    </strong>{' '}
+                    (rgb(6, 95, 70)), which anchors the five-step forest palette we use across Theme &amp; Color. Another deep option you may see in branding is{' '}
+                    <strong className="text-gray-900 dark:text-white not-prose">
+                      <CopyableHex hex="#2d5016" />
+                    </strong>{' '}
+                    (rgb(45, 80, 22)).
                   </p>
-                  <p className="mb-6 font-mono text-sm text-gray-600 dark:text-gray-400 bg-gray-100 dark:bg-gray-800 p-4 rounded-lg">
-                    CSS named: #228B22 · Deep UI green: #065F46 · Dark forest: #2d5016
+                  <p className="mb-6 font-mono text-sm text-gray-600 dark:text-gray-400 bg-gray-100 dark:bg-gray-800 p-4 rounded-lg not-prose flex flex-wrap items-center gap-x-2 gap-y-1">
+                    <span>CSS named:</span> <CopyableHex hex="#228B22" />
+                    <span className="text-gray-400">·</span>
+                    <span>Deep UI green:</span> <CopyableHex hex="#065F46" />
+                    <span className="text-gray-400">·</span>
+                    <span>Dark forest:</span> <CopyableHex hex="#2d5016" />
                   </p>
 
                   <h2 className="text-2xl font-bold text-gray-900 dark:text-white mt-8 mb-4">
@@ -161,12 +187,12 @@ export default function ForestGreenHexCodePage() {
                   <p className="mb-4">
                     British English searches for <strong className="text-gray-900 dark:text-white">forest green colour code</strong> still expect hex on screen—the format does not change by region. What changes is spelling in copy (<em>colour</em> vs <em>color</em>). For accessibility documentation, list hex, RGB, and HSL so developers anywhere can implement the same appearance.
                   </p>
-                  <ul className="list-disc list-inside space-y-2 mb-6 text-gray-700 dark:text-gray-300">
-                    <li>
-                      <strong className="text-gray-900 dark:text-white">#228B22</strong> → RGB rgb(34, 139, 34)
+                  <ul className="list-disc list-inside space-y-2 mb-6 text-gray-700 dark:text-gray-300 not-prose">
+                    <li className="pl-1">
+                      <CopyableHex hex="#228B22" /> → RGB rgb(34, 139, 34)
                     </li>
-                    <li>
-                      <strong className="text-gray-900 dark:text-white">#065F46</strong> → RGB rgb(6, 95, 70)
+                    <li className="pl-1">
+                      <CopyableHex hex="#065F46" /> → RGB rgb(6, 95, 70)
                     </li>
                   </ul>
 
@@ -177,8 +203,16 @@ export default function ForestGreenHexCodePage() {
                     A practical <strong className="text-gray-900 dark:text-white">forest green color palette</strong> needs more than one swatch: dark tones for navigation and type on light UI, mid greens for primary buttons and links, and a minty light green for backgrounds or success. The set below matches our{' '}
                     <InlineTagLink href="/blog/forest-green">Forest Green palette story</InlineTagLink> so you can jump between the quick codes here and the longer brand-and-UI guide.
                   </p>
-                  <p className="mb-4 font-mono text-sm text-gray-600 dark:text-gray-400">
-                    #065F46 · #047857 · #059669 · #10B981 · #34D399
+                  <p className="mb-4 text-gray-600 dark:text-gray-400 not-prose flex flex-wrap items-center gap-x-2 gap-y-1 font-mono text-sm">
+                    <CopyableHex hex="#065F46" />
+                    <span>·</span>
+                    <CopyableHex hex="#047857" />
+                    <span>·</span>
+                    <CopyableHex hex="#059669" />
+                    <span>·</span>
+                    <CopyableHex hex="#10B981" />
+                    <span>·</span>
+                    <CopyableHex hex="#34D399" />
                   </p>
                   <p className="mb-6">
                     To extend this range (hover, disabled, dark mode), use the{' '}
@@ -195,15 +229,15 @@ export default function ForestGreenHexCodePage() {
                   <p className="mb-4">
                     A <strong className="text-gray-900 dark:text-white">forest green color scheme</strong> is how you combine forest greens with neutrals and accents. Reliable patterns:
                   </p>
-                  <ul className="list-disc list-inside space-y-2 mb-6 text-gray-700 dark:text-gray-300">
+                  <ul className="list-disc list-inside space-y-2 mb-6 text-gray-700 dark:text-gray-300 not-prose">
                     <li>
-                      <strong className="text-gray-900 dark:text-white">Forest green + warm off-white</strong> — Use #fafaf9 or cream with #065F46 text or headers for editorial, wellness, and eco brands.
+                      <strong className="text-gray-900 dark:text-white">Forest green + warm off-white</strong> — Use <CopyableHex hex="#fafaf9" /> or cream with <CopyableHex hex="#065F46" /> text or headers for editorial, wellness, and eco brands.
                     </li>
                     <li>
-                      <strong className="text-gray-900 dark:text-white">Forest green + charcoal</strong> — #111827 body text with #059669 buttons keeps contrast strong on white (always verify with a checker).
+                      <strong className="text-gray-900 dark:text-white">Forest green + charcoal</strong> — <CopyableHex hex="#111827" /> body text with <CopyableHex hex="#059669" /> buttons keeps contrast strong on white (always verify with a checker).
                     </li>
                     <li>
-                      <strong className="text-gray-900 dark:text-white">Forest green + brass gold</strong> — Muted gold (#b45309 or softer metallics) with deep green reads premium without defaulting to black and gold.
+                      <strong className="text-gray-900 dark:text-white">Forest green + brass gold</strong> — Muted gold (<CopyableHex hex="#b45309" /> or softer metallics) with deep green reads premium without defaulting to black and gold.
                     </li>
                   </ul>
                   <p className="mb-6">
@@ -219,11 +253,19 @@ export default function ForestGreenHexCodePage() {
                     <strong className="text-gray-900 dark:text-white">Ocean Breeze colour</strong> usually want the full blue-to-mint ramp in one line. Here are the five hex codes; the deep dive (roles, CSS variables, accessibility) lives in the{' '}
                     <InlineTagLink href="/blog/ocean-breeze">Ocean Breeze palette guide</InlineTagLink>.
                   </p>
-                  <p className="mb-4 font-mono text-sm text-gray-600 dark:text-gray-400 bg-gray-100 dark:bg-gray-800 p-4 rounded-lg">
-                    #0EA5E9 · #06B6D4 · #14B8A6 · #10B981 · #34D399
+                  <p className="mb-4 text-gray-600 dark:text-gray-400 bg-gray-100 dark:bg-gray-800 p-4 rounded-lg not-prose flex flex-wrap items-center gap-x-2 gap-y-1 font-mono text-sm">
+                    <CopyableHex hex="#0EA5E9" />
+                    <span>·</span>
+                    <CopyableHex hex="#06B6D4" />
+                    <span>·</span>
+                    <CopyableHex hex="#14B8A6" />
+                    <span>·</span>
+                    <CopyableHex hex="#10B981" />
+                    <span>·</span>
+                    <CopyableHex hex="#34D399" />
                   </p>
                   <p className="mb-6">
-                    Ocean Breeze shares two greens with the forest palette (#10B981, #34D399), so you can bridge a calm blue UI into natural green accents without inventing new tokens.
+                    Ocean Breeze shares two greens with the forest palette (<CopyableHex hex="#10B981" />, <CopyableHex hex="#34D399" />), so you can bridge a calm blue UI into natural green accents without inventing new tokens.
                   </p>
 
                   <h2 className="text-2xl font-bold text-gray-900 dark:text-white mt-8 mb-4">
@@ -253,13 +295,13 @@ export default function ForestGreenHexCodePage() {
                     <h3 className="text-sm font-semibold text-gray-500 dark:text-gray-400 uppercase tracking-wide mb-3">
                       Forest green palette (copy hex)
                     </h3>
-                    <ColorPaletteClient colors={FOREST_PALETTE} designTitle="Forest Green" />
+                    <ColorPaletteClient colors={FOREST_PALETTE} designTitle="Forest Green" showHexCopyIcon />
                   </div>
                   <div>
                     <h3 className="text-sm font-semibold text-gray-500 dark:text-gray-400 uppercase tracking-wide mb-3">
                       Ocean Breeze quick copy
                     </h3>
-                    <ColorPaletteClient colors={OCEAN_BREEZE_QUICK} designTitle="Ocean Breeze" />
+                    <ColorPaletteClient colors={OCEAN_BREEZE_QUICK} designTitle="Ocean Breeze" showHexCopyIcon />
                   </div>
                 </div>
               </aside>
