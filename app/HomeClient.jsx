@@ -128,6 +128,34 @@ const latestPosts = [
     palette: ['#ffffff', '#1e40af', '#1d4ed8', '#1e293b', '#0ea5e9'],
     publishedAt: '2026-04-02',
   },
+  {
+    id: 14,
+    title: 'Navy Blue Hex Code: #000080 — Shades, Palettes & Copy-Paste Codes',
+    slug: 'navy-blue-hex-code',
+    palette: ['#000080', '#4682b4', '#ffd700', '#ffffff', '#ff6b6b'],
+    publishedAt: '2026-05-10',
+  },
+  {
+    id: 15,
+    title: 'Sage Green Hex Code: Color Codes, Shades & Palette Pairings',
+    slug: 'sage-green-hex-code',
+    palette: ['#b2ac88', '#e2725b', '#fffdd0', '#36454f', '#87a96b'],
+    publishedAt: '2026-05-11',
+  },
+  {
+    id: 16,
+    title: 'Terracotta Hex Code: #E2725B — Shades, Palettes & UI Examples',
+    slug: 'terracotta-hex-code',
+    palette: ['#e2725b', '#b2ac88', '#fffdd0', '#000080', '#9e9e9e'],
+    publishedAt: '2026-05-12',
+  },
+  {
+    id: 17,
+    title: 'The 60-30-10 Color Rule: How to Use It for Web & Brand Design',
+    slug: '60-30-10-color-rule',
+    palette: ['#f5f5f5', '#1e3a8a', '#ffd700', '#b2ac88', '#0066ff'],
+    publishedAt: '2026-05-13',
+  },
 ];
 
 export default function HomeClient() {

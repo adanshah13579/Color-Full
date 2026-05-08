@@ -19,13 +19,17 @@ export const metadata = buildPageMetadata({
 
 // Card image: color palette (array of hex) per post — matches Theme & Color brand
 const CARD_PALETTES = {
+  '60-30-10-color-rule': ['#f5f5f5', '#1e3a8a', '#ffd700', '#b2ac88', '#0066ff'],
   '10-color-trends-for-2025': ['#8B5CF6', '#EC4899', '#F59E0B', '#10B981', '#3B82F6'],
   'color-palette-ideas-for-small-business': ['#1e3a8a', '#ffffff', '#d4af37', '#059669', '#6b7280'],
   'ocean-breeze': ['#0ea5e9', '#06b6d4', '#14b8a6', '#10b981'],
   'sunset-vibes': ['#f97316', '#ef4444', '#ec4899', '#8b5cf6'],
   'forest-green': ['#228b22', '#166534', '#15803d', '#86efac', '#dcfce7'],
   'forest-green-hex-code': ['#228b22', '#065f46', '#047857', '#10b981', '#34d399'],
+  'navy-blue-hex-code': ['#000080', '#4682b4', '#ffd700', '#ffffff', '#ff6b6b'],
   'ocean-breeze-hex-code': ['#0ea5e9', '#06b6d4', '#14b8a6', '#10b981', '#34d399'],
+  'sage-green-hex-code': ['#b2ac88', '#e2725b', '#fffdd0', '#36454f', '#87a96b'],
+  'terracotta-hex-code': ['#e2725b', '#b2ac88', '#fffdd0', '#000080', '#9e9e9e'],
   'purple-dream': ['#7c3aed', '#8b5cf6', '#a78bfa', '#c4b5fd', '#ede9fe'],
   'how-to-check-color-contrast-accessibility': ['#111827', '#374151', '#6b7280', '#9ca3af', '#ffffff'],
   'best-neutral-colors-pair-with-brand': ['#1c1917', '#57534e', '#a8a29e', '#e7e5e4', '#fafaf9'],
@@ -89,6 +93,38 @@ const staticPosts = [
     excerpt:
       'Ocean Breeze color and colour codes with RGB values: #0EA5E9, #06B6D4, #14B8A6, #10B981, and #34D399. Copy-ready swatches, CSS variables, and contrast tips.',
     publishedAt: '2026-04-17',
+  },
+  {
+    _id: '14',
+    title: 'Navy Blue Hex Code: #000080 — Shades, Palettes & Copy-Paste Codes',
+    slug: { current: 'navy-blue-hex-code' },
+    excerpt:
+      'Navy blue hex code is #000080. Copy hex codes for 10 navy shades, see palette pairings with gold, white and coral, and explore UI examples for web design.',
+    publishedAt: '2026-05-10',
+  },
+  {
+    _id: '15',
+    title: 'Sage Green Hex Code: Color Codes, Shades & Palette Pairings',
+    slug: { current: 'sage-green-hex-code' },
+    excerpt:
+      'Sage green hex code is #B2AC88. Copy hex codes for 10 sage green shades, explore palette pairings with terracotta, cream and dusty rose, and see UI examples.',
+    publishedAt: '2026-05-11',
+  },
+  {
+    _id: '16',
+    title: 'Terracotta Hex Code: #E2725B — Shades, Palettes & UI Examples',
+    slug: { current: 'terracotta-hex-code' },
+    excerpt:
+      'Terracotta hex code is #E2725B. Copy hex codes for terracotta shades, see palette pairings with sage, cream and navy, and explore branding and UI examples.',
+    publishedAt: '2026-05-12',
+  },
+  {
+    _id: '17',
+    title: 'The 60-30-10 Color Rule: How to Use It for Web & Brand Design',
+    slug: { current: '60-30-10-color-rule' },
+    excerpt:
+      'The 60-30-10 rule makes color easy: 60% dominant, 30% secondary, 10% accent. Learn how to apply it to websites and brands with real hex code examples.',
+    publishedAt: '2026-05-13',
   },
   {
     _id: '6',

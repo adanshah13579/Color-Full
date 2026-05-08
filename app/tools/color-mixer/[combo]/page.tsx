@@ -3,10 +3,13 @@ import { notFound } from 'next/navigation';
 import ColorMixer from '../components/ColorMixer';
 import { PRESET_MAP, getCombinationMix, toTitleCase } from '../colorMixing';
 import { buildPageMetadata } from '../../../../lib/buildPageMetadata';
+import { getComboSeo } from './comboSeoContent';
+import ColorMixerSeoBlocks from './ColorMixerSeoBlocks';
 
 const COMBINATIONS = [
   'red-and-blue',
   'blue-and-yellow',
+  'yellow-and-blue',
   'red-and-yellow',
   'blue-and-green',
   'red-and-green',
@@ -26,11 +29,12 @@ const COMBINATIONS = [
 ];
 
 const RELATED: Record<string, string[]> = {
-  'red-and-blue': ['purple-and-yellow', 'red-and-yellow', 'blue-and-purple', 'red-and-white'],
-  'blue-and-yellow': ['yellow-and-green', 'blue-and-green', 'orange-and-blue', 'green-and-yellow'],
+  'red-and-blue': ['purple-and-yellow', 'red-and-yellow', 'blue-and-purple', 'pink-and-purple'],
+  'blue-and-yellow': ['yellow-and-blue', 'yellow-and-green', 'blue-and-green', 'green-and-yellow'],
+  'yellow-and-blue': ['blue-and-yellow', 'yellow-and-green', 'blue-and-green', 'green-and-yellow'],
   'red-and-yellow': ['orange-and-red', 'red-and-blue', 'orange-and-blue', 'red-and-white'],
-  'blue-and-green': ['blue-and-yellow', 'yellow-and-green', 'pink-and-blue', 'black-and-white'],
-  'red-and-green': ['red-and-blue', 'red-and-black', 'green-and-yellow', 'blue-and-green'],
+  'blue-and-green': ['blue-and-yellow', 'yellow-and-blue', 'yellow-and-green', 'pink-and-blue'],
+  'red-and-green': ['red-and-blue', 'red-and-yellow', 'green-and-yellow', 'blue-and-green'],
   'purple-and-yellow': ['red-and-blue', 'blue-and-purple', 'orange-and-blue', 'pink-and-purple'],
   'orange-and-blue': ['red-and-yellow', 'blue-and-yellow', 'purple-and-yellow', 'brown-and-orange'],
   'pink-and-purple': ['red-and-white', 'blue-and-purple', 'pink-and-blue', 'red-and-blue'],
@@ -65,6 +69,13 @@ export async function generateStaticParams() {
   return COMBINATIONS.map((combo) => ({ combo }));
 }
 
+const OG_MIXER = {
+  openGraph: {
+    images: [{ url: '/og-color-mixer.png', width: 1200, height: 630, alt: 'Color Mixing Simulator preview' }],
+  },
+  twitter: { images: ['/og-color-mixer.png'] },
+} as const;
+
 export async function generateMetadata({ params }: { params: Promise<{ combo: string }> }) {
   const { combo } = await params;
   const parsed = parseCombo(combo);
@@ -75,18 +86,28 @@ export async function generateMetadata({ params }: { params: Promise<{ combo: st
       description:
         'Mix any two colors with RYB paint-style blending. See hex, RGB, and closest color names instantly.',
       keywords: ['color mixing', 'RYB', 'Theme & Color'],
-      openGraph: {
-        images: [
-          { url: '/og-color-mixer.png', width: 1200, height: 630, alt: 'Color Mixing Simulator preview' },
-        ],
-      },
-      twitter: { images: ['/og-color-mixer.png'] },
+      ...OG_MIXER,
     });
   }
 
   const c1 = parsed.color1.charAt(0).toUpperCase() + parsed.color1.slice(1);
   const c2 = parsed.color2.charAt(0).toUpperCase() + parsed.color2.slice(1);
   const comboPath = `/tools/color-mixer/${combo}`;
+  const seo = getComboSeo(combo);
+  if (seo) {
+    return buildPageMetadata({
+      path: comboPath,
+      title: seo.metaTitle,
+      description: seo.metaDescription,
+      keywords: ['color mixing', combo.replace(/-/g, ' '), 'RYB', 'hex codes', 'Theme & Color'],
+      ...OG_MIXER,
+      openGraph: {
+        ...OG_MIXER.openGraph,
+        images: [{ url: '/og-color-mixer.png', width: 1200, height: 630, alt: seo.h1 }],
+      },
+    });
+  }
+
   return buildPageMetadata({
     path: comboPath,
     title: `What Color Does ${c1} and ${c2} Make?`,
@@ -99,12 +120,11 @@ export async function generateMetadata({ params }: { params: Promise<{ combo: st
       'hex',
       'Theme & Color',
     ],
+    ...OG_MIXER,
     openGraph: {
-      images: [
-        { url: '/og-color-mixer.png', width: 1200, height: 630, alt: `Mix ${c1} and ${c2} — color mixer` },
-      ],
+      ...OG_MIXER.openGraph,
+      images: [{ url: '/og-color-mixer.png', width: 1200, height: 630, alt: `Mix ${c1} and ${c2} — color mixer` }],
     },
-    twitter: { images: ['/og-color-mixer.png'] },
   });
 }
 
@@ -119,20 +139,23 @@ export default async function ColorMixerCombinationPage({ params }: { params: Pr
   const c1 = parsed.color1.charAt(0).toUpperCase() + parsed.color1.slice(1);
   const c2 = parsed.color2.charAt(0).toUpperCase() + parsed.color2.slice(1);
   const related = (RELATED[combo] || COMBINATIONS.filter((c) => c !== combo)).slice(0, 4);
+  const seo = getComboSeo(combo);
 
   return (
     <div className="min-h-screen bg-white dark:bg-gray-900 py-12">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="max-w-5xl mx-auto">
           <h1 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4">
-            What Color Does {c1} and {c2} Make?
+            {seo ? seo.h1 : `What Color Does ${c1} and ${c2} Make?`}
           </h1>
 
           <p className="text-gray-700 dark:text-gray-300 leading-relaxed mb-6">
-            {getSpecificExplanation(parsed.color1, parsed.color2, mix.result.hex, mix.result.closestName)}
+            {seo ? seo.lead : getSpecificExplanation(parsed.color1, parsed.color2, mix.result.hex, mix.result.closestName)}
           </p>
 
           <ColorMixer initialColor1={mix.color1.hex} initialColor2={mix.color2.hex} showRelated />
+
+          {seo ? <ColorMixerSeoBlocks content={seo} /> : null}
 
           <div className="mt-10 rounded-xl border border-gray-200 dark:border-gray-700 p-5 bg-white dark:bg-gray-800">
             <h2 className="text-xl font-semibold text-gray-900 dark:text-white mb-3">Related color combinations</h2>

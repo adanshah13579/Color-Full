@@ -35,6 +35,30 @@ const THEMES = {
     copyBtn:
       'border-violet-300/90 dark:border-violet-600 bg-white/80 dark:bg-violet-950/50 text-violet-900 dark:text-violet-100 hover:bg-white dark:hover:bg-violet-900',
   },
+  navy: {
+    container: 'border-slate-300 dark:border-slate-700 bg-slate-100/95 dark:bg-slate-900/50',
+    inner: 'border-slate-200 dark:border-slate-700/80 bg-white/80 dark:bg-slate-800/40',
+    rowBorder: 'border-slate-200/90 dark:border-slate-600/80',
+    label: 'text-slate-700 dark:text-slate-300',
+    copyBtn:
+      'border-slate-400/90 dark:border-slate-500 bg-white dark:bg-slate-800 text-slate-900 dark:text-slate-100 hover:bg-slate-50 dark:hover:bg-slate-700',
+  },
+  sage: {
+    container: 'border-lime-200/90 dark:border-lime-900/50 bg-lime-50/90 dark:bg-stone-900/55',
+    inner: 'border-lime-100 dark:border-stone-700/80 bg-white/85 dark:bg-stone-800/45',
+    rowBorder: 'border-lime-200/80 dark:border-stone-600/70',
+    label: 'text-lime-900/75 dark:text-lime-200/75',
+    copyBtn:
+      'border-lime-300/90 dark:border-lime-800 bg-white dark:bg-stone-800 text-lime-950 dark:text-lime-50 hover:bg-lime-50 dark:hover:bg-stone-700',
+  },
+  terracotta: {
+    container: 'border-orange-200/90 dark:border-orange-950/50 bg-orange-50/95 dark:bg-stone-900/55',
+    inner: 'border-orange-100 dark:border-stone-700/80 bg-white/85 dark:bg-stone-800/45',
+    rowBorder: 'border-orange-200/75 dark:border-stone-600/70',
+    label: 'text-orange-900/80 dark:text-orange-200/80',
+    copyBtn:
+      'border-orange-300/90 dark:border-orange-800 bg-white dark:bg-stone-800 text-orange-950 dark:text-orange-50 hover:bg-orange-50 dark:hover:bg-stone-700',
+  },
 };
 
 const copyIcon = (

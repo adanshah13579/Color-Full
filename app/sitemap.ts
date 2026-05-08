@@ -1,11 +1,12 @@
 import { MetadataRoute } from 'next';
+import { getBlogPostPathsForSitemap } from '../lib/blogSitemapSlugs';
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = 'https://themeandcolor.com';
-
   const combinations = [
     'red-and-blue',
     'blue-and-yellow',
+    'yellow-and-blue',
     'red-and-yellow',
     'blue-and-green',
     'red-and-green',
@@ -44,24 +45,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     '/palettes/luxury-automotive-color-palettes',
   ];
 
-  const blogPosts = [
-    '/blog/forest-green',
-    '/blog/forest-green-hex-code',
-    '/blog/ocean-breeze',
-    '/blog/ocean-breeze-hex-code',
-    '/blog/sunset-vibes',
-    '/blog/purple-dream',
-    '/blog/accessible-dark-mode-color-palette',
-    '/blog/best-color-palette-tools-for-designers',
-    '/blog/how-to-generate-color-palette-for-brand',
-    '/blog/how-to-check-color-contrast-accessibility',
-    '/blog/10-color-trends-for-2025',
-    '/blog/color-palette-ideas-for-small-business',
-    '/blog/wcag-accessible-buttons-and-links',
-    '/blog/ecommerce-color-palettes-product-first-vs-brand-first',
-    '/blog/best-neutral-colors-pair-with-brand',
-  ];
-
+  const blogPosts = getBlogPostPathsForSitemap();
+  console.log('[sitemap] Blog post URLs:', blogPosts.length, blogPosts);
   const staticUrls = staticPages.map((path) => ({
     url: `${baseUrl}${path}`,
     lastModified: new Date(),

@@ -103,24 +103,16 @@ html:not(.dark) p.text-gray-600 {
   color: #4b5563 !important; /* medium dark gray */
 }
 
-/* Force dark text for all headings in light theme */
-html:not(.dark) h1:not(.text-transparent):not(.text-white),
-html:not(.dark) h2:not(.text-transparent):not(.text-white),
-html:not(.dark) h3:not(.text-transparent):not(.text-white),
-html:not(.dark) h4:not(.text-transparent):not(.text-white),
-html:not(.dark) h5:not(.text-transparent):not(.text-white),
-html:not(.dark) h6:not(.text-transparent):not(.text-white) {
-  color: #111827 !important; /* black */
-}
-
-/* Force dark text for paragraphs and spans in light theme */
-html:not(.dark) p:not(.text-white):not(.text-transparent),
-html:not(.dark) span:not(.text-white):not(.text-transparent) {
-  color: #1f2937 !important; /* dark gray */
-}
-
 /* Keep white text for buttons and special elements */
 html:not(.dark) .text-white {
+  color: #ffffff !important;
+}
+
+/* Gradient / solid CTAs: inner spans and icons must stay light (removed blanket p/span rules broke these) */
+html:not(.dark) a.text-white,
+html:not(.dark) a.text-white *,
+html:not(.dark) button.text-white,
+html:not(.dark) button.text-white * {
   color: #ffffff !important;
 }
 

@@ -2,6 +2,7 @@ import Link from 'next/link'
 import { Fragment } from 'react'
 import { notFound } from 'next/navigation'
 import { buildPageMetadata } from '../../../lib/buildPageMetadata'
+import { BLOG_DYNAMIC_SLUGS } from '../../../lib/blogSitemapSlugs'
 import ColorPaletteClient from './ColorPaletteClient'
 import ColorSwatch from './ColorSwatch'
 import GradientSwatch from './GradientSwatch'
@@ -344,6 +345,10 @@ const staticPosts = {
     ],
   },
 };
+
+export function generateStaticParams() {
+  return BLOG_DYNAMIC_SLUGS.map((slug) => ({ slug }))
+}
 
 export async function generateMetadata({ params }) {
   const resolvedParams = await params
