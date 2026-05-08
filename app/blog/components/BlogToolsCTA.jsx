@@ -1,17 +1,8 @@
-'use client';
-
 import Link from 'next/link';
-import { motion } from 'framer-motion';
 
 export default function BlogToolsCTA() {
   return (
-    <motion.section
-      initial={{ opacity: 0, y: 20 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: '-50px' }}
-      transition={{ duration: 0.5 }}
-      className="my-12 not-prose"
-    >
+    <section className="my-12 not-prose">
       <div className="rounded-xl border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-900 p-6 md:p-7">
         <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-2">
           Build your palette
@@ -34,6 +25,6 @@ export default function BlogToolsCTA() {
           </Link>
         </div>
       </div>
-    </motion.section>
+    </section>
   );
 }
