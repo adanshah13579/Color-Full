@@ -69,9 +69,49 @@ const FOREST_PAIRINGS = [
   },
 ];
 
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: [
+    {
+      '@type': 'Question',
+      name: 'What is the forest green color palette?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'The forest green color palette spans deep evergreen (#166534), rich green (#15803D), canonical CSS forest green (#228B22), light mint (#86EFAC), and pale mist (#DCFCE7). It suits eco, wellness, and trust-oriented brands that want a grounded, natural feel.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'What hex codes are in a forest green palette?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Core hex codes include #228B22, #166534, #15803D, #86EFAC, and #DCFCE7. Use darker greens for navigation and type on light UI; use mint and mist tints for backgrounds and success states after contrast testing.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'What colors pair well with forest green?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Warm off-white (#FAFAF9), muted brass (#B45309), teal bridge accents (#14B8A6), and soft rose (#FDA4AF) pair well with forest green without overwhelming the layout.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'Is forest green good for websites and branding?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Yes—for sustainability, outdoor, finance, and wellness brands that need trust and calm. Reserve saturated greens for accents and CTAs; keep body text in charcoal or evergreen, and verify every text-on-green pair with a WCAG contrast checker.',
+      },
+    },
+  ],
+};
+
 export default function ForestGreenPage() {
   return (
     <article className="min-h-screen bg-white dark:bg-gray-900">
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
       <section className="bg-gradient-to-br from-emerald-800 via-emerald-600 to-emerald-400 text-white py-12 md:py-16">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-4xl mx-auto">
@@ -385,6 +425,16 @@ export default function ForestGreenPage() {
                     <InlineTagLink href="/blog/ocean-breeze">Ocean Breeze</InlineTagLink> or <InlineTagLink href="/blog/purple-dream">Purple Dream</InlineTagLink>
                     .
                   </p>
+
+                  <h2 className="text-2xl font-bold text-gray-900 dark:text-white mt-8 mb-4">FAQ</h2>
+                  <dl className="space-y-6 not-prose mb-8">
+                    {faqSchema.mainEntity.map((item) => (
+                      <div key={item.name}>
+                        <dt className="font-semibold text-gray-900 dark:text-white">{item.name}</dt>
+                        <dd className="mt-1 text-gray-700 dark:text-gray-300">{item.acceptedAnswer.text}</dd>
+                      </div>
+                    ))}
+                  </dl>
 
                   <BlogToolsCTA />
                 </div>

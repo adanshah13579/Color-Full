@@ -10,9 +10,49 @@ export const metadata = buildPageMetadata({
   keywords: ['palette tools', 'color generator', 'UI design', 'workflow', 'Theme & Color'],
 });
 
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: [
+    {
+      '@type': 'Question',
+      name: 'What is the best color palette tool for designers?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'The best palette tool accepts a base hex color, generates harmonies (monochromatic, analogous, complementary, triadic), outputs copy-ready hex codes in real time, and works without sign-up for basic use. Pair it with a contrast checker for production UI.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'Do I need a paid color palette generator?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'No for most UI and brand workflows. Free generators that export hex codes plus a separate WCAG contrast checker are enough when you document tokens in a style guide.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'What harmony types should a palette tool support?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Look for monochromatic, analogous, complementary, split-complementary, triadic, and tetradic harmonies. Multiple types let you explore brand directions from one primary without manual color picking.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'Should I use a palette tool with a built-in contrast checker?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Built-in contrast is convenient, but a dedicated palette generator plus a separate contrast checker is often clearer: generate options first, then validate text and button pairs against WCAG AA or AAA.',
+      },
+    },
+  ],
+};
+
 export default function BestColorPaletteToolsForDesignersPage() {
   return (
     <div className="min-h-screen bg-white dark:bg-gray-900 py-12">
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-3xl">
         <article>
           <header className="mb-10">
@@ -79,6 +119,18 @@ export default function BestColorPaletteToolsForDesignersPage() {
             <p className="leading-relaxed">
               The best color palette tools for designers are fast, free to use, and output hex codes for immediate use in design and code. They should support multiple harmony types from a single base color. Pair a <InlineTagLink href="/tools/palette-generator">color palette generator</InlineTagLink> with a contrast checker and a clear style guide so that palettes are not only consistent but also accessible and documented for teams and vendors.
             </p>
+          </section>
+
+          <section className="mb-10">
+            <h2 className="text-xl font-bold mb-4 text-gray-900 dark:text-white">FAQ</h2>
+            <dl className="space-y-6">
+              {faqSchema.mainEntity.map((item) => (
+                <div key={item.name}>
+                  <dt className="font-semibold text-gray-900 dark:text-white">{item.name}</dt>
+                  <dd className="mt-1 text-gray-600 dark:text-gray-400 leading-relaxed">{item.acceptedAnswer.text}</dd>
+                </div>
+              ))}
+            </dl>
           </section>
         </article>
       </div>

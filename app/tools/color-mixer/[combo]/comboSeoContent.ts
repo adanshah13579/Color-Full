@@ -250,6 +250,195 @@ export const COMBO_SEO: Record<string, ComboSeoBundle> = {
     uiUsage:
       'Neutral ramps anchor typography, dividers, skeleton loaders, and elevation in both light and dark themes. Keep at least four distinguishable steps between background and border tokens. Generate extended cool or warm grays from these anchors in the palette generator, then prove legibility with the contrast checker on real content samples.',
   },
+  'purple-and-yellow': {
+    metaTitle: 'What Color Does Purple and Yellow Make? #808000 | Theme & Color',
+    metaDescription:
+      'Purple and yellow mixed make brown or olive. See hex codes for 5 mix ratios, color swatches, and use our free color mixer tool.',
+    h1: 'What Color Does Purple and Yellow Make?',
+    lead: 'Purple and yellow mixed make brown or olive. A 50/50 mix gives #808000.',
+    quickFormula: 'Purple + Yellow = Brown/Olive',
+    quickHex: '#808000',
+    quickSwatchAria: 'Balanced purple and yellow mix, olive',
+    theory:
+      'Purple and yellow sit opposite on the color wheel, so mixing them desaturates quickly into olive, moss, and brown families rather than a vivid secondary. Painters use this pair to mute landscapes and shadows; on screens, linear RGB blends between #800080 and #FFFF00 land near web olive (#808000) at equal parts. Dominating with purple keeps the mix drab-violet; dominating with yellow pushes chartreuse-olive. Document your anchor hex in tokens so teams do not confuse this muddy mix with intentional brand green.',
+    ratioRows: [
+      { ratio: '80% purple + 20% yellow', label: 'Deep olive', hex: '#996633' },
+      { ratio: '60% purple + 40% yellow', label: 'Moss brown', hex: '#8F7333' },
+      { ratio: '50% purple + 50% yellow', label: 'True olive', hex: '#808000' },
+      { ratio: '40% purple + 60% yellow', label: 'Yellow olive', hex: '#738C00' },
+      { ratio: '20% purple + 80% yellow', label: 'Chartreuse olive', hex: '#669900' },
+    ],
+    uiUsage:
+      'Olive and brown-olive mixes work for earthy dashboards, outdoor brands, and photography overlays—avoid using them for small error text on saturated green. Pair olive accents with cream or charcoal neutrals. After choosing an anchor, branch tints in the palette generator and validate every text pair with the contrast checker.',
+  },
+  'orange-and-blue': {
+    metaTitle: 'What Color Does Orange and Blue Make? #7B5E3A | Theme & Color',
+    metaDescription:
+      'Orange and blue mixed make brown. See hex codes for 5 mix ratios, color swatches, and use our free color mixer tool.',
+    h1: 'What Color Does Orange and Blue Make?',
+    lead: 'Orange and blue mixed make brown. A 50/50 mix gives #7B5E3A.',
+    quickFormula: 'Orange + Blue = Brown',
+    quickHex: '#7B5E3A',
+    quickSwatchAria: 'Balanced orange and blue mix, brown',
+    theory:
+      'Orange (a red-yellow secondary) and blue are complements; combining them neutralizes chroma into browns and taupes. This is why “orange + blue” rarely yields a clean purple or green on canvas—pigment chemistry pulls toward umber. Digital RGB averaging between #FFA500 and #0000FF produces a warm brown near #7B5E3A at balance. Use the ratio table to brief “rust”, “caramel”, or “drab” before tuning opacity in the mixer.',
+    ratioRows: [
+      { ratio: '80% orange + 20% blue', label: 'Burnt sienna', hex: '#9A7040' },
+      { ratio: '60% orange + 40% blue', label: 'Copper brown', hex: '#8F6538' },
+      { ratio: '50% orange + 50% blue', label: 'True brown', hex: '#7B5E3A' },
+      { ratio: '40% orange + 60% blue', label: 'Cool umber', hex: '#6B5230' },
+      { ratio: '20% orange + 80% blue', label: 'Deep taupe', hex: '#5A4628' },
+    ],
+    uiUsage:
+      'Warm browns suit heritage logos, coffee brands, and rustic UI chrome. Keep saturated orange or blue for single primary CTAs rather than stacking both beside brown fills. Extend brown ramps in the palette generator and run contrast checks on white and cream text before shipping.',
+  },
+  'red-and-black': {
+    metaTitle: 'What Color Does Red and Black Make? #800000 | Theme & Color',
+    metaDescription:
+      'Red and black mixed make dark red or maroon. See hex codes for 5 mix ratios, color swatches, and use our free color mixer tool.',
+    h1: 'What Color Does Red and Black Make?',
+    lead: 'Red and black mixed make dark red or maroon. A 50/50 mix gives #800000.',
+    quickFormula: 'Red + Black = Dark red / maroon',
+    quickHex: '#800000',
+    quickSwatchAria: 'Balanced red and black mix, maroon',
+    theory:
+      'Adding black to red lowers value without necessarily shifting hue—a shade in classical terms. Equal parts pure red (#FF0000) and black (#000000) yield maroon (#800000), the same family as CSS “maroon”. Small amounts of black quickly deepen scarlet into wine and burgundy, which is why print designers specify percentages rather than eyeballing. In UI, treat these steps as semantic “danger pressed” or luxury accent colors, not body text on dark mode without contrast testing.',
+    ratioRows: [
+      { ratio: '80% red + 20% black', label: 'Bright crimson', hex: '#CC0000' },
+      { ratio: '60% red + 40% black', label: 'Deep red', hex: '#B30000' },
+      { ratio: '50% red + 50% black', label: 'Maroon', hex: '#800000' },
+      { ratio: '40% red + 60% black', label: 'Wine', hex: '#660000' },
+      { ratio: '20% red + 80% black', label: 'Near black red', hex: '#4D0000' },
+    ],
+    uiUsage:
+      'Maroon headers and buttons read premium on cream or gold palettes; pair with off-white type only after contrast validation. Use lighter ratio rows for hover states and darker rows for pressed states. Build systematic reds in the palette generator, then verify focus rings and links in the contrast checker.',
+  },
+  'yellow-and-green': {
+    metaTitle: 'What Color Does Yellow and Green Make? #9ACD32 | Theme & Color',
+    metaDescription:
+      'Yellow and green mixed make yellow-green. See hex codes for 5 mix ratios, color swatches, and use our free color mixer tool.',
+    h1: 'What Color Does Yellow and Green Make?',
+    lead: 'Yellow and green mixed make yellow-green. A 50/50 mix gives #9ACD32.',
+    quickFormula: 'Yellow + Green = Yellow-green',
+    quickHex: '#9ACD32',
+    quickSwatchAria: 'Balanced yellow and green mix, yellow-green',
+    theory:
+      'Yellow and green are adjacent on the wheel, so their mixture stays in the yellow-green family—chartreuse, lime, and spring green—rather than neutralizing. The CSS color yellowgreen (#9ACD32) is a common reference for a balanced mix between bright yellow (#FFFF00) and web green (#008000). More yellow lifts lightness toward lemon-lime; more green deepens toward apple and forest accents. Use named stops in the table so developers and illustrators share the same vocabulary.',
+    ratioRows: [
+      { ratio: '80% yellow + 20% green', label: 'Lime', hex: '#C4E038' },
+      { ratio: '60% yellow + 40% green', label: 'Chartreuse', hex: '#B8D935' },
+      { ratio: '50% yellow + 50% green', label: 'Yellow-green', hex: '#9ACD32' },
+      { ratio: '40% yellow + 60% green', label: 'Apple green', hex: '#7CB828' },
+      { ratio: '20% yellow + 80% green', label: 'Leaf green', hex: '#5E9A1E' },
+    ],
+    uiUsage:
+      'Yellow-greens signal energy, growth, and outdoor recreation—strong for charts, badges, and campaign accents. Avoid neon lime for long-form text on white. Generate harmonious ramps in the palette generator and test WCAG pairs in the contrast checker before using yellow-green as a button fill.',
+  },
+  'orange-and-red': {
+    metaTitle: 'What Color Does Orange and Red Make? #FF4500 | Theme & Color',
+    metaDescription:
+      'Orange and red mixed make red-orange. See hex codes for 5 mix ratios, color swatches, and use our free color mixer tool.',
+    h1: 'What Color Does Orange and Red Make?',
+    lead: 'Orange and red mixed make red-orange. A 50/50 mix gives #FF4500.',
+    quickFormula: 'Orange + Red = Red-orange',
+    quickHex: '#FF4500',
+    quickSwatchAria: 'Balanced orange and red mix, red-orange',
+    theory:
+      'Orange already contains red; mixing orange (#FFA500) with more red (#FF0000) pushes hue toward red-orange and vermillion without introducing cool undertones. The web color orangered (#FF4500) is a useful 50/50 anchor for digital handoff. Because both parents are warm and high-chroma, results stay vivid—ideal for heat maps, sports branding, and sale badges. Pigment mixes may read slightly deeper than screen hexes; proof print when packaging depends on exact warmth.',
+    ratioRows: [
+      { ratio: '80% orange + 20% red', label: 'Bright orange', hex: '#FF7700' },
+      { ratio: '60% orange + 40% red', label: 'Flame orange', hex: '#FF5E00' },
+      { ratio: '50% orange + 50% red', label: 'Red-orange', hex: '#FF4500' },
+      { ratio: '40% orange + 60% red', label: 'Vermillion', hex: '#E63D00' },
+      { ratio: '20% orange + 80% red', label: 'Scarlet orange', hex: '#CC3500' },
+    ],
+    uiUsage:
+      'Red-orange CTAs outperform pure red for “limited time” promos when contrast on white passes. Use one warm accent per view so orange-red does not compete with yellow highlights. Extend semantic warning colors in the palette generator and audit hover/focus states with the contrast checker.',
+  },
+  'blue-and-purple': {
+    metaTitle: 'What Color Does Blue and Purple Make? #6A0DAD | Theme & Color',
+    metaDescription:
+      'Blue and purple mixed make violet. See hex codes for 5 mix ratios, color swatches, and use our free color mixer tool.',
+    h1: 'What Color Does Blue and Purple Make?',
+    lead: 'Blue and purple mixed make violet. A 50/50 mix gives #6A0DAD.',
+    quickFormula: 'Blue + Purple = Violet',
+    quickHex: '#6A0DAD',
+    quickSwatchAria: 'Balanced blue and purple mix, violet',
+    theory:
+      'Blue and purple are neighbors on the cool side of the wheel; mixing them deepens violet and indigo rather than creating mud (unlike complements). Between pure blue (#0000FF) and web purple (#800080), a balanced blend lands near #6A0DAD—rich violet suitable for creative tech, music, and youth brands. Extra blue shifts toward royal indigo; extra purple shifts toward plum. In RGB workflows, capture both hue and lightness tokens so dark mode does not collapse violet into flat gray.',
+    ratioRows: [
+      { ratio: '80% blue + 20% purple', label: 'Royal violet', hex: '#3509AD' },
+      { ratio: '60% blue + 40% purple', label: 'Deep violet', hex: '#4F0BAD' },
+      { ratio: '50% blue + 50% purple', label: 'True violet', hex: '#6A0DAD' },
+      { ratio: '40% blue + 60% purple', label: 'Plum violet', hex: '#7F2BB8' },
+      { ratio: '20% blue + 80% purple', label: 'Soft purple', hex: '#9448C3' },
+    ],
+    uiUsage:
+      'Violet accents pair with off-white, silver, or charcoal for premium digital products. Use darker ratio rows for navigation and lighter rows for gradient highlights. Build cool harmonies in the palette generator and verify link and button contrast in the contrast checker—violet text on mid-gray often fails WCAG.',
+  },
+  'green-and-yellow': {
+    metaTitle: 'What Color Does Green and Yellow Make? #9ACD32 | Theme & Color',
+    metaDescription:
+      'Green and yellow mixed make yellow-green. See hex codes for 5 mix ratios, color swatches, and use our free color mixer tool.',
+    h1: 'What Color Does Green and Yellow Make?',
+    lead: 'Green and yellow mixed make yellow-green. A 50/50 mix gives #9ACD32.',
+    quickFormula: 'Green + Yellow = Yellow-green',
+    quickHex: '#9ACD32',
+    quickSwatchAria: 'Balanced green and yellow mix, yellow-green',
+    theory:
+      'Naming order does not change the physics: green plus yellow still produces a yellow-green family anchored near #9ACD32 (CSS yellowgreen). This URL lists green first for search queries phrased that way; compare with yellow-and-green for the same hex ramp with yellow-heavy ratio labels. Adjacent hues keep mixtures bright—useful for agriculture, sports, and sustainability UI where you need more energy than pure forest green.',
+    ratioRows: [
+      { ratio: '80% green + 20% yellow', label: 'Leaf green', hex: '#5E9A1E' },
+      { ratio: '60% green + 40% yellow', label: 'Apple green', hex: '#7CB828' },
+      { ratio: '50% green + 50% yellow', label: 'Yellow-green', hex: '#9ACD32' },
+      { ratio: '40% green + 60% yellow', label: 'Chartreuse', hex: '#B8D935' },
+      { ratio: '20% green + 80% yellow', label: 'Lime', hex: '#C4E038' },
+    ],
+    uiUsage:
+      'Use green-heavy rows for trustworthy data UI and yellow-heavy rows for campaign bursts. Keep body text on white or light gray; reserve chartreuse for icons and tags after contrast testing. Branch extended greens in the palette generator and regression-test states with the contrast checker.',
+  },
+  'pink-and-blue': {
+    metaTitle: 'What Color Does Pink and Blue Make? #C8A2C8 | Theme & Color',
+    metaDescription:
+      'Pink and blue mixed make lavender. See hex codes for 5 mix ratios, color swatches, and use our free color mixer tool.',
+    h1: 'What Color Does Pink and Blue Make?',
+    lead: 'Pink and blue mixed make lavender. A 50/50 mix gives #C8A2C8.',
+    quickFormula: 'Pink + Blue = Lavender',
+    quickHex: '#C8A2C8',
+    quickSwatchAria: 'Balanced pink and blue mix, lavender',
+    theory:
+      'Pink is a light red; blue adds cool depth. Together they move toward lavender, periwinkle, and mauve rather than saturated purple—especially when pink (#FFC0CB) is already high in lightness. A 50/50 reference near #C8A2C8 reads soft and floral, common in beauty, stationery, and calm wellness UI. Dominating with blue yields periwinkle-gray; dominating with pink keeps ballet-slipper pastels. Always test perceived hue on calibrated displays; inexpensive panels shift lavender toward gray.',
+    ratioRows: [
+      { ratio: '80% pink + 20% blue', label: 'Blush lavender', hex: '#E8B8D8' },
+      { ratio: '60% pink + 40% blue', label: 'Soft lilac', hex: '#D8AAD0' },
+      { ratio: '50% pink + 50% blue', label: 'True lavender', hex: '#C8A2C8' },
+      { ratio: '40% pink + 60% blue', label: 'Periwinkle', hex: '#A88AB8' },
+      { ratio: '20% pink + 80% blue', label: 'Cool mauve', hex: '#8872A8' },
+    ],
+    uiUsage:
+      'Lavender backgrounds work for onboarding and wellness flows when text contrast is verified. Pair with deep navy or charcoal for typography, not mid-lavender on lavender. Expand pastel systems in the palette generator and audit every caption pair with the contrast checker.',
+  },
+  'brown-and-orange': {
+    metaTitle: 'What Color Does Brown and Orange Make? #C8720A | Theme & Color',
+    metaDescription:
+      'Brown and orange mixed make dark orange. See hex codes for 5 mix ratios, color swatches, and use our free color mixer tool.',
+    h1: 'What Color Does Brown and Orange Make?',
+    lead: 'Brown and orange mixed make dark orange. A 50/50 mix gives #C8720A.',
+    quickFormula: 'Brown + Orange = Dark orange',
+    quickHex: '#C8720A',
+    quickSwatchAria: 'Balanced brown and orange mix, dark orange',
+    theory:
+      'Brown (#8B4513) is a low-chroma orange-red; adding pure orange (#FFA500) raises warmth and saturation toward rust, copper, and dark orange. At equal parts, #C8720A reads as burnt orange—common for autumn campaigns, craft food packaging, and leather-inspired UI. Dominating with brown keeps earth tones; dominating with orange pushes toward pumpkin and safety orange. Document whether your brand means “rust” or “pumpkin” so implementation tokens stay consistent across web and print.',
+    ratioRows: [
+      { ratio: '80% brown + 20% orange', label: 'Deep umber', hex: '#A06818' },
+      { ratio: '60% brown + 40% orange', label: 'Rust brown', hex: '#B06C10' },
+      { ratio: '50% brown + 50% orange', label: 'Dark orange', hex: '#C8720A' },
+      { ratio: '40% brown + 60% orange', label: 'Burnt orange', hex: '#D87808' },
+      { ratio: '20% brown + 80% orange', label: 'Pumpkin', hex: '#E87E06' },
+    ],
+    uiUsage:
+      'Dark orange accents suit fall promos, food delivery, and artisan brands. Use brown-heavy rows for borders and orange-heavy rows for CTA fills after contrast checks. Generate warm ramps in the palette generator and validate white-on-orange buttons in the contrast checker before launch.',
+  },
 };
 
 export function getComboSeo(combo: string): ComboSeoBundle | null {

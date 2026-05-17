@@ -50,16 +50,57 @@ function renderTextWithToolLinks(text) {
   return nodes.length > 0 ? nodes : text
 }
 
+const trendsFaqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: [
+    {
+      '@type': 'Question',
+      name: 'What are the top color trends for 2026 in web design?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Leading 2026 UI color trends include vibrant neons on dark UI, soft pastels for wellness, earth tones for sustainability, bold gradients, high-contrast monochrome with one accent, warm sunset palettes, deep ocean blues, purple tech accents, varied greens, and subtle metallic highlights.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'How do I use trendy colors without hurting accessibility?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Reserve saturated trend hues for buttons, icons, and heroes; keep body text in dark neutrals. Test every text-on-background pair with a WCAG contrast checker and document accessible token pairs in your design system.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'Should I copy hex codes from trend articles directly?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Use trend hex codes as starting points, then map them to semantic tokens (primary, success, surface). Generate tints and shades from one base color in a palette generator so hover and dark mode stay consistent.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'Are 2025 and 2026 color trends the same?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Many families carry over—earth tones, ocean blues, and warm sunsets remain strong—but 2026 emphasizes calmer neutrals, accessible contrast, and tokenized palettes over one-off trendy hex values per screen.',
+      },
+    },
+  ],
+};
+
 // Static blog posts data
 const staticPosts = {
   '10-color-trends-for-2025': {
     _id: '1',
-    title: '10 Color Trends for 2025: Modern Color Palettes for Web & UI Design',
+    title: '10 Color Trends for 2026: Modern Palettes for Web & UI Design',
     slug: { current: '10-color-trends-for-2025' },
-    excerpt: 'Discover the most popular color palettes and trends shaping design in 2025. From vibrant neons to calming pastels, explore what\'s hot in web and UI design.',
-    publishedAt: '2025-01-15',
-    metaTitle: '10 Color Trends for 2025: Modern Color Palettes for Web & UI Design | Theme & Color',
-    metaDescription: 'Explore the top 10 color trends for 2025 in web and UI design. Discover modern color palettes, design tips, and how to implement these trends in your projects.',
+    excerpt:
+      'Discover the top 10 color trends shaping web and UI design in 2026—from neons and pastels to ocean blues and sunset warmth—with copy-ready hex codes.',
+    publishedAt: '2026-01-15',
+    metaTitle: '10 Color Trends for 2026: Modern Palettes for Web & UI Design | Theme & Color',
+    metaDescription:
+      'Explore the top 10 color trends for 2026 in web and UI design. Copy hex codes per trend, learn how to apply palettes in products, and test contrast with free tools.',
     content: [
       {
         _type: 'block',
@@ -68,7 +109,7 @@ const staticPosts = {
         children: [
           {
             _type: 'span',
-            text: 'As we step into 2025, the world of web and UI design continues to evolve with exciting new color trends. Color plays a crucial role in user experience, brand identity, and emotional connection. In this comprehensive guide, we\'ll explore the top 10 color trends that are shaping modern digital design in 2025.',
+            text: 'As we move through 2026, web and UI design keeps balancing bold expression with accessibility and systematic tokens. Color still drives trust, delight, and hierarchy—but teams ship faster when every trend maps to named hex values and tested contrast pairs. This guide lists ten palettes shaping digital products in 2026, with swatches you can copy into Figma or CSS today.',
             marks: [],
           },
         ],
@@ -86,7 +127,7 @@ const staticPosts = {
         children: [
           {
             _type: 'span',
-            text: 'Electric blues, neon greens, and vibrant magentas are making a strong comeback in 2025. These bold, attention-grabbing colors are perfect for call-to-action buttons, highlights, and accent elements. They work exceptionally well against dark backgrounds and create a modern, tech-forward aesthetic.',
+            text: 'Electric blues (#00F5FF), neon greens (#00FF00), and vibrant magentas (#FF00FF) remain staples for gaming, AI products, and nightlife brands in 2026. Use them on dark (#0F172A) surfaces for CTAs and glow effects—not for paragraphs. Pair one neon accent with muted grays so interfaces feel futuristic without visual noise.',
             marks: [],
           },
         ],
@@ -104,7 +145,7 @@ const staticPosts = {
         children: [
           {
             _type: 'span',
-            text: 'In contrast to vibrant neons, soft pastels offer a calming, approachable feel. Think lavender, mint green, peach, and powder blue. These colors are ideal for wellness apps, lifestyle brands, and platforms that want to convey tranquility and mindfulness.',
+            text: 'Soft pastels—lavender (#E0B0FF), mint (#B5E5CF), peach (#FFD1DC), powder blue (#B0E0E6)—signal calm for wellness, childcare, and mindfulness apps in 2026. Keep backgrounds pastel and typography charcoal; pastels fail WCAG quickly when used as small text fills on white.',
             marks: [],
           },
         ],
@@ -122,7 +163,7 @@ const staticPosts = {
         children: [
           {
             _type: 'span',
-            text: 'Sustainability-focused brands are embracing earth tones like terracotta, sage green, warm beige, and deep browns. These colors create a grounded, authentic feel and resonate with environmentally conscious audiences.',
+            text: 'Earth tones—terracotta (#E07A5F), sage (#87A96B), warm beige (#D2B48C), deep brown (#8B4513)—anchor eco, organic food, and outdoor brands. They pair with off-white type areas and photography-heavy layouts. See our terracotta and sage hex guides for extended ramps beyond these trend swatches.',
             marks: [],
           },
         ],
@@ -140,7 +181,7 @@ const staticPosts = {
         children: [
           {
             _type: 'span',
-            text: 'Smooth color transitions and gradient overlays continue to be popular in 2025. From purple-to-pink gradients to blue-to-cyan transitions, these effects add depth and visual interest to backgrounds, buttons, and hero sections.',
+            text: 'Gradients—from purple–pink (#a855f7 → #ec4899) to blue–cyan (#3b82f6 → #06b6d4)—add depth to heroes and marketing sites. In 2026, product UI limits gradients to one hero or onboarding moment; app chrome stays flat for performance and clarity. Always test text overlaid on gradients for contrast.',
             marks: [],
           },
         ],
@@ -158,7 +199,7 @@ const staticPosts = {
         children: [
           {
             _type: 'span',
-            text: 'Black and white designs with strategic pops of color are making a statement. This trend emphasizes clarity, readability, and accessibility while allowing one or two accent colors to shine.',
+            text: 'High-contrast monochrome—black (#000000), white (#FFFFFF), and structured grays—with a single accent (often #3B82F6 or brand orange) dominates editorial and productivity tools. The pattern improves readability and simplifies dark mode: swap surfaces, keep one accent token.',
             marks: [],
           },
         ],
@@ -176,7 +217,7 @@ const staticPosts = {
         children: [
           {
             _type: 'span',
-            text: 'Inspired by golden hour, warm sunset colors including coral, amber, and soft oranges create inviting, friendly interfaces. These colors work well for food delivery apps, travel platforms, and lifestyle brands.',
+            text: 'Warm sunset hues—coral (#FF7F50), amber (#FFBF00), soft orange (#FF8C00)—power food, travel, and creator brands. Our Sunset Vibes palette (#F97316, #EF4444, #EC4899, #8B5CF6) packages the full warm-to-cool story for campaigns that need more than one accent.',
             marks: [],
           },
         ],
@@ -194,7 +235,7 @@ const staticPosts = {
         children: [
           {
             _type: 'span',
-            text: 'Deep navy, teal, and ocean blues convey trust, professionalism, and stability. These colors are perfect for financial services, healthcare platforms, and enterprise software.',
+            text: 'Deep navy (#1E3A8A), teal (#0D9488), and ocean blues (#0EA5E9) continue to signal trust for fintech, healthcare, and B2B SaaS. Ocean Breeze hex codes (#0EA5E9 through #34D399) give a full blue-to-mint ramp for dashboards that must feel calm, not cold.',
             marks: [],
           },
         ],
@@ -212,7 +253,7 @@ const staticPosts = {
         children: [
           {
             _type: 'span',
-            text: 'Purple continues to be a favorite for tech brands and creative platforms. From deep violet to light lavender, purple adds creativity, innovation, and luxury to designs.',
+            text: 'Purple—from deep violet (#6B21A8) to lavender (#C4B5FD)—marks creative tech, AI interfaces, and premium subscriptions. Use one saturated purple for primary actions; avoid filling entire views with violet, which fatigues users and fails contrast on white.',
             marks: [],
           },
         ],
@@ -230,7 +271,7 @@ const staticPosts = {
         children: [
           {
             _type: 'span',
-            text: 'Various shades of green, from emerald to mint, represent growth, health, and sustainability. These colors are ideal for fitness apps, eco-friendly brands, and financial platforms emphasizing growth.',
+            text: 'Greens span emerald (#059669), mint (#34D399), and yellow-green (#9ACD32) for growth, health, and climate narratives. Forest and sage hex guides document darker anchors for navigation; mint rows suit success states after contrast checks.',
             marks: [],
           },
         ],
@@ -248,7 +289,7 @@ const staticPosts = {
         children: [
           {
             _type: 'span',
-            text: 'Subtle metallic effects and chrome-like finishes add premium feel to interfaces. Silver, gold, and bronze tones work well for luxury brands, premium products, and high-end services.',
+            text: 'Metallic gradients—silver, gold (#facc15 → #ca8a04), bronze—add premium cues on dark heroes and pricing cards. Use sparingly in core product UI; metallic text on light backgrounds rarely passes accessibility. Reserve chrome effects for marketing, not form fields.',
             marks: [],
           },
         ],
@@ -257,7 +298,7 @@ const staticPosts = {
         _type: 'heading',
         _key: 'conclusion',
         style: 'h2',
-        children: [{ _type: 'span', text: 'How to Implement These Trends', marks: [] }],
+        children: [{ _type: 'span', text: 'How to use these trends in 2026 (practical)', marks: [] }],
       },
       {
         _type: 'block',
@@ -266,7 +307,7 @@ const staticPosts = {
         children: [
           {
             _type: 'span',
-            text: 'When implementing these color trends, remember to:',
+            text: 'Trendy hex codes only help when they become a maintainable system. In 2026, strong teams follow this workflow:',
             marks: [],
           },
         ],
@@ -279,7 +320,7 @@ const staticPosts = {
         children: [
           {
             _type: 'span',
-            text: 'Maintain proper contrast ratios for accessibility (WCAG AA compliance)',
+            text: 'Pick one trend family per product surface (marketing site vs. app shell) and map swatches to semantic tokens—primary, secondary, success, surface, border.',
             marks: [],
           },
         ],
@@ -292,7 +333,7 @@ const staticPosts = {
         children: [
           {
             _type: 'span',
-            text: 'Test colors across different devices and screen types',
+            text: 'Generate tints and shades from a single base hex in a palette generator so hover, disabled, and dark mode do not require manual guessing.',
             marks: [],
           },
         ],
@@ -305,7 +346,7 @@ const staticPosts = {
         children: [
           {
             _type: 'span',
-            text: 'Consider your brand identity and target audience',
+            text: 'Run WCAG contrast checks on every text, icon, and button pair before handoff—especially neons, pastels, and sunset oranges on white.',
             marks: [],
           },
         ],
@@ -318,7 +359,7 @@ const staticPosts = {
         children: [
           {
             _type: 'span',
-            text: 'Use color psychology to enhance user experience',
+            text: 'Document hex, RGB, and role in a short style guide so developers and vendors do not substitute “close enough” colors in production.',
             marks: [],
           },
         ],
@@ -330,7 +371,7 @@ const staticPosts = {
         children: [
           {
             _type: 'span',
-            text: 'Stay ahead of the curve by experimenting with these 2025 color trends while maintaining usability and accessibility standards. Use our color palette generator and contrast checker tools to create perfect color combinations for your projects.',
+            text: 'Stay ahead in 2026 by treating trends as starting palettes, not one-off decorations. Use our palette generator to extend any swatch above, and the contrast checker to keep combinations accessible as you ship.',
             marks: [],
           },
         ],
@@ -403,8 +444,13 @@ export default async function BlogPostPage({ params }) {
       notFound()
     }
 
+  const isTrendsPost = slug === '10-color-trends-for-2025'
+
   return (
     <article className="min-h-screen bg-white dark:bg-gray-900">
+      {isTrendsPost ? (
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(trendsFaqSchema) }} />
+      ) : null}
       {/* Hero Header Section */}
       <section className="bg-gradient-to-br from-purple-600 via-pink-600 to-blue-600 text-white py-12 md:py-16">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
@@ -676,6 +722,20 @@ export default async function BlogPostPage({ params }) {
                   })}
                 </article>
 
+                {isTrendsPost ? (
+                  <div className="not-prose mt-10 mb-8">
+                    <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">FAQ</h2>
+                    <dl className="space-y-6">
+                      {trendsFaqSchema.mainEntity.map((item) => (
+                        <div key={item.name}>
+                          <dt className="font-semibold text-gray-900 dark:text-white">{item.name}</dt>
+                          <dd className="mt-1 text-gray-700 dark:text-gray-300">{item.acceptedAnswer.text}</dd>
+                        </div>
+                      ))}
+                    </dl>
+                  </div>
+                ) : null}
+
                 {/* Prominent tools CTA – big, attractive, animated */}
                 <BlogToolsCTA />
 
@@ -721,7 +781,7 @@ export default async function BlogPostPage({ params }) {
                   {post.colorPalette && post.colorPalette.length > 0 && (
                     <ColorPaletteClient 
                       colors={post.colorPalette} 
-                      designTitle="2025 Trend Colors"
+                      designTitle="2026 Trend Colors"
                       className="lg:mb-0"
                     />
                   )}

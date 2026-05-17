@@ -10,9 +10,49 @@ export const metadata = buildPageMetadata({
   keywords: ['brand palette', 'color generation', 'logo colors', 'design system', 'Theme & Color'],
 });
 
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: [
+    {
+      '@type': 'Question',
+      name: 'How many colors should a brand palette have?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Most brand palettes use three to seven colors: one primary, one or two secondaries, neutrals for text and backgrounds, and optional semantic colors (success, warning, error). A smaller set is easier to enforce across teams.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'How do I choose a brand primary color?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Start from your logo, industry norms, audience expectations, and accessibility needs. Lock the primary in hex, then derive secondaries with color theory (analogous or complementary harmonies) rather than picking unrelated swatches.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'What is the fastest way to generate a brand color palette?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Paste your brand primary into a palette generator, explore monochromatic and complementary harmonies, add neutrals, then run text-on-background pairs through a contrast checker before documenting hex codes in a style guide.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'How do I document a brand color palette?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Name each color (Primary, Surface, Text), list hex and RGB values, show usage rules (buttons vs. backgrounds), and share the file with design, development, and vendors. Map hex to CSS variables or design tokens for code.',
+      },
+    },
+  ],
+};
+
 export default function HowToGenerateColorPaletteForBrandPage() {
   return (
     <div className="min-h-screen bg-white dark:bg-gray-900 py-12">
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-3xl">
         <article>
           <header className="mb-10">
@@ -91,6 +131,18 @@ export default function HowToGenerateColorPaletteForBrandPage() {
             <p className="leading-relaxed">
               Using a <InlineTagLink href="/tools/palette-generator">color palette generator</InlineTagLink> for brand work reduces guesswork and keeps palettes consistent. Combine it with contrast checking and clear documentation for a brand palette that works across channels and meets accessibility standards.
             </p>
+          </section>
+
+          <section className="mb-10">
+            <h2 className="text-xl font-bold mb-4 text-gray-900 dark:text-white">FAQ</h2>
+            <dl className="space-y-6">
+              {faqSchema.mainEntity.map((item) => (
+                <div key={item.name}>
+                  <dt className="font-semibold text-gray-900 dark:text-white">{item.name}</dt>
+                  <dd className="mt-1 text-gray-600 dark:text-gray-400 leading-relaxed">{item.acceptedAnswer.text}</dd>
+                </div>
+              ))}
+            </dl>
           </section>
         </article>
       </div>

@@ -42,9 +42,10 @@ const CARD_PALETTES = {
 const staticPosts = [
   {
     _id: '1',
-    title: '10 Color Trends for 2025: Modern Color Palettes for Web & UI Design',
+    title: '10 Color Trends for 2026: Modern Palettes for Web & UI Design',
     slug: { current: '10-color-trends-for-2025' },
-    excerpt: 'Discover the most popular color palettes and trends shaping design in 2025.',
+    excerpt:
+      'Discover the top 10 color trends shaping web and UI design in 2026—with copy-ready hex codes per trend.',
     publishedAt: '2025-01-15',
   },
   {

@@ -67,9 +67,49 @@ const PAIRINGS = [
   },
 ];
 
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: [
+    {
+      '@type': 'Question',
+      name: 'What is the Ocean Breeze color palette?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Ocean Breeze is a calm blue-to-teal palette built from sky blue (#0EA5E9), cyan (#06B6D4), teal (#14B8A6), and emerald (#10B981). It reads as clear, trustworthy, and refreshing on digital products.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'What are the Ocean Breeze hex codes?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'The main Ocean Breeze hex codes are #0EA5E9, #06B6D4, #14B8A6, and #10B981. Extended shades run from ice #F0F9FF to deep teal #134E4A for backgrounds, charts, and navigation.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'What industries use Ocean Breeze palettes?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Fintech, healthcare, travel, wellness, and climate-focused brands use Ocean Breeze for dashboards, marketing sites, and apps that need calm professionalism without cold corporate gray.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'Can I use Ocean Breeze colors for UI text?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Use Ocean Breeze primarily for buttons, links, icons, and chart accents—not small body text on light backgrounds. Pair with charcoal or navy for paragraphs and run WCAG contrast checks on every combination.',
+      },
+    },
+  ],
+};
+
 export default function OceanBreezePage() {
   return (
     <article className="min-h-screen bg-white dark:bg-gray-900">
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
       <section className="bg-gradient-to-br from-cyan-500 via-teal-500 to-emerald-600 text-white py-12 md:py-16">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-4xl mx-auto">
@@ -216,6 +256,17 @@ export default function OceanBreezePage() {
                     Use our <InlineTagLink href="/tools/palette-generator">palette generator</InlineTagLink> from any anchor hex, and validate pairs with our{' '}
                     <InlineTagLink href="/tools/contrast-checker">contrast checker</InlineTagLink>.
                   </p>
+
+                  <h2 className="text-2xl font-bold text-gray-900 dark:text-white mt-8 mb-4">FAQ</h2>
+                  <dl className="space-y-6 not-prose mb-8">
+                    {faqSchema.mainEntity.map((item) => (
+                      <div key={item.name}>
+                        <dt className="font-semibold text-gray-900 dark:text-white">{item.name}</dt>
+                        <dd className="mt-1 text-gray-700 dark:text-gray-300">{item.acceptedAnswer.text}</dd>
+                      </div>
+                    ))}
+                  </dl>
+
                   <BlogToolsCTA />
                 </div>
               </div>

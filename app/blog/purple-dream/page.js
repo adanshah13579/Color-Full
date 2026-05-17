@@ -69,9 +69,49 @@ const PURPLE_PAIRINGS = [
   },
 ];
 
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: [
+    {
+      '@type': 'Question',
+      name: 'What is the Purple Dream color palette?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Purple Dream is a violet-to-lavender palette from royal purple (#7C3AED) through soft lavender (#A78BFA) to mist lavender (#EDE9FE). It signals creativity, luxury, and imaginative tech brands.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'What are the main Purple Dream hex codes?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Anchor hex codes are #7C3AED, #8B5CF6, #A78BFA, #C4B5FD, and #EDE9FE. Use deeper violets for CTAs and navigation; use mist and pastel rows for backgrounds and cards.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'What brands suit a purple color palette?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Creative tech, beauty, nightlife, music, and premium subscription products often suit purple palettes. Pair with cream or charcoal so expressive hues do not overwhelm readable typography.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'Does Purple Dream work for accessible UI?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Saturated purples often fail WCAG AA for small text on white. Use Purple Dream for buttons, icons, and heroes; keep body copy in dark neutrals, and validate every text-on-violet pair with a contrast checker.',
+      },
+    },
+  ],
+};
+
 export default function PurpleDreamPage() {
   return (
     <article className="min-h-screen bg-white dark:bg-gray-900">
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
       <section className="bg-gradient-to-br from-violet-900 via-purple-600 to-purple-300 text-white py-12 md:py-16">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-4xl mx-auto">
@@ -300,6 +340,16 @@ export default function PurpleDreamPage() {
                     <InlineTagLink href="/blog/forest-green">Forest Green</InlineTagLink> or <InlineTagLink href="/blog/ocean-breeze">Ocean Breeze</InlineTagLink>{' '}
                     for calmer bases.
                   </p>
+
+                  <h2 className="text-2xl font-bold text-gray-900 dark:text-white mt-8 mb-4">FAQ</h2>
+                  <dl className="space-y-6 not-prose mb-8">
+                    {faqSchema.mainEntity.map((item) => (
+                      <div key={item.name}>
+                        <dt className="font-semibold text-gray-900 dark:text-white">{item.name}</dt>
+                        <dd className="mt-1 text-gray-700 dark:text-gray-300">{item.acceptedAnswer.text}</dd>
+                      </div>
+                    ))}
+                  </dl>
 
                   <BlogToolsCTA />
                 </div>
