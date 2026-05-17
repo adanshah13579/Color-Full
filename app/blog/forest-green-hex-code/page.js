@@ -13,6 +13,11 @@ export const metadata = buildPageMetadata({
   description:
     'Forest green hex #228B22 with RGB, HSL, one-click copy, 10 named shades from honeydew to hunter green, palette pairings, and free tools. Faster than generic color encyclopedias.',
   keywords: ['forest green hex', '#228B22', 'green shades', 'RGB', 'HSL', 'palette', 'Theme & Color'],
+  openGraphType: 'article',
+  openGraph: {
+    publishedTime: '2026-04-11T00:00:00.000Z',
+    modifiedTime: '2026-05-17T00:00:00.000Z',
+  },
 });
 
 const FOREST_PALETTE = [
@@ -81,6 +86,38 @@ const faqSchema = {
         text: 'The Ocean Breeze palette uses #0EA5E9, #06B6D4, #14B8A6, #10B981, and #34D399—sky blue through cyan, teal, emerald, and mint. Pair it with neutrals and check WCAG contrast for text.',
       },
     },
+    {
+      '@type': 'Question',
+      name: 'What is the forest green color code?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'The standard forest green color code on the web is hex #228B22. In RGB that is rgb(34, 139, 34). UK searches for forest green colour code use the same hex value.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'What is the RGB value of forest green?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'For CSS forestgreen (#228B22), the RGB value is RGB(34, 139, 34). Deep UI forest greens such as #065F46 use RGB(6, 95, 70).',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'What colors make forest green?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'In traditional paint mixing (RYB), forest green is approximated by combining blue and yellow in roughly a 1:2 ratio—more yellow than blue—then adjusting with black or white for depth and lightness.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'Is forest green dark or light?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Forest green is a medium-dark green: darker than lime or spring green, but not as near-black as hunter or bottle green. Hex #228B22 sits around 34% lightness in HSL, so it reads as rich foliage rather than a pastel tint.',
+      },
+    },
   ],
 };
 
@@ -115,10 +152,12 @@ export default function ForestGreenHexCodePage() {
               role="img"
               aria-label="Forest green color sample, hex 228B22"
             />
-            <div className="flex items-center gap-4 text-emerald-100 text-sm">
-              <time dateTime="2026-04-11">April 11, 2026</time>
+            <div className="flex items-center gap-4 text-emerald-100 text-sm flex-wrap">
+              <time dateTime="2026-04-11">Published April 11, 2026</time>
               <span>•</span>
-              <span>7 min read</span>
+              <time dateTime="2026-05-17">Updated May 17, 2026</time>
+              <span>•</span>
+              <span>10 min read</span>
             </div>
             <div className="flex gap-3 mt-6 flex-wrap">
               {HERO_SWATCHES.map((c) => (
@@ -267,6 +306,109 @@ export default function ForestGreenHexCodePage() {
                   <p className="mb-6">
                     Ocean Breeze shares two greens with the forest palette (<CopyableHex hex="#10B981" />, <CopyableHex hex="#34D399" />), so you can bridge a calm blue UI into natural green accents without inventing new tokens.
                   </p>
+
+                  <h2 className="text-2xl font-bold text-gray-900 dark:text-white mt-8 mb-4">
+                    HSL, CMYK, and design-token formats
+                  </h2>
+                  <p className="mb-4">
+                    Beyond the <strong className="text-gray-900 dark:text-white">forest green hex code</strong>, teams document the same appearance in HSL and CMYK so print vendors and CSS authors stay aligned. For{' '}
+                    <CopyableHex hex="#228B22" />, HSL is approximately <strong className="text-gray-900 dark:text-white">hsl(120, 61%, 34%)</strong>—a yellow-green hue at moderate saturation and mid-low lightness. That HSL profile explains why forest green feels “wooded” rather than neon: it is not fully saturated like pure green (#00FF00), and it is not washed out like a mint tint.
+                  </p>
+                  <p className="mb-4">
+                    CMYK approximations for coated stock often land near <strong className="text-gray-900 dark:text-white">C76 M12 Y100 K20</strong>, but paper, ink, and dot gain shift results. Always request a physical proof when packaging must match a screen token. In Figma or design tokens, store hex as the source of truth and derive RGB/HSL programmatically so refactors do not drift.
+                  </p>
+                  <p className="mb-6">
+                    If your stack uses OKLCH or LCH for perceptual uniformity, convert from <CopyableHex hex="#228B22" /> once, then build lighter tints and darker shades as consistent steps rather than hand-picking random greens. That discipline keeps hover, focus, and disabled states visually related on dashboards and marketing sites.
+                  </p>
+
+                  <h2 className="text-2xl font-bold text-gray-900 dark:text-white mt-8 mb-4">
+                    Forest green vs hunter green vs emerald
+                  </h2>
+                  <p className="mb-4">
+                    Searchers often conflate names. <strong className="text-gray-900 dark:text-white">Forest green</strong> (<CopyableHex hex="#228B22" />) is the CSS named color—medium-dark and clearly green on white. <strong className="text-gray-900 dark:text-white">Hunter green</strong> (<CopyableHex hex="#355E3B" />) is cooler and deeper, common in outerwear and heritage logos. <strong className="text-gray-900 dark:text-white">Emerald</strong> UI greens such as <CopyableHex hex="#059669" /> are brighter and more digital-native, popular in fintech and SaaS success states.
+                  </p>
+                  <p className="mb-4">
+                    When you write a style guide, define which name maps to which hex. Saying “use forest green” without a number invites developers to pick #228B22, #065F46, or #006400 interchangeably. Competitor pages that only list one swatch lose trust; this guide lists ten related stops in the table above so art directors can brief backgrounds, borders, and CTAs separately.
+                  </p>
+                  <p className="mb-6">
+                    For outdoor and sustainability brands, pair canonical forest with photographic greens in hero imagery, then lock UI chrome to tokenized hex values. Users forgive natural variation in photos; they do not forgive inconsistent button greens across checkout steps.
+                  </p>
+
+                  <h2 className="text-2xl font-bold text-gray-900 dark:text-white mt-8 mb-4">
+                    Forest green in UI and accessibility
+                  </h2>
+                  <p className="mb-4">
+                    Forest green works for navigation bars, success toasts, and eco badges when contrast is verified. White text on <CopyableHex hex="#228B22" /> often passes WCAG AA for large bold headings but may fail for small body copy—always test your exact font weight and size. On light backgrounds, use deep greens like <CopyableHex hex="#065F46" /> for text and links instead of the mid-tone forest swatch, which can look muddy at 14px.
+                  </p>
+                  <p className="mb-4">
+                    Dark mode needs separate tokens: a forest header that feels rich on white can glow too brightly on #111827. Desaturate or darken accent greens by 10–15% for dark surfaces, and re-run contrast for every state (hover, focus, disabled). The{' '}
+                    <InlineTagLink href="/tools/contrast-checker">contrast checker</InlineTagLink> catches failures before launch.
+                  </p>
+                  <p className="mb-6">
+                    Color-blind users distinguish forest from red-orange more reliably than pure red vs green, but never rely on hue alone for errors—pair color with icons and text. For data visualization, use forest as one series color among blues and ambers so charts remain readable in deuteranopia simulations.
+                  </p>
+
+                  <h2 className="text-2xl font-bold text-gray-900 dark:text-white mt-8 mb-4">
+                    Forest green in branding and print
+                  </h2>
+                  <p className="mb-4">
+                    National parks, garden centers, organic food, and outdoor apparel gravitate toward forest greens because the hue signals growth, stability, and the natural world without the clinical feel of hospital teal. When the <strong className="text-gray-900 dark:text-white">forest green color code</strong> anchors a logo, keep secondary colors restrained—warm off-white, charcoal, or muted gold—so the mark does not compete with photography.
+                  </p>
+                  <p className="mb-4">
+                    UK teams searching <strong className="text-gray-900 dark:text-white">forest green colour code</strong> should still specify hex in digital handoffs; CMYK and Pantone references belong in print appendices. If you must match Pantone 349 C or similar, note the delta from #228B22 on screen so stakeholders expect a slight shift on cartons and signage.
+                  </p>
+                  <p className="mb-6">
+                    Merchandise and uniforms sometimes need dye lots darker than web forest. Document a “print forest” token (#1A4D1A or hunter-adjacent) alongside the web canonical so brand police do not reject legitimate manufacturing variance.
+                  </p>
+
+                  <h2 className="text-2xl font-bold text-gray-900 dark:text-white mt-8 mb-4">
+                    Also searched for
+                  </h2>
+                  <dl className="space-y-6 not-prose mb-8">
+                    <div>
+                      <dt className="font-semibold text-gray-900 dark:text-white">What is the forest green color code?</dt>
+                      <dd className="mt-1 text-gray-700 dark:text-gray-300">
+                        The standard forest green color code for web and CSS is hex <strong className="text-gray-900 dark:text-white">#228B22</strong>. British English searches for forest green colour code use the same hex value—only spelling in copy changes, not the digits you paste into Figma or stylesheets.
+                      </dd>
+                    </div>
+                    <div>
+                      <dt className="font-semibold text-gray-900 dark:text-white">What is the RGB value of forest green?</dt>
+                      <dd className="mt-1 text-gray-700 dark:text-gray-300">
+                        For #228B22, the RGB value of forest green is <strong className="text-gray-900 dark:text-white">RGB(34, 139, 34)</strong>. Deep UI greens such as <CopyableHex hex="#065F46" /> use RGB(6, 95, 70) when you need darker navigation or button fills.
+                      </dd>
+                    </div>
+                    <div>
+                      <dt className="font-semibold text-gray-900 dark:text-white">What colors make forest green?</dt>
+                      <dd className="mt-1 text-gray-700 dark:text-gray-300">
+                        In traditional paint mixing (RYB), forest green is approximated by combining <strong className="text-gray-900 dark:text-white">blue and yellow in roughly a 1:2 ratio</strong>—more yellow than blue—then adjusting with black or white for depth. On screen, you rarely mix channels manually; use <CopyableHex hex="#228B22" /> or test blends in our{' '}
+                        <InlineTagLink href="/tools/color-mixer">Color Mixing Simulator</InlineTagLink>.
+                      </dd>
+                    </div>
+                    <div>
+                      <dt className="font-semibold text-gray-900 dark:text-white">Is forest green dark or light?</dt>
+                      <dd className="mt-1 text-gray-700 dark:text-gray-300">
+                        Forest green is <strong className="text-gray-900 dark:text-white">medium-dark</strong>: darker than lime or spring green, but not as near-black as hunter or bottle green. At roughly 34% HSL lightness, #228B22 reads as rich foliage rather than a pastel tint—use lighter rows in the shade table above for backgrounds.
+                      </dd>
+                    </div>
+                  </dl>
+
+                  <h2 className="text-2xl font-bold text-gray-900 dark:text-white mt-8 mb-4">
+                    Related colors
+                  </h2>
+                  <ul className="list-disc list-inside space-y-2 mb-8 text-gray-700 dark:text-gray-300">
+                    <li>
+                      <InlineTagLink href="/blog/sage-green-hex-code">Sage Green Hex Code</InlineTagLink> — muted gray-green for wellness and lifestyle UI
+                    </li>
+                    <li>
+                      <InlineTagLink href="/blog/navy-blue-hex-code">Navy Blue Hex Code</InlineTagLink> — deep blue anchor for trust-heavy layouts
+                    </li>
+                    <li>
+                      <InlineTagLink href="/blog/terracotta-hex-code">Terracotta Hex Code</InlineTagLink> — warm clay accent that pairs with natural greens
+                    </li>
+                    <li>
+                      <InlineTagLink href="/blog/ocean-breeze-hex-code">Ocean Breeze Hex Codes</InlineTagLink> — blue-to-mint ramp that bridges cool UI into green accents
+                    </li>
+                  </ul>
 
                   <h2 className="text-2xl font-bold text-gray-900 dark:text-white mt-8 mb-4">
                     Where to go next

@@ -36,6 +36,11 @@ const nextConfig = {
         destination: '/tools/color-mixer',
         permanent: true,
       },
+      {
+        source: '/tools/color-mixer/white-and-black',
+        destination: '/tools/color-mixer/black-and-white',
+        permanent: true,
+      },
     ];
   },
 };

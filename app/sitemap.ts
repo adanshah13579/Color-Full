@@ -8,6 +8,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     'blue-and-yellow',
     'yellow-and-blue',
     'red-and-yellow',
+    'yellow-and-red',
     'blue-and-green',
     'red-and-green',
     'purple-and-yellow',

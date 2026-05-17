@@ -109,7 +109,7 @@ export const COMBO_SEO: Record<string, ComboSeoBundle> = {
       'Red and blue mix toward purple and violet. See anchor hexes, five red-to-blue RGB blend ratios with swatches, color theory, and UI tips with tool links.',
     h1: 'What Color Does Red and Blue Make?',
     lead: 'In paint (RYB), red plus blue makes purple; on screens, blending saturated red (#FF0000) and blue (#0000FF) moves through magenta toward violet. Use the simulator, then compare the ratio table.',
-    quickFormula: 'Red + Blue = Purple / violet family',
+    quickFormula: 'Red + Blue = Purple',
     quickHex: '#800080',
     quickSwatchAria: 'Even red and blue mix, purple',
     theory:
@@ -127,20 +127,20 @@ export const COMBO_SEO: Record<string, ComboSeoBundle> = {
   'blue-and-green': {
     metaTitle: 'What Color Does Blue and Green Make? | Theme & Color',
     metaDescription:
-      'Blue and green mix into teals and deep sea tones. Five ratio hex previews, theory for RYB vs RGB, and UI guidance with palette generator and contrast checker links.',
+      'Blue and green make teal. Anchor at #008080, five ratio hex previews with swatches, color theory, and UI guidance with palette generator and contrast checker links.',
     h1: 'What Color Does Blue and Green Make?',
-    lead: 'Combining blue (#0000FF) with green (#008000) pulls hue toward teal and deep cyan—common for “trust + growth” palettes. Adjust sliders above, then map ratios below to tokens.',
-    quickFormula: 'Blue + Green = Teal / deep cyan family',
-    quickHex: '#004080',
-    quickSwatchAria: 'Balanced blue and green mix',
+    lead: 'Combining blue (#0000FF) with green (#008000) pulls hue toward teal—common for “trust + growth” palettes. Adjust sliders above, then map ratios below to tokens.',
+    quickFormula: 'Blue + Green = Teal',
+    quickHex: '#008080',
+    quickSwatchAria: 'Balanced blue and green mix, teal',
     theory:
-      'Both blue and green sit on the cool side of the wheel; mixing them deepens the hue and lowers perceived warmth versus blue plus yellow. In natural language, users often call these results “teal”, “peacock”, or “sea glass”. Pigment behavior depends on whether your green leans yellow (olive) or blue (phthalocyanine)—the presets here use a neutral web green anchor.',
+      'Both blue and green sit on the cool side of the wheel; mixing them deepens the hue and lowers perceived warmth versus blue plus yellow. In natural language, users often call these results “teal”, “peacock”, or “sea glass”. Pigment behavior depends on whether your green leans yellow (olive) or blue (phthalocyanine)—the presets here anchor on web teal (#008080) for digital handoff.',
     ratioRows: [
-      { ratio: '80% blue + 20% green', label: 'Deep blue', hex: '#001ACC' },
-      { ratio: '60% blue + 40% green', label: 'Navy teal', hex: '#00336B' },
-      { ratio: '50% blue + 50% green', label: 'True teal', hex: '#004080' },
-      { ratio: '40% blue + 60% green', label: 'Forest teal', hex: '#004D66' },
-      { ratio: '20% blue + 80% green', label: 'Deep sea green', hex: '#006633' },
+      { ratio: '80% blue + 20% green', label: 'Deep blue', hex: '#003399' },
+      { ratio: '60% blue + 40% green', label: 'Navy teal', hex: '#004D66' },
+      { ratio: '50% blue + 50% green', label: 'True teal', hex: '#008080' },
+      { ratio: '40% blue + 60% green', label: 'Sea teal', hex: '#006666' },
+      { ratio: '20% blue + 80% green', label: 'Deep sea green', hex: '#00804D' },
     ],
     uiUsage:
       'Teals work for health, climate, and finance dashboards when you need calmer alternatives to pure blue. Use darker rows for navigation and lighter rows for chart fills. Keep long-form text on white or gray, and run every teal-on-gray pair through the contrast checker after you branch scales in the palette generator.',
@@ -148,20 +148,20 @@ export const COMBO_SEO: Record<string, ComboSeoBundle> = {
   'yellow-and-blue': {
     metaTitle: 'What Color Does Yellow and Blue Make? | Theme & Color',
     metaDescription:
-      'Yellow and blue make green. Same physics as blue plus yellow—five yellow-heavy to blue-heavy hex ratios, theory, and UI tips with Theme & Color tools.',
+      'Yellow and blue make green. Anchor at #008000, five yellow-heavy to blue-heavy hex ratios with swatches, color theory, and UI tips with Theme & Color tools.',
     h1: 'What Color Does Yellow and Blue Make?',
-    lead: 'Yellow (#FFFF00) plus blue (#0000FF) is the classic primary pair for green. This URL mirrors the blue-and-yellow lesson with yellow listed first for search intent—compare both pages if you are optimizing copy.',
+    lead: 'Yellow (#FFFF00) plus blue (#0000FF) is the classic primary pair for green. This page lists yellow first for search intent; use the simulator above, then compare ratio presets below.',
     quickFormula: 'Yellow + Blue = Green',
-    quickHex: '#00CC00',
+    quickHex: '#008000',
     quickSwatchAria: 'Balanced yellow and blue mix, green',
     theory:
-      'Order of naming does not change the mixture: yellow and blue still remove the warm red component from perceived light, leaving green-cyan sensations at balance. Dominating with yellow yields chartreuse and lime moods; dominating with blue yields pine and teal moods. Use the ratio table to brief illustrators and UI designers with the same vocabulary.',
+      'Order of naming does not change the mixture: yellow and blue still remove the warm red component from perceived light, leaving green sensations at balance. Dominating with yellow yields chartreuse and lime moods; dominating with blue yields pine and forest moods. The table centers on web green (#008000) as a handoff-friendly anchor before you tune in the mixer.',
     ratioRows: [
-      { ratio: '80% yellow + 20% blue', label: 'Yellow-green', hex: '#99CC33' },
-      { ratio: '60% yellow + 40% blue', label: 'Spring green', hex: '#33CC33' },
-      { ratio: '50% yellow + 50% blue', label: 'True green', hex: '#00CC00' },
-      { ratio: '40% yellow + 60% blue', label: 'Teal green', hex: '#008F55' },
-      { ratio: '20% yellow + 80% blue', label: 'Deep blue-green', hex: '#006B4D' },
+      { ratio: '80% yellow + 20% blue', label: 'Chartreuse', hex: '#669900' },
+      { ratio: '60% yellow + 40% blue', label: 'Lime green', hex: '#4D9900' },
+      { ratio: '50% yellow + 50% blue', label: 'True green', hex: '#008000' },
+      { ratio: '40% yellow + 60% blue', label: 'Forest green', hex: '#006B33' },
+      { ratio: '20% yellow + 80% blue', label: 'Deep pine', hex: '#004D4D' },
     ],
     uiUsage:
       'Pair greens with warm off-white for organic brands, or with slate neutrals for analytical products. Reserve the brightest row for success badges only if contrast passes. Build extended greens from your chosen anchor in the palette generator, then regression-test states with the contrast checker.',
@@ -169,20 +169,20 @@ export const COMBO_SEO: Record<string, ComboSeoBundle> = {
   'red-and-green': {
     metaTitle: 'What Color Does Red and Green Make? | Theme & Color',
     metaDescription:
-      'Red and green mixes skew brown and olive. Five ratio hex previews, subtractive vs additive notes, and UI usage with links to the palette generator and contrast checker.',
+      'Red and green make brown and olive. Anchor at #4B3B00, five ratio hex previews with swatches, color theory, and UI usage with palette generator and contrast checker links.',
     h1: 'What Color Does Red and Green Make?',
     lead: 'Saturated red (#FF0000) plus green (#008000) is a complementary pair; blending them desaturates toward brown and olive rather than a bright secondary. Preview ratios below, then refine in the mixer.',
-    quickFormula: 'Red + Green = Brown / olive family',
-    quickHex: '#804000',
-    quickSwatchAria: 'Balanced red and green mix, brown',
+    quickFormula: 'Red + Green = Brown/Olive',
+    quickHex: '#4B3B00',
+    quickSwatchAria: 'Balanced red and green mix, brown olive',
     theory:
-      'Complementary hues cancel chroma when mixed evenly, which is why painters reach for browns and neutrals when red and green pigments collide. Digital RGB averaging behaves similarly: you lose saturation and land in the yellow-brown region unless one channel dominates. Always name the role (“mud”, “olive”, “umber”) so teams do not confuse this mix with a clean yellow or orange accent.',
+      'Complementary hues cancel chroma when mixed evenly, which is why painters reach for browns and neutrals when red and green pigments collide. Digital RGB averaging behaves similarly: you lose saturation and land in the olive-brown region unless one channel dominates. Always name the role (“mud”, “olive”, “umber”) so teams do not confuse this mix with a clean yellow or orange accent.',
     ratioRows: [
-      { ratio: '80% red + 20% green', label: 'Brick brown', hex: '#CC3300' },
-      { ratio: '60% red + 40% green', label: 'Rust', hex: '#993300' },
-      { ratio: '50% red + 50% green', label: 'Olive brown', hex: '#804000' },
-      { ratio: '40% red + 60% green', label: 'Moss', hex: '#664D00' },
-      { ratio: '20% red + 80% green', label: 'Deep olive', hex: '#336600' },
+      { ratio: '80% red + 20% green', label: 'Brick brown', hex: '#663300' },
+      { ratio: '60% red + 40% green', label: 'Rust olive', hex: '#594000' },
+      { ratio: '50% red + 50% green', label: 'Brown olive', hex: '#4B3B00' },
+      { ratio: '40% red + 60% green', label: 'Moss', hex: '#3D4200' },
+      { ratio: '20% red + 80% green', label: 'Deep olive', hex: '#264D00' },
     ],
     uiUsage:
       'Use desaturated red–green blends for earth-tone UI, photography overlays, and rustic packaging—not for small red text on saturated green (contrast fails fast). Prefer one vivid complementary accent at a time. After choosing a brown anchor, derive neutrals in the palette generator and validate focus rings and links with the contrast checker.',
@@ -190,23 +190,44 @@ export const COMBO_SEO: Record<string, ComboSeoBundle> = {
   'pink-and-purple': {
     metaTitle: 'What Color Does Pink and Purple Make? | Theme & Color',
     metaDescription:
-      'Pink plus purple yields orchid and magenta tones. Copy five mix hex codes, read theory, and get UI guidance with palette generator and contrast checker links.',
+      'Pink and purple make magenta and fuchsia. Anchor at #C7498A, five mix hex codes with swatches, color theory, and UI guidance with palette generator and contrast checker links.',
     h1: 'What Color Does Pink and Purple Make?',
-    lead: 'Soft pink (#FFC0CB) with deep purple (#800080) produces rich orchid and berry hues—popular for beauty, romance, and nightlife brands. Dial exact blends in the tool, then align marketing with the table.',
-    quickFormula: 'Pink + Purple = Orchid / berry family',
-    quickHex: '#C060A7',
-    quickSwatchAria: 'Balanced pink and purple mix',
+    lead: 'Soft pink (#FFC0CB) with deep purple (#800080) produces rich magenta and fuchsia hues—popular for beauty, romance, and nightlife brands. Dial exact blends in the tool, then align marketing with the table.',
+    quickFormula: 'Pink + Purple = Magenta/Fuchsia',
+    quickHex: '#C7498A',
+    quickSwatchAria: 'Balanced pink and purple mix, magenta fuchsia',
     theory:
-      'Pink is a high-lightness red; purple is low-lightness red-blue. Mixing them preserves red dominance while shifting saturation and value, which is why results read as “berry”, “orchid”, or “mauve” instead of pure violet. In UI token systems, capture both hue and lightness steps so light orchid backgrounds do not collapse into gray on low-end displays.',
+      'Pink is a high-lightness red; purple is low-lightness red-blue. Mixing them preserves red dominance while shifting saturation and value, which is why results read as “magenta”, “fuchsia”, or “berry” instead of pure violet. In UI token systems, capture both hue and lightness steps so light fuchsia backgrounds do not collapse into gray on low-end displays.',
     ratioRows: [
-      { ratio: '80% pink + 20% purple', label: 'Soft rose', hex: '#E6A4BC' },
-      { ratio: '60% pink + 40% purple', label: 'Blush orchid', hex: '#D47BAD' },
-      { ratio: '50% pink + 50% purple', label: 'True orchid', hex: '#C060A7' },
-      { ratio: '40% pink + 60% purple', label: 'Berry', hex: '#A64D92' },
-      { ratio: '20% pink + 80% purple', label: 'Deep plum', hex: '#8B2C7A' },
+      { ratio: '80% pink + 20% purple', label: 'Soft rose', hex: '#E699B8' },
+      { ratio: '60% pink + 40% purple', label: 'Blush magenta', hex: '#D973A1' },
+      { ratio: '50% pink + 50% purple', label: 'True fuchsia', hex: '#C7498A' },
+      { ratio: '40% pink + 60% purple', label: 'Berry magenta', hex: '#B5337A' },
+      { ratio: '20% pink + 80% purple', label: 'Deep plum', hex: '#8F1F66' },
     ],
     uiUsage:
       'Use lighter rows for hero backgrounds and cards; reserve darker rows for buttons and headlines on white. Pair with gold or cream metallics for luxury cues, or with graphite for modern editorial. Expand harmonies in the palette generator and audit every text pair with the contrast checker—pink-heavy UI fails accessibility quickly if unchecked.',
+  },
+  'yellow-and-red': {
+    metaTitle: 'What Color Does Yellow and Red Make? | Theme & Color',
+    metaDescription:
+      'Yellow and red make orange. Anchor at #FF8000, five yellow-to-red mix ratios with hex swatches, color theory, and UI tips with palette generator and contrast checker links.',
+    h1: 'What Color Does Yellow and Red Make?',
+    lead: 'Mix pure yellow (#FFFF00) and pure red (#FF0000) and you move along the warm side of the wheel toward orange. This page lists yellow first for search intent—use the simulator above, then compare ratio presets below.',
+    quickFormula: 'Yellow + Red = Orange',
+    quickHex: '#FF8000',
+    quickSwatchAria: 'Balanced yellow and red mix, orange',
+    theory:
+      'In subtractive paint (RYB) thinking, red and yellow are both primaries; combining them removes short-wavelength reflectance and pushes hue toward orange. In RGB displays, averaging saturated yellow and red still lands in the orange family, but pigment opacity, undertone, and layering change what you see on canvas. The table uses fixed hex steps centered on #FF8000 so designers can align language (“deep orange”, “amber”) with copy-paste values.',
+    ratioRows: [
+      { ratio: '80% yellow + 20% red', label: 'Amber', hex: '#FFB300' },
+      { ratio: '60% yellow + 40% red', label: 'Golden orange', hex: '#FF9900' },
+      { ratio: '50% yellow + 50% red', label: 'True orange', hex: '#FF8000' },
+      { ratio: '40% yellow + 60% red', label: 'Vivid orange', hex: '#FF6600' },
+      { ratio: '20% yellow + 80% red', label: 'Deep orange', hex: '#CC5500' },
+    ],
+    uiUsage:
+      'Use yellow–orange for optimism and red–orange for urgency; keep one dominant temperature per screen so CTAs do not fight each other. Pair saturated oranges with charcoal text on white, or with cream backgrounds for editorial warmth. After locking a hero gradient, run button and link colors through accessibility checks before shipping.',
   },
   'black-and-white': {
     metaTitle: 'What Color Does Black and White Make? | Theme & Color',

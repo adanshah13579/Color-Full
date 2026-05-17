@@ -11,9 +11,9 @@ import { buildPageMetadata } from '../../../lib/buildPageMetadata';
 
 export const metadata = buildPageMetadata({
   path: '/blog/navy-blue-hex-code',
-  title: 'Navy Blue Hex Code: #000080 — Shades, Palettes & Copy-Paste Codes',
+  title: 'Navy Blue Hex Code: #000080 — Copy Code, Shades & Palettes',
   description:
-    'Navy blue hex code is #000080. Copy hex codes for 10 navy shades, see palette pairings with gold, white and coral, and explore UI examples for web design.',
+    'Navy blue hex code is #000080. Copy it instantly, explore 10 shades from light to dark, and see palette pairings for web and brand design.',
   keywords: ['navy blue hex', '#000080', 'navy shades', 'palette', 'UI color', 'Theme & Color'],
 });
 
@@ -124,10 +124,10 @@ export default function NavyBlueHexCodePage() {
               Back to Blog
             </Link>
             <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4 leading-tight">
-              Navy Blue Hex Code: #000080 — Shades, Palettes & Copy-Paste Codes
+              Navy Blue Hex Code: #000080 — Copy Code, Shades & Palettes
             </h1>
             <p className="text-blue-100/95 text-lg max-w-3xl mb-6">
-              The definitive web navy, ten related shades from alice blue to dark navy, pairings for luxury and corporate UI, and copy-ready codes for Figma and CSS.
+              <strong className="text-white font-semibold">#000080</strong> is the navy blue hex code—the standard navy blue color code (US) and navy blue colour code (UK). Copy it below, then explore ten shades and palette pairings for web and brand design.
             </p>
             <div
               className="w-full max-w-2xl h-36 md:h-44 rounded-2xl border-2 border-white/20 shadow-2xl mb-6 bg-[#000080]"
@@ -170,10 +170,13 @@ export default function NavyBlueHexCodePage() {
 
                 <div className="prose prose-lg max-w-none prose-headings:font-bold prose-headings:text-gray-900 dark:prose-headings:text-white prose-p:text-gray-700 dark:prose-p:text-gray-300 prose-p:leading-relaxed">
                   <p className="mb-6">
-                    When stakeholders ask for “navy,” they usually mean a disciplined, trustworthy blue—not the brightest screen blue and not a grayed-out slate. The hex{' '}
-                    <strong className="text-gray-900 dark:text-white">#000080</strong> has decades of recognition because it sits where human vision still reads
-                    unmistakably as blue while feeling weighty enough for logotypes, uniforms, and browser-safe palettes. If you are migrating a legacy print brand
-                    to the web, start here, then photograph real swatches beside LCD mockups so expectations stay aligned.
+                    <strong className="text-gray-900 dark:text-white">#000080</strong> is the navy blue hex code—the standard{' '}
+                    <strong className="text-gray-900 dark:text-white">navy blue color code</strong> in US spelling and{' '}
+                    <strong className="text-gray-900 dark:text-white">navy blue colour code</strong> in UK spelling both point here. When stakeholders ask for
+                    “navy,” they usually mean a disciplined, trustworthy blue—not the brightest screen blue and not a grayed-out slate. This value has decades of
+                    recognition because it sits where human vision still reads unmistakably as blue while feeling weighty enough for logotypes, uniforms, and
+                    browser-safe palettes. If you are migrating a legacy print brand to the web, start here, then photograph real swatches beside LCD mockups so
+                    expectations stay aligned.
                   </p>
                   <p className="mb-6">
                     Practical implementation rarely stops at a single hex. Product teams need lighter tints for table zebra rows, slightly greener blues for data
