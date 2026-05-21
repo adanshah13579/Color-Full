@@ -8,13 +8,32 @@ import {
   PalettePairingsSection,
 } from '../components/PaletteReferenceBlocks';
 import { buildPageMetadata } from '../../../lib/buildPageMetadata';
+import NavyBlueHexCopyBox from './NavyBlueHexCopyBox';
+
+const LAST_MODIFIED = '2026-05-21T00:00:00.000Z';
 
 export const metadata = buildPageMetadata({
   path: '/blog/navy-blue-hex-code',
   title: 'Navy Blue Hex Code: #000080 — Copy Code, Shades & Palettes',
   description:
     'Navy blue hex code is #000080. Copy it instantly, explore 10 shades from light to dark, and see palette pairings for web and brand design.',
-  keywords: ['navy blue hex', '#000080', 'navy shades', 'palette', 'UI color', 'Theme & Color'],
+  keywords: [
+    'navy blue hex',
+    'navy hex code',
+    'navy blue color code',
+    'navy blue colour code',
+    '#000080',
+    'navy shades',
+    'palette',
+    'Theme & Color',
+  ],
+  openGraphType: 'article',
+  openGraph: {
+    modifiedTime: LAST_MODIFIED,
+  },
+  other: {
+    'article:modified_time': LAST_MODIFIED,
+  },
 });
 
 const QUICK_ROWS = [
@@ -126,16 +145,18 @@ export default function NavyBlueHexCodePage() {
             <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4 leading-tight">
               Navy Blue Hex Code: #000080 — Copy Code, Shades & Palettes
             </h1>
-            <p className="text-blue-100/95 text-lg max-w-3xl mb-6">
-              <strong className="text-white font-semibold">#000080</strong> is the navy blue hex code—the standard navy blue color code (US) and navy blue colour code (UK). Copy it below, then explore ten shades and palette pairings for web and brand design.
+            <p className="text-blue-100/95 text-lg md:text-xl max-w-3xl mb-5">
+              Navy blue hex code is #000080 (RGB 0, 0, 128). Copy it below.
             </p>
-            <div
-              className="w-full max-w-2xl h-36 md:h-44 rounded-2xl border-2 border-white/20 shadow-2xl mb-6 bg-[#000080]"
-              role="img"
-              aria-label="Navy blue color swatch hex 000080"
-            />
+            <NavyBlueHexCopyBox />
+            <p className="text-blue-100/95 text-lg max-w-3xl mb-6">
+              Whether you search for a <strong className="text-white font-semibold">navy blue color code</strong> (US) or a{' '}
+              <strong className="text-white font-semibold">navy blue colour code</strong> (UK), the canonical{' '}
+              <strong className="text-white font-semibold">navy hex code</strong> is the same: #000080. Scroll for ten related{' '}
+              <strong className="text-white font-semibold">navy blue color codes</strong> from light tints to midnight anchors, plus palette pairings for web and brand design.
+            </p>
             <div className="flex items-center gap-4 text-blue-200/90 text-sm">
-              <time dateTime="2026-05-10">May 10, 2026</time>
+              <time dateTime="2026-05-21">May 21, 2026</time>
               <span>•</span>
               <span>9 min read</span>
             </div>
@@ -158,9 +179,13 @@ export default function NavyBlueHexCodePage() {
 
                 <PaletteShadesTable
                   title="Navy Blue Shades — Hex Code Table"
-                  description="Ten stops from airy tints to near-black navy. Use lighter rows for backgrounds and darker rows for navigation, type on light UI, or hero bands."
+                  description="Ten stops from airy tints to near-black navy. Use lighter rows for backgrounds and darker rows for navigation, type on light UI, or hero bands. Generate your own lighter and darker steps from #000080 with our tint and shade generator."
                   shades={NAVY_SHADES}
                 />
+                <p className="text-gray-600 dark:text-gray-400 text-sm -mt-4 mb-8">
+                  Need a full scale from one navy hex? Try the{' '}
+                  <InlineTagLink href="/tools/tint-shade-generator">tint and shade generator</InlineTagLink> starting at #000080.
+                </p>
 
                 <PalettePairingsSection
                   title="Navy Blue Color Palette Pairings"
@@ -170,18 +195,13 @@ export default function NavyBlueHexCodePage() {
 
                 <div className="prose prose-lg max-w-none prose-headings:font-bold prose-headings:text-gray-900 dark:prose-headings:text-white prose-p:text-gray-700 dark:prose-p:text-gray-300 prose-p:leading-relaxed">
                   <p className="mb-6">
-                    <strong className="text-gray-900 dark:text-white">#000080</strong> is the navy blue hex code—the standard{' '}
-                    <strong className="text-gray-900 dark:text-white">navy blue color code</strong> in US spelling and{' '}
-                    <strong className="text-gray-900 dark:text-white">navy blue colour code</strong> in UK spelling both point here. When stakeholders ask for
-                    “navy,” they usually mean a disciplined, trustworthy blue—not the brightest screen blue and not a grayed-out slate. This value has decades of
-                    recognition because it sits where human vision still reads unmistakably as blue while feeling weighty enough for logotypes, uniforms, and
-                    browser-safe palettes. If you are migrating a legacy print brand to the web, start here, then photograph real swatches beside LCD mockups so
-                    expectations stay aligned.
+                    <strong className="text-gray-900 dark:text-white">#000080</strong> is the standard navy blue hex code—the same value whether you label it a{' '}
+                    <strong className="text-gray-900 dark:text-white">navy blue color code</strong> (US) or a{' '}
+                    <strong className="text-gray-900 dark:text-white">navy blue colour code</strong> (UK). Designers and developers often shorten the query to{' '}
+                    <strong className="text-gray-900 dark:text-white">navy hex code</strong>, but stakeholders still expect one disciplined, trustworthy blue—not the brightest screen blue and not a grayed-out slate. This value has decades of recognition because it reads unmistakably as blue while feeling weighty enough for logotypes, uniforms, and browser-safe palettes. If you are migrating a legacy print brand to the web, start with this canonical hex, then photograph real swatches beside LCD mockups so expectations stay aligned.
                   </p>
                   <p className="mb-6">
-                    Practical implementation rarely stops at a single hex. Product teams need lighter tints for table zebra rows, slightly greener blues for data
-                    viz harmony, and darker anchors for dark mode chrome. The shade table above gives you named stepping stones so designers can say “use steel blue
-                    for borders” instead of debating ad hoc hex drift. Lock those names into tokens (<code className="rounded px-1 py-0.5 text-sm font-mono bg-gray-100 text-gray-900 dark:bg-slate-800 dark:text-gray-100">navy-700</code>,{' '}
+                    Practical work rarely stops at a single value. Product teams need lighter tints for table zebra rows, slightly greener blues for data viz harmony, and darker anchors for dark mode chrome—the shade table above lists ten related <strong className="text-gray-900 dark:text-white">navy blue color codes</strong> so you can say “use steel blue for borders” instead of debating ad hoc hex drift. Lock those names into tokens (<code className="rounded px-1 py-0.5 text-sm font-mono bg-gray-100 text-gray-900 dark:bg-slate-800 dark:text-gray-100">navy-700</code>,{' '}
                     <code className="rounded px-1 py-0.5 text-sm font-mono bg-gray-100 text-gray-900 dark:bg-slate-800 dark:text-gray-100">navy-50</code>) and let developers map them once in your theme file.
                   </p>
 

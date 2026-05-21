@@ -25,7 +25,11 @@ const CARD_PALETTES = {
   'ocean-breeze': ['#0ea5e9', '#06b6d4', '#14b8a6', '#10b981'],
   'sunset-vibes': ['#f97316', '#ef4444', '#ec4899', '#8b5cf6'],
   'forest-green': ['#228b22', '#166534', '#15803d', '#86efac', '#dcfce7'],
+  'forest-green-color-palette': ['#228b22', '#e2725b', '#fff8f0', '#b2ac88', '#065f46'],
   'forest-green-hex-code': ['#228b22', '#065f46', '#047857', '#10b981', '#34d399'],
+  'olive-green-hex-code': ['#808000', '#556b2f', '#e2725b', '#000080', '#fff8f0'],
+  'burgundy-hex-code': ['#800020', '#722f37', '#ffd700', '#000080', '#fff8f0'],
+  'navy-blue-color-palette': ['#000080', '#ffd700', '#ff6b6b', '#6ee7b7', '#f472b6'],
   'navy-blue-hex-code': ['#000080', '#4682b4', '#ffd700', '#ffffff', '#ff6b6b'],
   'ocean-breeze-hex-code': ['#0ea5e9', '#06b6d4', '#14b8a6', '#10b981', '#34d399'],
   'sage-green-hex-code': ['#b2ac88', '#e2725b', '#fffdd0', '#36454f', '#87a96b'],
@@ -88,6 +92,30 @@ const staticPosts = [
     publishedAt: '2026-04-11',
   },
   {
+    _id: '19',
+    title: 'Forest Green Color Palette: Hex Codes, Shades & Combinations',
+    slug: { current: 'forest-green-color-palette' },
+    excerpt:
+      'Forest green color palette from #228B22—five combinations with cream, terracotta, and sage, ten shades, UI examples, and branding tips for eco brands.',
+    publishedAt: '2026-05-21',
+  },
+  {
+    _id: '20',
+    title: 'Olive Green Hex Code: #808000 — Shades, Palettes & Copy-Paste',
+    slug: { current: 'olive-green-hex-code' },
+    excerpt:
+      'Olive green hex code is #808000. Copy 10 olive shades, four pairings with terracotta and navy, and UI examples for outdoor and heritage brands.',
+    publishedAt: '2026-05-21',
+  },
+  {
+    _id: '21',
+    title: 'Burgundy Hex Code: #800020 — Shades, Palettes & Copy-Paste',
+    slug: { current: 'burgundy-hex-code' },
+    excerpt:
+      'Burgundy hex code is #800020. Copy burgundy shades, pairings with gold, cream and navy, and branding examples for wine and luxury design.',
+    publishedAt: '2026-05-21',
+  },
+  {
     _id: '13',
     title: 'Ocean Breeze Hex Codes: Color & Colour Codes (Copy-Paste)',
     slug: { current: 'ocean-breeze-hex-code' },
@@ -102,6 +130,14 @@ const staticPosts = [
     excerpt:
       'Navy blue hex code is #000080. Copy hex codes for 10 navy shades, see palette pairings with gold, white and coral, and explore UI examples for web design.',
     publishedAt: '2026-05-10',
+  },
+  {
+    _id: '18',
+    title: 'Navy Blue Color Palette: Hex Codes, Combinations & UI Examples',
+    slug: { current: 'navy-blue-color-palette' },
+    excerpt:
+      'Navy blue color palette hex codes and combinations. Pair navy (#000080) with gold, coral, mint, and gray—six four-color palettes plus UI and branding guidance.',
+    publishedAt: '2026-05-21',
   },
   {
     _id: '15',

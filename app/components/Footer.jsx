@@ -54,6 +54,16 @@ export default function Footer() {
                 </Link>
               </li>
               <li>
+                <Link href="/tools/color-name-finder" className="text-gray-600 dark:text-gray-400 hover:text-purple-600 dark:hover:text-purple-400 transition-colors text-sm">
+                  Color Name Finder
+                </Link>
+              </li>
+              <li>
+                <Link href="/tools/tint-shade-generator" className="text-gray-600 dark:text-gray-400 hover:text-purple-600 dark:hover:text-purple-400 transition-colors text-sm">
+                  Tint &amp; Shade Generator
+                </Link>
+              </li>
+              <li>
                 <Link href="/blog" className="text-gray-600 dark:text-gray-400 hover:text-purple-600 dark:hover:text-purple-400 transition-colors text-sm">
                   Blog
                 </Link>

@@ -8,6 +8,8 @@ const toolsSubLinks = [
   { href: '/tools', label: 'All tools' },
   { href: '/tools/palette-generator', label: 'Palette generator' },
   { href: '/tools/contrast-checker', label: 'Contrast checker' },
+  { href: '/tools/color-name-finder', label: 'Color name finder' },
+  { href: '/tools/tint-shade-generator', label: 'Tint & shade generator' },
   { href: '/tools/color-mixer', label: 'Color Mixer' },
 ];
 

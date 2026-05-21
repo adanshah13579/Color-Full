@@ -199,7 +199,8 @@ export default function ForestGreenHexCodePage() {
                       <CopyableHex hex="#228B22" />
                     </strong>{' '}
                     — rgb(34, 139, 34). That is the value browsers resolve when you write{' '}
-                    <code className="bg-gray-100 dark:bg-gray-800 px-1.5 py-0.5 rounded text-sm">color: forestgreen;</code>.
+                    <code className="bg-gray-100 dark:bg-gray-800 px-1.5 py-0.5 rounded text-sm">color: forestgreen;</code>. Not sure what to call a hex from a screenshot? Use our{' '}
+                    <InlineTagLink href="/tools/color-name-finder">color name finder</InlineTagLink> to match it to the nearest named color.
                   </p>
                   <p className="mb-4">
                     In product and UI design, <strong className="text-gray-900 dark:text-white">color forest green</strong> often means something darker and more evergreen. A widely used deep green is{' '}

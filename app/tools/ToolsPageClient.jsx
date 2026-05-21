@@ -29,6 +29,22 @@ const tools = [
     href: '/tools/color-mixer',
     gradient: 'from-fuchsia-500 to-orange-500',
   },
+  {
+    id: 'color-name-finder',
+    name: 'Color Name Finder',
+    description: 'Find the name of any color from its hex code instantly.',
+    icon: '🔎',
+    href: '/tools/color-name-finder',
+    gradient: 'from-violet-500 to-purple-500',
+  },
+  {
+    id: 'tint-shade-generator',
+    name: 'Tint & Shade Generator',
+    description: 'Generate 10 tints and 10 shades for any color with one click.',
+    icon: '📊',
+    href: '/tools/tint-shade-generator',
+    gradient: 'from-emerald-500 to-teal-500',
+  },
 ];
 
 export default function ToolsPageClient() {
@@ -146,6 +162,23 @@ export default function ToolsPageClient() {
               </Link>{' '}
               to see what colors make when mixed like paint, not digital light. It uses an RYB color model so combinations
               like blue + yellow resolve to realistic green-style mixes.
+            </p>
+            <h3>Color name finder</h3>
+            <p className="mb-3">
+              The{' '}
+              <Link href="/tools/color-name-finder" className="text-purple-600 dark:text-purple-400 font-semibold">
+                color name finder
+              </Link>{' '}
+              turns any hex into the closest named color plus RGB, HSL, and CMYK values you can copy into specs or code.
+            </p>
+            <h3>Tint and shade generator</h3>
+            <p className="mb-3">
+              Use the{' '}
+              <Link href="/tools/tint-shade-generator" className="text-purple-600 dark:text-purple-400 font-semibold">
+                tint and shade generator
+              </Link>{' '}
+              to build ten lighter tints and ten darker shades from one base hex, then export CSS variables or a Tailwind
+              color scale.
             </p>
             <p>
               Together, these free online color tools give you a practical way to design, test, and maintain a
