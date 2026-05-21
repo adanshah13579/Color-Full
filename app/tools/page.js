@@ -11,6 +11,8 @@ export const metadata = buildPageMetadata({
     'palette generator',
     'contrast checker',
     'color mixing simulator',
+    'color name finder',
+    'tint shade generator',
     'WCAG',
     'accessibility',
     'hex codes',

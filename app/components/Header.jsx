@@ -72,7 +72,7 @@ export default function Header() {
                     <Link
                       key={href}
                       href={href}
-                      className="block px-4 py-2.5 text-sm text-gray-800 dark:text-gray-200 hover:bg-purple-50 dark:hover:bg-gray-800 hover:text-purple-700 dark:hover:text-purple-300"
+                      className="nav-tools-menuitem block px-4 py-2.5 text-sm rounded-md transition-colors"
                       role="menuitem"
                     >
                       {label}
@@ -158,7 +158,7 @@ export default function Header() {
               <Link
                 key={href}
                 href={href}
-                className="block pl-6 pr-3 py-2 rounded-lg text-gray-800 dark:text-gray-200 text-sm hover:bg-gray-100 dark:hover:bg-gray-800"
+                className="nav-tools-menuitem block pl-6 pr-3 py-2 rounded-lg text-sm transition-colors"
                 onClick={() => setMobileOpen(false)}
               >
                 {label}

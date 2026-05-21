@@ -32,7 +32,7 @@ const tools = [
   {
     id: 'color-name-finder',
     name: 'Color Name Finder',
-    description: 'Find the name of any color from its hex code instantly.',
+    description: 'Find the name of any color from its hex code instantly',
     icon: '🔎',
     href: '/tools/color-name-finder',
     gradient: 'from-violet-500 to-purple-500',
@@ -40,7 +40,7 @@ const tools = [
   {
     id: 'tint-shade-generator',
     name: 'Tint & Shade Generator',
-    description: 'Generate 10 tints and 10 shades for any color with one click.',
+    description: 'Generate 10 tints and 10 shades for any color with one click',
     icon: '📊',
     href: '/tools/tint-shade-generator',
     gradient: 'from-emerald-500 to-teal-500',

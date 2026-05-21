@@ -1,5 +1,8 @@
 @import "tailwindcss";
 
+/* Match ThemeContext: dark utilities only when html has .dark, not OS preference */
+@custom-variant dark (&:where(.dark, .dark *));
+
 :root {
   --background: #ffffff;
   --foreground: #171717;
@@ -76,6 +79,27 @@ html:not(.dark) .bg-white {
 /* Force dark text in light theme for navigation */
 html:not(.dark) header nav a:not(:hover) {
   color: #111827 !important; /* gray-900 - black text */
+}
+
+/* Tools dropdown / mobile tool links: readable hover in both themes */
+html:not(.dark) header nav .nav-tools-menuitem {
+  color: #1f2937 !important;
+}
+
+html:not(.dark) header nav .nav-tools-menuitem:hover,
+html:not(.dark) header nav .nav-tools-menuitem:focus-visible {
+  background-color: #faf5ff !important;
+  color: #6b21a8 !important;
+}
+
+html.dark header nav .nav-tools-menuitem {
+  color: #e5e7eb !important;
+}
+
+html.dark header nav .nav-tools-menuitem:hover,
+html.dark header nav .nav-tools-menuitem:focus-visible {
+  background-color: #1f2937 !important;
+  color: #d8b4fe !important;
 }
 
 /* Force dark text in light theme - override Tailwind classes */
@@ -165,11 +189,51 @@ html:not(.dark) .bg-gray-900 .text-white {
   color: #ffffff !important;
 }
 
+/* Tool hex inputs: always readable text on neutral field (never preview color as bg) */
+html:not(.dark) .tool-hex-field {
+  background-color: #ffffff !important;
+  color-scheme: light;
+}
+
+html:not(.dark) .tool-hex-prefix,
+html:not(.dark) .tool-hex-input {
+  color: #111827 !important;
+  -webkit-text-fill-color: #111827 !important;
+  caret-color: #111827;
+}
+
+html:not(.dark) .tool-hex-input::placeholder {
+  color: #9ca3af !important;
+  -webkit-text-fill-color: #9ca3af !important;
+}
+
+html.dark .tool-hex-field {
+  background-color: #1f2937 !important;
+  color-scheme: dark;
+}
+
+html.dark .tool-hex-prefix,
+html.dark .tool-hex-input {
+  color: #f9fafb !important;
+  -webkit-text-fill-color: #f9fafb !important;
+  caret-color: #f9fafb;
+}
+
+html.dark .tool-hex-input::placeholder {
+  color: #9ca3af !important;
+  -webkit-text-fill-color: #9ca3af !important;
+}
+
 /* Smooth transitions for theme changes */
 * {
   transition-property: background-color, border-color, color, fill, stroke;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   transition-duration: 200ms;
+}
+
+.tool-hex-field,
+.tool-hex-field input {
+  transition-property: border-color, box-shadow;
 }
 
 /* Animated blob background */
