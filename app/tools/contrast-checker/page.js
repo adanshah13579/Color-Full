@@ -2,27 +2,36 @@ import InlineTagLink from '../../components/InlineTagLink';
 import ContrastCheckerTool from './ContrastCheckerTool';
 import { buildPageMetadata } from '../../../lib/buildPageMetadata';
 
+const LAST_MODIFIED = '2026-05-21T00:00:00.000Z';
+
 export const metadata = buildPageMetadata({
   path: '/tools/contrast-checker',
-  title: 'WCAG Color Contrast Checker — AA/AAA',
+  title: 'Color Contrast Checker — WCAG Accessibility Tool | Theme & Color',
   description:
-    'Check color contrast ratios for WCAG 2.1 AA and AAA compliance. Free tool for designers and developers — instant results for text and background pairs.',
+    'Free color contrast checker for WCAG AA and AAA accessibility. Check text and background color contrast ratios instantly. Used by designers and developers worldwide.',
   keywords: [
-    'contrast checker',
+    'color contrast checker',
+    'accessibility color checker',
+    'text contrast checker',
+    'ADA contrast checker',
+    'website accessibility color checker',
+    'color contrast accessibility checker',
     'WCAG',
-    'accessibility',
     'AA',
     'AAA',
-    'color contrast ratio',
     'Theme & Color',
   ],
+  openGraph: {
+    modifiedTime: LAST_MODIFIED,
+  },
 });
 
 const contrastCheckerStructuredData = {
   '@context': 'https://schema.org',
   '@type': 'SoftwareApplication',
   name: 'WCAG Color Contrast Checker',
-  description: 'Free WCAG color contrast checker for AA and AAA accessibility compliance. Instant results for text and background color pairs.',
+  description:
+    'Free color contrast checker for WCAG AA and AAA accessibility. Check text and background color contrast ratios instantly.',
   url: 'https://themeandcolor.com/tools/contrast-checker',
   applicationCategory: 'DesignApplication',
   operatingSystem: 'Web',
@@ -44,10 +53,10 @@ export default function ContrastCheckerPage() {
         <div className="max-w-4xl mx-auto mb-6">
           <header>
             <h1 className="text-3xl md:text-4xl font-bold mb-3 text-gray-900 dark:text-white">
-              Accessibility Contrast Checker
+              Color Contrast Checker
             </h1>
             <p className="text-gray-600 dark:text-gray-400 text-base leading-relaxed">
-              Check contrast between text and background colors. Enter your colors below to see the ratio and WCAG AA/AAA pass or fail. Build palettes first with our <InlineTagLink href="/tools/palette-generator">palette generator</InlineTagLink>, then test pairs here.
+              Use this free color contrast accessibility checker to validate text and background pairs for WCAG AA and AAA. As a text contrast checker and website accessibility color checker in one, it shows your ratio and pass/fail instantly. Build palettes first with our <InlineTagLink href="/tools/palette-generator">palette generator</InlineTagLink>, then test pairs here.
             </p>
             <p className="text-gray-600 dark:text-gray-400 text-sm mt-2">
               Also try our <InlineTagLink href="/tools/color-mixer">Color Mixing Simulator</InlineTagLink> for paint-style RYB color blends.
@@ -63,14 +72,17 @@ export default function ContrastCheckerPage() {
               WCAG Color Contrast Checker — AA &amp; AAA Compliance
             </h2>
             <p className="leading-relaxed">
-              WCAG contrast ratios measure how readable text is against its background by comparing lightness difference between two colors on a scale from 1:1 to 21:1. These ratios matter because low contrast makes content harder to read for users with low vision, color-vision differences, or poor lighting conditions, while compliant contrast improves usability and helps your UI meet accessibility requirements.
+              WCAG contrast ratios measure how readable text is against its background by comparing lightness difference between two colors on a scale from 1:1 to 21:1. Whether you need an accessibility color checker for audits or a daily ADA contrast checker for shipping UI, these ratios matter because low contrast makes content harder to read for users with low vision, color-vision differences, or poor lighting conditions, while compliant contrast improves usability and helps your UI meet accessibility requirements.
             </p>
           </section>
 
           <section>
-            <h3 className="text-xl font-semibold mb-4 text-gray-900 dark:text-white">
-              How to check color contrast
-            </h3>
+            <h2 className="text-2xl font-bold mb-4 text-gray-900 dark:text-white">
+              How This Text Contrast Checker Works
+            </h2>
+            <p className="leading-relaxed mb-4">
+              Our color contrast accessibility checker compares foreground and background hex values using the same relative luminance formula WCAG references, so designers and developers get consistent results without spreadsheets.
+            </p>
             <ol className="list-decimal list-inside space-y-2 leading-relaxed">
               <li>Enter foreground color.</li>
               <li>Enter background color.</li>
@@ -138,6 +150,27 @@ export default function ContrastCheckerPage() {
                 </p>
               </div>
             </div>
+          </section>
+
+          <section>
+            <h2 className="text-2xl font-bold mb-4 text-gray-900 dark:text-white">
+              Who Uses a Color Contrast Checker?
+            </h2>
+            <ul className="list-disc list-inside space-y-2 leading-relaxed">
+              <li>Web designers checking text readability</li>
+              <li>Developers building ADA compliant websites</li>
+              <li>UX teams running accessibility audits</li>
+              <li>Agencies testing client sites for WCAG compliance</li>
+            </ul>
+          </section>
+
+          <section>
+            <h2 className="text-2xl font-bold mb-4 text-gray-900 dark:text-white">
+              What is ADA Color Contrast Compliance?
+            </h2>
+            <p className="leading-relaxed">
+              ADA (Americans with Disabilities Act) requires websites to meet WCAG 2.1 AA contrast standards. Normal text needs a 4.5:1 ratio, large text needs 3:1. Our checker tests both instantly.
+            </p>
           </section>
 
           <p className="mt-10 text-gray-600 dark:text-gray-400 leading-relaxed">

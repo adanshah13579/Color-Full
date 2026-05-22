@@ -50,28 +50,73 @@ const faqSchema = {
   ],
 };
 
+function hexToRgb(hex) {
+  const h = hex.replace('#', '');
+  return {
+    r: parseInt(h.slice(0, 2), 16),
+    g: parseInt(h.slice(2, 4), 16),
+    b: parseInt(h.slice(4, 6), 16),
+  };
+}
+
+function readableTextOnHex(hex) {
+  const { r, g, b } = hexToRgb(hex);
+  const [rn, gn, bn] = [r, g, b].map((v) => {
+    const n = v / 255;
+    return n <= 0.03928 ? n / 12.92 : Math.pow((n + 0.055) / 1.055, 2.4);
+  });
+  const lum = 0.2126 * rn + 0.7152 * gn + 0.0722 * bn;
+  return lum > 0.45 ? '#111827' : '#ffffff';
+}
+
 function RatioBar({ segments, heightClass = 'h-16' }) {
   return (
     <div
-      className={`not-prose flex w-full max-w-2xl overflow-hidden rounded-xl border border-gray-200 dark:border-gray-600 shadow-md ${heightClass}`}
+      className={`not-prose blog-ratio-bar flex w-full max-w-2xl overflow-hidden rounded-xl border border-gray-200 dark:border-gray-600 shadow-md ${heightClass}`}
       role="img"
       aria-label="60-30-10 color proportion diagram"
     >
-      {segments.map((s) => (
-        <div
-          key={s.label}
-          className="flex min-w-0 flex-col items-center justify-center px-1 text-center sm:px-2"
-          style={{ width: s.pct, backgroundColor: s.hex }}
-        >
-          <span
-            className={`text-[10px] font-bold uppercase tracking-wide sm:text-xs ${s.lightText ? 'text-white drop-shadow-sm' : 'text-gray-900'}`}
+      {segments.map((s) => {
+        const labelColor = readableTextOnHex(s.hex);
+        const shadow = labelColor === '#ffffff' ? '0 1px 2px rgba(0,0,0,0.35)' : 'none';
+        return (
+          <div
+            key={s.label}
+            className="flex min-w-0 flex-col items-center justify-center px-1 text-center sm:px-2"
+            style={{ width: s.pct, backgroundColor: s.hex }}
           >
-            {s.label}
-          </span>
-          <span className={`hidden font-mono text-[10px] sm:inline sm:text-xs ${s.lightText ? 'text-white/90' : 'text-gray-800'}`}>{s.hex}</span>
-        </div>
-      ))}
+            <span
+              className="text-[10px] font-bold uppercase tracking-wide sm:text-xs"
+              style={{ color: labelColor, textShadow: shadow }}
+            >
+              {s.label}
+            </span>
+            <span
+              className="hidden font-mono text-[10px] sm:inline sm:text-xs"
+              style={{ color: labelColor, opacity: 0.92, textShadow: shadow }}
+            >
+              {s.hex}
+            </span>
+          </div>
+        );
+      })}
     </div>
+  );
+}
+
+function SwatchLabels({ hex, topLabel, bottomLabel }) {
+  const color = readableTextOnHex(hex);
+  const shadow = color === '#ffffff' ? '0 1px 2px rgba(0,0,0,0.35)' : 'none';
+  const labelStyle = { color, textShadow: shadow };
+  return (
+    <>
+      <span className="text-[10px] font-semibold" style={labelStyle}>
+        {topLabel}
+      </span>
+      <span className="font-mono text-[10px]" style={{ ...labelStyle, opacity: 0.92 }}>
+        {bottomLabel}
+      </span>
+    </>
   );
 }
 
@@ -80,18 +125,15 @@ function PaletteExampleCard({ title, body, dominant, secondary, accent, dLabel, 
     <li className="not-prose rounded-2xl border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800/50 p-5 shadow-sm">
       <h3 className="text-lg font-bold text-gray-900 dark:text-white mb-2">{title}</h3>
       <p className="text-sm text-gray-600 dark:text-gray-400 mb-4 leading-relaxed">{body}</p>
-      <div className="grid h-20 w-full grid-cols-[6fr_3fr_1fr] overflow-hidden rounded-lg border border-gray-200 dark:border-gray-600">
+      <div className="blog-ratio-bar grid h-20 w-full grid-cols-[6fr_3fr_1fr] overflow-hidden rounded-lg border border-gray-200 dark:border-gray-600">
         <div className="flex min-w-0 flex-col items-center justify-end pb-2" style={{ backgroundColor: dominant.hex }}>
-          <span className={`text-[10px] font-semibold ${dominant.light ? 'text-white' : 'text-gray-900'}`}>{dLabel}</span>
-          <span className={`font-mono text-[10px] ${dominant.light ? 'text-white/90' : 'text-gray-800'}`}>{dominant.hex}</span>
+          <SwatchLabels hex={dominant.hex} topLabel={dLabel} bottomLabel={dominant.hex} />
         </div>
         <div className="flex min-w-0 flex-col items-center justify-end pb-2" style={{ backgroundColor: secondary.hex }}>
-          <span className={`text-[10px] font-semibold ${secondary.light ? 'text-white' : 'text-gray-900'}`}>{sLabel}</span>
-          <span className={`font-mono text-[10px] ${secondary.light ? 'text-white/90' : 'text-gray-800'}`}>{secondary.hex}</span>
+          <SwatchLabels hex={secondary.hex} topLabel={sLabel} bottomLabel={secondary.hex} />
         </div>
         <div className="flex min-w-0 flex-col items-center justify-end pb-2" style={{ backgroundColor: accent.hex }}>
-          <span className={`text-[10px] font-semibold ${accent.light ? 'text-white' : 'text-gray-900'}`}>{aLabel}</span>
-          <span className={`font-mono text-[10px] ${accent.light ? 'text-white/90' : 'text-gray-800'}`}>{accent.hex}</span>
+          <SwatchLabels hex={accent.hex} topLabel={aLabel} bottomLabel={accent.hex} />
         </div>
       </div>
     </li>
@@ -122,14 +164,16 @@ export default function SixtyThirtyTenColorRulePage() {
               Split every screen and brand touchpoint into three roles—dominant, secondary, accent—so color hierarchy stays obvious and your palette scales from
               marketing to product without chaos.
             </p>
-            <RatioBar
-              segments={[
-                { pct: '60%', hex: '#F5F5F5', label: '60%', lightText: false },
-                { pct: '30%', hex: '#1E3A8A', label: '30%', lightText: true },
-                { pct: '10%', hex: '#FFD700', label: '10%', lightText: false },
-              ]}
-              heightClass="h-20 md:h-24"
-            />
+            <div className="not-prose">
+              <RatioBar
+                segments={[
+                  { pct: '60%', hex: '#F5F5F5', label: '60%' },
+                  { pct: '30%', hex: '#1E3A8A', label: '30%' },
+                  { pct: '10%', hex: '#FFD700', label: '10%' },
+                ]}
+                heightClass="h-20 md:h-24"
+              />
+            </div>
             <p className="mt-3 text-sm text-violet-200/90 max-w-2xl">
               Example strip: <span className="font-mono">#F5F5F5</span> (dominant) · <span className="font-mono">#1E3A8A</span> (secondary) ·{' '}
               <span className="font-mono">#FFD700</span> (accent).
@@ -164,9 +208,9 @@ export default function SixtyThirtyTenColorRulePage() {
             <div className="not-prose mb-8">
               <RatioBar
                 segments={[
-                  { pct: '60%', hex: '#F5F5F5', label: 'Dominant', lightText: false },
-                  { pct: '30%', hex: '#1E3A8A', label: 'Secondary', lightText: true },
-                  { pct: '10%', hex: '#FFD700', label: 'Accent', lightText: false },
+                  { pct: '60%', hex: '#F5F5F5', label: 'Dominant' },
+                  { pct: '30%', hex: '#1E3A8A', label: 'Secondary' },
+                  { pct: '10%', hex: '#FFD700', label: 'Accent' },
                 ]}
               />
             </div>
@@ -251,9 +295,9 @@ export default function SixtyThirtyTenColorRulePage() {
               <PaletteExampleCard
                 title="Professional — navy, light gray, gold"
                 body="Dominant light gray keeps forms and whitepapers calm; navy carries authority; gold signals premium CTAs without painting entire heroes yellow."
-                dominant={{ hex: '#F5F5F5', light: false }}
-                secondary={{ hex: '#1E3A8A', light: true }}
-                accent={{ hex: '#FFD700', light: false }}
+                dominant={{ hex: '#F5F5F5' }}
+                secondary={{ hex: '#1E3A8A' }}
+                accent={{ hex: '#FFD700' }}
                 dLabel="60%"
                 sLabel="30%"
                 aLabel="10%"
@@ -261,9 +305,9 @@ export default function SixtyThirtyTenColorRulePage() {
               <PaletteExampleCard
                 title="Earthy — cream, sage, terracotta"
                 body="Cream dominates for hospitality and wellness; sage structures navigation and dividers; terracotta marks actions and seasonal tags."
-                dominant={{ hex: '#FFFDD0', light: false }}
-                secondary={{ hex: '#B2AC88', light: false }}
-                accent={{ hex: '#E2725B', light: false }}
+                dominant={{ hex: '#FFFDD0' }}
+                secondary={{ hex: '#B2AC88' }}
+                accent={{ hex: '#E2725B' }}
                 dLabel="60%"
                 sLabel="30%"
                 aLabel="10%"
@@ -271,9 +315,9 @@ export default function SixtyThirtyTenColorRulePage() {
               <PaletteExampleCard
                 title="Modern — white, charcoal, electric blue"
                 body="White-dominant SaaS chrome; charcoal for text and sidebars; electric blue strictly for links, primary buttons, and data highlights."
-                dominant={{ hex: '#FFFFFF', light: false }}
-                secondary={{ hex: '#2D3748', light: true }}
-                accent={{ hex: '#0066FF', light: true }}
+                dominant={{ hex: '#FFFFFF' }}
+                secondary={{ hex: '#2D3748' }}
+                accent={{ hex: '#0066FF' }}
                 dLabel="60%"
                 sLabel="30%"
                 aLabel="10%"

@@ -102,6 +102,12 @@ html.dark header nav .nav-tools-menuitem:focus-visible {
   color: #d8b4fe !important;
 }
 
+/* Blog ratio bars: label color set inline per swatch — block hero text-white inheritance */
+html:not(.dark) .blog-ratio-bar span,
+html.dark .blog-ratio-bar span {
+  -webkit-text-fill-color: currentColor;
+}
+
 /* Force dark text in light theme - override Tailwind classes */
 html:not(.dark) .text-gray-900,
 html:not(.dark) h1.text-gray-900,

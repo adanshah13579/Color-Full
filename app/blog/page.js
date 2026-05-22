@@ -39,7 +39,11 @@ const CARD_PALETTES = {
   'best-neutral-colors-pair-with-brand': ['#1c1917', '#57534e', '#a8a29e', '#e7e5e4', '#fafaf9'],
   'ecommerce-color-palettes-product-first-vs-brand-first': ['#2563eb', '#0ea5e9', '#f59e0b', '#ef4444', '#111827'],
   'accessible-dark-mode-color-palette': ['#0a0a0a', '#171717', '#3f3f46', '#e4e4e7', '#818cf8'],
+  'accessibility-color-contrast-checker': ['#111827', '#ffffff', '#000080', '#9ca3af', '#10b981'],
   'wcag-accessible-buttons-and-links': ['#ffffff', '#1e40af', '#1d4ed8', '#1e293b', '#0ea5e9'],
+  'what-color-does-red-and-yellow-make': ['#ff0000', '#ffff00', '#ff8000', '#ffc000', '#ffd700'],
+  'what-color-does-blue-and-yellow-make': ['#0000ff', '#ffff00', '#008000', '#33aa33', '#66cc00'],
+  'what-color-does-red-and-white-make': ['#ff0000', '#ffffff', '#ff8080', '#ffcccc', '#ffe6e6'],
 };
 
 // Static blog posts data
@@ -193,6 +197,14 @@ const staticPosts = [
     publishedAt: '2025-03-19',
   },
   {
+    _id: '25',
+    title: 'Accessibility Color Contrast Checker: WCAG, ADA & How to Use One',
+    slug: { current: 'accessibility-color-contrast-checker' },
+    excerpt:
+      'Use a free accessibility color contrast checker to meet WCAG AA and ADA standards. Learn contrast ratios, common mistakes, and how to fix low contrast.',
+    publishedAt: '2026-05-21',
+  },
+  {
     _id: '10',
     title: 'How to Build an Accessible Dark Mode Color Palette (With Hex Examples)',
     slug: { current: 'accessible-dark-mode-color-palette' },
@@ -207,6 +219,30 @@ const staticPosts = [
     excerpt:
       'Pick link and button colors that pass WCAG AA: filled CTAs, outline buttons, dark bands, focus rings—with hex swatches next to each tip and our contrast checker to verify.',
     publishedAt: '2026-04-02',
+  },
+  {
+    _id: '22',
+    title: 'What Color Does Red and Yellow Make? Orange — Hex Codes & Mixing Guide',
+    slug: { current: 'what-color-does-red-and-yellow-make' },
+    excerpt:
+      'Red and yellow make orange when mixed. See exact hex codes for every red-yellow mix ratio, explore orange shades, and try our free color mixer tool.',
+    publishedAt: '2026-05-21',
+  },
+  {
+    _id: '23',
+    title: 'What Color Does Blue and Yellow Make? Green — Hex Codes & Mixing Guide',
+    slug: { current: 'what-color-does-blue-and-yellow-make' },
+    excerpt:
+      'Blue and yellow make green when mixed. See exact hex codes for every blue-yellow ratio, explore green shades, and try our free color mixer.',
+    publishedAt: '2026-05-21',
+  },
+  {
+    _id: '24',
+    title: 'What Color Does Red and White Make? Pink — Hex Codes & Shades',
+    slug: { current: 'what-color-does-red-and-white-make' },
+    excerpt:
+      'Red and white make pink when mixed. See exact hex codes for every red-white ratio, explore pink shades, and try our free color mixer tool.',
+    publishedAt: '2026-05-21',
   },
 ];
 

@@ -158,6 +158,86 @@ export function PaletteShadesTable({ title, description, shades }) {
   );
 }
 
+export function MixRatioTable({ rows }) {
+  return (
+    <div className="not-prose rounded-2xl border border-gray-200 dark:border-gray-700 overflow-hidden shadow-sm bg-white dark:bg-gray-800/50">
+      <div className="overflow-x-auto">
+        <table className="w-full text-sm">
+          <thead>
+            <tr className="text-left text-xs uppercase tracking-wide text-gray-500 dark:text-gray-400 border-b border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-gray-900/80">
+              <th className="px-4 py-2.5 sm:px-5 font-semibold">Swatch</th>
+              <th className="px-4 py-2.5 sm:px-5 font-semibold">Mix ratio</th>
+              <th className="px-4 py-2.5 sm:px-5 font-semibold">Color</th>
+              <th className="px-4 py-2.5 sm:px-5 font-semibold">Hex</th>
+            </tr>
+          </thead>
+          <tbody>
+            {rows.map((row) => (
+              <MixRatioTableRow key={`${row.ratio}-${row.hex}`} ratio={row.ratio} label={row.label} hex={row.hex} />
+            ))}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  );
+}
+
+function MixRatioTableRow({ ratio, label, hex }) {
+  const [copied, setCopied] = useState(false);
+  const raw = hex.startsWith('#') ? hex : `#${hex}`;
+  const display = raw.length === 7 ? `#${raw.slice(1).toUpperCase()}` : raw;
+
+  const copy = async () => {
+    try {
+      await navigator.clipboard.writeText(display);
+      setCopied(true);
+      setTimeout(() => setCopied(false), 1600);
+    } catch (e) {
+      console.error(e);
+    }
+  };
+
+  return (
+    <tr className="border-b border-gray-100 dark:border-gray-700/80 last:border-0 hover:bg-gray-50/80 dark:hover:bg-gray-800/40">
+      <td className="px-4 py-3 sm:px-5 w-20">
+        <div
+          className="h-10 w-14 sm:w-16 rounded-md border border-gray-200 dark:border-gray-600 shadow-inner shrink-0"
+          style={{ backgroundColor: hex }}
+          aria-hidden
+        />
+      </td>
+      <td className="px-4 py-3 sm:px-5 text-gray-700 dark:text-gray-300 whitespace-nowrap">{ratio}</td>
+      <td className="px-4 py-3 sm:px-5 font-medium text-gray-900 dark:text-white">{label}</td>
+      <td className="px-4 py-3 sm:px-5">
+        <div className="flex items-center gap-2">
+          <code className="font-mono text-gray-800 dark:text-gray-200">{display}</code>
+          <button
+            type="button"
+            onClick={copy}
+            className="inline-flex rounded p-1 text-gray-500 hover:bg-gray-200 hover:text-gray-900 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white transition-colors"
+            aria-label={`Copy ${display}`}
+          >
+            {copied ? (
+              <svg className="w-3.5 h-3.5 text-green-600 dark:text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+              </svg>
+            ) : (
+              <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"
+                />
+              </svg>
+            )}
+          </button>
+        </div>
+      </td>
+    </tr>
+  );
+}
+
 function ShadeTableRow({ name, hex }) {
   const [copied, setCopied] = useState(false);
   const raw = hex.startsWith('#') ? hex : `#${hex}`;
