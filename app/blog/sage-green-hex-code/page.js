@@ -9,12 +9,35 @@ import {
 } from '../components/PaletteReferenceBlocks';
 import { buildPageMetadata } from '../../../lib/buildPageMetadata';
 
+const LAST_MODIFIED = '2026-05-30T00:00:00.000Z';
+
 export const metadata = buildPageMetadata({
   path: '/blog/sage-green-hex-code',
-  title: 'Sage Green Hex Code: Color Codes, Shades & Palette Pairings',
+  title: 'Sage Green Hex Code: #B2AC88 — Shades, RGB & Palettes (Copy-Paste)',
   description:
-    'Sage green hex code is #B2AC88. Copy hex codes for 10 sage green shades, explore palette pairings with terracotta, cream and dusty rose, and see UI examples.',
-  keywords: ['sage green hex', '#B2AC88', 'sage shades', 'palette', 'UI color', 'Theme & Color'],
+    'Sage green hex code is #B2AC88. Copy hex, RGB and HSL values. See 10 sage green shades, palette pairings and Canva color codes. Free tool included.',
+  keywords: [
+    'sage green hex code',
+    'sage green hex code canva',
+    'sage green color code canva',
+    'sage hex code',
+    'sage green code',
+    'sage colour code',
+    'sage green rgb',
+    'dark sage green color code',
+    'light sage green hex code',
+    'sage green color palette hex codes',
+    'sage green hex',
+    '#B2AC88',
+    'sage shades',
+    'palette',
+    'Theme & Color',
+  ],
+  openGraphType: 'article',
+  openGraph: {
+    publishedTime: '2026-05-11T00:00:00.000Z',
+    modifiedTime: LAST_MODIFIED,
+  },
 });
 
 const QUICK_ROWS = [
@@ -56,6 +79,53 @@ const SAGE_PAIRINGS = [
     title: 'Sage + Charcoal (grounded minimal)',
     body: 'Charcoal #36454F gives typography and iconography a cool anchor so sage never feels like 1970s overload. Pair wide sage panels with charcoal rules, captions, and footer copy for a gallery-like layout.',
     swatches: ['#B2AC88', '#36454F', '#E8ECE9'],
+  },
+];
+
+const SAGE_COMPLETE_PALETTES = [
+  {
+    title: 'Wellness & spa',
+    body: 'Calm surfaces for meditation apps, spas, and supplement brands: sage fields, cream cards, terracotta CTAs, dusty rose tags, and charcoal type.',
+    swatches: [
+      { hex: '#B2AC88', label: 'Sage' },
+      { hex: '#FFFDD0', label: 'Cream' },
+      { hex: '#E2725B', label: 'Terracotta' },
+      { hex: '#DCAE96', label: 'Dusty rose' },
+      { hex: '#36454F', label: 'Charcoal' },
+    ],
+  },
+  {
+    title: 'Monochromatic sage ramp',
+    body: 'Five-step sage ladder from airy highlight to deep anchor—ideal when you need one hue family for backgrounds, borders, and emphasis without clashing accents.',
+    swatches: [
+      { hex: '#F0FFF0', label: 'Honeydew' },
+      { hex: '#BCB88A', label: 'Light sage' },
+      { hex: '#B2AC88', label: 'Sage' },
+      { hex: '#8A8462', label: 'Dark sage' },
+      { hex: '#355E3B', label: 'Hunter green' },
+    ],
+  },
+  {
+    title: 'Botanical retail',
+    body: 'Organic grocery and plant-based CPG: sage packaging tones, hunter for ingredient callouts, tea green for success states, cream shelves, and warm gold accents.',
+    swatches: [
+      { hex: '#B2AC88', label: 'Sage' },
+      { hex: '#87A96B', label: 'Asparagus' },
+      { hex: '#D0F0C0', label: 'Tea green' },
+      { hex: '#F5F0E6', label: 'Warm cream' },
+      { hex: '#C9A227', label: 'Antique gold' },
+    ],
+  },
+  {
+    title: 'Soft editorial lifestyle',
+    body: 'Lookbooks and skincare editorial: sage section bands, blush highlights, ivory reading wells, cool slate captions, and dark sage for navigation chrome.',
+    swatches: [
+      { hex: '#B2AC88', label: 'Sage' },
+      { hex: '#E8C4B8', label: 'Blush' },
+      { hex: '#FAF9F6', label: 'Ivory' },
+      { hex: '#64748B', label: 'Slate' },
+      { hex: '#8A8462', label: 'Dark sage' },
+    ],
   },
 ];
 
@@ -106,6 +176,33 @@ const faqSchema = {
   ],
 };
 
+function SagePaletteCard({ palette }) {
+  return (
+    <li className="rounded-xl border border-lime-200/80 dark:border-stone-600 bg-white dark:bg-stone-800/60 p-4 shadow-sm">
+      <h3 className="font-semibold text-gray-900 dark:text-white mb-1">{palette.title}</h3>
+      <p className="text-sm text-gray-600 dark:text-gray-400 leading-relaxed mb-3">{palette.body}</p>
+      <div className="grid grid-cols-5 gap-1 rounded-lg overflow-hidden border border-gray-200 dark:border-stone-600 mb-2">
+        {palette.swatches.map((s) => (
+          <div
+            key={s.hex}
+            className="aspect-square min-h-[2.5rem]"
+            style={{ backgroundColor: s.hex }}
+            title={`${s.label} ${s.hex}`}
+            aria-hidden
+          />
+        ))}
+      </div>
+      <ul className="flex flex-wrap gap-x-3 gap-y-1 text-xs font-mono text-gray-600 dark:text-gray-400">
+        {palette.swatches.map((s) => (
+          <li key={s.hex}>
+            <span className="text-gray-500 dark:text-gray-500">{s.label}:</span> {s.hex}
+          </li>
+        ))}
+      </ul>
+    </li>
+  );
+}
+
 export default function SageGreenHexCodePage() {
   return (
     <article className="min-h-screen bg-white dark:bg-gray-900">
@@ -124,11 +221,10 @@ export default function SageGreenHexCodePage() {
               Back to Blog
             </Link>
             <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4 leading-tight">
-              Sage Green Hex Code: Color Codes, Shades & Palette Pairings
+              Sage Green Hex Code: #B2AC88 — Shades, RGB &amp; Palettes
             </h1>
             <p className="text-stone-200/95 text-lg max-w-3xl mb-6">
-              A muted herbal anchor at #B2AC88—ten tints to hunter green, four ready-made pairings, and practical guidance for wellness UI and calm interior-led
-              brands.
+              Copy the canonical <strong className="text-white font-semibold">sage green hex code</strong> #B2AC88 plus RGB and HSL—ten shades, four full palettes with hex codes, and Canva-ready values for wellness and lifestyle brands.
             </p>
             <div
               className="w-full max-w-2xl h-36 md:h-44 rounded-2xl border-2 border-white/15 shadow-2xl mb-6 bg-[#B2AC88]"
@@ -136,9 +232,9 @@ export default function SageGreenHexCodePage() {
               aria-label="Sage green color swatch hex B2AC88"
             />
             <div className="flex items-center gap-4 text-lime-100/85 text-sm">
-              <time dateTime="2026-05-11">May 11, 2026</time>
+              <time dateTime="2026-05-30">May 30, 2026</time>
               <span>•</span>
-              <span>9 min read</span>
+              <span>11 min read</span>
             </div>
           </div>
         </div>
@@ -153,15 +249,36 @@ export default function SageGreenHexCodePage() {
                   theme="sage"
                   ariaLabel="Sage green quick reference"
                   headline="Sage Green = #B2AC88"
-                  subtext="Muted gray-green — copy hex, RGB, or HSL for tokens, CSS, or brand guidelines."
+                  subtext="The standard sage hex code and sage green code for CSS tokens—copy hex, sage green rgb (178, 172, 136), or HSL below."
                   rows={QUICK_ROWS}
                 />
 
+                <div className="not-prose rounded-xl border border-violet-200 dark:border-violet-900/50 bg-violet-50/60 dark:bg-violet-950/20 p-4 sm:p-5">
+                  <p className="text-sm sm:text-base text-gray-700 dark:text-gray-300 leading-relaxed">
+                    <strong className="text-gray-900 dark:text-white">Canva tip:</strong> Searching for a{' '}
+                    <strong className="text-gray-900 dark:text-white">sage green hex code Canva</strong> or{' '}
+                    <strong className="text-gray-900 dark:text-white">sage green color code Canva</strong> value? To use sage green in Canva, enter the hex code{' '}
+                    <span className="font-mono text-violet-800 dark:text-violet-300">#B2AC88</span> in the color picker under &ldquo;Custom colors.&rdquo; Save it to your brand kit so social templates match your website tokens.
+                  </p>
+                </div>
+
                 <PaletteShadesTable
                   title="Sage Green Shades — Hex Code Table"
-                  description="From airy honeydew and mint through the canonical sage row to deep hunter. Use lighter stops for wash backgrounds and darker stops for type, icons, and pressed states."
+                  description="From airy honeydew and mint through the canonical sage row to deep hunter. Use lighter stops—including light sage green hex code #BCB88A—for wash backgrounds; use dark sage green color code #8A8462 and hunter for type, icons, and pressed states."
                   shades={SAGE_SHADES}
                 />
+
+                <div className="not-prose rounded-2xl border border-lime-200/90 dark:border-lime-900/50 bg-lime-50/80 dark:bg-stone-900/50 p-5 sm:p-6">
+                  <h2 className="text-xl font-bold text-gray-900 dark:text-white mb-2">Sage Green Color Palette with Hex Codes</h2>
+                  <p className="text-gray-600 dark:text-gray-400 text-sm sm:text-base mb-5 leading-relaxed">
+                    Need a full <strong className="text-gray-800 dark:text-gray-200">sage green color palette hex codes</strong> set—not just one swatch? Each palette below lists five copy-ready values with swatches for wellness, monochromatic ramps, retail, and editorial layouts. Paste into Figma variables, CSS custom properties, or your Canva brand kit alongside #B2AC88.
+                  </p>
+                  <ul className="space-y-4">
+                    {SAGE_COMPLETE_PALETTES.map((palette) => (
+                      <SagePaletteCard key={palette.title} palette={palette} />
+                    ))}
+                  </ul>
+                </div>
 
                 <PalettePairingsSection
                   title="Sage Green Palette Pairings"
@@ -171,16 +288,16 @@ export default function SageGreenHexCodePage() {
 
                 <div className="prose prose-lg max-w-none prose-headings:font-bold prose-headings:text-gray-900 dark:prose-headings:text-white prose-p:text-gray-700 dark:prose-p:text-gray-300 prose-p:leading-relaxed">
                   <p className="mb-6">
-                    Sage green sits in the sweet spot between decorative pastel and serious earth tone. The hex{' '}
-                    <strong className="text-gray-900 dark:text-white">#B2AC88</strong> reads as “dried herb and linen” on screen: enough chroma to feel alive, low
-                    enough saturation to sit behind long-form content without shouting. That is why product teams reach for it when they want an organic association
-                    without the high-energy punch of kelly green or the coldness of blue-gray slate.
+                    Sage green sits in the sweet spot between decorative pastel and serious earth tone. The{' '}
+                    <strong className="text-gray-900 dark:text-white">sage green code</strong>{' '}
+                    <strong className="text-gray-900 dark:text-white">#B2AC88</strong>—also written as the common{' '}
+                    <strong className="text-gray-900 dark:text-white">sage colour code</strong> in UK brand guides—reads as “dried herb and linen” on screen: enough chroma to feel alive, low enough saturation to sit behind long-form content without shouting. That is why product teams reach for it when they want an organic association without the high-energy punch of kelly green or the coldness of blue-gray slate.
                   </p>
                   <p className="mb-6">
-                    The shade ladder above is deliberate. Honeydew and mint cream give you nearly neutral highlights for cards and modals; tea green introduces a
-                    hint of vitality for success states that should not look like finance dashboards. Dark sage through hunter green supplies the anchors you need
-                    for navigation, footers, and illustration silhouettes. If your brand guide only lists one sage hex, you are one redesign away from rogue tints—
-                    promote at least three roles (surface, border, emphasis) to tokens before engineering hard-codes new guesses.
+                    The shade ladder above is deliberate. Honeydew and mint cream give you nearly neutral highlights for cards and modals; tea green introduces a hint of vitality for success states that should not look like finance dashboards. The canonical{' '}
+                    <strong className="text-gray-900 dark:text-white">sage hex code</strong> #B2AC88 sits mid-ramp; pair it with{' '}
+                    <strong className="text-gray-900 dark:text-white">sage green rgb</strong> values{' '}
+                    <span className="font-mono text-sm">178, 172, 136</span> in design-system docs so engineers and print vendors stay aligned. Dark sage through hunter green supplies the anchors you need for navigation, footers, and illustration silhouettes. If your brand guide only lists one sage hex, you are one redesign away from rogue tints—promote at least three roles (surface, border, emphasis) to tokens before engineering hard-codes new guesses.
                   </p>
 
                   <h2 className="text-2xl font-bold text-gray-900 dark:text-white mt-8 mb-4">Sage Green in UI & Web Design</h2>

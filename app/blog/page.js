@@ -29,6 +29,9 @@ const CARD_PALETTES = {
   'forest-green-hex-code': ['#228b22', '#065f46', '#047857', '#10b981', '#34d399'],
   'olive-green-hex-code': ['#808000', '#556b2f', '#e2725b', '#000080', '#fff8f0'],
   'burgundy-hex-code': ['#800020', '#722f37', '#ffd700', '#000080', '#fff8f0'],
+  'burgundy-color-palette': ['#800020', '#ffd700', '#000080', '#fff8f0', '#e8b4b8'],
+  'yellow-green-hex-code': ['#9acd32', '#7fff00', '#32cd32', '#000080', '#374151'],
+  'dark-mode-color-palette': ['#121212', '#1e1e1e', '#3f3f46', '#f5f5f5', '#818cf8'],
   'navy-blue-color-palette': ['#000080', '#ffd700', '#ff6b6b', '#6ee7b7', '#f472b6'],
   'navy-blue-hex-code': ['#000080', '#4682b4', '#ffd700', '#ffffff', '#ff6b6b'],
   'ocean-breeze-hex-code': ['#0ea5e9', '#06b6d4', '#14b8a6', '#10b981', '#34d399'],
@@ -110,6 +113,30 @@ const staticPosts = [
     excerpt:
       'Olive green hex code is #808000. Copy 10 olive shades, four pairings with terracotta and navy, and UI examples for outdoor and heritage brands.',
     publishedAt: '2026-05-21',
+  },
+  {
+    _id: '26',
+    title: 'Burgundy Color Palette: Hex Codes, Shades & Combinations',
+    slug: { current: 'burgundy-color-palette' },
+    excerpt:
+      'Burgundy color palette hex codes starting with #800020. Shades, pairings with gold, navy and cream, and UI examples for luxury and fashion brands.',
+    publishedAt: '2026-05-30',
+  },
+  {
+    _id: '27',
+    title: 'Yellow Green Hex Code: #9ACD32 — Shades, RGB & Palette Pairings',
+    slug: { current: 'yellow-green-hex-code' },
+    excerpt:
+      'Yellow green hex code is #9ACD32. Copy hex codes for yellow-green shades, see palette pairings and find out what colors go with yellow-green.',
+    publishedAt: '2026-05-30',
+  },
+  {
+    _id: '28',
+    title: 'Dark Mode Color Palette: Hex Codes, Backgrounds & UI Examples',
+    slug: { current: 'dark-mode-color-palette' },
+    excerpt:
+      'Build a dark mode color palette with hex codes for backgrounds, surfaces, text and accents. WCAG-compliant dark mode examples included.',
+    publishedAt: '2026-05-30',
   },
   {
     _id: '21',

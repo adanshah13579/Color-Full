@@ -5,15 +5,22 @@ import BlogToolsCTA from '../components/BlogToolsCTA';
 import { PaletteQuickAnswer, PaletteShadesTable } from '../components/PaletteReferenceBlocks';
 import { buildPageMetadata } from '../../../lib/buildPageMetadata';
 
+const LAST_MODIFIED = '2026-05-30T00:00:00.000Z';
+
 export const metadata = buildPageMetadata({
   path: '/blog/navy-blue-color-palette',
-  title: 'Navy Blue Color Palette: Hex Codes, Combinations & UI Examples',
+  title: 'Navy Blue Color Palette: Hex Codes, Combinations & Schemes',
   description:
-    'Navy blue color palette hex codes and combinations. Pair navy blue (#000080) with gold, white, coral and gray for web, brand and UI design.',
+    'Navy blue color palette with hex codes for every combination. Navy + gold, navy + white, navy + coral and 6 more palettes. Copy hex codes instantly.',
   keywords: [
     'navy blue color palette',
     'navy blue palette',
+    'navy colour palette',
+    'navy blue color scheme',
+    'navy blue colour scheme',
+    'color palette with navy blue',
     'navy blue combinations',
+    'navy blue and gold',
     '#000080',
     'navy hex',
     'UI design',
@@ -22,7 +29,7 @@ export const metadata = buildPageMetadata({
   openGraphType: 'article',
   openGraph: {
     publishedTime: '2026-05-21T00:00:00.000Z',
-    modifiedTime: '2026-05-21T00:00:00.000Z',
+    modifiedTime: LAST_MODIFIED,
   },
 });
 
@@ -87,6 +94,89 @@ const NAVY_COMBINATIONS = [
       { hex: '#F472B6', label: 'Pink' },
       { hex: '#FFFFFF', label: 'White' },
       { hex: '#E6E6FA', label: 'Lavender' },
+    ],
+  },
+];
+
+const NAVY_WEBSITE_SCHEMES = [
+  {
+    title: 'Finance & professional services',
+    body: 'Navy carries trust on headers, footers, and statement bands. Cool gray fills most of the viewport so users read numbers on calm surfaces; gold appears only on primary CTAs and positive indicators.',
+    segments: [
+      { pct: '60%', label: 'Navy', hex: '#000080', role: 'Header, footer, hero band, sidebar chrome' },
+      { pct: '30%', label: 'Cool gray', hex: '#F3F4F6', role: 'Page background, cards, table wells' },
+      { pct: '10%', label: 'Gold', hex: '#FFD700', role: 'Primary CTA, badges, chart highlights' },
+    ],
+  },
+  {
+    title: 'B2B SaaS marketing site',
+    body: 'A saturated navy hero and pricing bar anchor the brand; off-white carries long-form copy and feature grids; coral handles the one action you want per screen—demo requests and trial signups.',
+    segments: [
+      { pct: '60%', label: 'Navy', hex: '#001F3F', role: 'Hero, nav, pricing header, footer' },
+      { pct: '30%', label: 'Off-white', hex: '#FAFAF9', role: 'Body sections, testimonial cards, FAQ' },
+      { pct: '10%', label: 'Coral', hex: '#FF6B6B', role: 'CTA buttons, link emphasis, promo tags' },
+    ],
+  },
+  {
+    title: 'Editorial & content publisher',
+    body: 'Deep navy frames the brand without painting entire articles blue. Cream reduces glare for reading; teal accents mark newsletter signup and category pills without competing with headlines.',
+    segments: [
+      { pct: '60%', label: 'Dark navy', hex: '#0A0A2E', role: 'Masthead, category rails, podcast chrome' },
+      { pct: '30%', label: 'Cream', hex: '#FFF8F0', role: 'Article background, pull quotes, archives' },
+      { pct: '10%', label: 'Teal', hex: '#14B8A6', role: 'Subscribe CTA, tags, inline links' },
+    ],
+  },
+];
+
+const NAVY_GOLD_PALETTES = [
+  {
+    title: 'Classic navy + bright gold',
+    body: 'The default luxury pairing: canonical navy (#000080), vivid gold (#FFD700), white content wells, and light gray dividers—ideal for banking, awards, and premium retail.',
+    swatches: [
+      { hex: '#000080', label: 'Navy' },
+      { hex: '#FFD700', label: 'Gold' },
+      { hex: '#FFFFFF', label: 'White' },
+      { hex: '#E5E7EB', label: 'Light gray' },
+    ],
+  },
+  {
+    title: 'Midnight navy + antique gold',
+    body: 'Deeper navy (#0A1628) with muted antique gold (#C9A227) reads more editorial than casino-bright. Pair with warm ivory (#F8F6F0) for annual reports and heritage brands.',
+    swatches: [
+      { hex: '#0A1628', label: 'Midnight navy' },
+      { hex: '#C9A227', label: 'Antique gold' },
+      { hex: '#F8F6F0', label: 'Ivory' },
+      { hex: '#2D3748', label: 'Slate text' },
+    ],
+  },
+  {
+    title: 'Royal navy + champagne gold',
+    body: 'Slightly brighter navy (#001F3F) with champagne (#F5E6C8) softens contrast for wedding, hospitality, and beauty packaging where pure #FFD700 feels loud.',
+    swatches: [
+      { hex: '#001F3F', label: 'Royal navy' },
+      { hex: '#F5E6C8', label: 'Champagne' },
+      { hex: '#FFFFFF', label: 'White' },
+      { hex: '#94A3B8', label: 'Blue gray' },
+    ],
+  },
+  {
+    title: 'Navy + dark goldenrod',
+    body: 'Dark goldenrod (#B8860B) on navy passes as “old gold” in crests and university marks. Cream (#FFFAF0) body copy keeps paragraphs readable without stark white glare.',
+    swatches: [
+      { hex: '#000080', label: 'Navy' },
+      { hex: '#B8860B', label: 'Dark goldenrod' },
+      { hex: '#FFFAF0', label: 'Cream' },
+      { hex: '#1F2937', label: 'Charcoal' },
+    ],
+  },
+  {
+    title: 'Midnight blue + brass',
+    body: 'Midnight blue (#191970) with brass (#C5A028) suits industrial, maritime, and B2B hardware brands. Cool gray (#F9FAFB) surfaces prevent the pair from feeling heavy on long dashboards.',
+    swatches: [
+      { hex: '#191970', label: 'Midnight blue' },
+      { hex: '#C5A028', label: 'Brass' },
+      { hex: '#F9FAFB', label: 'Cool gray' },
+      { hex: '#64748B', label: 'Slate' },
     ],
   },
 ];
@@ -170,6 +260,44 @@ function NavyCombinationCard({ combo }) {
   );
 }
 
+function NavyWebsiteSchemeCard({ scheme }) {
+  return (
+    <li className="rounded-xl border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800/60 p-4 shadow-sm">
+      <h3 className="font-semibold text-gray-900 dark:text-white mb-1">{scheme.title}</h3>
+      <p className="text-sm text-gray-600 dark:text-gray-400 leading-relaxed mb-3">{scheme.body}</p>
+      <div
+        className="flex h-14 w-full max-w-xl overflow-hidden rounded-lg border border-gray-200 dark:border-gray-600 mb-3"
+        role="img"
+        aria-label={`60-30-10 color scheme: ${scheme.title}`}
+      >
+        {scheme.segments.map((s) => (
+          <div
+            key={s.hex}
+            className="flex min-w-0 flex-col items-center justify-center px-1 text-center"
+            style={{
+              width: s.pct,
+              backgroundColor: s.hex,
+              color: s.hex === '#FFD700' || s.hex === '#F3F4F6' || s.hex === '#FAFAF9' || s.hex === '#FFF8F0' ? '#111827' : '#ffffff',
+            }}
+          >
+            <span className="text-[10px] font-bold uppercase sm:text-xs">{s.pct}</span>
+            <span className="hidden font-mono text-[10px] sm:inline">{s.hex}</span>
+          </div>
+        ))}
+      </div>
+      <ul className="space-y-2 text-sm text-gray-700 dark:text-gray-300">
+        {scheme.segments.map((s) => (
+          <li key={s.hex}>
+            <span className="font-semibold text-gray-900 dark:text-white">{s.label}</span>{' '}
+            <span className="font-mono text-xs text-gray-500 dark:text-gray-400">{s.hex}</span>
+            <span className="text-gray-600 dark:text-gray-400"> — {s.role}</span>
+          </li>
+        ))}
+      </ul>
+    </li>
+  );
+}
+
 export default function NavyBlueColorPalettePage() {
   return (
     <article className="min-h-screen bg-white dark:bg-gray-900">
@@ -188,16 +316,16 @@ export default function NavyBlueColorPalettePage() {
               Back to Blog
             </Link>
             <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4 leading-tight">
-              Navy Blue Color Palette: Hex Codes, Combinations &amp; UI Examples
+              Navy Blue Color Palette: Hex Codes, Combinations &amp; Schemes
             </h1>
             <p className="text-blue-100/95 text-lg max-w-3xl mb-6">
-              Build a complete <strong className="text-white font-semibold">navy blue color palette</strong> from #000080—six ready-made{' '}
-              <strong className="text-white font-semibold">navy blue combinations</strong> with copy-ready hex codes for web, brand, and product design.
+              A complete <strong className="text-white font-semibold">navy blue color palette</strong> from #000080—navy + gold, white, coral, and six more{' '}
+              <strong className="text-white font-semibold">navy blue combinations</strong> with copy-ready hex codes for websites, brands, and UI.
             </p>
             <div className="flex items-center gap-4 text-blue-200/90 text-sm">
-              <time dateTime="2026-05-21">May 21, 2026</time>
+              <time dateTime="2026-05-30">May 30, 2026</time>
               <span>•</span>
-              <span>8 min read</span>
+              <span>10 min read</span>
             </div>
           </div>
         </div>
@@ -218,9 +346,11 @@ export default function NavyBlueColorPalettePage() {
 
                 <div className="prose prose-lg max-w-none prose-headings:font-bold prose-headings:text-gray-900 dark:prose-headings:text-white prose-p:text-gray-700 dark:prose-p:text-gray-300 prose-p:leading-relaxed">
                   <p className="mb-6">
-                    A practical <strong className="text-gray-900 dark:text-white">navy blue palette</strong> does more than repeat one deep blue. You need a primary anchor (
-                    <strong className="text-gray-900 dark:text-white">#000080</strong>), lighter blues for hover and borders, neutrals for long reading sessions, and one accent that carries emotion—gold for prestige, coral for energy, mint for health. This guide packages six four-color{' '}
-                    <strong className="text-gray-900 dark:text-white">navy blue combinations</strong> you can paste into Figma or token files today, then walks through UI and branding patterns so the palette survives real products—not just mood boards.
+                    A practical <strong className="text-gray-900 dark:text-white">navy blue palette</strong> does more than repeat one deep blue. Whether you search for a{' '}
+                    <strong className="text-gray-900 dark:text-white">navy colour palette</strong> or a{' '}
+                    <strong className="text-gray-900 dark:text-white">color palette with navy blue</strong> as the anchor, you need #000080 (or your audited brand navy), lighter blues for hover and borders, neutrals for long reading sessions, and one accent that carries emotion—gold for prestige, coral for energy, mint for health. This guide packages six four-color combinations, three full{' '}
+                    <strong className="text-gray-900 dark:text-white">navy blue color scheme</strong> layouts for websites, five navy-and-gold variations, and branding patterns so your{' '}
+                    <strong className="text-gray-900 dark:text-white">navy blue colour scheme</strong> survives real products—not just mood boards.
                   </p>
                 </div>
 
@@ -228,13 +358,46 @@ export default function NavyBlueColorPalettePage() {
                   <h2 className="text-xl font-bold text-gray-900 dark:text-white mb-2">Navy Blue Color Palette Combinations</h2>
                   <p className="text-gray-600 dark:text-gray-400 text-sm sm:text-base mb-5 leading-relaxed">
                     Each card lists four hex codes with swatches. Treat navy as the 60% structural color in the{' '}
-                    <InlineTagLink href="/blog/60-30-10-color-rule">60-30-10 rule</InlineTagLink>, assign one secondary neutral, and reserve the accent for CTAs and badges.
+                    <InlineTagLink href="/blog/60-30-10-color-rule">60-30-10 color rule</InlineTagLink>, assign one secondary neutral, and reserve the accent for CTAs and badges—the same proportion logic used in the website schemes below.
                   </p>
                   <ul className="space-y-4">
                     {NAVY_COMBINATIONS.map((combo) => (
                       <NavyCombinationCard key={combo.title} combo={combo} />
                     ))}
                   </ul>
+                </div>
+
+                <div className="not-prose rounded-2xl border border-gray-200 dark:border-gray-700 bg-gray-50/80 dark:bg-gray-900/40 p-5 sm:p-6">
+                  <h2 className="text-xl font-bold text-gray-900 dark:text-white mb-2">Navy Blue Color Scheme for Websites</h2>
+                  <p className="text-gray-600 dark:text-gray-400 text-sm sm:text-base mb-5 leading-relaxed">
+                    A production-ready <strong className="text-gray-800 dark:text-gray-200">navy blue color scheme</strong> assigns roles, not just pretty swatches. The{' '}
+                    <InlineTagLink href="/blog/60-30-10-color-rule">60-30-10 color rule</InlineTagLink> keeps navy as the dominant ~60% (navigation, hero bands, footer), a secondary ~30% for readable surfaces (page background, cards), and a single accent ~10% for CTAs and highlights—so no hue fights for attention. Copy the hex codes below into CSS variables or your design-system tokens.
+                  </p>
+                  <ul className="space-y-4">
+                    {NAVY_WEBSITE_SCHEMES.map((scheme) => (
+                      <NavyWebsiteSchemeCard key={scheme.title} scheme={scheme} />
+                    ))}
+                  </ul>
+                  <p className="text-gray-600 dark:text-gray-400 text-sm sm:text-base mt-5 leading-relaxed">
+                    If stakeholders push for more accent colors, split the 10% budget—never grow gold or coral to 30% without demoting navy from its structural role. For a deeper walkthrough of proportions, see our{' '}
+                    <InlineTagLink href="/blog/60-30-10-color-rule">60-30-10 rule guide</InlineTagLink>.
+                  </p>
+                </div>
+
+                <div className="not-prose rounded-2xl border border-amber-200/80 dark:border-amber-900/50 bg-amber-50/40 dark:bg-amber-950/20 p-5 sm:p-6">
+                  <h2 className="text-xl font-bold text-gray-900 dark:text-white mb-2">Navy Blue and Gold Color Palette</h2>
+                  <p className="text-gray-600 dark:text-gray-400 text-sm sm:text-base mb-5 leading-relaxed">
+                    Navy and gold is the most requested pairing in any <strong className="text-gray-800 dark:text-gray-200">navy blue palette</strong>—finance, awards, universities, and luxury retail all reach for it. Gold reads as metal and achievement on deep blue; the trick is picking the right gold temperature and neutral so body copy stays readable. Below are five hex-ready variations from bright ceremonial gold to muted brass—copy any row into Figma or your token file.
+                  </p>
+                  <ul className="space-y-4">
+                    {NAVY_GOLD_PALETTES.map((combo) => (
+                      <NavyCombinationCard key={combo.title} combo={combo} />
+                    ))}
+                  </ul>
+                  <p className="text-gray-600 dark:text-gray-400 text-sm sm:text-base mt-5 leading-relaxed">
+                    Test white and gold labels on navy with our{' '}
+                    <InlineTagLink href="/tools/contrast-checker">contrast checker</InlineTagLink>—bright gold (#FFD700) on #000080 often passes for large headings but fails for small caption text; antique and brass golds on midnight navy need verification too.
+                  </p>
                 </div>
 
                 <div className="not-prose rounded-2xl border border-gray-200 dark:border-gray-700 p-5 sm:p-6 bg-white dark:bg-gray-800/40">
@@ -253,7 +416,7 @@ export default function NavyBlueColorPalettePage() {
                       <InlineTagLink href="/tools/palette-generator">palette generator</InlineTagLink> to auto-build hover and disabled steps instead of hand-mixing blues.
                     </p>
                     <p>
-                      Across patterns, the <strong className="text-gray-900 dark:text-white">navy blue palette</strong> wins when it stays structural: charts, photography, and illustration carry saturation; navy carries navigation, trust, and typographic hierarchy. Re-test after every font or radius change—rounded buttons and thin weights alter perceived contrast on #000080 more than flat rectangles do.
+                      Across patterns, any <strong className="text-gray-900 dark:text-white">navy blue colour scheme</strong> wins when navy stays structural: charts, photography, and illustration carry saturation; navy carries navigation, trust, and typographic hierarchy. Re-test after every font or radius change—rounded buttons and thin weights alter perceived contrast on #000080 more than flat rectangles do.
                     </p>
                   </div>
                 </div>
