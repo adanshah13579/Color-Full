@@ -3,13 +3,13 @@ import InlineTagLink from '../../components/InlineTagLink';
 import ContrastPairExample from '../components/ContrastPairExample';
 import { buildPageMetadata } from '../../../lib/buildPageMetadata';
 
-const LAST_MODIFIED = '2026-05-30T00:00:00.000Z';
+const LAST_MODIFIED = '2026-06-01T00:00:00.000Z';
 
 export const metadata = buildPageMetadata({
   path: '/blog/accessibility-color-contrast-checker',
-  title: 'Free Accessibility Color Contrast Checker — WCAG AA & ADA | Theme & Color',
+  title: 'Accessibility Color Contrast Checker — Free WCAG & ADA Tool',
   description:
-    'Check if your colors pass WCAG AA and ADA accessibility standards. Free online tool — instant results for text, buttons, and UI components. Used by 1000s of designers.',
+    'Instantly check if your colors meet WCAG AA, AAA and ADA accessibility standards. Free tool — no signup. Used by designers and developers worldwide.',
   keywords: [
     'accessibility color contrast checker',
     'accessibility colour contrast checker',
@@ -18,6 +18,9 @@ export const metadata = buildPageMetadata({
     'WCAG AA checker',
     'ADA compliance color checker',
     'ADA color contrast checker',
+    'how to check if colors are ada compliant',
+    '508 compliance color checker',
+    '508 color checker',
     'WCAG check',
     'text contrast checker',
     'ADA contrast checker',
@@ -58,6 +61,11 @@ const FAQ = [
     question: 'How do I fix low contrast colors on my website?',
     answer:
       'Darken text, lighten backgrounds, or pick a new accent from your brand ramp. Generate lighter and darker steps with a tint and shade generator, then re-test every state (hover, focus, disabled) in the contrast checker before merging CSS or design tokens.',
+  },
+  {
+    question: 'Does Section 508 require a specific color contrast ratio?',
+    answer:
+      'Section 508 aligns federal ICT accessibility with WCAG 2.0 Level AA, which means 4.5:1 for normal text, 3:1 for large text, and 3:1 for many UI components. A 508 color checker that reports WCAG AA and AAA results is the practical way to verify compliance.',
   },
 ];
 
@@ -129,6 +137,22 @@ export default function AccessibilityColorContrastCheckerPage() {
     <article className="min-h-screen bg-white dark:bg-gray-900">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
 
+      <div className="not-prose border-b border-emerald-700/30 bg-emerald-600 dark:bg-emerald-700">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-4 md:py-5">
+          <div className="max-w-4xl mx-auto flex flex-col sm:flex-row items-center justify-center sm:justify-between gap-3 text-center sm:text-left">
+            <p className="text-emerald-50 text-sm sm:text-base font-medium">
+              Free WCAG &amp; ADA contrast checker — instant pass/fail, no signup
+            </p>
+            <Link
+              href="/tools/contrast-checker"
+              className="inline-flex items-center justify-center shrink-0 rounded-xl bg-white text-emerald-800 hover:bg-emerald-50 font-bold px-6 py-3 text-base shadow-lg ring-2 ring-white/40 transition-colors"
+            >
+              Check My Colors Now
+            </Link>
+          </div>
+        </div>
+      </div>
+
       <section className="bg-gradient-to-br from-indigo-900 via-violet-800 to-emerald-700 text-white py-12 md:py-16">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-4xl mx-auto">
@@ -142,14 +166,14 @@ export default function AccessibilityColorContrastCheckerPage() {
               Back to Blog
             </Link>
             <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4 leading-tight">
-              Free Accessibility Color Contrast Checker — WCAG AA &amp; ADA
+              Accessibility Color Contrast Checker — Free WCAG &amp; ADA Tool
             </h1>
             <p className="text-indigo-100 text-lg max-w-3xl leading-relaxed">
-              Check if your colors pass WCAG AA and ADA standards in seconds. WCAG 2.2 updates, AA vs AAA tables,
-              Section 508 context, and a free tool for text, buttons, and UI—no signup.
+              Instantly check if your colors meet WCAG AA, AAA, and ADA standards. Section 508 context, step-by-step ADA
+              checks, and a free tool for text, buttons, and UI—no signup.
             </p>
             <div className="flex items-center gap-4 text-indigo-100 text-sm mt-4">
-              <time dateTime="2026-05-30">May 30, 2026</time>
+              <time dateTime="2026-06-01">June 1, 2026</time>
               <span>•</span>
               <span>14 min read</span>
             </div>
@@ -160,23 +184,6 @@ export default function AccessibilityColorContrastCheckerPage() {
       <section className="py-10 md:py-14">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-4xl mx-auto prose prose-lg dark:prose-invert prose-headings:text-gray-900 dark:prose-headings:text-white prose-p:text-gray-700 dark:prose-p:text-gray-300 prose-a:text-purple-600 dark:prose-a:text-purple-400">
-            <section className="not-prose mb-10 rounded-2xl border-2 border-indigo-500 bg-gradient-to-br from-indigo-600 via-violet-600 to-emerald-600 p-6 md:p-8 shadow-xl">
-              <h2 className="text-2xl md:text-3xl font-bold text-white mb-2">Quick Contrast Check</h2>
-              <p className="text-indigo-100 text-base md:text-lg mb-6 max-w-2xl leading-relaxed">
-                Landed here to test a color pair? Skip the reading—paste your foreground and background hex values and
-                get instant WCAG AA and AAA pass/fail for normal text, large text, and UI components.
-              </p>
-              <Link
-                href="/tools/contrast-checker"
-                className="inline-flex items-center justify-center gap-2 rounded-xl bg-white text-indigo-700 hover:bg-indigo-50 font-bold px-8 py-4 text-base md:text-lg shadow-lg transition-colors"
-              >
-                Open free contrast checker
-                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
-                </svg>
-              </Link>
-            </section>
-
             <p className="text-lg leading-relaxed">
               If you design or build interfaces, an <strong>accessibility color contrast checker</strong> is not optional
               decoration—it is how you prove text and controls are readable before users complain or legal risk appears.
@@ -187,6 +194,97 @@ export default function AccessibilityColorContrastCheckerPage() {
               modern workflow—without replacing the depth you expect from references like WebAIM or Adobe Color, but going
               further on fix patterns and production checklists.
             </p>
+
+            <h2 className="text-2xl font-bold mt-10 mb-4">Section 508 Color Compliance</h2>
+            <p>
+              <strong>Section 508</strong> of the Rehabilitation Act requires U.S. federal agencies and many contractors to
+              make electronic and information technology accessible. The current Section 508 refresh points to{' '}
+              <strong>WCAG 2.0 Level AA</strong> as the technical baseline—which means the same contrast ratios you test for
+              WCAG AA are what a <strong>508 compliance color checker</strong> must verify: at least <strong>4.5:1</strong>{' '}
+              for normal text, <strong>3:1</strong> for large text, and <strong>3:1</strong> for many user-interface
+              components and graphical objects under non-text contrast guidance.
+            </p>
+            <p>
+              A dedicated <strong>508 color checker</strong> does not use different math from a WCAG tool—it reports whether
+              foreground and background pairs meet those thresholds. Many agencies now align internal QA to WCAG 2.1 or 2.2 AA
+              even when procurement language still references 2.0; the numeric bars for color stay consistent. Document each
+              passing hex pair when you ship so Section 508 reviews and ADA digital cases share one audit trail.
+            </p>
+
+            <h2 className="text-2xl font-bold mt-10 mb-4">How to Check if Colors Are ADA Compliant</h2>
+            <p>
+              ADA Title III and related U.S. guidance treat <strong>WCAG 2.1 Level AA</strong> as the practical standard for
+              public websites and apps. You do not need a separate formula—follow this workflow whenever someone asks{' '}
+              <strong>how to check if colors are ada compliant</strong>:
+            </p>
+            <ol className="list-decimal list-inside space-y-3 not-prose text-gray-700 dark:text-gray-300 mb-4">
+              <li className="pl-1">
+                <strong className="text-gray-900 dark:text-white">Enter the foreground color</strong>—the text, icon, or
+                control label hex (for example <code className="text-sm font-mono">#374151</code>).
+              </li>
+              <li className="pl-1">
+                <strong className="text-gray-900 dark:text-white">Enter the background color</strong>—the surface behind it
+                (for example <code className="text-sm font-mono">#FFFFFF</code>), including cards and buttons.
+              </li>
+              <li className="pl-1">
+                <strong className="text-gray-900 dark:text-white">Read the contrast ratio</strong> the tool calculates (1:1
+                through 21:1).
+              </li>
+              <li className="pl-1">
+                <strong className="text-gray-900 dark:text-white">Verify AA pass</strong>—normal text needs at least 4.5:1;
+                large text (18pt+ regular or 14pt+ bold) needs at least 3:1; most UI boundaries need at least 3:1 at AA.
+              </li>
+              <li className="pl-1">
+                Re-test <strong>hover, focus, and disabled</strong> states—the colors users actually see in production.
+              </li>
+            </ol>
+            <p className="not-prose mb-8">
+              <Link
+                href="/tools/contrast-checker"
+                className="inline-flex items-center justify-center gap-2 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-bold px-8 py-4 text-base md:text-lg shadow-md transition-colors"
+              >
+                Check My Colors Now — free contrast checker
+                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
+                </svg>
+              </Link>
+            </p>
+
+            <h2 className="text-2xl font-bold mt-10 mb-4">WCAG Contrast Requirements at a Glance</h2>
+            <p>
+              Use this table as a quick reference when you run an <strong>accessibility color contrast checker</strong>. AA
+              is the level most ADA and Section 508 workflows require; AAA is enhanced and recommended for long reading.
+            </p>
+            <div className="not-prose my-6 overflow-x-auto rounded-xl border border-gray-200 dark:border-gray-700 shadow-sm">
+              <table className="w-full text-sm">
+                <thead>
+                  <tr className="bg-gray-50 dark:bg-gray-800 text-left text-xs uppercase tracking-wide text-gray-500 dark:text-gray-400">
+                    <th className="px-4 py-3 font-semibold">Content type</th>
+                    <th className="px-4 py-3 font-semibold">WCAG AA (minimum)</th>
+                    <th className="px-4 py-3 font-semibold">WCAG AAA (enhanced)</th>
+                  </tr>
+                </thead>
+                <tbody className="divide-y divide-gray-200 dark:divide-gray-700">
+                  <tr>
+                    <td className="px-4 py-3 font-medium text-gray-900 dark:text-white">Normal text</td>
+                    <td className="px-4 py-3 text-gray-700 dark:text-gray-300">4.5:1 minimum</td>
+                    <td className="px-4 py-3 text-gray-700 dark:text-gray-300">7:1 minimum</td>
+                  </tr>
+                  <tr>
+                    <td className="px-4 py-3 font-medium text-gray-900 dark:text-white">
+                      Large text (18px+ regular or 14px+ bold)
+                    </td>
+                    <td className="px-4 py-3 text-gray-700 dark:text-gray-300">3:1 minimum</td>
+                    <td className="px-4 py-3 text-gray-700 dark:text-gray-300">4.5:1 minimum</td>
+                  </tr>
+                  <tr>
+                    <td className="px-4 py-3 font-medium text-gray-900 dark:text-white">UI components &amp; graphics</td>
+                    <td className="px-4 py-3 text-gray-700 dark:text-gray-300">3:1 minimum (non-text contrast)</td>
+                    <td className="px-4 py-3 text-gray-700 dark:text-gray-300">Stricter where AAA is adopted</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
 
             <h2 className="text-2xl font-bold mt-10 mb-4">What is an Accessibility Color Contrast Checker?</h2>
             <p>
@@ -260,38 +358,9 @@ export default function AccessibilityColorContrastCheckerPage() {
               Web Content Accessibility Guidelines (WCAG) 2.x define contrast using relative luminance, not hue names. That
               means two blues can behave differently if one is lighter, and a “brand red” button can fail while a neutral
               gray passes. Success Criteria 1.4.3 (Contrast Minimum) sets the AA bar most teams must hit; 1.4.6 (Enhanced
-              Contrast) defines stricter AAA thresholds for organizations that commit to them.
+              Contrast) defines stricter AAA thresholds for organizations that commit to them. See the{' '}
+              <strong>WCAG Contrast Requirements at a Glance</strong> table above for ratio summaries.
             </p>
-            <div className="not-prose my-6 overflow-x-auto rounded-xl border border-gray-200 dark:border-gray-700 shadow-sm">
-              <table className="w-full text-sm">
-                <thead>
-                  <tr className="bg-gray-50 dark:bg-gray-800 text-left text-xs uppercase tracking-wide text-gray-500 dark:text-gray-400">
-                    <th className="px-4 py-3 font-semibold">Content type</th>
-                    <th className="px-4 py-3 font-semibold">WCAG AA</th>
-                    <th className="px-4 py-3 font-semibold">WCAG AAA</th>
-                  </tr>
-                </thead>
-                <tbody className="divide-y divide-gray-200 dark:divide-gray-700">
-                  <tr>
-                    <td className="px-4 py-3 font-medium text-gray-900 dark:text-white">Normal text</td>
-                    <td className="px-4 py-3 text-gray-700 dark:text-gray-300">4.5:1 minimum</td>
-                    <td className="px-4 py-3 text-gray-700 dark:text-gray-300">7:1 minimum</td>
-                  </tr>
-                  <tr>
-                    <td className="px-4 py-3 font-medium text-gray-900 dark:text-white">
-                      Large text (18px+ or 14px+ bold)
-                    </td>
-                    <td className="px-4 py-3 text-gray-700 dark:text-gray-300">3:1 minimum</td>
-                    <td className="px-4 py-3 text-gray-700 dark:text-gray-300">4.5:1 minimum</td>
-                  </tr>
-                  <tr>
-                    <td className="px-4 py-3 font-medium text-gray-900 dark:text-white">UI components and graphics</td>
-                    <td className="px-4 py-3 text-gray-700 dark:text-gray-300">3:1 minimum (non-text contrast)</td>
-                    <td className="px-4 py-3 text-gray-700 dark:text-gray-300">Stricter AAA where applicable</td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
             <p>
               “Large text” is not subjective: WCAG specifies 18 point regular or 14 point bold (roughly 24px / 18.67px
               CSS when using px). Headlines often clear the large-text threshold, which is why marketing sites sometimes

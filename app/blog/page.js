@@ -30,6 +30,7 @@ const CARD_PALETTES = {
   'olive-green-hex-code': ['#808000', '#556b2f', '#e2725b', '#000080', '#fff8f0'],
   'burgundy-hex-code': ['#800020', '#722f37', '#ffd700', '#000080', '#fff8f0'],
   'burgundy-color-palette': ['#800020', '#ffd700', '#000080', '#fff8f0', '#e8b4b8'],
+  'c4b5fd-color': ['#c4b5fd', '#7c3aed', '#ede9fe', '#111827', '#fffbec'],
   'yellow-green-hex-code': ['#9acd32', '#7fff00', '#32cd32', '#000080', '#374151'],
   'dark-mode-color-palette': ['#121212', '#1e1e1e', '#3f3f46', '#f5f5f5', '#818cf8'],
   'navy-blue-color-palette': ['#000080', '#ffd700', '#ff6b6b', '#6ee7b7', '#f472b6'],
@@ -47,6 +48,10 @@ const CARD_PALETTES = {
   'what-color-does-red-and-yellow-make': ['#ff0000', '#ffff00', '#ff8000', '#ffc000', '#ffd700'],
   'what-color-does-blue-and-yellow-make': ['#0000ff', '#ffff00', '#008000', '#33aa33', '#66cc00'],
   'what-color-does-red-and-white-make': ['#ff0000', '#ffffff', '#ff8080', '#ffcccc', '#ffe6e6'],
+  'pink-and-purple-color': ['#ff69b4', '#bf34ca', '#800080', '#ffd700', '#374151'],
+  'pink-and-blue-color': ['#ff69b4', '#8034da', '#0000ff', '#b2ac88', '#fffbec'],
+  'sunset-color-palette': ['#f97316', '#ef4444', '#ec4899', '#8b5cf6', '#f59e0b'],
+  'terracotta-color-palette': ['#e2725b', '#b2ac88', '#fffdd0', '#000080', '#b7410e'],
 };
 
 // Static blog posts data
@@ -172,10 +177,10 @@ const staticPosts = [
   },
   {
     _id: '15',
-    title: 'Sage Green Hex Code: Color Codes, Shades & Palette Pairings',
+    title: 'Sage Green Hex Code: #B2AC88 — Copy Code, Shades & Canva Colors',
     slug: { current: 'sage-green-hex-code' },
     excerpt:
-      'Sage green hex code is #B2AC88. Copy hex codes for 10 sage green shades, explore palette pairings with terracotta, cream and dusty rose, and see UI examples.',
+      'Sage green hex code is #B2AC88. Copy instantly. See 10 shades, RGB values, Canva color codes, and palette pairings for web and brand design.',
     publishedAt: '2026-05-11',
   },
   {
@@ -225,10 +230,10 @@ const staticPosts = [
   },
   {
     _id: '25',
-    title: 'Accessibility Color Contrast Checker: WCAG, ADA & How to Use One',
+    title: 'Accessibility Color Contrast Checker — Free WCAG & ADA Tool',
     slug: { current: 'accessibility-color-contrast-checker' },
     excerpt:
-      'Use a free accessibility color contrast checker to meet WCAG AA and ADA standards. Learn contrast ratios, common mistakes, and how to fix low contrast.',
+      'Instantly check if your colors meet WCAG AA, AAA and ADA accessibility standards. Free tool — no signup. Used by designers and developers worldwide.',
     publishedAt: '2026-05-21',
   },
   {
@@ -270,6 +275,46 @@ const staticPosts = [
     excerpt:
       'Red and white make pink when mixed. See exact hex codes for every red-white ratio, explore pink shades, and try our free color mixer tool.',
     publishedAt: '2026-05-21',
+  },
+  {
+    _id: '26',
+    title: 'Pink and Purple Color: What They Make, Palettes & Hex Codes',
+    slug: { current: 'pink-and-purple-color' },
+    excerpt:
+      'Pink and purple together make magenta or mauve. See hex codes for pink-purple mixes, palette combinations, and what colors go with pink and purple.',
+    publishedAt: '2026-06-01',
+  },
+  {
+    _id: '27',
+    title: 'Pink and Blue Color: What They Make, Palettes & Hex Codes',
+    slug: { current: 'pink-and-blue-color' },
+    excerpt:
+      'Pink and blue mixed make lavender or light purple. See hex codes, palette combinations and design tips for using pink and blue together.',
+    publishedAt: '2026-06-01',
+  },
+  {
+    _id: '28',
+    title: 'Sunset Color Palette: Hex Codes, RGB Values & Design Examples',
+    slug: { current: 'sunset-color-palette' },
+    excerpt:
+      'Sunset color palette hex codes: orange #F97316, pink #EC4899, purple #8B5CF6, red #EF4444. Copy RGB values and see UI examples for warm creative brands.',
+    publishedAt: '2026-06-01',
+  },
+  {
+    _id: '29',
+    title: 'Terracotta Color Palette: Hex Codes, Shades & Combinations',
+    slug: { current: 'terracotta-color-palette' },
+    excerpt:
+      'Terracotta color palette hex codes starting with #E2725B. See shades, combinations with sage, navy and cream, and branding examples for earthy warm design.',
+    publishedAt: '2026-06-01',
+  },
+  {
+    _id: '30',
+    title: '#C4B5FD Color: Lavender Purple Hex Code — Name, RGB & Palettes',
+    slug: { current: 'c4b5fd-color' },
+    excerpt:
+      '#C4B5FD is a soft lavender purple color. Get the color name, RGB values, shades, and palette pairings for this purple hex code.',
+    publishedAt: '2026-06-01',
   },
 ];
 

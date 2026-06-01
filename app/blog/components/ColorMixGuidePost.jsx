@@ -43,9 +43,13 @@ function BlogMixerCTA({ mixerHref, mixerLabel }) {
  * @param {string} props.heroSwatchAria
  * @param {string} props.mixTableTitle
  * @param {Array<{ ratio: string, label: string, hex: string }>} props.mixRows
- * @param {string} props.shadeSectionTitle
- * @param {string} props.shadeSectionBody
+ * @param {string} [props.shadeSectionTitle]
+ * @param {string} [props.shadeSectionBody]
+ * @param {string} [props.introParagraph]
  * @param {string} props.combinationsTitle
+ * @param {string} [props.complementaryTitle]
+ * @param {string} [props.complementaryIntro]
+ * @param {Array<{ title: string, body: string, swatches: string[] }>} [props.complementaryPairings]
  * @param {string} props.combinationsIntro
  * @param {Array<{ title: string, body: string, swatches: string[] }>} props.combinations
  * @param {string} props.designTitle
@@ -66,9 +70,13 @@ export default function ColorMixGuidePost({
   mixRows,
   shadeSectionTitle,
   shadeSectionBody,
+  introParagraph,
   combinationsTitle,
   combinationsIntro,
   combinations,
+  complementaryTitle,
+  complementaryIntro,
+  complementaryPairings,
   designTitle,
   designContent,
   faq,
@@ -115,12 +123,28 @@ export default function ColorMixGuidePost({
             <MixRatioTable rows={mixRows} />
           </section>
 
-          <section className="mb-10 prose prose-lg max-w-none dark:prose-invert">
-            <h2 className="text-2xl font-bold text-gray-900 dark:text-white mt-0 mb-4">{shadeSectionTitle}</h2>
-            <p className="text-gray-700 dark:text-gray-300 leading-relaxed">{shadeSectionBody}</p>
-          </section>
+          {introParagraph ? (
+            <p className="text-gray-700 dark:text-gray-300 leading-relaxed text-base md:text-lg mb-10">{introParagraph}</p>
+          ) : null}
+
+          {shadeSectionTitle && shadeSectionBody ? (
+            <section className="mb-10 prose prose-lg max-w-none dark:prose-invert">
+              <h2 className="text-2xl font-bold text-gray-900 dark:text-white mt-0 mb-4">{shadeSectionTitle}</h2>
+              <p className="text-gray-700 dark:text-gray-300 leading-relaxed">{shadeSectionBody}</p>
+            </section>
+          ) : null}
 
           <PalettePairingsSection title={combinationsTitle} intro={combinationsIntro} pairings={combinations} />
+
+          {complementaryTitle && complementaryPairings?.length ? (
+            <div className="mt-10">
+              <PalettePairingsSection
+                title={complementaryTitle}
+                intro={complementaryIntro ?? ''}
+                pairings={complementaryPairings}
+              />
+            </div>
+          ) : null}
 
           <div className="mt-10">
             <PaletteUiUsageSection title={designTitle}>{designContent}</PaletteUiUsageSection>

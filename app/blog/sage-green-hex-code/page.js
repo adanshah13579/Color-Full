@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import InlineTagLink from '../../components/InlineTagLink';
 import ColorPaletteClient from '../[slug]/ColorPaletteClient';
+import ColorSwatch from '../[slug]/ColorSwatch';
 import BlogToolsCTA from '../components/BlogToolsCTA';
 import {
   PaletteQuickAnswer,
@@ -9,13 +10,13 @@ import {
 } from '../components/PaletteReferenceBlocks';
 import { buildPageMetadata } from '../../../lib/buildPageMetadata';
 
-const LAST_MODIFIED = '2026-05-30T00:00:00.000Z';
+const LAST_MODIFIED = '2026-06-01T00:00:00.000Z';
 
 export const metadata = buildPageMetadata({
   path: '/blog/sage-green-hex-code',
-  title: 'Sage Green Hex Code: #B2AC88 — Shades, RGB & Palettes (Copy-Paste)',
+  title: 'Sage Green Hex Code: #B2AC88 — Copy Code, Shades & Canva Colors',
   description:
-    'Sage green hex code is #B2AC88. Copy hex, RGB and HSL values. See 10 sage green shades, palette pairings and Canva color codes. Free tool included.',
+    'Sage green hex code is #B2AC88. Copy instantly. See 10 shades, RGB values, Canva color codes, and palette pairings for web and brand design.',
   keywords: [
     'sage green hex code',
     'sage green hex code canva',
@@ -23,7 +24,11 @@ export const metadata = buildPageMetadata({
     'sage hex code',
     'sage green code',
     'sage colour code',
+    'sage green color number',
+    'sage green hex colour',
     'sage green rgb',
+    'sage green rgb code',
+    'dark sage green hex code',
     'dark sage green color code',
     'light sage green hex code',
     'sage green color palette hex codes',
@@ -129,12 +134,36 @@ const SAGE_COMPLETE_PALETTES = [
   },
 ];
 
+const CANVA_SAGE_SWATCHES = [
+  { hexCode: '#B2AC88', colorName: 'Classic sage', rgbCode: 'rgb(178, 172, 136)' },
+  { hexCode: '#A8A878', colorName: 'Muted sage', rgbCode: 'rgb(168, 168, 120)' },
+  { hexCode: '#C8C4A0', colorName: 'Light sage', rgbCode: 'rgb(200, 196, 160)' },
+];
+
+const DARK_SAGE_SWATCHES = [
+  { hexCode: '#6B6B47', colorName: 'Dark sage', rgbCode: 'rgb(107, 107, 71)' },
+  { hexCode: '#5C5C3D', colorName: 'Deep dark sage', rgbCode: 'rgb(92, 92, 61)' },
+  { hexCode: '#4A4A2E', colorName: 'Forest dark sage', rgbCode: 'rgb(74, 74, 46)' },
+];
+
+const LIGHT_SAGE_SWATCHES = [
+  { hexCode: '#D4D4B0', colorName: 'Pale sage', rgbCode: 'rgb(212, 212, 176)' },
+  { hexCode: '#E8E8D0', colorName: 'Soft sage', rgbCode: 'rgb(232, 232, 208)' },
+  { hexCode: '#F0F0E0', colorName: 'Wash sage', rgbCode: 'rgb(240, 240, 224)' },
+];
+
 const SIDEBAR_PALETTE = [
   { hexCode: '#B2AC88', colorName: 'Sage', rgbCode: 'rgb(178, 172, 136)' },
   { hexCode: '#E2725B', colorName: 'Terracotta', rgbCode: 'rgb(226, 114, 91)' },
   { hexCode: '#FFFDD0', colorName: 'Cream', rgbCode: 'rgb(255, 253, 208)' },
   { hexCode: '#DCAE96', colorName: 'Dusty rose', rgbCode: 'rgb(220, 174, 150)' },
   { hexCode: '#36454F', colorName: 'Charcoal', rgbCode: 'rgb(54, 69, 79)' },
+];
+
+const RGB_QUICK_ROWS = [
+  { label: 'RGB', value: 'rgb(178, 172, 136)' },
+  { label: 'RGB (compact)', value: 'RGB(178,172,136)' },
+  { label: 'Channels', value: '178, 172, 136' },
 ];
 
 const faqSchema = {
@@ -173,8 +202,42 @@ const faqSchema = {
         text: 'Sage is typically a muted gray-green (like #B2AC88) with soft luminance. Olive leans more yellow-green and often reads oilier or richer. Name tokens explicitly (sage-500 vs olive-600) so teams do not swap them in CSS by habit.',
       },
     },
+    {
+      '@type': 'Question',
+      name: 'What is the sage green hex code for Canva?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Enter #B2AC88 in Canva under Custom colors. For a slightly greener sage use #A8A878; for lighter backgrounds try #C8C4A0. Save swatches to your brand kit so social posts match your website.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'What is the sage green RGB code?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'The sage green RGB code for #B2AC88 is RGB(178,172,136)—the same as rgb(178, 172, 136) in CSS. Use these channels in design tools, Android resources, and print specs.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'What is a dark sage green hex code?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Use #6B6B47, #5C5C3D, or #4A4A2E for navigation, footers, and small type on light backgrounds. These dark sage green color code values pair with cream cards and white labels when contrast is verified.',
+      },
+    },
   ],
 };
+
+function SageShadeSwatchRow({ shades }) {
+  return (
+    <div className="flex flex-wrap gap-6 not-prose">
+      {shades.map((s) => (
+        <ColorSwatch key={s.hexCode} color={s.hexCode} name={s.colorName} hexCode={s.hexCode} showHexCopyIcon />
+      ))}
+    </div>
+  );
+}
 
 function SagePaletteCard({ palette }) {
   return (
@@ -221,10 +284,11 @@ export default function SageGreenHexCodePage() {
               Back to Blog
             </Link>
             <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4 leading-tight">
-              Sage Green Hex Code: #B2AC88 — Shades, RGB &amp; Palettes
+              Sage Green Hex Code: #B2AC88 — Copy Code, Shades &amp; Canva Colors
             </h1>
             <p className="text-stone-200/95 text-lg max-w-3xl mb-6">
-              Copy the canonical <strong className="text-white font-semibold">sage green hex code</strong> #B2AC88 plus RGB and HSL—ten shades, four full palettes with hex codes, and Canva-ready values for wellness and lifestyle brands.
+              Copy the canonical <strong className="text-white font-semibold">sage green hex code</strong> #B2AC88 instantly—plus dark and light sage shades,{' '}
+              <strong className="text-white font-semibold">sage green rgb code</strong> values, Canva custom-color steps, and palette pairings for web and brand design.
             </p>
             <div
               className="w-full max-w-2xl h-36 md:h-44 rounded-2xl border-2 border-white/15 shadow-2xl mb-6 bg-[#B2AC88]"
@@ -232,9 +296,9 @@ export default function SageGreenHexCodePage() {
               aria-label="Sage green color swatch hex B2AC88"
             />
             <div className="flex items-center gap-4 text-lime-100/85 text-sm">
-              <time dateTime="2026-05-30">May 30, 2026</time>
+              <time dateTime="2026-06-01">June 1, 2026</time>
               <span>•</span>
-              <span>11 min read</span>
+              <span>12 min read</span>
             </div>
           </div>
         </div>
@@ -253,13 +317,76 @@ export default function SageGreenHexCodePage() {
                   rows={QUICK_ROWS}
                 />
 
-                <div className="not-prose rounded-xl border border-violet-200 dark:border-violet-900/50 bg-violet-50/60 dark:bg-violet-950/20 p-4 sm:p-5">
+                <p className="text-base sm:text-lg text-gray-700 dark:text-gray-300 leading-relaxed">
+                  To use sage green in Canva, open the color picker, click &lsquo;Custom colors&rsquo; and enter #B2AC88. For lighter sage try #C8C4A0, for darker sage use #8A8462.
+                </p>
+
+                <div className="not-prose rounded-2xl border border-violet-200 dark:border-violet-900/50 bg-violet-50/60 dark:bg-violet-950/20 p-5 sm:p-6 space-y-4">
+                  <h2 className="text-xl sm:text-2xl font-bold text-gray-900 dark:text-white">Sage Green Hex Code for Canva</h2>
                   <p className="text-sm sm:text-base text-gray-700 dark:text-gray-300 leading-relaxed">
-                    <strong className="text-gray-900 dark:text-white">Canva tip:</strong> Searching for a{' '}
+                    Canva does not ship a single locked &ldquo;sage&rdquo; swatch—designers search for a{' '}
                     <strong className="text-gray-900 dark:text-white">sage green hex code Canva</strong> or{' '}
-                    <strong className="text-gray-900 dark:text-white">sage green color code Canva</strong> value? To use sage green in Canva, enter the hex code{' '}
-                    <span className="font-mono text-violet-800 dark:text-violet-300">#B2AC88</span> in the color picker under &ldquo;Custom colors.&rdquo; Save it to your brand kit so social templates match your website tokens.
+                    <strong className="text-gray-900 dark:text-white">sage green color code Canva</strong> value and paste custom hex instead. Follow these steps so Instagram carousels, pitch decks, and your site share the same{' '}
+                    <strong className="text-gray-900 dark:text-white">sage green code</strong>:
                   </p>
+                  <ol className="list-decimal list-inside space-y-2 text-sm sm:text-base text-gray-700 dark:text-gray-300 leading-relaxed">
+                    <li>Open any design and select a shape, text box, or background fill.</li>
+                    <li>Click the color swatch in the top toolbar to open the color picker.</li>
+                    <li>Choose <strong className="text-gray-900 dark:text-white">+</strong> or <strong className="text-gray-900 dark:text-white">Custom colors</strong> (wording varies slightly by Canva version).</li>
+                    <li>Paste the primary <strong className="text-gray-900 dark:text-white">sage hex code</strong>{' '}
+                      <span className="font-mono text-violet-800 dark:text-violet-300">#B2AC88</span> and confirm.</li>
+                    <li>Add companion swatches: <span className="font-mono">#A8A878</span> for slightly greener sage accents, and{' '}
+                      <span className="font-mono">#C8C4A0</span> for soft section backgrounds.</li>
+                    <li>Save all three to your Brand Kit (Pro) or document them in a shared style guide so freelancers paste the same numbers.</li>
+                  </ol>
+                  <p className="text-sm sm:text-base text-gray-700 dark:text-gray-300 leading-relaxed">
+                    If Canva&rsquo;s stock palette shows a different green, ignore it—the custom hex above is your source of truth. The swatches below match the three Canva-ready codes; click any hex to copy.
+                  </p>
+                  <SageShadeSwatchRow shades={CANVA_SAGE_SWATCHES} />
+                </div>
+
+                <div className="not-prose rounded-2xl border border-stone-300 dark:border-stone-600 bg-stone-100/80 dark:bg-stone-900/50 p-5 sm:p-6 space-y-4">
+                  <h2 className="text-xl sm:text-2xl font-bold text-gray-900 dark:text-white">Dark Sage Green Hex Code</h2>
+                  <p className="text-sm sm:text-base text-gray-700 dark:text-gray-300 leading-relaxed">
+                    Searches for <strong className="text-gray-900 dark:text-white">dark sage green hex code</strong> and{' '}
+                    <strong className="text-gray-900 dark:text-white">dark sage green color code</strong> usually mean anchors for navigation, footers, and small type—not the mid-tone #B2AC88 wash. Dark sage reads grounded on cream cards and passes contrast more often than the main sage when you need 14px body copy. Use these three stops as a mini ramp: UI chrome at #6B6B47, pressed states at #5C5C3D, and deep emphasis at #4A4A2E.
+                  </p>
+                  <p className="text-sm sm:text-base text-gray-700 dark:text-gray-300 leading-relaxed">
+                    In CSS, map them to tokens like <code className="text-xs font-mono bg-white dark:bg-stone-800 px-1.5 py-0.5 rounded">--sage-dark-600</code> through{' '}
+                    <code className="text-xs font-mono bg-white dark:bg-stone-800 px-1.5 py-0.5 rounded">--sage-dark-900</code>. Pair white or cream labels on #4A4A2E buttons and run every combination through the{' '}
+                    <InlineTagLink href="/tools/contrast-checker">contrast checker</InlineTagLink> before launch.
+                  </p>
+                  <SageShadeSwatchRow shades={DARK_SAGE_SWATCHES} />
+                </div>
+
+                <div className="not-prose rounded-2xl border border-lime-200/90 dark:border-lime-900/50 bg-lime-50/70 dark:bg-stone-900/45 p-5 sm:p-6 space-y-4">
+                  <h2 className="text-xl sm:text-2xl font-bold text-gray-900 dark:text-white">Light Sage Green Hex Code</h2>
+                  <p className="text-sm sm:text-base text-gray-700 dark:text-gray-300 leading-relaxed">
+                    The <strong className="text-gray-900 dark:text-white">light sage green hex code</strong> family covers airy backgrounds, modal wells, and email section bands where #B2AC88 would feel too heavy. These three values step from usable tint to near-neutral highlight—ideal when you want calm without turning the page gray.
+                  </p>
+                  <p className="text-sm sm:text-base text-gray-700 dark:text-gray-300 leading-relaxed">
+                    Use #D4D4B0 for cards on white, #E8E8D0 for full-width bands, and #F0F0E0 when you need a barely-there sage wash behind photography. Keep headings in dark sage or charcoal so the{' '}
+                    <strong className="text-gray-900 dark:text-white">sage green color number</strong> story stays readable at a glance.
+                  </p>
+                  <SageShadeSwatchRow shades={LIGHT_SAGE_SWATCHES} />
+                </div>
+
+                <div className="not-prose space-y-3">
+                  <h2 className="text-xl sm:text-2xl font-bold text-gray-900 dark:text-white">Sage Green RGB Code</h2>
+                  <p className="text-sm sm:text-base text-gray-700 dark:text-gray-300 leading-relaxed">
+                    Developers and print vendors often ask for the <strong className="text-gray-900 dark:text-white">sage green rgb</strong> equivalent instead of hex. For #B2AC88, the{' '}
+                    <strong className="text-gray-900 dark:text-white">sage green rgb code</strong> is{' '}
+                    <span className="font-mono text-gray-900 dark:text-white">RGB(178,172,136)</span>—red 178, green 172, blue 136. That is the same color as{' '}
+                    <span className="font-mono">rgb(178, 172, 136)</span> in CSS, Android XML, and most Figma export pipelines. British teams may list the same value under a{' '}
+                    <strong className="text-gray-900 dark:text-white">sage green hex colour</strong> or <strong className="text-gray-900 dark:text-white">sage colour code</strong> heading in brand PDFs; the numbers do not change, only the spelling.
+                  </p>
+                  <PaletteQuickAnswer
+                    theme="sage"
+                    ariaLabel="Sage green RGB copy values"
+                    headline="RGB for #B2AC88"
+                    subtext="Copy rgb(), compact RGB(), or channel list for handoff."
+                    rows={RGB_QUICK_ROWS}
+                  />
                 </div>
 
                 <PaletteShadesTable
@@ -291,13 +418,19 @@ export default function SageGreenHexCodePage() {
                     Sage green sits in the sweet spot between decorative pastel and serious earth tone. The{' '}
                     <strong className="text-gray-900 dark:text-white">sage green code</strong>{' '}
                     <strong className="text-gray-900 dark:text-white">#B2AC88</strong>—also written as the common{' '}
-                    <strong className="text-gray-900 dark:text-white">sage colour code</strong> in UK brand guides—reads as “dried herb and linen” on screen: enough chroma to feel alive, low enough saturation to sit behind long-form content without shouting. That is why product teams reach for it when they want an organic association without the high-energy punch of kelly green or the coldness of blue-gray slate.
+                    <strong className="text-gray-900 dark:text-white">sage colour code</strong> in UK brand guides and sometimes labeled as a{' '}
+                    <strong className="text-gray-900 dark:text-white">sage green color number</strong> in paint decks—reads as “dried herb and linen” on screen: enough chroma to feel alive, low enough saturation to sit behind long-form content without shouting. Whether you file it as a{' '}
+                    <strong className="text-gray-900 dark:text-white">sage green hex colour</strong> in Figma or a US-style color token in code, the digits stay the same. That is why product teams reach for it when they want an organic association without the high-energy punch of kelly green or the coldness of blue-gray slate.
                   </p>
                   <p className="mb-6">
                     The shade ladder above is deliberate. Honeydew and mint cream give you nearly neutral highlights for cards and modals; tea green introduces a hint of vitality for success states that should not look like finance dashboards. The canonical{' '}
                     <strong className="text-gray-900 dark:text-white">sage hex code</strong> #B2AC88 sits mid-ramp; pair it with{' '}
                     <strong className="text-gray-900 dark:text-white">sage green rgb</strong> values{' '}
-                    <span className="font-mono text-sm">178, 172, 136</span> in design-system docs so engineers and print vendors stay aligned. Dark sage through hunter green supplies the anchors you need for navigation, footers, and illustration silhouettes. If your brand guide only lists one sage hex, you are one redesign away from rogue tints—promote at least three roles (surface, border, emphasis) to tokens before engineering hard-codes new guesses.
+                    <span className="font-mono text-sm">178, 172, 136</span> in design-system docs so engineers and print vendors stay aligned. Dark sage through hunter green supplies the anchors you need for navigation, footers, and illustration silhouettes—see the dedicated dark and light sage sections above for copy-ready swatches. If your brand guide only lists one sage hex, you are one redesign away from rogue tints—promote at least three roles (surface, border, emphasis) to tokens before engineering hard-codes new guesses.
+                  </p>
+                  <p className="mb-6">
+                    When stakeholders ask “what is the sage green color number?” point them to #B2AC88 first, then to the dark trio (#6B6B47, #5C5C3D, #4A4A2E) for type and chrome. Social teams running Canva templates should use the same{' '}
+                    <strong className="text-gray-900 dark:text-white">sage green hex code</strong> in custom colors—not a visually similar stock green—so paid ads and landing pages stay on-brand. Document hex, RGB, and HSL in one table (like the quick-answer box at the top) and your handoffs stop drifting between disciplines.
                   </p>
 
                   <h2 className="text-2xl font-bold text-gray-900 dark:text-white mt-8 mb-4">Sage Green in UI & Web Design</h2>
@@ -405,6 +538,24 @@ export default function SageGreenHexCodePage() {
                       <dd className="mt-1 text-gray-700 dark:text-gray-300">
                         Sage is a soft gray-green; olive typically reads more yellow-green and saturated. Define both in your system if you use them in different
                         product lines.
+                      </dd>
+                    </div>
+                    <div>
+                      <dt className="font-semibold text-gray-900 dark:text-white">What is the sage green hex code for Canva?</dt>
+                      <dd className="mt-1 text-gray-700 dark:text-gray-300">
+                        Open Custom colors and enter <strong>#B2AC88</strong>. Add #A8A878 and #C8C4A0 as accent and background swatches; save to your brand kit when available.
+                      </dd>
+                    </div>
+                    <div>
+                      <dt className="font-semibold text-gray-900 dark:text-white">What is the sage green RGB code?</dt>
+                      <dd className="mt-1 text-gray-700 dark:text-gray-300">
+                        <strong>RGB(178,172,136)</strong> for #B2AC88—the same as rgb(178, 172, 136) in CSS. Use the copy buttons in the Sage Green RGB Code section above.
+                      </dd>
+                    </div>
+                    <div>
+                      <dt className="font-semibold text-gray-900 dark:text-white">What is a dark sage green hex code?</dt>
+                      <dd className="mt-1 text-gray-700 dark:text-gray-300">
+                        Try #6B6B47, #5C5C3D, or #4A4A2E for navigation, buttons, and small type on light backgrounds. Each has a one-click copy swatch in the dark sage section.
                       </dd>
                     </div>
                   </dl>
