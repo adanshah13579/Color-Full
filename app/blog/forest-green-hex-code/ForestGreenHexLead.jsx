@@ -72,6 +72,93 @@ const FOREST_SHADES = [
   { name: 'Deep forest', hex: '#1A4D1A' },
 ];
 
+const FOREST_RGB = 'RGB(34,139,34)';
+
+const FORMAT_ROWS = [
+  { label: 'HEX', value: '#228B22' },
+  { label: 'RGB', value: 'rgb(34, 139, 34)' },
+  { label: 'HSL', value: 'hsl(120, 61%, 34%)' },
+  { label: 'CMYK', value: 'C:76 M:0 Y:76 K:45' },
+  { label: 'CSS name', value: 'forestgreen', mono: false },
+];
+
+export function ForestGreenRgbSection() {
+  const [copied, setCopied] = useState(false);
+
+  const copy = async () => {
+    try {
+      await navigator.clipboard.writeText(FOREST_RGB);
+      setCopied(true);
+      setTimeout(() => setCopied(false), 1600);
+    } catch (e) {
+      console.error(e);
+    }
+  };
+
+  return (
+    <div className="not-prose space-y-4">
+      <h2 className="text-xl sm:text-2xl font-bold text-gray-900 dark:text-white">Forest Green RGB Code</h2>
+      <p className="text-sm sm:text-base text-gray-700 dark:text-gray-300 leading-relaxed">
+        The <strong className="text-gray-900 dark:text-white">forest green rgb</strong> value for the CSS named color is{' '}
+        <strong className="text-gray-900 dark:text-white">RGB(34, 139, 34)</strong>—red 34, green 139, blue 34. Use the copy button below for handoff to Figma, Android resources, or print specs.
+      </p>
+      <div
+        className="w-full rounded-2xl border-2 border-emerald-300/80 dark:border-emerald-700 bg-[#228B22] shadow-lg ring-4 ring-emerald-900/10 p-5 sm:p-6 md:p-7"
+        role="region"
+        aria-label="Copy forest green RGB code"
+      >
+        <p className="text-white/90 text-sm font-medium uppercase tracking-wider mb-3">Forest green RGB — click to copy</p>
+        <div className="flex flex-col sm:flex-row sm:items-center gap-4 sm:gap-5">
+          <code className="text-white font-mono font-bold text-2xl sm:text-3xl md:text-4xl leading-none tracking-tight">
+            {FOREST_RGB}
+          </code>
+          <button
+            type="button"
+            onClick={copy}
+            className="inline-flex shrink-0 items-center justify-center gap-2 rounded-xl bg-white px-6 py-3.5 text-base font-bold text-[#228B22] shadow-lg hover:bg-emerald-50 transition-colors min-w-[8.5rem]"
+            aria-label={copied ? 'Copied forest green RGB' : 'Copy forest green RGB code RGB(34,139,34)'}
+          >
+            {copied ? (
+              <>
+                <svg className="w-5 h-5 text-green-700" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden>
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M5 13l4 4L19 7" />
+                </svg>
+                Copied!
+              </>
+            ) : (
+              <>
+                {copyIcon}
+                Copy
+              </>
+            )}
+          </button>
+        </div>
+        <p className="mt-3 text-white/80 text-sm font-mono">rgb(34, 139, 34) · hsl(120, 61%, 34%)</p>
+      </div>
+    </div>
+  );
+}
+
+export function ForestGreenFormatCodesSection() {
+  return (
+    <div className="not-prose space-y-4">
+      <h2 className="text-xl sm:text-2xl font-bold text-gray-900 dark:text-white">
+        Forest Green Color Code for Different Formats
+      </h2>
+      <p className="text-sm sm:text-base text-gray-700 dark:text-gray-300 leading-relaxed">
+        Whether you need the <strong className="text-gray-900 dark:text-white">forest green rgb code</strong>, hex, HSL, CMYK, or CSS keyword, every format for #228B22 is listed below—each with its own copy button.
+      </p>
+      <div className="rounded-2xl border border-emerald-200 dark:border-emerald-800 bg-emerald-50/95 dark:bg-emerald-950/40 p-5 sm:p-6 shadow-sm">
+        <div className="rounded-xl bg-white/70 dark:bg-emerald-900/30 px-4 py-1 border border-emerald-100 dark:border-emerald-800/80">
+          {FORMAT_ROWS.map((row) => (
+            <CopyRow key={row.label} label={row.label} value={row.value} mono={row.mono !== false} />
+          ))}
+        </div>
+      </div>
+    </div>
+  );
+}
+
 export function ForestGreenQuickAnswer() {
   return (
     <div

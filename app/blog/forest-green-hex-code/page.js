@@ -5,18 +5,28 @@ import ColorSwatch from '../[slug]/ColorSwatch';
 import BlogToolsCTA from '../components/BlogToolsCTA';
 import { buildPageMetadata } from '../../../lib/buildPageMetadata';
 import CopyableHex from './CopyableHex';
-import { ForestGreenQuickAnswer, ForestGreenShadesTable } from './ForestGreenHexLead';
+import {
+  ForestGreenQuickAnswer,
+  ForestGreenShadesTable,
+  ForestGreenRgbSection,
+  ForestGreenFormatCodesSection,
+} from './ForestGreenHexLead';
+
+const LAST_MODIFIED = '2026-06-05T00:00:00.000Z';
 
 export const metadata = buildPageMetadata({
   path: '/blog/forest-green-hex-code',
-  title: 'Forest Green Hex Code: #228B22 — Shades, RGB, HSL & Copy-Paste',
+  title: 'Forest Green Hex Code: #228B22 — Copy Instantly + All Shades',
   description:
-    'Forest green hex #228B22 with RGB, HSL, one-click copy, 10 named shades from honeydew to hunter green, palette pairings, and free tools. Faster than generic color encyclopedias.',
+    'Forest green hex code is #228B22. Click to copy instantly. Get RGB(34,139,34), HSL values, 10 shades from mint to dark forest, and palette pairings. Free color tool.',
   keywords: ['forest green hex', '#228B22', 'green shades', 'RGB', 'HSL', 'palette', 'Theme & Color'],
   openGraphType: 'article',
   openGraph: {
     publishedTime: '2026-04-11T00:00:00.000Z',
-    modifiedTime: '2026-05-17T00:00:00.000Z',
+    modifiedTime: LAST_MODIFIED,
+  },
+  other: {
+    'article:modified_time': LAST_MODIFIED,
   },
 });
 
@@ -142,7 +152,7 @@ export default function ForestGreenHexCodePage() {
               Back to Blog
             </Link>
             <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4 leading-tight">
-              Forest Green Hex Code: #228B22
+              Forest Green Hex Code: #228B22 — Copy Instantly + All Shades
             </h1>
             <p className="text-emerald-100 text-lg max-w-3xl mb-6">
               Quick reference for forest green hex, RGB, HSL, and colour codes—plus named shades, a UI palette, scheme ideas, and Ocean Breeze colors in one place.
@@ -155,7 +165,7 @@ export default function ForestGreenHexCodePage() {
             <div className="flex items-center gap-4 text-emerald-100 text-sm flex-wrap">
               <time dateTime="2026-04-11">Published April 11, 2026</time>
               <span>•</span>
-              <time dateTime="2026-05-17">Updated May 17, 2026</time>
+              <time dateTime="2026-06-05">Updated June 5, 2026</time>
               <span>•</span>
               <span>10 min read</span>
             </div>
@@ -174,6 +184,20 @@ export default function ForestGreenHexCodePage() {
             <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
               <div className="lg:col-span-2 space-y-8">
                 <ForestGreenQuickAnswer />
+                <ForestGreenRgbSection />
+                <ForestGreenFormatCodesSection />
+
+                <div className="not-prose space-y-3">
+                  <h2 className="text-xl sm:text-2xl font-bold text-gray-900 dark:text-white">
+                    What is the Forest Green HTML Color Code?
+                  </h2>
+                  <p className="text-sm sm:text-base text-gray-700 dark:text-gray-300 leading-relaxed">
+                    The <strong className="text-gray-900 dark:text-white">forest green html color code</strong> is{' '}
+                    <strong className="text-gray-900 dark:text-white">#228B22</strong>. It is a valid CSS and HTML color value—you can paste it directly into stylesheets, inline styles, SVG fills, and React or Vue theme files. Browsers also recognize the keyword{' '}
+                    <code className="text-xs font-mono bg-gray-100 dark:bg-gray-800 px-1.5 py-0.5 rounded">forestgreen</code>, which resolves to the same hex. For design-system handoffs, document hex and RGB together so engineers and content authors stay aligned.
+                  </p>
+                </div>
+
                 <ForestGreenShadesTable />
 
                 <div className="prose prose-lg max-w-none prose-headings:font-bold prose-headings:text-gray-900 dark:prose-headings:text-white prose-p:text-gray-700 dark:prose-p:text-gray-300 prose-p:leading-relaxed">

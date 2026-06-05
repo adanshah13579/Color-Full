@@ -31,6 +31,9 @@ const CARD_PALETTES = {
   'burgundy-hex-code': ['#800020', '#722f37', '#ffd700', '#000080', '#fff8f0'],
   'burgundy-color-palette': ['#800020', '#ffd700', '#000080', '#fff8f0', '#e8b4b8'],
   'c4b5fd-color': ['#c4b5fd', '#7c3aed', '#ede9fe', '#111827', '#fffbec'],
+  'lavender-hex-code': ['#e6e6fa', '#b57edc', '#9370db', '#734f96', '#4b0082'],
+  'pink-purple-color-name': ['#ff69b4', '#ff00ff', '#e0b0ff', '#9966cc', '#374151'],
+  'discord-dark-mode-colors': ['#313338', '#2b2d31', '#1e1f22', '#dbdee1', '#5865f2'],
   'yellow-green-hex-code': ['#9acd32', '#7fff00', '#32cd32', '#000080', '#374151'],
   'dark-mode-color-palette': ['#121212', '#1e1e1e', '#3f3f46', '#f5f5f5', '#818cf8'],
   'navy-blue-color-palette': ['#000080', '#ffd700', '#ff6b6b', '#6ee7b7', '#f472b6'],
@@ -48,6 +51,7 @@ const CARD_PALETTES = {
   'what-color-does-red-and-yellow-make': ['#ff0000', '#ffff00', '#ff8000', '#ffc000', '#ffd700'],
   'what-color-does-blue-and-yellow-make': ['#0000ff', '#ffff00', '#008000', '#33aa33', '#66cc00'],
   'what-color-does-red-and-white-make': ['#ff0000', '#ffffff', '#ff8080', '#ffcccc', '#ffe6e6'],
+  'what-color-does-pink-and-purple-make': ['#ff69b4', '#bf34ca', '#800080', '#f06bb8', '#8c2d9a'],
   'pink-and-purple-color': ['#ff69b4', '#bf34ca', '#800080', '#ffd700', '#374151'],
   'pink-and-blue-color': ['#ff69b4', '#8034da', '#0000ff', '#b2ac88', '#fffbec'],
   'sunset-color-palette': ['#f97316', '#ef4444', '#ec4899', '#8b5cf6', '#f59e0b'],
@@ -315,6 +319,38 @@ const staticPosts = [
     excerpt:
       '#C4B5FD is a soft lavender purple color. Get the color name, RGB values, shades, and palette pairings for this purple hex code.',
     publishedAt: '2026-06-01',
+  },
+  {
+    _id: '31',
+    title: 'Lavender Hex Code: #E6E6FA — Shades, RGB & Palette Pairings',
+    slug: { current: 'lavender-hex-code' },
+    excerpt:
+      'Lavender hex code is #E6E6FA. Copy instantly. Get RGB values, 10 lavender shades from pale to deep purple, and palette pairings for soft elegant design.',
+    publishedAt: '2026-06-05',
+  },
+  {
+    _id: '32',
+    title: 'What is the Color Between Pink and Purple Called? (Hex Codes)',
+    slug: { current: 'pink-purple-color-name' },
+    excerpt:
+      'The color between pink and purple is called mauve, magenta or fuchsia depending on the shade. Get hex codes for every pink-purple color name.',
+    publishedAt: '2026-06-05',
+  },
+  {
+    _id: '33',
+    title: 'Discord Dark Mode Color Palette: Hex Codes & Background Colors',
+    slug: { current: 'discord-dark-mode-colors' },
+    excerpt:
+      'Discord dark mode hex codes: background #313338, dark #2B2D31, darker #1E1F22, darkest #111214. Copy all Discord dark theme colors instantly.',
+    publishedAt: '2026-06-05',
+  },
+  {
+    _id: '34',
+    title: 'What Color Does Pink and Purple Make? Magenta & Hex Codes',
+    slug: { current: 'what-color-does-pink-and-purple-make' },
+    excerpt:
+      'Pink and purple mixed make magenta or mauve. See hex codes for every pink-purple mix ratio, color swatches, and palette combinations.',
+    publishedAt: '2026-06-05',
   },
 ];
 
