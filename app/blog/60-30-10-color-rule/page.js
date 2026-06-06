@@ -227,7 +227,8 @@ export default function SixtyThirtyTenColorRulePage() {
               The rule also mirrors how brands behave in the wild: packaging might whisper with kraft or white (dominant), repeat a signature blue on every panel
               (secondary), and reserve metallic gold or neon for the logo lockup (accent). On the web, the same logic prevents marketing from shipping rainbow
               landing pages while product ships monochrome dashboards—if both follow 60-30-10 with the same three hex roles, the brand feels coherent even when
-              layout density differs.
+              layout density differs. Before you publish a campaign site,{' '}
+              <InlineTagLink href="/tools/color-palette-preview/landing-page">preview your landing page colors</InlineTagLink> on a mockup so the hero, features, and CTA bands stay balanced.
             </p>
 
             <h2 className="text-2xl font-bold text-gray-900 dark:text-white mt-10 mb-4 not-prose">How to Apply It to a Website</h2>

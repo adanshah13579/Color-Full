@@ -84,7 +84,8 @@ export default function BestColorPaletteToolsForDesignersPage() {
               In UI and web design, palettes define primary buttons, links, backgrounds, and borders. Designers often start with one brand color and need a full set for light and dark themes. A palette generator that outputs hex codes lets you build that set in minutes: pick the base, copy the hex values, and map them to semantic names (e.g. primary-500, surface-100) in your design system.
             </p>
             <p className="leading-relaxed">
-              After generating a palette, test text-on-background pairs with a contrast checker. Not every combination in a harmony will meet WCAG AA; choose the pairs that do for body text and buttons. A <InlineTagLink href="/tools/palette-generator">color palette generator</InlineTagLink> gives you options; contrast checking and documentation make them usable in production.
+              After generating a palette, test text-on-background pairs with a contrast checker. Not every combination in a harmony will meet WCAG AA; choose the pairs that do for body text and buttons. A <InlineTagLink href="/tools/palette-generator">color palette generator</InlineTagLink> gives you options; preview them on a{' '}
+              <InlineTagLink href="/tools/color-palette-preview">website color palette mockup</InlineTagLink> and validate contrast before documentation makes them usable in production.
             </p>
           </section>
 
@@ -117,7 +118,8 @@ export default function BestColorPaletteToolsForDesignersPage() {
               Summary
             </h2>
             <p className="leading-relaxed">
-              The best color palette tools for designers are fast, free to use, and output hex codes for immediate use in design and code. They should support multiple harmony types from a single base color. Pair a <InlineTagLink href="/tools/palette-generator">color palette generator</InlineTagLink> with a contrast checker and a clear style guide so that palettes are not only consistent but also accessible and documented for teams and vendors.
+              The best color palette tools for designers are fast, free to use, and output hex codes for immediate use in design and code. They should support multiple harmony types from a single base color. Pair a <InlineTagLink href="/tools/palette-generator">color palette generator</InlineTagLink> with a{' '}
+              <InlineTagLink href="/tools/color-palette-preview">color palette preview</InlineTagLink>, a contrast checker, and a clear style guide so that palettes are not only consistent but also accessible and documented for teams and vendors.
             </p>
           </section>
 

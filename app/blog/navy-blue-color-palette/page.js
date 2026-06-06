@@ -371,7 +371,8 @@ export default function NavyBlueColorPalettePage() {
                   <h2 className="text-xl font-bold text-gray-900 dark:text-white mb-2">Navy Blue Color Scheme for Websites</h2>
                   <p className="text-gray-600 dark:text-gray-400 text-sm sm:text-base mb-5 leading-relaxed">
                     A production-ready <strong className="text-gray-800 dark:text-gray-200">navy blue color scheme</strong> assigns roles, not just pretty swatches. The{' '}
-                    <InlineTagLink href="/blog/60-30-10-color-rule">60-30-10 color rule</InlineTagLink> keeps navy as the dominant ~60% (navigation, hero bands, footer), a secondary ~30% for readable surfaces (page background, cards), and a single accent ~10% for CTAs and highlights—so no hue fights for attention. Copy the hex codes below into CSS variables or your design-system tokens.
+                    <InlineTagLink href="/blog/60-30-10-color-rule">60-30-10 color rule</InlineTagLink> keeps navy as the dominant ~60% (navigation, hero bands, footer), a secondary ~30% for readable surfaces (page background, cards), and a single accent ~10% for CTAs and highlights—so no hue fights for attention. Copy the hex codes below into CSS variables or your design-system tokens, then{' '}
+                    <InlineTagLink href="/tools/color-palette-preview">see navy blue on a real website</InlineTagLink> mockup before handoff.
                   </p>
                   <ul className="space-y-4">
                     {NAVY_WEBSITE_SCHEMES.map((scheme) => (

@@ -230,7 +230,10 @@ export default function ColorPaletteIdeasForSmallBusinessPage() {
                     Next Steps: Lock In Your Palette
                   </h2>
                   <p className="mb-6 leading-relaxed">
-                    Pick one or two directions from the ideas above and try them in real layouts. Use a <Link href="/tools/palette-generator">color palette generator</Link> to create a set from your main brand color, then <Link href="/tools/contrast-checker">check contrast</Link> for any text and button pairs. Document your hex codes in a simple style note so you and anyone helping with design use the same values. For more on brand and logo color systems, see our guide on <Link href="/use-cases/colors-for-branding-and-logos">colors for branding and logos</Link>.
+                    Pick one or two directions from the ideas above and try them in real layouts with our{' '}
+                    <InlineTagLink href="/tools/color-palette-preview">color palette preview tool</InlineTagLink>. Use a{' '}
+                    <Link href="/tools/palette-generator">color palette generator</Link> to create a set from your main brand color, then{' '}
+                    <Link href="/tools/contrast-checker">check contrast</Link> for any text and button pairs. Document your hex codes in a simple style note so you and anyone helping with design use the same values. For more on brand and logo color systems, see our guide on <Link href="/use-cases/colors-for-branding-and-logos">colors for branding and logos</Link>.
                   </p>
 
                   <h2 className="text-2xl font-bold text-gray-900 dark:text-white mt-8 mb-4">

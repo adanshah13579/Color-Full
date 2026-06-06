@@ -282,7 +282,8 @@ export default function DarkModeColorPalettePage() {
                     WCAG Success Criterion 1.4.3 applies regardless of theme: normal text needs 4.5:1 against its background at Level AA; large text needs 3:1. Dark mode failures cluster on secondary text, placeholder inputs, disabled buttons, and purple links that looked acceptable in Figma’s default dark preview but fail on #121212 in production.
                   </p>
                   <p className="mb-4">
-                    Test every pair in your <strong className="text-gray-900 dark:text-white">dark mode color scheme</strong>: body on surface, body on canvas, accent label on accent fill, icon on surface, focus ring on surface. Run the same checks after brand updates—dark mode is not “set once” when marketing ships a new accent. Use our free{' '}
+                    Test every pair in your <strong className="text-gray-900 dark:text-white">dark mode color scheme</strong>: body on surface, body on canvas, accent label on accent fill, icon on surface, focus ring on surface. Preview sidebar and card colors on a{' '}
+                    <InlineTagLink href="/tools/color-palette-preview/dashboard">dashboard color palette mockup</InlineTagLink> before locking tokens. Run the same checks after brand updates—dark mode is not “set once” when marketing ships a new accent. Use our free{' '}
                     <InlineTagLink href="/tools/contrast-checker">WCAG contrast checker</InlineTagLink> with exact hex values from the tables above before merging token changes.
                   </p>
                   <p className="mb-6">

@@ -116,8 +116,9 @@ export default function WcagAccessibleButtonsAndLinksPage() {
                   <p className="text-gray-700 dark:text-gray-300 leading-relaxed mb-6">
                     Links and buttons are how people complete tasks on the web. If the label color is too close to the background, WCAG audits fail and real users miss CTAs. This article walks through{' '}
                     <strong>accessible button and link colors</strong> with hex swatches placed next to each idea—so you see examples as you read, not after a long theory section. Use our{' '}
-                    <Link href="/tools/contrast-checker">contrast checker</Link> to verify every pair, and our{' '}
-                    <Link href="/tools/palette-generator">palette generator</Link> when you need related hover and active shades.
+                    <Link href="/tools/contrast-checker">contrast checker</Link> to verify every pair, our{' '}
+                    <Link href="/tools/palette-generator">palette generator</Link> when you need related hover and active shades, and our{' '}
+                    <InlineTagLink href="/tools/color-palette-preview/landing-page">landing page color preview</InlineTagLink> to see how CTA and link colors read on a real marketing layout.
                   </p>
                   <p className="mb-2 text-sm font-medium text-gray-600 dark:text-gray-400">
                     Quick kit (copy any hex into the contrast checker):

@@ -14,6 +14,38 @@ const tools = [
     gradient: 'from-blue-500 to-cyan-500',
   },
   {
+    id: 'color-palette-preview',
+    name: 'Website Color Palette Preview',
+    description: 'Pick your five brand colors and preview them on dashboard, landing page, and mobile app mockups instantly.',
+    icon: '🖥️',
+    href: '/tools/color-palette-preview',
+    gradient: 'from-indigo-500 to-blue-500',
+  },
+  {
+    id: 'dashboard-palette-preview',
+    name: 'Dashboard Color Preview',
+    description: 'See your palette on an admin dashboard with sidebar, stats cards, charts, and activity lists.',
+    icon: '📊',
+    href: '/tools/color-palette-preview/dashboard',
+    gradient: 'from-blue-600 to-indigo-600',
+  },
+  {
+    id: 'landing-palette-preview',
+    name: 'Landing Page Color Preview',
+    description: 'Preview hero, features, testimonials, CTA, and footer sections in your brand colors.',
+    icon: '🚀',
+    href: '/tools/color-palette-preview/landing-page',
+    gradient: 'from-violet-500 to-purple-500',
+  },
+  {
+    id: 'mobile-palette-preview',
+    name: 'Mobile App Color Preview',
+    description: 'See your colors on a phone mockup with navigation, cards, and list items before you build.',
+    icon: '📱',
+    href: '/tools/color-palette-preview/mobile-app',
+    gradient: 'from-cyan-500 to-blue-500',
+  },
+  {
     id: 'contrast-checker',
     name: 'Accessibility Contrast Checker',
     description: 'Check color contrast ratios for accessibility compliance. Ensure your designs meet WCAG guidelines.',
@@ -144,6 +176,26 @@ export default function ToolsPageClient() {
               to build harmonious palettes for websites, design systems, or brand identities. Start from a single base
               color and explore complementary, analogous, or triadic schemes with hex values ready to paste into Figma,
               CSS, or your component library.
+            </p>
+            <h3>Website color palette preview</h3>
+            <p className="mb-3">
+              The{' '}
+              <Link href="/tools/color-palette-preview" className="text-purple-600 dark:text-purple-400 font-semibold">
+                website color palette preview
+              </Link>{' '}
+              hub lets you set five brand colors once and open dashboard, landing page, or mobile app mockups with your palette in the URL. Sub-pages include{' '}
+              <Link href="/tools/color-palette-preview/dashboard" className="text-purple-600 dark:text-purple-400 font-semibold">
+                dashboard
+              </Link>
+              ,{' '}
+              <Link href="/tools/color-palette-preview/landing-page" className="text-purple-600 dark:text-purple-400 font-semibold">
+                landing page
+              </Link>
+              , and{' '}
+              <Link href="/tools/color-palette-preview/mobile-app" className="text-purple-600 dark:text-purple-400 font-semibold">
+                mobile app
+              </Link>{' '}
+              previews so you can judge contrast and hierarchy before building in Figma or code.
             </p>
             <h3>Accessibility contrast checker</h3>
             <p className="mb-3">

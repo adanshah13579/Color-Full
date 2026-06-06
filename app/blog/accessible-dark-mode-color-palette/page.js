@@ -189,7 +189,8 @@ export default function AccessibleDarkModeColorPalettePage() {
                     <InlineTagLink href="/tools/palette-generator">color palette generator</InlineTagLink> helps you extend a single accent into harmonious variants for hover and pressed states—then you still verify each state in the contrast checker.
                   </p>
                   <p className="mb-4 leading-relaxed">
-                    <strong>Neutral starter (dashboards & marketing):</strong> near-black canvas, lifted surfaces, light gray text, and an indigo accent for actions—mapped to the roles above:
+                    <strong>Neutral starter (dashboards & marketing):</strong> near-black canvas, lifted surfaces, light gray text, and an indigo accent for actions—mapped to the roles above. Use our{' '}
+                    <InlineTagLink href="/tools/color-palette-preview/dashboard">dashboard color palette preview</InlineTagLink> to see how those roles read on sidebar chrome, cards, and charts before you lock tokens:
                   </p>
                   <ul className="mb-4">
                     <li><strong>#0a0a0a</strong> — canvas</li>

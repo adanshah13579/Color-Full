@@ -38,6 +38,10 @@ export default function sitemap(): MetadataRoute.Sitemap {
     '/tools/contrast-checker',
     '/tools/color-name-finder',
     '/tools/tint-shade-generator',
+    '/tools/color-palette-preview',
+    '/tools/color-palette-preview/dashboard',
+    '/tools/color-palette-preview/landing-page',
+    '/tools/color-palette-preview/mobile-app',
     '/blog',
     '/use-cases/colors-for-ui-and-web-design',
     '/use-cases/colors-for-branding-and-logos',
@@ -50,7 +54,14 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   const blogPosts = getBlogPostPathsForSitemap();
   console.log('[sitemap] Blog post URLs:', blogPosts.length, blogPosts);
-  const toolHighPriority = new Set(['/tools/color-name-finder', '/tools/tint-shade-generator']);
+  const toolHighPriority = new Set([
+    '/tools/color-name-finder',
+    '/tools/tint-shade-generator',
+    '/tools/color-palette-preview',
+    '/tools/color-palette-preview/dashboard',
+    '/tools/color-palette-preview/landing-page',
+    '/tools/color-palette-preview/mobile-app',
+  ]);
 
   const staticUrls = staticPages.map((path) => ({
     url: `${baseUrl}${path}`,

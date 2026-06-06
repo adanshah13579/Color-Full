@@ -102,7 +102,8 @@ export default function HowToGenerateColorPaletteForBrandPage() {
               Add neutrals: a dark color for text, a light color for backgrounds, and one or two grays for borders and secondary text. Ensure that the primary text-on-background pair meets contrast requirements. Define semantic colors if needed: success (e.g. green), warning (e.g. amber), error (e.g. red). Keep the total palette small (three to seven colors) so it stays manageable.
             </p>
             <p className="mb-4 leading-relaxed">
-              Document the palette in a style guide with names (e.g. Brand Primary, Surface, Text) and values. Share hex codes with developers for web and app; provide CMYK or Pantone for print. Test the palette in real layouts: buttons, cards, and long-form text. Adjust if any combination fails contrast or feels off-brand.
+              Document the palette in a style guide with names (e.g. Brand Primary, Surface, Text) and values. Share hex codes with developers for web and app; provide CMYK or Pantone for print. Test the palette in real layouts: buttons, cards, and long-form text — use our{' '}
+              <InlineTagLink href="/tools/color-palette-preview">color palette preview tool</InlineTagLink> to see all five roles on dashboard, landing page, and mobile mockups before handoff. Adjust if any combination fails contrast or feels off-brand.
             </p>
           </section>
 
