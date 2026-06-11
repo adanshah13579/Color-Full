@@ -1,5 +1,7 @@
 import Link from 'next/link';
 import InlineTagLink from '../../components/InlineTagLink';
+import BlogArticleSchema from './BlogArticleSchema';
+import BlogBreadcrumbs from './BlogBreadcrumbs';
 import {
   MixRatioTable,
   PalettePairingsSection,
@@ -58,6 +60,9 @@ function BlogMixerCTA({ mixerHref, mixerLabel }) {
  * @param {string} props.mixerHref
  * @param {string} props.mixerLabel
  * @param {object} props.faqSchema
+ * @param {Record<string, unknown>} props.articleSchema
+ * @param {string} props.breadcrumbTitle
+ * @param {string} props.breadcrumbSlug
  */
 export default function ColorMixGuidePost({
   heroGradient,
@@ -83,10 +88,20 @@ export default function ColorMixGuidePost({
   mixerHref,
   mixerLabel,
   faqSchema,
+  articleSchema,
+  breadcrumbTitle,
+  breadcrumbSlug,
 }) {
   return (
     <article className="min-h-screen bg-white dark:bg-gray-900">
+      {articleSchema ? <BlogArticleSchema schema={articleSchema} /> : null}
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
+
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 pt-3">
+        <div className="max-w-4xl mx-auto">
+          <BlogBreadcrumbs postTitle={breadcrumbTitle} slug={breadcrumbSlug} />
+        </div>
+      </div>
 
       <section className={`bg-gradient-to-br ${heroGradient} text-white py-12 md:py-16`}>
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">

@@ -5,6 +5,13 @@ import ColorSwatch from '../[slug]/ColorSwatch';
 import BlogToolsCTA from '../components/BlogToolsCTA';
 import BlogToolsCTAInline from '../components/BlogToolsCTAInline';
 import { buildPageMetadata } from '../../../lib/buildPageMetadata';
+import BlogArticleSchema from '../components/BlogArticleSchema';
+import {
+  getBlogArticleSchema,
+  getBlogArticleDatePublished,
+  BLOG_ARTICLE_DATE_MODIFIED,
+} from '../../../lib/getBlogArticleSchema';
+import BlogBreadcrumbs from '../components/BlogBreadcrumbs';
 
 export const metadata = buildPageMetadata({
   path: '/blog/best-neutral-colors-pair-with-brand',
@@ -13,6 +20,14 @@ export const metadata = buildPageMetadata({
     'Neutral colors for branding: grays, off-whites, and warm vs cool neutrals that pair with blue, green, and any brand color. Plus contrast-safe text and background combos.',
   keywords: ['neutral colors', 'brand pairing', 'gray palette', 'contrast', 'Theme & Color'],
 });
+const articleSchema = getBlogArticleSchema(
+  'Best Neutral Colors to Pair With Your Brand Color',
+  'Neutral colors for branding: grays, off-whites, and warm vs cool neutrals that pair with blue, green, and any brand color. Plus contrast-safe text and background combos.',
+  'best-neutral-colors-pair-with-brand',
+  getBlogArticleDatePublished('best-neutral-colors-pair-with-brand'),
+  BLOG_ARTICLE_DATE_MODIFIED
+);
+
 
 const SIDEBAR_PALETTE = [
   { hexCode: '#374151', colorName: 'Slate gray', rgbCode: 'rgb(55, 65, 81)' },
@@ -64,10 +79,19 @@ const faqSchema = {
 export default function BestNeutralColorsPairWithBrandPage() {
   return (
     <article className="min-h-screen bg-white dark:bg-gray-900">
+      <BlogArticleSchema schema={articleSchema} />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
       />
+
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 pt-3">
+        <div className="max-w-4xl mx-auto">
+          <BlogBreadcrumbs postTitle={articleSchema.headline} slug="best-neutral-colors-pair-with-brand" />
+        </div>
+      </div>
+
+
       {/* Hero */}
       <section className="bg-gradient-to-br from-purple-600 via-pink-600 to-blue-600 text-white py-12 md:py-16">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">

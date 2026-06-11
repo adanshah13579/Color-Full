@@ -5,6 +5,13 @@ import {
   PalettePairingsSection,
 } from '../components/PaletteReferenceBlocks';
 import { buildPageMetadata } from '../../../lib/buildPageMetadata';
+import BlogArticleSchema from '../components/BlogArticleSchema';
+import {
+  getBlogArticleSchema,
+  getBlogArticleDatePublished,
+  BLOG_ARTICLE_DATE_MODIFIED,
+} from '../../../lib/getBlogArticleSchema';
+import BlogBreadcrumbs from '../components/BlogBreadcrumbs';
 
 const LAST_MODIFIED = '2026-06-05T00:00:00.000Z';
 
@@ -29,6 +36,14 @@ export const metadata = buildPageMetadata({
     modifiedTime: LAST_MODIFIED,
   },
 });
+const articleSchema = getBlogArticleSchema(
+  'What Color Does Pink and Purple Make? Magenta & Hex Codes',
+  'Pink and purple mixed make magenta or mauve. See hex codes for every pink-purple mix ratio, color swatches, and palette combinations.',
+  'what-color-does-pink-and-purple-make',
+  getBlogArticleDatePublished('what-color-does-pink-and-purple-make'),
+  BLOG_ARTICLE_DATE_MODIFIED
+);
+
 
 const MIX_ROWS = [
   { ratio: '90% pink + 10% purple', label: 'Light rose magenta', hex: '#FF8FC8' },
@@ -81,7 +96,16 @@ const faqSchema = {
 export default function WhatColorDoesPinkAndPurpleMakePage() {
   return (
     <article className="min-h-screen bg-white dark:bg-gray-900">
+      <BlogArticleSchema schema={articleSchema} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
+
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 pt-3">
+        <div className="max-w-4xl mx-auto">
+          <BlogBreadcrumbs postTitle={articleSchema.headline} slug="what-color-does-pink-and-purple-make" />
+        </div>
+      </div>
+
+
 
       <section className="bg-gradient-to-br from-pink-500 via-fuchsia-600 to-purple-800 text-white py-12 md:py-16">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">

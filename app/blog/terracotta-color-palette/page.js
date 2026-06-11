@@ -4,6 +4,13 @@ import ColorPaletteClient from '../[slug]/ColorPaletteClient';
 import BlogToolsCTA from '../components/BlogToolsCTA';
 import { PaletteQuickAnswer, PaletteShadesTable } from '../components/PaletteReferenceBlocks';
 import { buildPageMetadata } from '../../../lib/buildPageMetadata';
+import BlogArticleSchema from '../components/BlogArticleSchema';
+import {
+  getBlogArticleSchema,
+  getBlogArticleDatePublished,
+  BLOG_ARTICLE_DATE_MODIFIED,
+} from '../../../lib/getBlogArticleSchema';
+import BlogBreadcrumbs from '../components/BlogBreadcrumbs';
 
 const LAST_MODIFIED = '2026-06-01T00:00:00.000Z';
 
@@ -30,6 +37,14 @@ export const metadata = buildPageMetadata({
     modifiedTime: LAST_MODIFIED,
   },
 });
+const articleSchema = getBlogArticleSchema(
+  'Terracotta Color Palette: Hex Codes, Shades & Combinations',
+  'Terracotta color palette hex codes starting with #E2725B. See shades, combinations with sage, navy and cream, and branding examples for earthy warm design.',
+  'terracotta-color-palette',
+  getBlogArticleDatePublished('terracotta-color-palette'),
+  BLOG_ARTICLE_DATE_MODIFIED
+);
+
 
 const QUICK_ROWS = [
   { label: 'Hex', value: '#E2725B' },
@@ -164,7 +179,16 @@ function TerracottaCombinationCard({ combo }) {
 export default function TerracottaColorPalettePage() {
   return (
     <article className="min-h-screen bg-white dark:bg-gray-900">
+      <BlogArticleSchema schema={articleSchema} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
+
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 pt-3">
+        <div className="max-w-4xl mx-auto">
+          <BlogBreadcrumbs postTitle={articleSchema.headline} slug="terracotta-color-palette" />
+        </div>
+      </div>
+
+
 
       <section className="bg-gradient-to-br from-[#3d1810] via-[#7B3F00] to-[#E2725B] text-white py-12 md:py-16">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">

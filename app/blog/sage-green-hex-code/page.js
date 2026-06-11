@@ -9,14 +9,21 @@ import {
   PalettePairingsSection,
 } from '../components/PaletteReferenceBlocks';
 import { buildPageMetadata } from '../../../lib/buildPageMetadata';
+import BlogArticleSchema from '../components/BlogArticleSchema';
+import {
+  getBlogArticleSchema,
+  getBlogArticleDatePublished,
+  BLOG_ARTICLE_DATE_MODIFIED,
+} from '../../../lib/getBlogArticleSchema';
+import BlogBreadcrumbs from '../components/BlogBreadcrumbs';
 
-const LAST_MODIFIED = '2026-06-01T00:00:00.000Z';
+const LAST_MODIFIED = '2026-06-11T00:00:00.000Z';
 
 export const metadata = buildPageMetadata({
   path: '/blog/sage-green-hex-code',
-  title: 'Sage Green Hex Code: #B2AC88 — Copy Code, Shades & Canva Colors',
+  title: 'Sage Green Hex Code #B2AC88 — Copy + Canva Code & All Shades',
   description:
-    'Sage green hex code is #B2AC88. Copy instantly. See 10 shades, RGB values, Canva color codes, and palette pairings for web and brand design.',
+    'Sage green hex code is #B2AC88. Copy instantly. Canva code, RGB(178,172,136), 10 shades from pale to dark sage, and palette pairings. One click copy.',
   keywords: [
     'sage green hex code',
     'sage green hex code canva',
@@ -44,6 +51,14 @@ export const metadata = buildPageMetadata({
     modifiedTime: LAST_MODIFIED,
   },
 });
+const articleSchema = getBlogArticleSchema(
+  'Sage Green Hex Code #B2AC88 — Copy + Canva Code & All Shades',
+  'Sage green hex code is #B2AC88. Copy instantly. Canva code, RGB(178,172,136), 10 shades from pale to dark sage, and palette pairings. One click copy.',
+  'sage-green-hex-code',
+  getBlogArticleDatePublished('sage-green-hex-code'),
+  BLOG_ARTICLE_DATE_MODIFIED
+);
+
 
 const QUICK_ROWS = [
   { label: 'Hex', value: '#B2AC88' },
@@ -269,7 +284,16 @@ function SagePaletteCard({ palette }) {
 export default function SageGreenHexCodePage() {
   return (
     <article className="min-h-screen bg-white dark:bg-gray-900">
+      <BlogArticleSchema schema={articleSchema} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
+
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 pt-3">
+        <div className="max-w-4xl mx-auto">
+          <BlogBreadcrumbs postTitle={articleSchema.headline} slug="sage-green-hex-code" />
+        </div>
+      </div>
+
+
 
       <section className="bg-gradient-to-br from-stone-900 via-[#2f3d2c] to-emerald-950 text-white py-12 md:py-16">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
@@ -284,7 +308,7 @@ export default function SageGreenHexCodePage() {
               Back to Blog
             </Link>
             <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4 leading-tight">
-              Sage Green Hex Code: #B2AC88 — Copy Code, Shades &amp; Canva Colors
+              Sage Green Hex Code #B2AC88 — Copy + Canva Code &amp; All Shades
             </h1>
             <p className="text-stone-200/95 text-lg max-w-3xl mb-6">
               Copy the canonical <strong className="text-white font-semibold">sage green hex code</strong> #B2AC88 instantly—plus dark and light sage shades,{' '}
@@ -296,7 +320,7 @@ export default function SageGreenHexCodePage() {
               aria-label="Sage green color swatch hex B2AC88"
             />
             <div className="flex items-center gap-4 text-lime-100/85 text-sm">
-              <time dateTime="2026-06-01">June 1, 2026</time>
+              <time dateTime="2026-06-11">Updated June 11, 2026</time>
               <span>•</span>
               <span>12 min read</span>
             </div>
@@ -445,8 +469,8 @@ export default function SageGreenHexCodePage() {
                   <p className="mb-4">
                     <strong className="text-gray-900 dark:text-white">Organic food and beverage.</strong> Farm-to-table grocers and plant-based CPG sites lean on
                     sage to echo packaging without cloning every competitor’s kraft brown. Use asparagus and fern rows from the table for ingredient callouts and
-                    progress bars; keep photography color grading consistent so UI greens do not clash with real lettuce in shots. Dusty rose works well for loyalty
-                    badges and “new harvest” ribbons because it reads as human warmth rather than discount red.
+                    progress bars; keep photography color grading consistent so UI greens do not clash with real lettuce in shots.{' '}
+                    <InlineTagLink href="/blog/dusty-rose-hex-code">dusty rose hex code</InlineTagLink> works well for loyalty badges and “new harvest” ribbons because it reads as human warmth rather than discount red.
                   </p>
                   <p className="mb-6">
                     <strong className="text-gray-900 dark:text-white">Lifestyle editorial and fashion.</strong> Lookbooks that mix sage section backgrounds with
@@ -562,9 +586,11 @@ export default function SageGreenHexCodePage() {
 
                   <p className="mt-8 mb-6">
                     Compare with{' '}
-                    <InlineTagLink href="/blog/forest-green-hex-code">forest green hex codes</InlineTagLink> for brighter botanical UI, or{' '}
+                    <InlineTagLink href="/blog/forest-green-hex-code">forest green hex codes</InlineTagLink> for brighter botanical UI,{' '}
+                    <InlineTagLink href="/blog/yellow-green-hex-code">yellow green hex code</InlineTagLink> for chartreuse accents, or{' '}
                     <InlineTagLink href="/blog/navy-blue-hex-code">navy blue hex reference</InlineTagLink> when you need a cooler structural accent alongside sage
-                    panels. Validate every final pair with the{' '}
+                    panels. For dusty pink-purple pairings, see our{' '}
+                    <InlineTagLink href="/blog/mauve-color">mauve color palette</InlineTagLink>. Validate every final pair with the{' '}
                     <InlineTagLink href="/tools/contrast-checker">contrast checker</InlineTagLink> before release.
                   </p>
 

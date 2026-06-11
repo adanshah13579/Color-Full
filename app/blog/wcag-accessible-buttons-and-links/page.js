@@ -5,6 +5,13 @@ import ColorSwatch from '../[slug]/ColorSwatch';
 import BlogToolsCTA from '../components/BlogToolsCTA';
 import BlogToolsCTAInline from '../components/BlogToolsCTAInline';
 import { buildPageMetadata } from '../../../lib/buildPageMetadata';
+import BlogArticleSchema from '../components/BlogArticleSchema';
+import {
+  getBlogArticleSchema,
+  getBlogArticleDatePublished,
+  BLOG_ARTICLE_DATE_MODIFIED,
+} from '../../../lib/getBlogArticleSchema';
+import BlogBreadcrumbs from '../components/BlogBreadcrumbs';
 
 export const metadata = buildPageMetadata({
   path: '/blog/wcag-accessible-buttons-and-links',
@@ -13,6 +20,14 @@ export const metadata = buildPageMetadata({
     'Pick accessible link and button colors for WCAG AA: contrast ratios, filled and outline CTAs, dark sections, focus rings. Hex swatches inline with each tip—test pairs in our free contrast checker.',
   keywords: ['WCAG buttons', 'link contrast', 'CTA colors', 'focus ring', 'Theme & Color'],
 });
+const articleSchema = getBlogArticleSchema(
+  'WCAG Contrast for Buttons and Links: Hex Examples for Web UI',
+  'Pick accessible link and button colors for WCAG AA: contrast ratios, filled and outline CTAs, dark sections, focus rings. Hex swatches inline with each tip—test pairs in our free contrast checker.',
+  'wcag-accessible-buttons-and-links',
+  getBlogArticleDatePublished('wcag-accessible-buttons-and-links'),
+  BLOG_ARTICLE_DATE_MODIFIED
+);
+
 
 const SIDEBAR_PALETTE = [
   { hexCode: '#ffffff', colorName: 'Page', rgbCode: 'rgb(255, 255, 255)' },
@@ -69,10 +84,19 @@ const faqSchema = {
 export default function WcagAccessibleButtonsAndLinksPage() {
   return (
     <article className="min-h-screen bg-white dark:bg-gray-900">
+      <BlogArticleSchema schema={articleSchema} />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
       />
+
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 pt-3">
+        <div className="max-w-4xl mx-auto">
+          <BlogBreadcrumbs postTitle={articleSchema.headline} slug="wcag-accessible-buttons-and-links" />
+        </div>
+      </div>
+
+
 
       <section className="bg-gradient-to-br from-indigo-600 via-blue-600 to-cyan-600 text-white py-12 md:py-16">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
@@ -352,6 +376,13 @@ export default function WcagAccessibleButtonsAndLinksPage() {
                     </div>
                   </div>
                 </div>
+
+                <p className="mb-6 leading-relaxed text-gray-700 dark:text-gray-300">
+                  Go deeper on accessibility: read our{' '}
+                  <InlineTagLink href="/blog/accessibility-color-contrast-checker">accessibility color contrast checker</InlineTagLink> guide,{' '}
+                  <InlineTagLink href="/blog/how-to-check-color-contrast-accessibility">how to check color contrast</InlineTagLink> walkthrough, and run every pair through our{' '}
+                  <InlineTagLink href="/tools/contrast-checker">WCAG contrast checker</InlineTagLink>.
+                </p>
 
                 <BlogToolsCTA />
 

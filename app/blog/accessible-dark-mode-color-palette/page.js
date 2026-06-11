@@ -5,6 +5,13 @@ import ColorSwatch from '../[slug]/ColorSwatch';
 import BlogToolsCTA from '../components/BlogToolsCTA';
 import BlogToolsCTAInline from '../components/BlogToolsCTAInline';
 import { buildPageMetadata } from '../../../lib/buildPageMetadata';
+import BlogArticleSchema from '../components/BlogArticleSchema';
+import {
+  getBlogArticleSchema,
+  getBlogArticleDatePublished,
+  BLOG_ARTICLE_DATE_MODIFIED,
+} from '../../../lib/getBlogArticleSchema';
+import BlogBreadcrumbs from '../components/BlogBreadcrumbs';
 
 export const metadata = buildPageMetadata({
   path: '/blog/accessible-dark-mode-color-palette',
@@ -13,6 +20,14 @@ export const metadata = buildPageMetadata({
     'Build a WCAG-friendly dark mode color palette: surfaces, text, borders, and accents with hex examples. Test contrast and generate harmonies with free tools.',
   keywords: ['dark mode palette', 'WCAG', 'accessible UI', 'hex examples', 'Theme & Color'],
 });
+const articleSchema = getBlogArticleSchema(
+  'How to Build an Accessible Dark Mode Color Palette (With Hex Examples)',
+  'Build a WCAG-friendly dark mode color palette: surfaces, text, borders, and accents with hex examples. Test contrast and generate harmonies with free tools.',
+  'accessible-dark-mode-color-palette',
+  getBlogArticleDatePublished('accessible-dark-mode-color-palette'),
+  BLOG_ARTICLE_DATE_MODIFIED
+);
+
 
 const SIDEBAR_PALETTE = [
   { hexCode: '#0a0a0a', colorName: 'Canvas', rgbCode: 'rgb(10, 10, 10)' },
@@ -68,10 +83,19 @@ const faqSchema = {
 export default function AccessibleDarkModeColorPalettePage() {
   return (
     <article className="min-h-screen bg-white dark:bg-gray-900">
+      <BlogArticleSchema schema={articleSchema} />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
       />
+
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 pt-3">
+        <div className="max-w-4xl mx-auto">
+          <BlogBreadcrumbs postTitle={articleSchema.headline} slug="accessible-dark-mode-color-palette" />
+        </div>
+      </div>
+
+
 
       <section className="bg-gradient-to-br from-purple-600 via-pink-600 to-blue-600 text-white py-12 md:py-16">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">

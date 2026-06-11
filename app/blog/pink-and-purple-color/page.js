@@ -1,5 +1,11 @@
+import InlineTagLink from '../../components/InlineTagLink';
 import ColorMixGuidePost from '../components/ColorMixGuidePost';
 import { buildPageMetadata } from '../../../lib/buildPageMetadata';
+import {
+  getBlogArticleSchema,
+  getBlogArticleDatePublished,
+  BLOG_ARTICLE_DATE_MODIFIED,
+} from '../../../lib/getBlogArticleSchema';
 
 const LAST_MODIFIED = '2026-06-01T00:00:00.000Z';
 
@@ -25,6 +31,14 @@ export const metadata = buildPageMetadata({
     modifiedTime: LAST_MODIFIED,
   },
 });
+const articleSchema = getBlogArticleSchema(
+  'Pink and Purple Color: What They Make, Palettes & Hex Codes',
+  'Pink and purple together make magenta or mauve. See hex codes for pink-purple mixes, palette combinations, and what colors go with pink and purple.',
+  'pink-and-purple-color',
+  getBlogArticleDatePublished('pink-and-purple-color'),
+  BLOG_ARTICLE_DATE_MODIFIED
+);
+
 
 const MIX_ROWS = [
   { ratio: '80% pink + 20% purple', label: 'Soft magenta', hex: '#F06BB8' },
@@ -143,12 +157,21 @@ export default function PinkAndPurpleColorPage() {
             <strong className="text-gray-900 dark:text-white">Creative portfolios.</strong> One magenta accent per viewport
             is enough; use the mix table to name token steps (surface, accent, emphasis) before handoff to engineering.
           </p>
+          <p>
+            For named pink-purple hues, browse{' '}
+            <InlineTagLink href="/blog/pink-purple-color-name">pink purple color names</InlineTagLink> and our{' '}
+            <InlineTagLink href="/blog/mauve-color">mauve hex code</InlineTagLink> guide, or experiment in the{' '}
+            <InlineTagLink href="/tools/color-mixer">color mixer tool</InlineTagLink>.
+          </p>
         </>
       }
       faq={FAQ}
       mixerHref="/tools/color-mixer/pink-and-purple"
       mixerLabel="Pink & Purple Color Mixer"
       faqSchema={faqSchema}
+      articleSchema={articleSchema}
+      breadcrumbTitle={articleSchema.headline}
+      breadcrumbSlug="pink-and-purple-color"
     />
   );
 }

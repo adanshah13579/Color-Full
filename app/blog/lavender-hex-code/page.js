@@ -10,14 +10,21 @@ import {
   PaletteUiUsageSection,
 } from '../components/PaletteReferenceBlocks';
 import { buildPageMetadata } from '../../../lib/buildPageMetadata';
+import BlogArticleSchema from '../components/BlogArticleSchema';
+import {
+  getBlogArticleSchema,
+  getBlogArticleDatePublished,
+  BLOG_ARTICLE_DATE_MODIFIED,
+} from '../../../lib/getBlogArticleSchema';
+import BlogBreadcrumbs from '../components/BlogBreadcrumbs';
 
-const LAST_MODIFIED = '2026-06-05T00:00:00.000Z';
+const LAST_MODIFIED = '2026-06-11T00:00:00.000Z';
 
 export const metadata = buildPageMetadata({
   path: '/blog/lavender-hex-code',
-  title: 'Lavender Hex Code: #E6E6FA — Shades, RGB & Palette Pairings',
+  title: 'Lavender Hex Code #E6E6FA — Copy + RGB, Shades & Pairings',
   description:
-    'Lavender hex code is #E6E6FA. Copy instantly. Get RGB values, 10 lavender shades from pale to deep purple, and palette pairings for soft elegant design.',
+    'Lavender hex code is #E6E6FA. Copy instantly. RGB(230,230,250), 10 lavender shades, palette pairings and purple color codes. One click copy.',
   keywords: [
     'lavender hex code',
     'hex code for lavender purple',
@@ -34,6 +41,14 @@ export const metadata = buildPageMetadata({
     modifiedTime: LAST_MODIFIED,
   },
 });
+const articleSchema = getBlogArticleSchema(
+  'Lavender Hex Code #E6E6FA — Copy + RGB, Shades & Pairings',
+  'Lavender hex code is #E6E6FA. Copy instantly. RGB(230,230,250), 10 lavender shades, palette pairings and purple color codes. One click copy.',
+  'lavender-hex-code',
+  getBlogArticleDatePublished('lavender-hex-code'),
+  BLOG_ARTICLE_DATE_MODIFIED
+);
+
 
 const QUICK_ROWS = [
   { label: 'Hex', value: '#E6E6FA' },
@@ -133,7 +148,16 @@ const faqSchema = {
 export default function LavenderHexCodePage() {
   return (
     <article className="min-h-screen bg-white dark:bg-gray-900">
+      <BlogArticleSchema schema={articleSchema} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
+
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 pt-3">
+        <div className="max-w-4xl mx-auto">
+          <BlogBreadcrumbs postTitle={articleSchema.headline} slug="lavender-hex-code" />
+        </div>
+      </div>
+
+
 
       <section className="bg-gradient-to-br from-violet-900 via-purple-700 to-indigo-500 text-white py-12 md:py-16">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
@@ -148,7 +172,7 @@ export default function LavenderHexCodePage() {
               Back to Blog
             </Link>
             <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4 leading-tight">
-              Lavender Hex Code: #E6E6FA — Shades, RGB &amp; Palette Pairings
+              Lavender Hex Code #E6E6FA — Copy + RGB, Shades &amp; Pairings
             </h1>
             <p className="text-violet-100 text-lg max-w-3xl mb-6">
               Lavender hex code is <strong className="text-white font-semibold">#E6E6FA</strong> (RGB 230, 230, 250). Copy ten shades from pale white-lavender to deep purple, four palette pairings, and UI notes for soft elegant design.
@@ -159,7 +183,7 @@ export default function LavenderHexCodePage() {
               aria-label="Lavender color sample, hex E6E6FA"
             />
             <div className="flex items-center gap-4 text-violet-100 text-sm flex-wrap">
-              <time dateTime="2026-06-05">June 5, 2026</time>
+              <time dateTime="2026-06-11">Updated June 11, 2026</time>
               <span>•</span>
               <span>9 min read</span>
             </div>
@@ -221,8 +245,9 @@ export default function LavenderHexCodePage() {
                     Searchers often conflate names. <strong className="text-gray-900 dark:text-white">Lavender</strong> (<strong className="text-gray-900 dark:text-white">#E6E6FA</strong>) is a very light, desaturated blue-violet—94% HSL lightness—designed as a gentle wash, not a bold brand mark. <strong className="text-gray-900 dark:text-white">Purple</strong> in UI usually means something saturated and mid-dark: medium purple (<strong className="text-gray-900 dark:text-white">#9370DB</strong>), amethyst (<strong className="text-gray-900 dark:text-white">#9966CC</strong>), or deep purple (<strong className="text-gray-900 dark:text-white">#4B0082</strong>).
                   </p>
                   <p className="mb-4">
-                    When stakeholders say “lavender purple hex,” they may want the pale CSS lavender for backgrounds or a richer floral lavender (<strong className="text-gray-900 dark:text-white">#B57EDC</strong>) for logos. The shade table above lists both families so you can brief “use #E6E6FA for page chrome, #734F96 for headings” instead of debating ad hoc swatches. For adjacent soft purples, see our{' '}
-                    <InlineTagLink href="/blog/c4b5fd-color">#C4B5FD lavender purple guide</InlineTagLink>.
+                    When stakeholders say “lavender purple hex,” they may want the pale CSS lavender for backgrounds or a richer floral lavender (<strong className="text-gray-900 dark:text-white">#B57EDC</strong>) for logos. The shade table above lists both families so you can brief “use #E6E6FA for page chrome, #734F96 for headings” instead of debating ad hoc swatches. For adjacent soft purples, compare our{' '}
+                    <InlineTagLink href="/blog/mauve-color">mauve color</InlineTagLink> reference and{' '}
+                    <InlineTagLink href="/blog/c4b5fd-color">#C4B5FD lavender purple</InlineTagLink> guide.
                   </p>
                   <p className="mb-6">
                     In print and paint, “lavender” skews even pinker than web lavender; digital handoffs should always specify hex. If packaging must match screen, note the delta between #E6E6FA and Pantone or CMYK references so manufacturing variance does not surprise brand reviewers.

@@ -2,6 +2,13 @@ import Link from 'next/link';
 import InlineTagLink from '../../components/InlineTagLink';
 import ContrastPairExample from '../components/ContrastPairExample';
 import { buildPageMetadata } from '../../../lib/buildPageMetadata';
+import BlogArticleSchema from '../components/BlogArticleSchema';
+import {
+  getBlogArticleSchema,
+  getBlogArticleDatePublished,
+  BLOG_ARTICLE_DATE_MODIFIED,
+} from '../../../lib/getBlogArticleSchema';
+import BlogBreadcrumbs from '../components/BlogBreadcrumbs';
 
 const LAST_MODIFIED = '2026-06-01T00:00:00.000Z';
 
@@ -35,6 +42,14 @@ export const metadata = buildPageMetadata({
     modifiedTime: LAST_MODIFIED,
   },
 });
+const articleSchema = getBlogArticleSchema(
+  'Accessibility Color Contrast Checker — Free WCAG & ADA Tool',
+  'Instantly check if your colors meet WCAG AA, AAA and ADA accessibility standards. Free tool — no signup. Used by designers and developers worldwide.',
+  'accessibility-color-contrast-checker',
+  getBlogArticleDatePublished('accessibility-color-contrast-checker'),
+  BLOG_ARTICLE_DATE_MODIFIED
+);
+
 
 const FAQ = [
   {
@@ -135,7 +150,16 @@ const MISTAKES = [
 export default function AccessibilityColorContrastCheckerPage() {
   return (
     <article className="min-h-screen bg-white dark:bg-gray-900">
+      <BlogArticleSchema schema={articleSchema} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
+
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 pt-3">
+        <div className="max-w-4xl mx-auto">
+          <BlogBreadcrumbs postTitle={articleSchema.headline} slug="accessibility-color-contrast-checker" />
+        </div>
+      </div>
+
+
 
       <div className="not-prose border-b border-emerald-700/30 bg-emerald-600 dark:bg-emerald-700">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-4 md:py-5">

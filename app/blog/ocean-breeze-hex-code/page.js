@@ -10,6 +10,13 @@ import {
   PaletteUiUsageSection,
 } from '../components/PaletteReferenceBlocks';
 import { buildPageMetadata } from '../../../lib/buildPageMetadata';
+import BlogArticleSchema from '../components/BlogArticleSchema';
+import {
+  getBlogArticleSchema,
+  getBlogArticleDatePublished,
+  BLOG_ARTICLE_DATE_MODIFIED,
+} from '../../../lib/getBlogArticleSchema';
+import BlogBreadcrumbs from '../components/BlogBreadcrumbs';
 
 export const metadata = buildPageMetadata({
   path: '/blog/ocean-breeze-hex-code',
@@ -18,6 +25,14 @@ export const metadata = buildPageMetadata({
     'Ocean breeze hex codes include #0EA5E9, #06B6D4, #14B8A6 and more. Copy 10 shades, UI use cases, palette pairings, and build your own with our free color tools.',
   keywords: ['ocean breeze hex', 'teal hex codes', 'blue palette', 'copy paste colors', 'Theme & Color'],
 });
+const articleSchema = getBlogArticleSchema(
+  'Ocean Breeze Hex Codes: Blue & Teal Color Codes (Copy-Paste)',
+  'Ocean breeze hex codes include #0EA5E9, #06B6D4, #14B8A6 and more. Copy 10 shades, UI use cases, palette pairings, and build your own with our free color tools.',
+  'ocean-breeze-hex-code',
+  getBlogArticleDatePublished('ocean-breeze-hex-code'),
+  BLOG_ARTICLE_DATE_MODIFIED
+);
+
 
 const OCEAN_BREEZE = [
   { hexCode: '#0EA5E9', colorName: 'Sky Blue', rgbCode: 'rgb(14, 165, 233)' },
@@ -113,7 +128,16 @@ const faqSchema = {
 export default function OceanBreezeHexCodePage() {
   return (
     <article className="min-h-screen bg-white dark:bg-gray-900">
+      <BlogArticleSchema schema={articleSchema} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
+
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 pt-3">
+        <div className="max-w-4xl mx-auto">
+          <BlogBreadcrumbs postTitle={articleSchema.headline} slug="ocean-breeze-hex-code" />
+        </div>
+      </div>
+
+
 
       <section className="bg-gradient-to-br from-sky-600 via-cyan-500 to-emerald-500 text-white py-12 md:py-16">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">

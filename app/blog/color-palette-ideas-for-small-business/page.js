@@ -5,6 +5,13 @@ import ColorSwatch from '../[slug]/ColorSwatch';
 import BlogToolsCTA from '../components/BlogToolsCTA';
 import BlogToolsCTAInline from '../components/BlogToolsCTAInline';
 import { buildPageMetadata } from '../../../lib/buildPageMetadata';
+import BlogArticleSchema from '../components/BlogArticleSchema';
+import {
+  getBlogArticleSchema,
+  getBlogArticleDatePublished,
+  BLOG_ARTICLE_DATE_MODIFIED,
+} from '../../../lib/getBlogArticleSchema';
+import BlogBreadcrumbs from '../components/BlogBreadcrumbs';
 
 export const metadata = buildPageMetadata({
   path: '/blog/color-palette-ideas-for-small-business',
@@ -13,6 +20,14 @@ export const metadata = buildPageMetadata({
     'Practical color palette ideas for small business: how many colors to use, industry examples, and where to apply them on your website and branding.',
   keywords: ['small business colors', 'brand palette', 'website colors', 'Theme & Color'],
 });
+const articleSchema = getBlogArticleSchema(
+  'Color Palette Ideas for Small Business (With Examples)',
+  'Practical color palette ideas for small business: how many colors to use, industry examples, and where to apply them on your website and branding.',
+  'color-palette-ideas-for-small-business',
+  getBlogArticleDatePublished('color-palette-ideas-for-small-business'),
+  BLOG_ARTICLE_DATE_MODIFIED
+);
+
 
 const SIDEBAR_PALETTE = [
   { hexCode: '#1e3a8a', colorName: 'Navy', rgbCode: 'rgb(30, 58, 138)' },
@@ -64,10 +79,19 @@ const faqSchema = {
 export default function ColorPaletteIdeasForSmallBusinessPage() {
   return (
     <article className="min-h-screen bg-white dark:bg-gray-900">
+      <BlogArticleSchema schema={articleSchema} />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
       />
+
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 pt-3">
+        <div className="max-w-4xl mx-auto">
+          <BlogBreadcrumbs postTitle={articleSchema.headline} slug="color-palette-ideas-for-small-business" />
+        </div>
+      </div>
+
+
       {/* Hero Header Section */}
       <section className="bg-gradient-to-br from-purple-600 via-pink-600 to-blue-600 text-white py-12 md:py-16">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">

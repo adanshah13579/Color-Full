@@ -3,6 +3,13 @@ import { Fragment } from 'react'
 import { notFound } from 'next/navigation'
 import { buildPageMetadata } from '../../../lib/buildPageMetadata'
 import { BLOG_DYNAMIC_SLUGS } from '../../../lib/blogSitemapSlugs'
+import {
+  getBlogArticleSchema,
+  getBlogArticleDatePublished,
+  BLOG_ARTICLE_DATE_MODIFIED,
+} from '../../../lib/getBlogArticleSchema'
+import BlogArticleSchema from '../components/BlogArticleSchema'
+import BlogBreadcrumbs from '../components/BlogBreadcrumbs'
 import ColorPaletteClient from './ColorPaletteClient'
 import ColorSwatch from './ColorSwatch'
 import GradientSwatch from './GradientSwatch'
@@ -445,12 +452,29 @@ export default async function BlogPostPage({ params }) {
     }
 
   const isTrendsPost = slug === '10-color-trends-for-2025'
+  const articleHeadline = (post.metaTitle || post.title).replace(/\s*\|\s*Theme & Color\s*$/, '').trim()
+  const articleDescription = post.metaDescription || post.excerpt
+  const articleSchema = getBlogArticleSchema(
+    articleHeadline,
+    articleDescription,
+    slug,
+    getBlogArticleDatePublished(slug),
+    BLOG_ARTICLE_DATE_MODIFIED
+  )
 
   return (
     <article className="min-h-screen bg-white dark:bg-gray-900">
+      <BlogArticleSchema schema={articleSchema} />
       {isTrendsPost ? (
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(trendsFaqSchema) }} />
       ) : null}
+
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 pt-3">
+        <div className="max-w-4xl mx-auto">
+          <BlogBreadcrumbs postTitle={articleHeadline} slug={slug} />
+        </div>
+      </div>
+
       {/* Hero Header Section */}
       <section className="bg-gradient-to-br from-purple-600 via-pink-600 to-blue-600 text-white py-12 md:py-16">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">

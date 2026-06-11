@@ -5,6 +5,13 @@ import ColorSwatch from '../[slug]/ColorSwatch';
 import BlogToolsCTA from '../components/BlogToolsCTA';
 import { PalettePairingsSection } from '../components/PaletteReferenceBlocks';
 import { buildPageMetadata } from '../../../lib/buildPageMetadata';
+import BlogArticleSchema from '../components/BlogArticleSchema';
+import {
+  getBlogArticleSchema,
+  getBlogArticleDatePublished,
+  BLOG_ARTICLE_DATE_MODIFIED,
+} from '../../../lib/getBlogArticleSchema';
+import BlogBreadcrumbs from '../components/BlogBreadcrumbs';
 import CopyableHex from '../forest-green-hex-code/CopyableHex';
 import { BurgundyQuickAnswer, BurgundyShadesTable } from './BurgundyHexLead';
 
@@ -20,6 +27,14 @@ export const metadata = buildPageMetadata({
     modifiedTime: '2026-05-21T00:00:00.000Z',
   },
 });
+const articleSchema = getBlogArticleSchema(
+  'Burgundy Hex Code: #800020 — Shades, Palettes & Copy-Paste',
+  'Burgundy hex code is #800020. Copy hex codes for burgundy shades, see palette pairings with gold, cream and navy, and explore branding examples.',
+  'burgundy-hex-code',
+  getBlogArticleDatePublished('burgundy-hex-code'),
+  BLOG_ARTICLE_DATE_MODIFIED
+);
+
 
 const BURGUNDY_PALETTE = [
   { hexCode: '#800020', colorName: 'Burgundy', rgbCode: 'rgb(128, 0, 32)' },
@@ -100,7 +115,16 @@ const faqSchema = {
 export default function BurgundyHexCodePage() {
   return (
     <article className="min-h-screen bg-white dark:bg-gray-900">
+      <BlogArticleSchema schema={articleSchema} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
+
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 pt-3">
+        <div className="max-w-4xl mx-auto">
+          <BlogBreadcrumbs postTitle={articleSchema.headline} slug="burgundy-hex-code" />
+        </div>
+      </div>
+
+
 
       <section className="bg-gradient-to-br from-[#1F0A0D] via-[#4A0E0E] to-[#800020] text-white py-12 md:py-16">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">

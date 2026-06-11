@@ -2,6 +2,13 @@ import Link from 'next/link';
 import InlineTagLink from '../../components/InlineTagLink';
 import BlogToolsCTA from '../components/BlogToolsCTA';
 import { buildPageMetadata } from '../../../lib/buildPageMetadata';
+import BlogArticleSchema from '../components/BlogArticleSchema';
+import {
+  getBlogArticleSchema,
+  getBlogArticleDatePublished,
+  BLOG_ARTICLE_DATE_MODIFIED,
+} from '../../../lib/getBlogArticleSchema';
+import BlogBreadcrumbs from '../components/BlogBreadcrumbs';
 
 export const metadata = buildPageMetadata({
   path: '/blog/60-30-10-color-rule',
@@ -10,6 +17,14 @@ export const metadata = buildPageMetadata({
     'The 60-30-10 rule makes color easy: 60% dominant, 30% secondary, 10% accent. Learn how to apply it to websites and brands with real hex code examples.',
   keywords: ['60-30-10 rule', 'color palette', 'web design', 'branding', 'hex codes', 'Theme & Color'],
 });
+const articleSchema = getBlogArticleSchema(
+  'The 60-30-10 Color Rule: How to Use It for Web & Brand Design',
+  'The 60-30-10 rule makes color easy: 60% dominant, 30% secondary, 10% accent. Learn how to apply it to websites and brands with real hex code examples.',
+  '60-30-10-color-rule',
+  getBlogArticleDatePublished('60-30-10-color-rule'),
+  BLOG_ARTICLE_DATE_MODIFIED
+);
+
 
 const faqSchema = {
   '@context': 'https://schema.org',
@@ -143,7 +158,16 @@ function PaletteExampleCard({ title, body, dominant, secondary, accent, dLabel, 
 export default function SixtyThirtyTenColorRulePage() {
   return (
     <article className="min-h-screen bg-white dark:bg-gray-900">
+      <BlogArticleSchema schema={articleSchema} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
+
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 pt-3">
+        <div className="max-w-4xl mx-auto">
+          <BlogBreadcrumbs postTitle={articleSchema.headline} slug="60-30-10-color-rule" />
+        </div>
+      </div>
+
+
 
       <section className="bg-gradient-to-br from-indigo-900 via-violet-900 to-slate-900 text-white py-12 md:py-16">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
@@ -387,7 +411,10 @@ export default function SixtyThirtyTenColorRulePage() {
             </div>
 
             <p className="mb-6 text-gray-700 dark:text-gray-300">
-              Related reads: <InlineTagLink href="/blog/navy-blue-hex-code">Navy blue hex reference</InlineTagLink>,{' '}
+              Related reads: <InlineTagLink href="/blog/how-to-generate-color-palette-for-brand">how to generate a color palette for your brand</InlineTagLink>,{' '}
+              <InlineTagLink href="/blog/color-palette-ideas-for-small-business">color palette ideas for small business</InlineTagLink>, a{' '}
+              <InlineTagLink href="/blog/navy-blue-color-palette">navy blue color palette example</InlineTagLink>,{' '}
+              <InlineTagLink href="/blog/navy-blue-hex-code">Navy blue hex reference</InlineTagLink>,{' '}
               <InlineTagLink href="/blog/sage-green-hex-code">Sage green hex codes</InlineTagLink>, and{' '}
               <InlineTagLink href="/blog/how-to-check-color-contrast-accessibility">how to check color contrast</InlineTagLink> for WCAG depth beyond proportion
               alone.

@@ -10,6 +10,13 @@ import {
   PaletteUiUsageSection,
 } from '../components/PaletteReferenceBlocks';
 import { buildPageMetadata } from '../../../lib/buildPageMetadata';
+import BlogArticleSchema from '../components/BlogArticleSchema';
+import {
+  getBlogArticleSchema,
+  getBlogArticleDatePublished,
+  BLOG_ARTICLE_DATE_MODIFIED,
+} from '../../../lib/getBlogArticleSchema';
+import BlogBreadcrumbs from '../components/BlogBreadcrumbs';
 
 export const metadata = buildPageMetadata({
   path: '/blog/purple-dream',
@@ -18,6 +25,14 @@ export const metadata = buildPageMetadata({
     'Purple dream palette hex codes: #7C3AED (royal purple) to #EDE9FE (lavender). Copy hex codes, see shades, and explore pairings for creative and luxury brands.',
   keywords: ['purple palette', 'lavender hex', '#7C3AED', 'brand colors', 'Theme & Color'],
 });
+const articleSchema = getBlogArticleSchema(
+  'Purple Dream Color Palette: Hex Codes, Shades & Pairings',
+  'Purple dream palette hex codes: #7C3AED (royal purple) to #EDE9FE (lavender). Copy hex codes, see shades, and explore pairings for creative and luxury brands.',
+  'purple-dream',
+  getBlogArticleDatePublished('purple-dream'),
+  BLOG_ARTICLE_DATE_MODIFIED
+);
+
 
 const PALETTE = [
   { hexCode: '#7C3AED', colorName: 'Royal violet', rgbCode: 'rgb(124, 58, 237)' },
@@ -111,7 +126,16 @@ const faqSchema = {
 export default function PurpleDreamPage() {
   return (
     <article className="min-h-screen bg-white dark:bg-gray-900">
+      <BlogArticleSchema schema={articleSchema} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
+
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 pt-3">
+        <div className="max-w-4xl mx-auto">
+          <BlogBreadcrumbs postTitle={articleSchema.headline} slug="purple-dream" />
+        </div>
+      </div>
+
+
       <section className="bg-gradient-to-br from-violet-900 via-purple-600 to-purple-300 text-white py-12 md:py-16">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-4xl mx-auto">

@@ -4,6 +4,13 @@ import ColorPaletteClient from '../[slug]/ColorPaletteClient';
 import BlogToolsCTA from '../components/BlogToolsCTA';
 import { PaletteQuickAnswer, PaletteShadesTable } from '../components/PaletteReferenceBlocks';
 import { buildPageMetadata } from '../../../lib/buildPageMetadata';
+import BlogArticleSchema from '../components/BlogArticleSchema';
+import {
+  getBlogArticleSchema,
+  getBlogArticleDatePublished,
+  BLOG_ARTICLE_DATE_MODIFIED,
+} from '../../../lib/getBlogArticleSchema';
+import BlogBreadcrumbs from '../components/BlogBreadcrumbs';
 
 export const metadata = buildPageMetadata({
   path: '/blog/forest-green-color-palette',
@@ -24,6 +31,14 @@ export const metadata = buildPageMetadata({
     modifiedTime: '2026-05-21T00:00:00.000Z',
   },
 });
+const articleSchema = getBlogArticleSchema(
+  'Forest Green Color Palette: Hex Codes, Shades & Combinations',
+  'Forest green color palette hex codes starting with #228B22. See shades, pairings with brown, cream and terracotta, and UI examples for eco and wellness brands.',
+  'forest-green-color-palette',
+  getBlogArticleDatePublished('forest-green-color-palette'),
+  BLOG_ARTICLE_DATE_MODIFIED
+);
+
 
 const QUICK_ROWS = [
   { label: 'Hex', value: '#228B22' },
@@ -168,7 +183,16 @@ function ForestCombinationCard({ combo }) {
 export default function ForestGreenColorPalettePage() {
   return (
     <article className="min-h-screen bg-white dark:bg-gray-900">
+      <BlogArticleSchema schema={articleSchema} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
+
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 pt-3">
+        <div className="max-w-4xl mx-auto">
+          <BlogBreadcrumbs postTitle={articleSchema.headline} slug="forest-green-color-palette" />
+        </div>
+      </div>
+
+
 
       <section className="bg-gradient-to-br from-emerald-900 via-emerald-700 to-emerald-500 text-white py-12 md:py-16">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">

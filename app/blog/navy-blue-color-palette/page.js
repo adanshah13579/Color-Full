@@ -4,14 +4,21 @@ import ColorPaletteClient from '../[slug]/ColorPaletteClient';
 import BlogToolsCTA from '../components/BlogToolsCTA';
 import { PaletteQuickAnswer, PaletteShadesTable } from '../components/PaletteReferenceBlocks';
 import { buildPageMetadata } from '../../../lib/buildPageMetadata';
+import BlogArticleSchema from '../components/BlogArticleSchema';
+import {
+  getBlogArticleSchema,
+  getBlogArticleDatePublished,
+  BLOG_ARTICLE_DATE_MODIFIED,
+} from '../../../lib/getBlogArticleSchema';
+import BlogBreadcrumbs from '../components/BlogBreadcrumbs';
 
-const LAST_MODIFIED = '2026-05-30T00:00:00.000Z';
+const LAST_MODIFIED = '2026-06-11T00:00:00.000Z';
 
 export const metadata = buildPageMetadata({
   path: '/blog/navy-blue-color-palette',
-  title: 'Navy Blue Color Palette: Hex Codes, Combinations & Schemes',
+  title: 'Navy Blue Color Palette: Hex Codes, Combos & Color Schemes',
   description:
-    'Navy blue color palette with hex codes for every combination. Navy + gold, navy + white, navy + coral and 6 more palettes. Copy hex codes instantly.',
+    'Navy blue color palette hex codes with gold, white, coral and gray. 6 complete navy color schemes with copy-paste hex codes for web and brand design.',
   keywords: [
     'navy blue color palette',
     'navy blue palette',
@@ -32,6 +39,14 @@ export const metadata = buildPageMetadata({
     modifiedTime: LAST_MODIFIED,
   },
 });
+const articleSchema = getBlogArticleSchema(
+  'Navy Blue Color Palette: Hex Codes, Combos & Color Schemes',
+  'Navy blue color palette hex codes with gold, white, coral and gray. 6 complete navy color schemes with copy-paste hex codes for web and brand design.',
+  'navy-blue-color-palette',
+  getBlogArticleDatePublished('navy-blue-color-palette'),
+  BLOG_ARTICLE_DATE_MODIFIED
+);
+
 
 const QUICK_ROWS = [{ label: 'Hex', value: '#000080' }, { label: 'RGB', value: 'rgb(0, 0, 128)' }];
 
@@ -301,7 +316,16 @@ function NavyWebsiteSchemeCard({ scheme }) {
 export default function NavyBlueColorPalettePage() {
   return (
     <article className="min-h-screen bg-white dark:bg-gray-900">
+      <BlogArticleSchema schema={articleSchema} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
+
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 pt-3">
+        <div className="max-w-4xl mx-auto">
+          <BlogBreadcrumbs postTitle={articleSchema.headline} slug="navy-blue-color-palette" />
+        </div>
+      </div>
+
+
 
       <section className="bg-gradient-to-br from-slate-950 via-blue-950 to-indigo-900 text-white py-12 md:py-16">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
@@ -316,14 +340,14 @@ export default function NavyBlueColorPalettePage() {
               Back to Blog
             </Link>
             <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4 leading-tight">
-              Navy Blue Color Palette: Hex Codes, Combinations &amp; Schemes
+              Navy Blue Color Palette: Hex Codes, Combos &amp; Color Schemes
             </h1>
             <p className="text-blue-100/95 text-lg max-w-3xl mb-6">
               A complete <strong className="text-white font-semibold">navy blue color palette</strong> from #000080—navy + gold, white, coral, and six more{' '}
               <strong className="text-white font-semibold">navy blue combinations</strong> with copy-ready hex codes for websites, brands, and UI.
             </p>
             <div className="flex items-center gap-4 text-blue-200/90 text-sm">
-              <time dateTime="2026-05-30">May 30, 2026</time>
+              <time dateTime="2026-06-11">Updated June 11, 2026</time>
               <span>•</span>
               <span>10 min read</span>
             </div>

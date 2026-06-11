@@ -4,14 +4,21 @@ import ColorPaletteClient from '../[slug]/ColorPaletteClient';
 import ColorSwatch from '../[slug]/ColorSwatch';
 import { PaletteQuickAnswer, PaletteShadesTable } from '../components/PaletteReferenceBlocks';
 import { buildPageMetadata } from '../../../lib/buildPageMetadata';
+import BlogArticleSchema from '../components/BlogArticleSchema';
+import {
+  getBlogArticleSchema,
+  getBlogArticleDatePublished,
+  BLOG_ARTICLE_DATE_MODIFIED,
+} from '../../../lib/getBlogArticleSchema';
+import BlogBreadcrumbs from '../components/BlogBreadcrumbs';
 
-const LAST_MODIFIED = '2026-06-01T00:00:00.000Z';
+const LAST_MODIFIED = '2026-06-11T00:00:00.000Z';
 
 export const metadata = buildPageMetadata({
   path: '/blog/sunset-color-palette',
-  title: 'Sunset Color Palette: Hex Codes, RGB Values & Design Examples',
+  title: 'Sunset Color Palette: Hex Codes #F97316 #EC4899 #8B5CF6 (Copy)',
   description:
-    'Sunset color palette hex codes: orange #F97316, pink #EC4899, purple #8B5CF6, red #EF4444. Copy RGB values and see UI examples for warm creative brands.',
+    'Sunset palette hex codes: orange #F97316, coral #FF6B6B, pink #EC4899, purple #8B5CF6. Copy all sunset colors instantly with RGB values.',
   keywords: [
     'sunset color palettes hex codes',
     'sunset colors rgb',
@@ -27,6 +34,14 @@ export const metadata = buildPageMetadata({
     modifiedTime: LAST_MODIFIED,
   },
 });
+const articleSchema = getBlogArticleSchema(
+  'Sunset Color Palette: Hex Codes #F97316 #EC4899 #8B5CF6 (Copy)',
+  'Sunset palette hex codes: orange #F97316, coral #FF6B6B, pink #EC4899, purple #8B5CF6. Copy all sunset colors instantly with RGB values.',
+  'sunset-color-palette',
+  getBlogArticleDatePublished('sunset-color-palette'),
+  BLOG_ARTICLE_DATE_MODIFIED
+);
+
 
 const QUICK_ROWS = [
   { label: 'Orange', value: '#F97316' },
@@ -230,7 +245,16 @@ function BlogMixerPaletteCTA() {
 export default function SunsetColorPalettePage() {
   return (
     <article className="min-h-screen bg-white dark:bg-gray-900">
+      <BlogArticleSchema schema={articleSchema} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
+
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 pt-3">
+        <div className="max-w-4xl mx-auto">
+          <BlogBreadcrumbs postTitle={articleSchema.headline} slug="sunset-color-palette" />
+        </div>
+      </div>
+
+
 
       <section className="bg-gradient-to-br from-amber-500 via-red-500 to-purple-700 text-white py-12 md:py-16">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
@@ -242,7 +266,7 @@ export default function SunsetColorPalettePage() {
               Back to Blog
             </Link>
             <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4 leading-tight">
-              Sunset Color Palette: Hex Codes, RGB Values &amp; Design Examples
+              Sunset Color Palette: Hex Codes #F97316 #EC4899 #8B5CF6 (Copy)
             </h1>
             <p className="text-amber-100 text-lg max-w-3xl mb-6">
               Copy <strong className="text-white font-semibold">sunset color palettes hex codes</strong>—orange #F97316,
@@ -250,7 +274,7 @@ export default function SunsetColorPalettePage() {
               <strong className="text-white font-semibold">sunset colors rgb</strong> values for UI, social, and brand systems.
             </p>
             <div className="flex items-center gap-4 text-amber-100 text-sm">
-              <time dateTime="2026-06-01">June 1, 2026</time>
+              <time dateTime="2026-06-11">Updated June 11, 2026</time>
               <span>•</span>
               <span>10 min read</span>
             </div>

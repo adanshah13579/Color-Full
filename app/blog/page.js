@@ -27,7 +27,11 @@ const CARD_PALETTES = {
   'forest-green': ['#228b22', '#166534', '#15803d', '#86efac', '#dcfce7'],
   'forest-green-color-palette': ['#228b22', '#e2725b', '#fff8f0', '#b2ac88', '#065f46'],
   'forest-green-hex-code': ['#228b22', '#065f46', '#047857', '#10b981', '#34d399'],
+  'forest-green-rgb': ['#228b22', '#3cb371', '#355e3b', '#006400', '#1a4d1a'],
+  'mauve-color': ['#e0b0ff', '#dda0dd', '#374151', '#fff8f0', '#9966cc'],
   'olive-green-hex-code': ['#808000', '#556b2f', '#e2725b', '#000080', '#fff8f0'],
+  'dusty-rose-hex-code': ['#dcae96', '#b2ac88', '#fff8f0', '#e2725b', '#36454f'],
+  'charcoal-hex-code': ['#36454f', '#f8f9fa', '#818cf8', '#64748b', '#111827'],
   'burgundy-hex-code': ['#800020', '#722f37', '#ffd700', '#000080', '#fff8f0'],
   'burgundy-color-palette': ['#800020', '#ffd700', '#000080', '#fff8f0', '#e8b4b8'],
   'c4b5fd-color': ['#c4b5fd', '#7c3aed', '#ede9fe', '#111827', '#fffbec'],
@@ -108,6 +112,22 @@ const staticPosts = [
     publishedAt: '2026-04-11',
   },
   {
+    _id: '31',
+    title: 'Forest Green RGB: RGB(34,139,34) — Color Code, Hex & HSL Values',
+    slug: { current: 'forest-green-rgb' },
+    excerpt:
+      'Forest green RGB value is RGB(34, 139, 34). Hex #228B22 · HSL(120°,61%,34%) · CMYK(76,0,76,45). Copy all forest green color formats instantly.',
+    publishedAt: '2026-06-11',
+  },
+  {
+    _id: '32',
+    title: 'Mauve Color: Hex Code #E0B0FF, RGB & What Makes It Pink-Purple',
+    slug: { current: 'mauve-color' },
+    excerpt:
+      'Mauve is a soft pink-purple color with hex code #E0B0FF. RGB(224,176,255). See mauve shades, palette pairings and why mauve sits between pink and purple.',
+    publishedAt: '2026-06-11',
+  },
+  {
     _id: '19',
     title: 'Forest Green Color Palette: Hex Codes, Shades & Combinations',
     slug: { current: 'forest-green-color-palette' },
@@ -117,11 +137,27 @@ const staticPosts = [
   },
   {
     _id: '20',
-    title: 'Olive Green Hex Code: #808000 — Shades, Palettes & Copy-Paste',
+    title: 'Olive Green Hex Code: #808000 — Copy + RGB, Shades & Pairings',
     slug: { current: 'olive-green-hex-code' },
     excerpt:
-      'Olive green hex code is #808000. Copy 10 olive shades, four pairings with terracotta and navy, and UI examples for outdoor and heritage brands.',
+      'Olive green hex code is #808000. Copy instantly. RGB(128,128,0), 10 olive shades, palette pairings with terracotta and navy. One click copy.',
     publishedAt: '2026-05-21',
+  },
+  {
+    _id: '29',
+    title: 'Dusty Rose Hex Code: #DCAE96 — Copy + RGB, Shades & Pairings',
+    slug: { current: 'dusty-rose-hex-code' },
+    excerpt:
+      'Dusty rose hex code is #DCAE96. Copy instantly. RGB(220,174,150), 10 dusty rose shades, palette pairings with sage, navy and cream. One click copy.',
+    publishedAt: '2026-06-11',
+  },
+  {
+    _id: '30',
+    title: 'Charcoal Hex Code: #36454F — Copy + RGB, Shades & Dark Palettes',
+    slug: { current: 'charcoal-hex-code' },
+    excerpt:
+      'Charcoal hex code is #36454F. Copy instantly. RGB(54,69,79), 10 charcoal shades, dark color palette pairings. Perfect for dark UI and professional design.',
+    publishedAt: '2026-06-11',
   },
   {
     _id: '26',

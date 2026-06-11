@@ -1,5 +1,11 @@
+import InlineTagLink from '../../components/InlineTagLink';
 import ColorMixGuidePost from '../components/ColorMixGuidePost';
 import { buildPageMetadata } from '../../../lib/buildPageMetadata';
+import {
+  getBlogArticleSchema,
+  getBlogArticleDatePublished,
+  BLOG_ARTICLE_DATE_MODIFIED,
+} from '../../../lib/getBlogArticleSchema';
 
 const LAST_MODIFIED = '2026-06-01T00:00:00.000Z';
 
@@ -24,6 +30,14 @@ export const metadata = buildPageMetadata({
     modifiedTime: LAST_MODIFIED,
   },
 });
+const articleSchema = getBlogArticleSchema(
+  'Pink and Blue Color: What They Make, Palettes & Hex Codes',
+  'Pink and blue mixed make lavender or light purple. See hex codes, palette combinations and design tips for using pink and blue together.',
+  'pink-and-blue-color',
+  getBlogArticleDatePublished('pink-and-blue-color'),
+  BLOG_ARTICLE_DATE_MODIFIED
+);
+
 
 const MIX_ROWS = [
   { ratio: '80% pink + 20% blue', label: 'Blush lavender', hex: '#FF54B8' },
@@ -142,12 +156,21 @@ export default function PinkAndBlueColorPage() {
             <strong className="text-gray-900 dark:text-white">Dark mode.</strong> Deepen lavender to #4018DA on #111827
             surfaces and re-test focus rings—pastels that pass on white often fail on dark gray.
           </p>
+          <p>
+            Explore related guides:{' '}
+            <InlineTagLink href="/blog/pink-purple-color-name">pink purple color names</InlineTagLink>,{' '}
+            <InlineTagLink href="/blog/what-color-does-pink-and-purple-make">what color does pink and purple make</InlineTagLink>, or{' '}
+            <InlineTagLink href="/tools/color-mixer">mix colors online</InlineTagLink> with our free simulator.
+          </p>
         </>
       }
       faq={FAQ}
       mixerHref="/tools/color-mixer/pink-and-blue"
       mixerLabel="Pink & Blue Color Mixer"
       faqSchema={faqSchema}
+      articleSchema={articleSchema}
+      breadcrumbTitle={articleSchema.headline}
+      breadcrumbSlug="pink-and-blue-color"
     />
   );
 }

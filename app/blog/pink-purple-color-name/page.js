@@ -1,18 +1,26 @@
 import Link from 'next/link';
 import InlineTagLink from '../../components/InlineTagLink';
 import {
+  PaletteQuickAnswer,
   PaletteShadesTable,
   PalettePairingsSection,
 } from '../components/PaletteReferenceBlocks';
 import { buildPageMetadata } from '../../../lib/buildPageMetadata';
+import BlogArticleSchema from '../components/BlogArticleSchema';
+import {
+  getBlogArticleSchema,
+  getBlogArticleDatePublished,
+  BLOG_ARTICLE_DATE_MODIFIED,
+} from '../../../lib/getBlogArticleSchema';
+import BlogBreadcrumbs from '../components/BlogBreadcrumbs';
 
-const LAST_MODIFIED = '2026-06-05T00:00:00.000Z';
+const LAST_MODIFIED = '2026-06-11T00:00:00.000Z';
 
 export const metadata = buildPageMetadata({
   path: '/blog/pink-purple-color-name',
-  title: 'What is the Color Between Pink and Purple Called? (Hex Codes)',
+  title: 'What Colour is Between Pink and Purple? Mauve, Magenta & More',
   description:
-    'The color between pink and purple is called mauve, magenta or fuchsia depending on the shade. Get hex codes for every pink-purple color name.',
+    'The colour between pink and purple is mauve (#E0B0FF), magenta (#FF00FF) or fuchsia (#FF77FF). See all pink-purple colour names with hex codes. Copy instantly.',
   keywords: [
     'color between pink and purple',
     'what color is between pink and purple',
@@ -30,11 +38,26 @@ export const metadata = buildPageMetadata({
     modifiedTime: LAST_MODIFIED,
   },
 });
+const articleSchema = getBlogArticleSchema(
+  'What Colour is Between Pink and Purple? Mauve, Magenta & More',
+  'The colour between pink and purple is mauve (#E0B0FF), magenta (#FF00FF) or fuchsia (#FF77FF). See all pink-purple colour names with hex codes. Copy instantly.',
+  'pink-purple-color-name',
+  getBlogArticleDatePublished('pink-purple-color-name'),
+  BLOG_ARTICLE_DATE_MODIFIED
+);
+
+
+const PINK_PURPLE_QUICK_COLORS = [
+  { name: 'Mauve', hex: '#E0B0FF' },
+  { name: 'Magenta', hex: '#FF00FF' },
+  { name: 'Fuchsia', hex: '#FF77FF' },
+  { name: 'Orchid', hex: '#DA70D6' },
+];
 
 const PINK_PURPLE_NAMES = [
   { name: 'Mauve', hex: '#E0B0FF' },
   { name: 'Magenta', hex: '#FF00FF' },
-  { name: 'Fuchsia', hex: '#FF00FF' },
+  { name: 'Fuchsia', hex: '#FF77FF' },
   { name: 'Orchid', hex: '#DA70D6' },
   { name: 'Violet', hex: '#EE82EE' },
   { name: 'Plum', hex: '#DDA0DD' },
@@ -103,7 +126,16 @@ const faqSchema = {
 export default function PinkPurpleColorNamePage() {
   return (
     <article className="min-h-screen bg-white dark:bg-gray-900">
+      <BlogArticleSchema schema={articleSchema} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
+
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 pt-3">
+        <div className="max-w-4xl mx-auto">
+          <BlogBreadcrumbs postTitle={articleSchema.headline} slug="pink-purple-color-name" />
+        </div>
+      </div>
+
+
 
       <section className="bg-gradient-to-br from-pink-500 via-fuchsia-600 to-purple-800 text-white py-12 md:py-16">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
@@ -118,8 +150,15 @@ export default function PinkPurpleColorNamePage() {
               Back to Blog
             </Link>
             <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4 leading-tight">
-              What is the Color Between Pink and Purple Called? (Hex Codes)
+              What Colour is Between Pink and Purple? Mauve, Magenta &amp; More
             </h1>
+            <PaletteQuickAnswer
+              theme="purple"
+              ariaLabel="Pink-purple colour names quick copy"
+              headline="Pink-Purple Colour Names — Copy Hex Instantly"
+              subtext="The most searched colours between pink and purple. One-click copy for CSS, Figma, and Canva."
+              namedColorRows={PINK_PURPLE_QUICK_COLORS}
+            />
           </div>
         </div>
       </section>
@@ -127,7 +166,7 @@ export default function PinkPurpleColorNamePage() {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-10 md:py-14">
         <div className="max-w-4xl mx-auto space-y-10">
           <p className="text-lg md:text-xl font-medium text-gray-900 dark:text-white leading-relaxed border-l-4 border-amber-500 bg-amber-50/90 dark:bg-amber-950/30 dark:border-amber-400 pl-5 pr-4 py-4 rounded-r-xl">
-            The color between pink and purple is called mauve (#E0B0FF), magenta (#FF00FF), or fuchsia (#FF00FF) depending on the shade. Lighter versions lean pink, darker versions lean purple.
+            The colour between pink and purple is mauve (#E0B0FF), magenta (#FF00FF), or fuchsia (#FF77FF) depending on the shade. Lighter versions lean pink, darker versions lean purple.
           </p>
 
           <div
@@ -156,7 +195,9 @@ export default function PinkPurpleColorNamePage() {
               <strong className="text-gray-900 dark:text-white">Mauve (#E0B0FF)</strong> is a light, dusty pink-purple named after the mallow flower. It sits closer to pink than magenta does: higher lightness, lower saturation, and a slightly warm undertone that feels vintage and editorial. Designers use mauve for section backgrounds, invitation stationery, and beauty packaging when hot pink would feel too juvenile and deep purple would feel too heavy.
             </p>
             <p className="mb-6">
-              Mauve pairs naturally with plum (#DDA0DD), thistle (#D8BFD8), and cream neutrals. In CSS you can paste #E0B0FF directly or derive tints for hover states. If you need to match a screenshot to the nearest name, use our{' '}
+              Mauve pairs naturally with plum (#DDA0DD), thistle (#D8BFD8), and cream neutrals. In CSS you can paste #E0B0FF directly or derive tints for hover states. For full copy-ready values and pairings, see our{' '}
+              <InlineTagLink href="/blog/mauve-color">mauve hex code</InlineTagLink> guide and{' '}
+              <InlineTagLink href="/blog/lavender-hex-code">lavender hex code</InlineTagLink> reference. If you need to match a screenshot to the nearest name, use our{' '}
               <InlineTagLink href="/tools/color-name-finder">color name finder</InlineTagLink>—especially helpful when clients say “pinkish purple” without a hex.
             </p>
           </div>

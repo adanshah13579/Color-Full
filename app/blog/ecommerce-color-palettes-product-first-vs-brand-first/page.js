@@ -5,6 +5,13 @@ import ColorSwatch from '../[slug]/ColorSwatch';
 import BlogToolsCTA from '../components/BlogToolsCTA';
 import BlogToolsCTAInline from '../components/BlogToolsCTAInline';
 import { buildPageMetadata } from '../../../lib/buildPageMetadata';
+import BlogArticleSchema from '../components/BlogArticleSchema';
+import {
+  getBlogArticleSchema,
+  getBlogArticleDatePublished,
+  BLOG_ARTICLE_DATE_MODIFIED,
+} from '../../../lib/getBlogArticleSchema';
+import BlogBreadcrumbs from '../components/BlogBreadcrumbs';
 
 export const metadata = buildPageMetadata({
   path: '/blog/ecommerce-color-palettes-product-first-vs-brand-first',
@@ -13,6 +20,14 @@ export const metadata = buildPageMetadata({
     'E-commerce color palettes for product-first and brand-first online stores, with hex codes and examples. Learn how to choose store colors and test them with palette and contrast tools.',
   keywords: ['ecommerce colors', 'store palette', 'product pages', 'branding', 'Theme & Color'],
 });
+const articleSchema = getBlogArticleSchema(
+  'E-commerce Color Palettes: Product-First vs Brand-First Approaches',
+  'E-commerce color palettes for product-first and brand-first online stores, with hex codes and examples. Learn how to choose store colors and test them with palette and contrast tools.',
+  'ecommerce-color-palettes-product-first-vs-brand-first',
+  getBlogArticleDatePublished('ecommerce-color-palettes-product-first-vs-brand-first'),
+  BLOG_ARTICLE_DATE_MODIFIED
+);
+
 
 const SIDEBAR_PALETTE = [
   { hexCode: '#020617', colorName: 'Near-black', rgbCode: 'rgb(2, 6, 23)' },
@@ -64,10 +79,19 @@ const faqSchema = {
 export default function EcommerceColorPalettesPage() {
   return (
     <article className="min-h-screen bg-white dark:bg-gray-900">
+      <BlogArticleSchema schema={articleSchema} />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
       />
+
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 pt-3">
+        <div className="max-w-4xl mx-auto">
+          <BlogBreadcrumbs postTitle={articleSchema.headline} slug="ecommerce-color-palettes-product-first-vs-brand-first" />
+        </div>
+      </div>
+
+
 
       {/* Hero Header Section */}
       <section className="bg-gradient-to-br from-purple-600 via-pink-600 to-blue-600 text-white py-12 md:py-16">

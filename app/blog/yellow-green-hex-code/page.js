@@ -8,6 +8,13 @@ import {
   PalettePairingsSection,
 } from '../components/PaletteReferenceBlocks';
 import { buildPageMetadata } from '../../../lib/buildPageMetadata';
+import BlogArticleSchema from '../components/BlogArticleSchema';
+import {
+  getBlogArticleSchema,
+  getBlogArticleDatePublished,
+  BLOG_ARTICLE_DATE_MODIFIED,
+} from '../../../lib/getBlogArticleSchema';
+import BlogBreadcrumbs from '../components/BlogBreadcrumbs';
 
 const LAST_MODIFIED = '2026-05-30T00:00:00.000Z';
 
@@ -33,6 +40,14 @@ export const metadata = buildPageMetadata({
     modifiedTime: LAST_MODIFIED,
   },
 });
+const articleSchema = getBlogArticleSchema(
+  'Yellow Green Hex Code: #9ACD32 — Shades, RGB & Palette Pairings',
+  'Yellow green hex code is #9ACD32. Copy hex codes for yellow-green shades, see palette pairings and find out what colors go with yellow-green.',
+  'yellow-green-hex-code',
+  getBlogArticleDatePublished('yellow-green-hex-code'),
+  BLOG_ARTICLE_DATE_MODIFIED
+);
+
 
 const QUICK_ROWS = [
   { label: 'Hex', value: '#9ACD32' },
@@ -126,7 +141,16 @@ const faqSchema = {
 export default function YellowGreenHexCodePage() {
   return (
     <article className="min-h-screen bg-white dark:bg-gray-900">
+      <BlogArticleSchema schema={articleSchema} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
+
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 pt-3">
+        <div className="max-w-4xl mx-auto">
+          <BlogBreadcrumbs postTitle={articleSchema.headline} slug="yellow-green-hex-code" />
+        </div>
+      </div>
+
+
 
       <section className="bg-gradient-to-br from-lime-900 via-green-800 to-emerald-950 text-white py-12 md:py-16">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">

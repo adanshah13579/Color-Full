@@ -4,16 +4,23 @@ import ColorPaletteClient from '../[slug]/ColorPaletteClient';
 import ColorSwatch from '../[slug]/ColorSwatch';
 import { PaletteQuickAnswer, PalettePairingsSection } from '../components/PaletteReferenceBlocks';
 import { buildPageMetadata } from '../../../lib/buildPageMetadata';
+import BlogArticleSchema from '../components/BlogArticleSchema';
+import {
+  getBlogArticleSchema,
+  getBlogArticleDatePublished,
+  BLOG_ARTICLE_DATE_MODIFIED,
+} from '../../../lib/getBlogArticleSchema';
+import BlogBreadcrumbs from '../components/BlogBreadcrumbs';
 
-const LAST_MODIFIED = '2026-06-01T00:00:00.000Z';
+const LAST_MODIFIED = '2026-06-11T00:00:00.000Z';
 
 const HEX = '#C4B5FD';
 
 export const metadata = buildPageMetadata({
   path: '/blog/c4b5fd-color',
-  title: '#C4B5FD Color: Lavender Purple Hex Code — Name, RGB & Palettes',
+  title: '#C4B5FD Color: Soft Lavender Purple — Name, RGB & Palettes',
   description:
-    '#C4B5FD is a soft lavender purple color. Get the color name, RGB values, shades, and palette pairings for this purple hex code.',
+    '#C4B5FD is soft lavender purple (Tailwind purple-300). RGB(196,181,253) · HSL(252,93%,85%). Copy hex code, see similar colors and palette pairings.',
   keywords: [
     'c4b5fd',
     'c4b5fd color',
@@ -31,6 +38,14 @@ export const metadata = buildPageMetadata({
     modifiedTime: LAST_MODIFIED,
   },
 });
+const articleSchema = getBlogArticleSchema(
+  '#C4B5FD Color: Soft Lavender Purple — Name, RGB & Palettes',
+  '#C4B5FD is soft lavender purple (Tailwind purple-300). RGB(196,181,253) · HSL(252,93%,85%). Copy hex code, see similar colors and palette pairings.',
+  'c4b5fd-color',
+  getBlogArticleDatePublished('c4b5fd-color'),
+  BLOG_ARTICLE_DATE_MODIFIED
+);
+
 
 const QUICK_ROWS = [
   { label: 'Name', value: 'Lavender Purple' },
@@ -142,7 +157,16 @@ function HexColorToolsCTA() {
 export default function C4B5fdColorPage() {
   return (
     <article className="min-h-screen bg-white dark:bg-gray-900">
+      <BlogArticleSchema schema={articleSchema} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
+
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 pt-3">
+        <div className="max-w-4xl mx-auto">
+          <BlogBreadcrumbs postTitle={articleSchema.headline} slug="c4b5fd-color" />
+        </div>
+      </div>
+
+
 
       <section className="bg-gradient-to-br from-violet-200 via-purple-300 to-violet-600 text-gray-900 py-12 md:py-16">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
@@ -157,7 +181,7 @@ export default function C4B5fdColorPage() {
               Back to Blog
             </Link>
             <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4 leading-tight text-violet-950">
-              #C4B5FD Color: Lavender Purple Hex Code — Name, RGB &amp; Palettes
+              #C4B5FD Color: Soft Lavender Purple — Name, RGB &amp; Palettes
             </h1>
             <p className="text-violet-900/90 text-lg max-w-3xl mb-6">
               You found <strong className="font-semibold">#C4B5FD</strong> in Figma, Tailwind, or a codebase—here is the{' '}
@@ -169,7 +193,7 @@ export default function C4B5fdColorPage() {
               aria-label="Large swatch of color C4B5FD lavender purple"
             />
             <div className="flex items-center gap-4 text-violet-900/80 text-sm">
-              <time dateTime="2026-06-01">June 1, 2026</time>
+              <time dateTime="2026-06-11">Updated June 11, 2026</time>
               <span>•</span>
               <span>6 min read</span>
             </div>
@@ -182,6 +206,10 @@ export default function C4B5fdColorPage() {
           <div className="max-w-6xl mx-auto">
             <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
               <div className="lg:col-span-2 space-y-8">
+                <p className="text-lg md:text-xl font-medium text-gray-900 dark:text-white leading-relaxed border-l-4 border-violet-400 bg-violet-50/90 dark:bg-violet-950/30 dark:border-violet-500 pl-5 pr-4 py-4 rounded-r-xl">
+                  #C4B5FD is a soft lavender purple color, known as Tailwind CSS purple-300. RGB value is (196, 181, 253).
+                </p>
+
                 <PaletteQuickAnswer
                   theme="purple"
                   ariaLabel="C4B5FD quick reference"

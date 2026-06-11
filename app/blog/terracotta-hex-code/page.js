@@ -8,6 +8,13 @@ import {
   PalettePairingsSection,
 } from '../components/PaletteReferenceBlocks';
 import { buildPageMetadata } from '../../../lib/buildPageMetadata';
+import BlogArticleSchema from '../components/BlogArticleSchema';
+import {
+  getBlogArticleSchema,
+  getBlogArticleDatePublished,
+  BLOG_ARTICLE_DATE_MODIFIED,
+} from '../../../lib/getBlogArticleSchema';
+import BlogBreadcrumbs from '../components/BlogBreadcrumbs';
 
 export const metadata = buildPageMetadata({
   path: '/blog/terracotta-hex-code',
@@ -16,6 +23,14 @@ export const metadata = buildPageMetadata({
     'Terracotta hex code is #E2725B. Copy hex codes for terracotta shades, see palette pairings with sage, cream and navy, and explore branding and UI examples.',
   keywords: ['terracotta hex', '#E2725B', 'terracotta shades', 'palette', 'UI color', 'Theme & Color'],
 });
+const articleSchema = getBlogArticleSchema(
+  'Terracotta Hex Code: #E2725B — Shades, Palettes & UI Examples',
+  'Terracotta hex code is #E2725B. Copy hex codes for terracotta shades, see palette pairings with sage, cream and navy, and explore branding and UI examples.',
+  'terracotta-hex-code',
+  getBlogArticleDatePublished('terracotta-hex-code'),
+  BLOG_ARTICLE_DATE_MODIFIED
+);
+
 
 const QUICK_ROWS = [
   { label: 'Hex', value: '#E2725B' },
@@ -109,7 +124,16 @@ const faqSchema = {
 export default function TerracottaHexCodePage() {
   return (
     <article className="min-h-screen bg-white dark:bg-gray-900">
+      <BlogArticleSchema schema={articleSchema} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
+
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 pt-3">
+        <div className="max-w-4xl mx-auto">
+          <BlogBreadcrumbs postTitle={articleSchema.headline} slug="terracotta-hex-code" />
+        </div>
+      </div>
+
+
 
       <section className="bg-gradient-to-br from-[#3d1810] via-[#7B3F00] to-[#5C2E00] text-white py-12 md:py-16">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
@@ -193,7 +217,8 @@ export default function TerracottaHexCodePage() {
                   </p>
                   <p className="mb-4">
                     <strong className="text-gray-900 dark:text-white">Forms, alerts, and empty states.</strong> Use peach puff and linen rows for soft warning
-                    backgrounds instead of harsh yellow when the tone should be “heads up,” not “emergency.” Pair with charcoal or navy text for legibility. For
+                    backgrounds instead of harsh yellow when the tone should be “heads up,” not “emergency.” Pair with{' '}
+                    <InlineTagLink href="/blog/charcoal-hex-code">charcoal hex code</InlineTagLink> or navy text for legibility. For
                     success, avoid painting success banners the same hue as your primary CTA; reserve terracotta for conversion paths and keep confirmations in sage
                     or green so users learn distinct meanings.
                   </p>
@@ -302,7 +327,9 @@ export default function TerracottaHexCodePage() {
                   </dl>
 
                   <p className="mt-8 mb-6">
-                    Explore adjacent guides:{' '}
+                    Explore adjacent guides: our{' '}
+                    <InlineTagLink href="/blog/terracotta-color-palette">terracotta color palette</InlineTagLink>, a{' '}
+                    <InlineTagLink href="/blog/dusty-rose-hex-code">dusty rose and terracotta palette</InlineTagLink> pairing,{' '}
                     <InlineTagLink href="/blog/sage-green-hex-code">Sage green hex codes</InlineTagLink>,{' '}
                     <InlineTagLink href="/blog/navy-blue-hex-code">Navy blue hex codes</InlineTagLink>, and the{' '}
                     <InlineTagLink href="/tools/contrast-checker">WCAG contrast checker</InlineTagLink> for every text-on-terracotta decision.

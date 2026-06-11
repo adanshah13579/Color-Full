@@ -10,6 +10,13 @@ import {
   PaletteUiUsageSection,
 } from '../components/PaletteReferenceBlocks';
 import { buildPageMetadata } from '../../../lib/buildPageMetadata';
+import BlogArticleSchema from '../components/BlogArticleSchema';
+import {
+  getBlogArticleSchema,
+  getBlogArticleDatePublished,
+  BLOG_ARTICLE_DATE_MODIFIED,
+} from '../../../lib/getBlogArticleSchema';
+import BlogBreadcrumbs from '../components/BlogBreadcrumbs';
 
 export const metadata = buildPageMetadata({
   path: '/blog/ocean-breeze',
@@ -18,6 +25,14 @@ export const metadata = buildPageMetadata({
     'The ocean breeze color palette uses #0EA5E9, #06B6D4, and #14B8A6. Get all hex codes, shades, and UI pairings for this calm blue-teal palette.',
   keywords: ['ocean breeze palette', 'blue teal hex', 'calm colors', 'UI palette', 'Theme & Color'],
 });
+const articleSchema = getBlogArticleSchema(
+  'Ocean Breeze Color Palette: Hex Codes, Shades & Pairings',
+  'The ocean breeze color palette uses #0EA5E9, #06B6D4, and #14B8A6. Get all hex codes, shades, and UI pairings for this calm blue-teal palette.',
+  'ocean-breeze',
+  getBlogArticleDatePublished('ocean-breeze'),
+  BLOG_ARTICLE_DATE_MODIFIED
+);
+
 
 const PALETTE = [
   { hexCode: '#0EA5E9', colorName: 'Sky Blue', rgbCode: 'rgb(14, 165, 233)' },
@@ -109,7 +124,16 @@ const faqSchema = {
 export default function OceanBreezePage() {
   return (
     <article className="min-h-screen bg-white dark:bg-gray-900">
+      <BlogArticleSchema schema={articleSchema} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
+
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 pt-3">
+        <div className="max-w-4xl mx-auto">
+          <BlogBreadcrumbs postTitle={articleSchema.headline} slug="ocean-breeze" />
+        </div>
+      </div>
+
+
       <section className="bg-gradient-to-br from-cyan-500 via-teal-500 to-emerald-600 text-white py-12 md:py-16">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-4xl mx-auto">

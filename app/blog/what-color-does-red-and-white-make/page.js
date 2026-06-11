@@ -1,5 +1,11 @@
+import InlineTagLink from '../../components/InlineTagLink';
 import ColorMixGuidePost from '../components/ColorMixGuidePost';
 import { buildPageMetadata } from '../../../lib/buildPageMetadata';
+import {
+  getBlogArticleSchema,
+  getBlogArticleDatePublished,
+  BLOG_ARTICLE_DATE_MODIFIED,
+} from '../../../lib/getBlogArticleSchema';
 
 export const metadata = buildPageMetadata({
   path: '/blog/what-color-does-red-and-white-make',
@@ -22,6 +28,14 @@ export const metadata = buildPageMetadata({
     modifiedTime: '2026-05-21T00:00:00.000Z',
   },
 });
+const articleSchema = getBlogArticleSchema(
+  'What Color Does Red and White Make? Pink — Hex Codes & Shades',
+  'Red and white make pink when mixed. See exact hex codes for every red-white ratio, explore pink shades, and try our free color mixer tool.',
+  'what-color-does-red-and-white-make',
+  getBlogArticleDatePublished('what-color-does-red-and-white-make'),
+  BLOG_ARTICLE_DATE_MODIFIED
+);
+
 
 const MIX_ROWS = [
   { ratio: '90% red + 10% white', label: 'Deep Red-Pink', hex: '#E61919' },
@@ -114,12 +128,20 @@ export default function WhatColorDoesRedAndWhiteMakePage() {
             Pair blush with navy or charcoal for readable body copy. Extend your ramp in the palette generator, then confirm
             contrast for captions sitting on pink tints.
           </p>
+          <p>
+            For warm primary mixes, see{' '}
+            <InlineTagLink href="/blog/what-color-does-red-and-yellow-make">what color does red and yellow make</InlineTagLink>, or open our{' '}
+            <InlineTagLink href="/tools/color-mixer">color mixing simulator</InlineTagLink> to preview red-white tint ratios.
+          </p>
         </>
       }
       faq={FAQ}
       mixerHref="/tools/color-mixer/red-and-white"
       mixerLabel="Red & White Color Mixer"
       faqSchema={faqSchema}
+      articleSchema={articleSchema}
+      breadcrumbTitle={articleSchema.headline}
+      breadcrumbSlug="what-color-does-red-and-white-make"
     />
   );
 }

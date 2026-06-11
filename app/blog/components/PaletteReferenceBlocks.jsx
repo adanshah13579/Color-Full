@@ -72,6 +72,60 @@ const copyIcon = (
   </svg>
 );
 
+function SwatchCopyRow({ name, hex, themeKey }) {
+  const t = THEMES[themeKey];
+  const [copied, setCopied] = useState(false);
+  const raw = hex.startsWith('#') ? hex : `#${hex}`;
+  const display = raw.length === 7 ? `#${raw.slice(1).toUpperCase()}` : raw;
+
+  const copy = async () => {
+    try {
+      await navigator.clipboard.writeText(display);
+      setCopied(true);
+      setTimeout(() => setCopied(false), 1500);
+    } catch (e) {
+      console.error(e);
+    }
+  };
+
+  return (
+    <div className={`flex items-center gap-3 py-2.5 border-b last:border-0 ${t.rowBorder}`}>
+      <div
+        className="w-10 h-10 shrink-0 rounded-lg border border-gray-200/90 dark:border-gray-600 shadow-inner"
+        style={{ backgroundColor: hex }}
+        aria-hidden
+      />
+      <div className="min-w-0 flex-1 flex flex-wrap items-center gap-x-2 gap-y-0.5">
+        <span className="font-semibold text-gray-900 dark:text-white text-sm sm:text-base">{name}</span>
+        <span className="text-gray-400 dark:text-gray-500 select-none" aria-hidden>
+          —
+        </span>
+        <code className="font-mono text-sm sm:text-base text-gray-800 dark:text-gray-100">{display}</code>
+      </div>
+      <button
+        type="button"
+        onClick={copy}
+        className={`inline-flex shrink-0 items-center gap-1.5 rounded-lg border px-3 py-1.5 text-sm font-medium transition-colors shadow-sm ${t.copyBtn}`}
+        aria-label={copied ? 'Copied' : `Copy ${display}`}
+      >
+        {copied ? (
+          <>
+            <svg className="w-4 h-4 text-green-600 dark:text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+            </svg>
+            Copied!
+          </>
+        ) : (
+          <>
+            {copyIcon}
+            Copy
+          </>
+        )}
+      </button>
+    </div>
+  );
+}
+
 function CopyRow({ label, value, themeKey }) {
   const t = THEMES[themeKey];
   const [copied, setCopied] = useState(false);
@@ -116,16 +170,20 @@ function CopyRow({ label, value, themeKey }) {
   );
 }
 
-export function PaletteQuickAnswer({ theme, headline, subtext, rows, ariaLabel }) {
+export function PaletteQuickAnswer({ theme, headline, subtext, rows = [], namedColorRows, ariaLabel }) {
   const t = THEMES[theme];
   return (
     <div className={`rounded-2xl border p-5 sm:p-6 shadow-sm ${t.container}`} role="region" aria-label={ariaLabel}>
       <p className="text-lg sm:text-xl font-semibold text-gray-900 dark:text-white mb-1">{headline}</p>
       {subtext ? <p className="text-sm text-gray-600 dark:text-gray-400 mb-3">{subtext}</p> : null}
       <div className={`rounded-xl px-4 py-1 border ${t.inner}`}>
-        {rows.map((row) => (
-          <CopyRow key={row.label} label={row.label} value={row.value} themeKey={theme} />
-        ))}
+        {namedColorRows
+          ? namedColorRows.map((row) => (
+              <SwatchCopyRow key={row.hex} name={row.name} hex={row.hex} themeKey={theme} />
+            ))
+          : rows.map((row) => (
+              <CopyRow key={row.label} label={row.label} value={row.value} themeKey={theme} />
+            ))}
       </div>
     </div>
   );

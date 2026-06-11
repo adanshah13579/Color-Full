@@ -1,5 +1,11 @@
+import InlineTagLink from '../../components/InlineTagLink';
 import ColorMixGuidePost from '../components/ColorMixGuidePost';
 import { buildPageMetadata } from '../../../lib/buildPageMetadata';
+import {
+  getBlogArticleSchema,
+  getBlogArticleDatePublished,
+  BLOG_ARTICLE_DATE_MODIFIED,
+} from '../../../lib/getBlogArticleSchema';
 
 export const metadata = buildPageMetadata({
   path: '/blog/what-color-does-blue-and-yellow-make',
@@ -22,6 +28,14 @@ export const metadata = buildPageMetadata({
     modifiedTime: '2026-05-21T00:00:00.000Z',
   },
 });
+const articleSchema = getBlogArticleSchema(
+  'What Color Does Blue and Yellow Make? Green — Hex Codes & Mixing Guide',
+  'Blue and yellow make green when mixed. See exact hex codes for every blue-yellow ratio, explore green shades, and try our free color mixer tool.',
+  'what-color-does-blue-and-yellow-make',
+  getBlogArticleDatePublished('what-color-does-blue-and-yellow-make'),
+  BLOG_ARTICLE_DATE_MODIFIED
+);
+
 
 const MIX_ROWS = [
   { ratio: '90% blue + 10% yellow', label: 'Deep Blue-Green', hex: '#003300' },
@@ -114,12 +128,21 @@ export default function WhatColorDoesBlueAndYellowMakePage() {
             Avoid placing saturated yellow body text on blue backgrounds without contrast testing. Build token ramps in the
             palette generator, then validate WCAG pairs before handoff to development.
           </p>
+          <p>
+            Related mixing guides:{' '}
+            <InlineTagLink href="/blog/what-color-does-red-and-yellow-make">what color does red and yellow make</InlineTagLink>,{' '}
+            <InlineTagLink href="/blog/what-color-does-pink-and-purple-make">what color does pink and purple make</InlineTagLink>, or use our{' '}
+            <InlineTagLink href="/tools/color-mixer">free color mixer tool</InlineTagLink> to test blue-yellow ratios interactively.
+          </p>
         </>
       }
       faq={FAQ}
       mixerHref="/tools/color-mixer/blue-and-yellow"
       mixerLabel="Blue & Yellow Color Mixer"
       faqSchema={faqSchema}
+      articleSchema={articleSchema}
+      breadcrumbTitle={articleSchema.headline}
+      breadcrumbSlug="what-color-does-blue-and-yellow-make"
     />
   );
 }

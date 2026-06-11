@@ -8,6 +8,13 @@ import {
   PalettePairingsSection,
 } from '../components/PaletteReferenceBlocks';
 import { buildPageMetadata } from '../../../lib/buildPageMetadata';
+import BlogArticleSchema from '../components/BlogArticleSchema';
+import {
+  getBlogArticleSchema,
+  getBlogArticleDatePublished,
+  BLOG_ARTICLE_DATE_MODIFIED,
+} from '../../../lib/getBlogArticleSchema';
+import BlogBreadcrumbs from '../components/BlogBreadcrumbs';
 import NavyBlueHexCopyBox from './NavyBlueHexCopyBox';
 
 const LAST_MODIFIED = '2026-05-21T00:00:00.000Z';
@@ -35,6 +42,14 @@ export const metadata = buildPageMetadata({
     'article:modified_time': LAST_MODIFIED,
   },
 });
+const articleSchema = getBlogArticleSchema(
+  'Navy Blue Hex Code: #000080 — Copy Code, Shades & Palettes',
+  'Navy blue hex code is #000080. Copy it instantly, explore 10 shades from light to dark, and see palette pairings for web and brand design.',
+  'navy-blue-hex-code',
+  getBlogArticleDatePublished('navy-blue-hex-code'),
+  BLOG_ARTICLE_DATE_MODIFIED
+);
+
 
 const QUICK_ROWS = [
   { label: 'Hex', value: '#000080' },
@@ -128,7 +143,16 @@ const faqSchema = {
 export default function NavyBlueHexCodePage() {
   return (
     <article className="min-h-screen bg-white dark:bg-gray-900">
+      <BlogArticleSchema schema={articleSchema} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
+
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 pt-3">
+        <div className="max-w-4xl mx-auto">
+          <BlogBreadcrumbs postTitle={articleSchema.headline} slug="navy-blue-hex-code" />
+        </div>
+      </div>
+
+
 
       <section className="bg-gradient-to-br from-slate-950 via-blue-950 to-indigo-900 text-white py-12 md:py-16">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
@@ -315,8 +339,10 @@ export default function NavyBlueHexCodePage() {
                   </dl>
 
                   <p className="mt-8 mb-6">
-                    For more palette stories, see{' '}
-                    <InlineTagLink href="/blog/ocean-breeze-hex-code">Ocean Breeze hex codes</InlineTagLink> or{' '}
+                    For more palette stories, see our{' '}
+                    <InlineTagLink href="/blog/navy-blue-color-palette">navy blue color palette</InlineTagLink>, the{' '}
+                    <InlineTagLink href="/blog/60-30-10-color-rule">60-30-10 color rule</InlineTagLink> for proportion guidance,{' '}
+                    <InlineTagLink href="/blog/ocean-breeze-hex-code">Ocean Breeze hex codes</InlineTagLink>, or{' '}
                     <InlineTagLink href="/blog/forest-green-hex-code">Forest green hex reference</InlineTagLink>. When you are ready to test production pairs, our{' '}
                     <InlineTagLink href="/tools/contrast-checker">contrast checker</InlineTagLink> catches failing white-on-navy combinations before they reach users.
                   </p>

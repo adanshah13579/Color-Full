@@ -4,6 +4,13 @@ import ColorPaletteClient from '../[slug]/ColorPaletteClient';
 import ColorSwatch from '../[slug]/ColorSwatch';
 import BlogToolsCTA from '../components/BlogToolsCTA';
 import { buildPageMetadata } from '../../../lib/buildPageMetadata';
+import BlogArticleSchema from '../components/BlogArticleSchema';
+import {
+  getBlogArticleSchema,
+  getBlogArticleDatePublished,
+  BLOG_ARTICLE_DATE_MODIFIED,
+} from '../../../lib/getBlogArticleSchema';
+import BlogBreadcrumbs from '../components/BlogBreadcrumbs';
 import CopyableHex from './CopyableHex';
 import {
   ForestGreenQuickAnswer,
@@ -12,13 +19,13 @@ import {
   ForestGreenFormatCodesSection,
 } from './ForestGreenHexLead';
 
-const LAST_MODIFIED = '2026-06-05T00:00:00.000Z';
+const LAST_MODIFIED = '2026-06-11T00:00:00.000Z';
 
 export const metadata = buildPageMetadata({
   path: '/blog/forest-green-hex-code',
-  title: 'Forest Green Hex Code: #228B22 — Copy Instantly + All Shades',
+  title: '#228B22 Forest Green — Copy Hex, RGB & HSL Instantly',
   description:
-    'Forest green hex code is #228B22. Click to copy instantly. Get RGB(34,139,34), HSL values, 10 shades from mint to dark forest, and palette pairings. Free color tool.',
+    'Forest green = #228B22. Copy hex code in one click. RGB(34,139,34) · HSL(120,61%,34%) · 10 shades · Canva code · palette pairings. Faster than ColorHexa.',
   keywords: ['forest green hex', '#228B22', 'green shades', 'RGB', 'HSL', 'palette', 'Theme & Color'],
   openGraphType: 'article',
   openGraph: {
@@ -29,6 +36,14 @@ export const metadata = buildPageMetadata({
     'article:modified_time': LAST_MODIFIED,
   },
 });
+const articleSchema = getBlogArticleSchema(
+  '#228B22 Forest Green — Copy Hex, RGB & HSL Instantly',
+  'Forest green = #228B22. Copy hex code in one click. RGB(34,139,34) · HSL(120,61%,34%) · 10 shades · Canva code · palette pairings. Faster than ColorHexa.',
+  'forest-green-hex-code',
+  getBlogArticleDatePublished('forest-green-hex-code'),
+  BLOG_ARTICLE_DATE_MODIFIED
+);
+
 
 const FOREST_PALETTE = [
   { hexCode: '#065F46', colorName: 'Forest', rgbCode: 'rgb(6, 95, 70)' },
@@ -134,10 +149,19 @@ const faqSchema = {
 export default function ForestGreenHexCodePage() {
   return (
     <article className="min-h-screen bg-white dark:bg-gray-900">
+      <BlogArticleSchema schema={articleSchema} />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
       />
+
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 pt-3">
+        <div className="max-w-4xl mx-auto">
+          <BlogBreadcrumbs postTitle={articleSchema.headline} slug="forest-green-hex-code" />
+        </div>
+      </div>
+
+
 
       <section className="bg-gradient-to-br from-emerald-900 via-emerald-700 to-teal-500 text-white py-12 md:py-16">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
@@ -152,7 +176,7 @@ export default function ForestGreenHexCodePage() {
               Back to Blog
             </Link>
             <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4 leading-tight">
-              Forest Green Hex Code: #228B22 — Copy Instantly + All Shades
+              #228B22 Forest Green — Copy Hex, RGB &amp; HSL Instantly
             </h1>
             <p className="text-emerald-100 text-lg max-w-3xl mb-6">
               Quick reference for forest green hex, RGB, HSL, and colour codes—plus named shades, a UI palette, scheme ideas, and Ocean Breeze colors in one place.
@@ -165,7 +189,7 @@ export default function ForestGreenHexCodePage() {
             <div className="flex items-center gap-4 text-emerald-100 text-sm flex-wrap">
               <time dateTime="2026-04-11">Published April 11, 2026</time>
               <span>•</span>
-              <time dateTime="2026-06-05">Updated June 5, 2026</time>
+              <time dateTime="2026-06-11">Updated June 11, 2026</time>
               <span>•</span>
               <span>10 min read</span>
             </div>
@@ -249,7 +273,8 @@ export default function ForestGreenHexCodePage() {
                     Forest green colour code (UK) and RGB
                   </h2>
                   <p className="mb-4">
-                    British English searches for <strong className="text-gray-900 dark:text-white">forest green colour code</strong> still expect hex on screen—the format does not change by region. What changes is spelling in copy (<em>colour</em> vs <em>color</em>). For accessibility documentation, list hex, RGB, and HSL so developers anywhere can implement the same appearance.
+                    British English searches for <strong className="text-gray-900 dark:text-white">forest green colour code</strong> still expect hex on screen—the format does not change by region. What changes is spelling in copy (<em>colour</em> vs <em>color</em>). For accessibility documentation, list hex, RGB, and HSL so developers anywhere can implement the same appearance. For a dedicated breakdown of rgb(34, 139, 34) and related values, see our{' '}
+                    <InlineTagLink href="/blog/forest-green-rgb">forest green RGB code</InlineTagLink> reference.
                   </p>
                   <ul className="list-disc list-inside space-y-2 mb-6 text-gray-700 dark:text-gray-300 not-prose">
                     <li className="pl-1">
@@ -264,7 +289,8 @@ export default function ForestGreenHexCodePage() {
                     Forest green color palette (five hex codes)
                   </h2>
                   <p className="mb-4">
-                    A practical <strong className="text-gray-900 dark:text-white">forest green color palette</strong> needs more than one swatch: dark tones for navigation and type on light UI, mid greens for primary buttons and links, and a minty light green for backgrounds or success. The set below matches our{' '}
+                    A practical <strong className="text-gray-900 dark:text-white">forest green color palette</strong> needs more than one swatch: dark tones for navigation and type on light UI, mid greens for primary buttons and links, and a minty light green for backgrounds or success. Browse our full{' '}
+                    <InlineTagLink href="/blog/forest-green-color-palette">forest green color palette</InlineTagLink> for five ready-made hex ramps, or match the set below to our{' '}
                     <InlineTagLink href="/blog/forest-green">Forest Green palette story</InlineTagLink> so you can jump between the quick codes here and the longer brand-and-UI guide.
                   </p>
                   <p className="mb-4 text-gray-600 dark:text-gray-400 not-prose flex flex-wrap items-center gap-x-2 gap-y-1 font-mono text-sm">
@@ -432,6 +458,9 @@ export default function ForestGreenHexCodePage() {
                     </li>
                     <li>
                       <InlineTagLink href="/blog/ocean-breeze-hex-code">Ocean Breeze Hex Codes</InlineTagLink> — blue-to-mint ramp that bridges cool UI into green accents
+                    </li>
+                    <li>
+                      <InlineTagLink href="/blog/olive-green-hex-code">olive green hex code</InlineTagLink> — earthy yellow-green for organic and heritage brands
                     </li>
                   </ul>
 

@@ -3,6 +3,13 @@ import InlineTagLink from '../../components/InlineTagLink';
 import ColorPaletteClient from '../[slug]/ColorPaletteClient';
 import BlogToolsCTA from '../components/BlogToolsCTA';
 import { buildPageMetadata } from '../../../lib/buildPageMetadata';
+import BlogArticleSchema from '../components/BlogArticleSchema';
+import {
+  getBlogArticleSchema,
+  getBlogArticleDatePublished,
+  BLOG_ARTICLE_DATE_MODIFIED,
+} from '../../../lib/getBlogArticleSchema';
+import BlogBreadcrumbs from '../components/BlogBreadcrumbs';
 
 const LAST_MODIFIED = '2026-05-30T00:00:00.000Z';
 
@@ -27,6 +34,14 @@ export const metadata = buildPageMetadata({
     modifiedTime: LAST_MODIFIED,
   },
 });
+const articleSchema = getBlogArticleSchema(
+  'Dark Mode Color Palette: Hex Codes, Backgrounds & UI Examples',
+  'Build a dark mode color palette with the right hex codes for backgrounds, surfaces, text and accents. WCAG-compliant dark mode examples included.',
+  'dark-mode-color-palette',
+  getBlogArticleDatePublished('dark-mode-color-palette'),
+  BLOG_ARTICLE_DATE_MODIFIED
+);
+
 
 const BACKGROUND_ROWS = [
   { name: 'Pure black', hex: '#000000', note: 'Maximum contrast baseline; can feel harsh on OLED at full brightness' },
@@ -182,7 +197,16 @@ function DarkPaletteCard({ palette }) {
 export default function DarkModeColorPalettePage() {
   return (
     <article className="min-h-screen bg-white dark:bg-gray-900">
+      <BlogArticleSchema schema={articleSchema} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
+
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 pt-3">
+        <div className="max-w-4xl mx-auto">
+          <BlogBreadcrumbs postTitle={articleSchema.headline} slug="dark-mode-color-palette" />
+        </div>
+      </div>
+
+
 
       <section className="bg-gradient-to-br from-gray-950 via-slate-900 to-indigo-950 text-white py-12 md:py-16">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
@@ -302,6 +326,10 @@ export default function DarkModeColorPalettePage() {
 
                   <p className="mb-6">
                     <strong className="text-gray-900 dark:text-white">Related:</strong>{' '}
+                    <InlineTagLink href="/blog/charcoal-hex-code">charcoal hex code</InlineTagLink>
+                    {' · '}
+                    <InlineTagLink href="/blog/discord-dark-mode-colors">Discord dark mode colors</InlineTagLink>
+                    {' · '}
                     <InlineTagLink href="/blog/accessible-dark-mode-color-palette">Accessible Dark Mode Color Palette</InlineTagLink>
                     {' · '}
                     <InlineTagLink href="/blog/accessibility-color-contrast-checker">Accessibility Contrast Checker Guide</InlineTagLink>

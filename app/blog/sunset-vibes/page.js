@@ -10,6 +10,13 @@ import {
   PaletteUiUsageSection,
 } from '../components/PaletteReferenceBlocks';
 import { buildPageMetadata } from '../../../lib/buildPageMetadata';
+import BlogArticleSchema from '../components/BlogArticleSchema';
+import {
+  getBlogArticleSchema,
+  getBlogArticleDatePublished,
+  BLOG_ARTICLE_DATE_MODIFIED,
+} from '../../../lib/getBlogArticleSchema';
+import BlogBreadcrumbs from '../components/BlogBreadcrumbs';
 
 export const metadata = buildPageMetadata({
   path: '/blog/sunset-vibes',
@@ -18,6 +25,14 @@ export const metadata = buildPageMetadata({
     'Sunset vibes palette hex codes: #F97316 (orange), #EF4444 (red), #EC4899 (pink), #8B5CF6 (purple). Copy codes, see shades, and explore UI examples.',
   keywords: ['sunset palette', 'warm colors', 'orange hex', 'purple hex', 'Theme & Color'],
 });
+const articleSchema = getBlogArticleSchema(
+  'Sunset Vibes Color Palette: Hex Codes, Shades & Pairings',
+  'Sunset vibes palette hex codes: #F97316 (orange), #EF4444 (red), #EC4899 (pink), #8B5CF6 (purple). Copy codes, see shades, and explore UI examples.',
+  'sunset-vibes',
+  getBlogArticleDatePublished('sunset-vibes'),
+  BLOG_ARTICLE_DATE_MODIFIED
+);
+
 
 const PALETTE = [
   { hexCode: '#F97316', colorName: 'Orange', rgbCode: 'rgb(249, 115, 22)' },
@@ -109,7 +124,16 @@ const PAIRINGS = [
 export default function SunsetVibesPage() {
   return (
     <article className="min-h-screen bg-white dark:bg-gray-900">
+      <BlogArticleSchema schema={articleSchema} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
+
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 pt-3">
+        <div className="max-w-4xl mx-auto">
+          <BlogBreadcrumbs postTitle={articleSchema.headline} slug="sunset-vibes" />
+        </div>
+      </div>
+
+
       <section className="bg-gradient-to-br from-amber-500 via-red-500 to-purple-600 text-white py-12 md:py-16">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-4xl mx-auto">
@@ -274,8 +298,10 @@ export default function SunsetVibesPage() {
                   <h2 className="text-2xl font-bold text-gray-900 dark:text-white mt-8 mb-4">How to extend or adjust the palette</h2>
                   <p className="mb-6">
                     Use our <InlineTagLink href="/tools/palette-generator">palette generator</InlineTagLink> for monochromatic orange or purple ramps, and validate
-                    every pair in the <InlineTagLink href="/tools/contrast-checker">contrast checker</InlineTagLink>. For adjacent cool palettes, see{' '}
-                    <InlineTagLink href="/blog/ocean-breeze-hex-code">Ocean Breeze hex codes</InlineTagLink> or{' '}
+                    every pair in the <InlineTagLink href="/tools/contrast-checker">contrast checker</InlineTagLink>. For copy-ready sunset hex anchors, see our{' '}
+                    <InlineTagLink href="/blog/sunset-color-palette">sunset color palette hex codes</InlineTagLink> guide. For adjacent cool palettes, see{' '}
+                    <InlineTagLink href="/blog/mauve-color">mauve color</InlineTagLink>,{' '}
+                    <InlineTagLink href="/blog/ocean-breeze-hex-code">Ocean Breeze hex codes</InlineTagLink>, or{' '}
                     <InlineTagLink href="/blog/purple-dream">Purple Dream</InlineTagLink>.
                   </p>
                   <BlogToolsCTA />

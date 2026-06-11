@@ -1,6 +1,13 @@
 import Link from 'next/link';
 import InlineTagLink from '../../components/InlineTagLink';
 import { buildPageMetadata } from '../../../lib/buildPageMetadata';
+import BlogArticleSchema from '../components/BlogArticleSchema';
+import {
+  getBlogArticleSchema,
+  getBlogArticleDatePublished,
+  BLOG_ARTICLE_DATE_MODIFIED,
+} from '../../../lib/getBlogArticleSchema';
+import BlogBreadcrumbs from '../components/BlogBreadcrumbs';
 
 export const metadata = buildPageMetadata({
   path: '/blog/how-to-generate-color-palette-for-brand',
@@ -9,6 +16,14 @@ export const metadata = buildPageMetadata({
     'Steps and factors for generating a brand color palette. What influences brand colors, common mistakes, and tools for creating consistent palettes.',
   keywords: ['brand palette', 'color generation', 'logo colors', 'design system', 'Theme & Color'],
 });
+const articleSchema = getBlogArticleSchema(
+  'How to Generate a Color Palette for a Brand',
+  'Steps and factors for generating a brand color palette. What influences brand colors, common mistakes, and tools for creating consistent palettes.',
+  'how-to-generate-color-palette-for-brand',
+  getBlogArticleDatePublished('how-to-generate-color-palette-for-brand'),
+  BLOG_ARTICLE_DATE_MODIFIED
+);
+
 
 const faqSchema = {
   '@context': 'https://schema.org',
@@ -52,7 +67,16 @@ const faqSchema = {
 export default function HowToGenerateColorPaletteForBrandPage() {
   return (
     <div className="min-h-screen bg-white dark:bg-gray-900 py-12">
+      <BlogArticleSchema schema={articleSchema} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
+
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 pt-3">
+        <div className="max-w-4xl mx-auto">
+          <BlogBreadcrumbs postTitle={articleSchema.headline} slug="how-to-generate-color-palette-for-brand" />
+        </div>
+      </div>
+
+
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-3xl">
         <article>
           <header className="mb-10">
@@ -133,6 +157,12 @@ export default function HowToGenerateColorPaletteForBrandPage() {
               Using a <InlineTagLink href="/tools/palette-generator">color palette generator</InlineTagLink> for brand work reduces guesswork and keeps palettes consistent. Combine it with contrast checking and clear documentation for a brand palette that works across channels and meets accessibility standards.
             </p>
           </section>
+
+          <p className="mb-10 text-gray-600 dark:text-gray-400 leading-relaxed">
+            Apply proportions with the <InlineTagLink href="/blog/60-30-10-color-rule">60-30-10 color rule</InlineTagLink>, browse{' '}
+            <InlineTagLink href="/blog/color-palette-ideas-for-small-business">small business color palettes</InlineTagLink> for industry examples, and{' '}
+            <InlineTagLink href="/tools/color-palette-preview">preview your palette on a real website</InlineTagLink> before handoff.
+          </p>
 
           <section className="mb-10">
             <h2 className="text-xl font-bold mb-4 text-gray-900 dark:text-white">FAQ</h2>

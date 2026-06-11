@@ -1,5 +1,11 @@
+import InlineTagLink from '../../components/InlineTagLink';
 import ColorMixGuidePost from '../components/ColorMixGuidePost';
 import { buildPageMetadata } from '../../../lib/buildPageMetadata';
+import {
+  getBlogArticleSchema,
+  getBlogArticleDatePublished,
+  BLOG_ARTICLE_DATE_MODIFIED,
+} from '../../../lib/getBlogArticleSchema';
 
 export const metadata = buildPageMetadata({
   path: '/blog/what-color-does-red-and-yellow-make',
@@ -22,6 +28,14 @@ export const metadata = buildPageMetadata({
     modifiedTime: '2026-05-21T00:00:00.000Z',
   },
 });
+const articleSchema = getBlogArticleSchema(
+  'What Color Does Red and Yellow Make? Orange — Hex Codes & Mixing Guide',
+  'Red and yellow make orange when mixed. See the exact hex codes for every red-yellow mix ratio, explore orange shades, and try our free color mixer tool.',
+  'what-color-does-red-and-yellow-make',
+  getBlogArticleDatePublished('what-color-does-red-and-yellow-make'),
+  BLOG_ARTICLE_DATE_MODIFIED
+);
+
 
 const MIX_ROWS = [
   { ratio: '90% red + 10% yellow', label: 'Deep Red-Orange', hex: '#FF1A00' },
@@ -115,12 +129,21 @@ export default function WhatColorDoesRedAndYellowMakePage() {
             Pair warm mixes with neutral charcoal or warm white for long-form reading. After choosing hero oranges, extend
             tints in the palette generator and run every text pair through an accessibility contrast checker.
           </p>
+          <p>
+            Explore related mixes:{' '}
+            <InlineTagLink href="/blog/what-color-does-blue-and-yellow-make">what color does blue and yellow make</InlineTagLink>,{' '}
+            <InlineTagLink href="/blog/what-color-does-red-and-white-make">what color does red and white make</InlineTagLink>, or try our{' '}
+            <InlineTagLink href="/tools/color-mixer">color mixing tool</InlineTagLink> to preview any ratio live.
+          </p>
         </>
       }
       faq={FAQ}
       mixerHref="/tools/color-mixer/red-and-yellow"
       mixerLabel="Red & Yellow Color Mixer"
       faqSchema={faqSchema}
+      articleSchema={articleSchema}
+      breadcrumbTitle={articleSchema.headline}
+      breadcrumbSlug="what-color-does-red-and-yellow-make"
     />
   );
 }

@@ -1,6 +1,13 @@
 import Link from 'next/link';
 import InlineTagLink from '../../components/InlineTagLink';
 import { buildPageMetadata } from '../../../lib/buildPageMetadata';
+import BlogArticleSchema from '../components/BlogArticleSchema';
+import {
+  getBlogArticleSchema,
+  getBlogArticleDatePublished,
+  BLOG_ARTICLE_DATE_MODIFIED,
+} from '../../../lib/getBlogArticleSchema';
+import BlogBreadcrumbs from '../components/BlogBreadcrumbs';
 
 export const metadata = buildPageMetadata({
   path: '/blog/best-color-palette-tools-for-designers',
@@ -9,6 +16,14 @@ export const metadata = buildPageMetadata({
     'Overview of color palette tools for UI, web, and brand design. What to look for in a palette generator and how to use them in your workflow.',
   keywords: ['palette tools', 'color generator', 'UI design', 'workflow', 'Theme & Color'],
 });
+const articleSchema = getBlogArticleSchema(
+  'Best Color Palette Tools for Designers',
+  'Overview of color palette tools for UI, web, and brand design. What to look for in a palette generator and how to use them in your workflow.',
+  'best-color-palette-tools-for-designers',
+  getBlogArticleDatePublished('best-color-palette-tools-for-designers'),
+  BLOG_ARTICLE_DATE_MODIFIED
+);
+
 
 const faqSchema = {
   '@context': 'https://schema.org',
@@ -52,7 +67,16 @@ const faqSchema = {
 export default function BestColorPaletteToolsForDesignersPage() {
   return (
     <div className="min-h-screen bg-white dark:bg-gray-900 py-12">
+      <BlogArticleSchema schema={articleSchema} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
+
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 pt-3">
+        <div className="max-w-4xl mx-auto">
+          <BlogBreadcrumbs postTitle={articleSchema.headline} slug="best-color-palette-tools-for-designers" />
+        </div>
+      </div>
+
+
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-3xl">
         <article>
           <header className="mb-10">
@@ -119,7 +143,9 @@ export default function BestColorPaletteToolsForDesignersPage() {
             </h2>
             <p className="leading-relaxed">
               The best color palette tools for designers are fast, free to use, and output hex codes for immediate use in design and code. They should support multiple harmony types from a single base color. Pair a <InlineTagLink href="/tools/palette-generator">color palette generator</InlineTagLink> with a{' '}
-              <InlineTagLink href="/tools/color-palette-preview">color palette preview</InlineTagLink>, a contrast checker, and a clear style guide so that palettes are not only consistent but also accessible and documented for teams and vendors.
+              <InlineTagLink href="/tools/color-palette-preview">color palette preview tool</InlineTagLink>, our{' '}
+              <InlineTagLink href="/tools/tint-shade-generator">tint and shade generator</InlineTagLink>, the{' '}
+              <InlineTagLink href="/blog/60-30-10-color-rule">60-30-10 color rule</InlineTagLink> for proportion guidance, a contrast checker, and a clear style guide so that palettes are not only consistent but also accessible and documented for teams and vendors.
             </p>
           </section>
 
