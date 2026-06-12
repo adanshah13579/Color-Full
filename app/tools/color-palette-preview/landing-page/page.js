@@ -5,37 +5,34 @@ import LandingPreviewClient from './LandingPreviewClient';
 import PresetPaletteGrid from '../components/PresetPaletteGrid';
 import { LANDING_PRESET_PALETTES } from '../constants';
 import { PALETTE_PREVIEW_BREADCRUMB_BASE } from '../../../../lib/breadcrumbSchema';
-import { buildPageMetadata } from '../../../../lib/buildPageMetadata';
+import {
+  PALETTE_PREVIEW_LANDING_SEO,
+  buildPalettePreviewPageMetadata,
+  buildPalettePreviewSoftwareSchema,
+  buildPalettePreviewWebPageSchema,
+} from '../../../../lib/palettePreviewSeo';
 
-export const metadata = buildPageMetadata({
-  path: '/tools/color-palette-preview/landing-page',
-  title: 'Landing Page Color Palette Preview — See Your Colors on a Marketing Page',
-  description:
-    'Preview your color palette on a real landing page mockup. See hero section, features, CTA and footer in your brand colors before you build. Free tool.',
-  keywords: [
-    'landing page color palette',
-    'marketing page colors',
-    'hero section colors',
-    'landing page design',
-    'Theme & Color',
-  ],
+const SEO = PALETTE_PREVIEW_LANDING_SEO;
+
+export async function generateMetadata({ searchParams }) {
+  const params = await searchParams;
+
+  return buildPalettePreviewPageMetadata({
+    path: SEO.path,
+    title: SEO.title,
+    description: SEO.description,
+    keywords: SEO.keywords,
+    searchParams: params,
+  });
+}
+
+const webPageSchema = buildPalettePreviewWebPageSchema({
+  path: SEO.path,
+  name: SEO.title,
+  description: SEO.description,
 });
 
-const softwareSchema = {
-  '@context': 'https://schema.org',
-  '@type': 'SoftwareApplication',
-  name: 'Landing Page Color Palette Preview',
-  description:
-    'Preview your color palette on a real marketing landing page mockup with hero, features, pricing, CTA, and footer sections. Free online tool.',
-  url: 'https://themeandcolor.com/tools/color-palette-preview/landing-page',
-  applicationCategory: 'DesignApplication',
-  operatingSystem: 'Web',
-  offers: {
-    '@type': 'Offer',
-    price: '0',
-    priceCurrency: 'USD',
-  },
-};
+const softwareSchema = buildPalettePreviewSoftwareSchema(SEO);
 
 const faqSchema = {
   '@context': 'https://schema.org',
@@ -93,6 +90,7 @@ function PreviewFallback() {
 export default function LandingPreviewPage() {
   return (
     <div className="min-h-screen bg-white dark:bg-gray-900 py-12">
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(webPageSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(softwareSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
 
@@ -100,12 +98,8 @@ export default function LandingPreviewPage() {
         <ToolBreadcrumbs items={breadcrumbItems} />
 
         <header className="max-w-4xl mx-auto mb-8 text-center md:text-left">
-          <h1 className="text-3xl md:text-4xl font-bold mb-3 text-gray-900 dark:text-white">
-            Landing Page Color Palette Preview
-          </h1>
-          <p className="text-gray-600 dark:text-gray-400 text-base leading-relaxed">
-            See your brand colors on a real marketing landing page
-          </p>
+          <h1 className="text-3xl md:text-4xl font-bold mb-3 text-gray-900 dark:text-white">{SEO.h1}</h1>
+          <p className="text-gray-600 dark:text-gray-400 text-base leading-relaxed">{SEO.subtitle}</p>
         </header>
 
         <Suspense fallback={<PreviewFallback />}>
@@ -123,6 +117,28 @@ export default function LandingPreviewPage() {
               neutral background so icons and copy breathe. Previewing five roles on a marketing layout shows whether
               your primary feels trustworthy at full width, whether accent buttons pop on the CTA band, and whether
               testimonial and footer sections stay readable before you open Figma or ship code.
+            </p>
+          </section>
+
+          <section>
+            <h2 className="text-2xl font-bold mb-4 text-gray-900 dark:text-white">
+              Landing Page Sections in the Mockup
+            </h2>
+            <p className="leading-relaxed mb-4">
+              The preview walks through a full marketing funnel: navigation and hero headline on your primary, feature
+              icons in secondary and accent, pricing and CTA bands that test whether accent buttons survive busy
+              backgrounds, and a footer that shows how dark text tones anchor the page. That sequence mirrors how
+              visitors scan—above-the-fold impact first, proof in the middle, conversion at the CTA.
+            </p>
+            <p className="leading-relaxed">
+              Apply the{' '}
+              <InlineTagLink href="/blog/60-30-10-color-rule">60-30-10 color rule</InlineTagLink> while you tune
+              values: roughly 60% dominant background, 30% secondary surfaces, and 10% accent for buttons and
+              highlights. Our{' '}
+              <InlineTagLink href="/blog/wcag-accessible-buttons-and-links">
+                WCAG accessible buttons and links
+              </InlineTagLink>{' '}
+              guide helps confirm CTA pairs pass contrast after you pick colors here.
             </p>
           </section>
 

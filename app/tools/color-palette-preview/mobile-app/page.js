@@ -5,37 +5,34 @@ import MobilePreviewClient from './MobilePreviewClient';
 import PresetPaletteGrid from '../components/PresetPaletteGrid';
 import { MOBILE_PRESET_PALETTES } from '../constants';
 import { PALETTE_PREVIEW_BREADCRUMB_BASE } from '../../../../lib/breadcrumbSchema';
-import { buildPageMetadata } from '../../../../lib/buildPageMetadata';
+import {
+  PALETTE_PREVIEW_MOBILE_SEO,
+  buildPalettePreviewPageMetadata,
+  buildPalettePreviewSoftwareSchema,
+  buildPalettePreviewWebPageSchema,
+} from '../../../../lib/palettePreviewSeo';
 
-export const metadata = buildPageMetadata({
-  path: '/tools/color-palette-preview/mobile-app',
-  title: 'Mobile App Color Palette Preview — See Your Colors on App UI',
-  description:
-    'Preview your color palette on a mobile app mockup. See navigation, cards, and list items in your brand colors before you build. Free online tool.',
-  keywords: [
-    'mobile app color palette',
-    'app UI color preview',
-    'mobile design colors',
-    'app color scheme',
-    'Theme & Color',
-  ],
+const SEO = PALETTE_PREVIEW_MOBILE_SEO;
+
+export async function generateMetadata({ searchParams }) {
+  const params = await searchParams;
+
+  return buildPalettePreviewPageMetadata({
+    path: SEO.path,
+    title: SEO.title,
+    description: SEO.description,
+    keywords: SEO.keywords,
+    searchParams: params,
+  });
+}
+
+const webPageSchema = buildPalettePreviewWebPageSchema({
+  path: SEO.path,
+  name: SEO.title,
+  description: SEO.description,
 });
 
-const softwareSchema = {
-  '@context': 'https://schema.org',
-  '@type': 'SoftwareApplication',
-  name: 'Mobile App Color Palette Preview',
-  description:
-    'Preview your color palette on a mobile app mockup with navigation, cards, lists, and bottom tabs. Free online tool.',
-  url: 'https://themeandcolor.com/tools/color-palette-preview/mobile-app',
-  applicationCategory: 'DesignApplication',
-  operatingSystem: 'Web',
-  offers: {
-    '@type': 'Offer',
-    price: '0',
-    priceCurrency: 'USD',
-  },
-};
+const softwareSchema = buildPalettePreviewSoftwareSchema(SEO);
 
 const breadcrumbItems = [
   ...PALETTE_PREVIEW_BREADCRUMB_BASE,
@@ -93,6 +90,7 @@ function PreviewFallback() {
 export default function MobilePreviewPage() {
   return (
     <div className="min-h-screen bg-white dark:bg-gray-900 py-12">
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(webPageSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(softwareSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
 
@@ -100,12 +98,8 @@ export default function MobilePreviewPage() {
         <ToolBreadcrumbs items={breadcrumbItems} />
 
         <header className="max-w-4xl mx-auto mb-8 text-center md:text-left">
-          <h1 className="text-3xl md:text-4xl font-bold mb-3 text-gray-900 dark:text-white">
-            Mobile App Color Palette Preview
-          </h1>
-          <p className="text-gray-600 dark:text-gray-400 text-base leading-relaxed">
-            See your brand colors on a real mobile app UI
-          </p>
+          <h1 className="text-3xl md:text-4xl font-bold mb-3 text-gray-900 dark:text-white">{SEO.h1}</h1>
+          <p className="text-gray-600 dark:text-gray-400 text-base leading-relaxed">{SEO.subtitle}</p>
         </header>
 
         <Suspense fallback={<PreviewFallback />}>
@@ -122,6 +116,31 @@ export default function MobilePreviewPage() {
               background tints keep cards readable; accent colors highlight icons and CTAs; text must stay legible on both
               tinted and white surfaces. Previewing on a phone mockup reveals whether your palette feels cohesive at
               thumb scale before you commit to React Native, Flutter, or native design tokens.
+            </p>
+          </section>
+
+          <section>
+            <h2 className="text-2xl font-bold mb-4 text-gray-900 dark:text-white">
+              Mobile UI Elements Your Palette Controls
+            </h2>
+            <p className="leading-relaxed mb-4">
+              The phone mockup maps each palette role to real app patterns: the status bar and header use your primary,
+              list tiles and content areas sit on the background color, feature icons pull from accent and secondary,
+              and body labels use the text role. Bottom-tab active states also inherit primary so users can spot where
+              they are in one glance.
+            </p>
+            <p className="leading-relaxed">
+              This matters because mobile screens punish oversaturated palettes. A color that looks fine in a desktop
+              dashboard can feel loud behind a 44px header. Preview here before you export tokens to SwiftUI, Jetpack
+              Compose, or React Native. For broader UI guidance, see our{' '}
+              <InlineTagLink href="/use-cases/colors-for-ui-and-web-design">
+                colors for UI and web design
+              </InlineTagLink>{' '}
+              use case and the{' '}
+              <InlineTagLink href="/blog/best-color-palette-tools-for-designers">
+                best color palette tools for designers
+              </InlineTagLink>{' '}
+              roundup.
             </p>
           </section>
 

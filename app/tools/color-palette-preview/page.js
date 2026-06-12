@@ -3,39 +3,35 @@ import InlineTagLink from '../../components/InlineTagLink';
 import ToolBreadcrumbs from '../../components/ToolBreadcrumbs';
 import ColorPalettePreviewHub from './ColorPalettePreviewHub';
 import { PALETTE_PREVIEW_BREADCRUMB_BASE } from '../../../lib/breadcrumbSchema';
-import { buildPageMetadata } from '../../../lib/buildPageMetadata';
+import {
+  PALETTE_PREVIEW_HUB_SEO,
+  PREVIEW_HUB_ITEM_LIST_SCHEMA,
+  buildPalettePreviewPageMetadata,
+  buildPalettePreviewSoftwareSchema,
+  buildPalettePreviewWebPageSchema,
+} from '../../../lib/palettePreviewSeo';
 
-export const metadata = buildPageMetadata({
-  path: '/tools/color-palette-preview',
-  title: 'Website Color Palette Preview — See Colors on Real UI',
-  description:
-    'Preview your color palette on a real website before you build. See your colors on a dashboard, landing page or mobile app mockup. Free online tool.',
-  keywords: [
-    'color palette preview',
-    'website color preview',
-    'palette mockup',
-    'UI color preview',
-    'brand colors preview',
-    'dashboard color preview',
-    'Theme & Color',
-  ],
+const SEO = PALETTE_PREVIEW_HUB_SEO;
+
+export async function generateMetadata({ searchParams }) {
+  const params = await searchParams;
+
+  return buildPalettePreviewPageMetadata({
+    path: SEO.path,
+    title: SEO.title,
+    description: SEO.description,
+    keywords: SEO.keywords,
+    searchParams: params,
+  });
+}
+
+const webPageSchema = buildPalettePreviewWebPageSchema({
+  path: SEO.path,
+  name: SEO.title,
+  description: SEO.description,
 });
 
-const softwareSchema = {
-  '@context': 'https://schema.org',
-  '@type': 'SoftwareApplication',
-  name: 'Website Color Palette Preview',
-  description:
-    'Preview your color palette on dashboard, landing page and mobile app mockups. Free online tool for designers and developers.',
-  url: 'https://themeandcolor.com/tools/color-palette-preview',
-  applicationCategory: 'DesignApplication',
-  operatingSystem: 'Web',
-  offers: {
-    '@type': 'Offer',
-    price: '0',
-    priceCurrency: 'USD',
-  },
-};
+const softwareSchema = buildPalettePreviewSoftwareSchema(SEO);
 
 const faqSchema = {
   '@context': 'https://schema.org',
@@ -46,7 +42,7 @@ const faqSchema = {
       name: 'How do I preview a color palette on a website?',
       acceptedAnswer: {
         '@type': 'Answer',
-        text: 'Enter your five brand colors on the Website Color Palette Preview hub—or click Generate Random Palette. Open the dashboard, landing page, or mobile app preview to see each color applied to realistic UI. Adjust hex values until the mockup looks balanced, then copy CSS variables or share the URL with your team.',
+        text: 'Enter your five brand colors in this color palette preview tool—or click Generate Random Palette. Open the dashboard, landing page, or mobile app mockup to see each color applied to realistic UI. Adjust hex values until the mockup looks balanced, then copy CSS variables or share the URL with your team.',
       },
     },
     {
@@ -88,19 +84,20 @@ function HubFallback() {
 export default function ColorPalettePreviewPage() {
   return (
     <div className="min-h-screen bg-white dark:bg-gray-900 py-12">
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(webPageSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(softwareSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(PREVIEW_HUB_ITEM_LIST_SCHEMA) }}
+      />
 
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <ToolBreadcrumbs items={PALETTE_PREVIEW_BREADCRUMB_BASE} />
 
         <header className="max-w-4xl mx-auto mb-8 text-center md:text-left">
-          <h1 className="text-3xl md:text-4xl font-bold mb-3 text-gray-900 dark:text-white">
-            Website Color Palette Preview
-          </h1>
-          <p className="text-gray-600 dark:text-gray-400 text-base leading-relaxed">
-            Pick your colors and see them on a real website instantly
-          </p>
+          <h1 className="text-3xl md:text-4xl font-bold mb-3 text-gray-900 dark:text-white">{SEO.h1}</h1>
+          <p className="text-gray-600 dark:text-gray-400 text-base leading-relaxed">{SEO.subtitle}</p>
         </header>
 
         <Suspense fallback={<HubFallback />}>
@@ -108,6 +105,26 @@ export default function ColorPalettePreviewPage() {
         </Suspense>
 
         <div className="max-w-4xl mx-auto mt-16 space-y-8 text-gray-600 dark:text-gray-400">
+          <section>
+            <h2 className="text-2xl font-bold mb-4 text-gray-900 dark:text-white">
+              Which Preview Should You Use?
+            </h2>
+            <p className="leading-relaxed mb-4">
+              Each mockup answers a different design question. Use the{' '}
+              <InlineTagLink href="/tools/color-palette-preview/dashboard">dashboard preview</InlineTagLink> when you
+              need to judge sidebar chrome, KPI cards, and chart colors for SaaS or admin products. Use the{' '}
+              <InlineTagLink href="/tools/color-palette-preview/landing-page">landing page preview</InlineTagLink> for
+              marketing sites where hero contrast, feature bands, and CTA buttons drive conversion. Use the{' '}
+              <InlineTagLink href="/tools/color-palette-preview/mobile-app">mobile app preview</InlineTagLink> when
+              headers, bottom navigation, and card stacks must read clearly at phone scale.
+            </p>
+            <p className="leading-relaxed">
+              Start on this hub to set your five palette roles once, then open any mockup with your colors already
+              loaded. Designers validating a rebrand, developers checking tokens before CSS variables ship, and founders
+              approving brand colors without a Figma file all use the same workflow.
+            </p>
+          </section>
+
           <section>
             <h2 className="text-2xl font-bold mb-4 text-gray-900 dark:text-white">
               Why Preview Colors Before You Design?

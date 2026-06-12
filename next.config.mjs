@@ -10,6 +10,10 @@ const nextConfig = {
   async headers() {
     return [
       {
+        source: '/favicon.ico',
+        headers: [{ key: 'X-Robots-Tag', value: 'noindex, nofollow' }],
+      },
+      {
         source: '/tools/(.*)',
         headers: [
           {

@@ -5,37 +5,34 @@ import DashboardPreviewClient from './DashboardPreviewClient';
 import PresetPaletteGrid from '../components/PresetPaletteGrid';
 import { DASHBOARD_PRESET_PALETTES } from '../constants';
 import { PALETTE_PREVIEW_BREADCRUMB_BASE } from '../../../../lib/breadcrumbSchema';
-import { buildPageMetadata } from '../../../../lib/buildPageMetadata';
+import {
+  PALETTE_PREVIEW_DASHBOARD_SEO,
+  buildPalettePreviewPageMetadata,
+  buildPalettePreviewSoftwareSchema,
+  buildPalettePreviewWebPageSchema,
+} from '../../../../lib/palettePreviewSeo';
 
-export const metadata = buildPageMetadata({
-  path: '/tools/color-palette-preview/dashboard',
-  title: 'Dashboard Color Palette Preview — See Your Colors on a UI Dashboard',
-  description:
-    'Preview your color palette on a real admin dashboard mockup. See how your primary, accent and background colors look on sidebars, cards and charts instantly.',
-  keywords: [
-    'dashboard color palette',
-    'admin dashboard colors',
-    'UI dashboard preview',
-    'dashboard color scheme',
-    'Theme & Color',
-  ],
+const SEO = PALETTE_PREVIEW_DASHBOARD_SEO;
+
+export async function generateMetadata({ searchParams }) {
+  const params = await searchParams;
+
+  return buildPalettePreviewPageMetadata({
+    path: SEO.path,
+    title: SEO.title,
+    description: SEO.description,
+    keywords: SEO.keywords,
+    searchParams: params,
+  });
+}
+
+const webPageSchema = buildPalettePreviewWebPageSchema({
+  path: SEO.path,
+  name: SEO.title,
+  description: SEO.description,
 });
 
-const softwareSchema = {
-  '@context': 'https://schema.org',
-  '@type': 'SoftwareApplication',
-  name: 'Dashboard Color Palette Preview',
-  description:
-    'Preview your color palette on a real admin dashboard mockup with sidebar, stats cards, charts, and activity lists. Free online tool.',
-  url: 'https://themeandcolor.com/tools/color-palette-preview/dashboard',
-  applicationCategory: 'DesignApplication',
-  operatingSystem: 'Web',
-  offers: {
-    '@type': 'Offer',
-    price: '0',
-    priceCurrency: 'USD',
-  },
-};
+const softwareSchema = buildPalettePreviewSoftwareSchema(SEO);
 
 const faqSchema = {
   '@context': 'https://schema.org',
@@ -93,6 +90,7 @@ function PreviewFallback() {
 export default function DashboardPreviewPage() {
   return (
     <div className="min-h-screen bg-white dark:bg-gray-900 py-12">
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(webPageSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(softwareSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
 
@@ -100,12 +98,8 @@ export default function DashboardPreviewPage() {
         <ToolBreadcrumbs items={breadcrumbItems} />
 
         <header className="max-w-4xl mx-auto mb-8 text-center md:text-left">
-          <h1 className="text-3xl md:text-4xl font-bold mb-3 text-gray-900 dark:text-white">
-            Dashboard Color Palette Preview
-          </h1>
-          <p className="text-gray-600 dark:text-gray-400 text-base leading-relaxed">
-            See your colors applied to a real admin dashboard
-          </p>
+          <h1 className="text-3xl md:text-4xl font-bold mb-3 text-gray-900 dark:text-white">{SEO.h1}</h1>
+          <p className="text-gray-600 dark:text-gray-400 text-base leading-relaxed">{SEO.subtitle}</p>
         </header>
 
         <Suspense fallback={<PreviewFallback />}>
@@ -124,6 +118,43 @@ export default function DashboardPreviewPage() {
               deploy accent colors only where urgency matters. Previewing on a realistic layout reveals whether your
               primary reads as trustworthy authority or visual weight, and whether chart colors stay distinguishable at
               a glance.
+            </p>
+          </section>
+
+          <section>
+            <h2 className="text-2xl font-bold mb-4 text-gray-900 dark:text-white">
+              Where Dashboard Colors Appear in the Mockup
+            </h2>
+            <ul className="space-y-2 leading-relaxed list-disc list-inside mb-4">
+              <li>
+                <strong className="text-gray-900 dark:text-white">Primary</strong> — left sidebar, active nav item, and
+                top bar chrome
+              </li>
+              <li>
+                <strong className="text-gray-900 dark:text-white">Secondary</strong> — chart bars, icon tints, and
+                secondary stat highlights
+              </li>
+              <li>
+                <strong className="text-gray-900 dark:text-white">Accent</strong> — alert badges, primary buttons, and
+                positive trend indicators
+              </li>
+              <li>
+                <strong className="text-gray-900 dark:text-white">Background</strong> — main content canvas and card
+                surfaces
+              </li>
+              <li>
+                <strong className="text-gray-900 dark:text-white">Text</strong> — KPI labels, table copy, and sidebar
+                labels
+              </li>
+            </ul>
+            <p className="leading-relaxed">
+              Previewing these mappings before development catches the most common dashboard mistakes: a primary that
+              overwhelms data views, chart colors that collide, or text that fails contrast on tinted cards. Pair this
+              tool with our{' '}
+              <InlineTagLink href="/blog/accessible-dark-mode-color-palette">
+                accessible dark mode palette guide
+              </InlineTagLink>{' '}
+              if you are shipping a dark admin theme.
             </p>
           </section>
 
