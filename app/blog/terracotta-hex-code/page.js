@@ -16,16 +16,23 @@ import {
 } from '../../../lib/getBlogArticleSchema';
 import BlogBreadcrumbs from '../components/BlogBreadcrumbs';
 
+const LAST_MODIFIED = '2026-06-15T00:00:00.000Z';
+
 export const metadata = buildPageMetadata({
   path: '/blog/terracotta-hex-code',
-  title: 'Terracotta Hex Code: #E2725B — Shades, Palettes & UI Examples',
+  title: 'Terracotta Hex Code #E2725B — Copy Color Code & Shades',
   description:
-    'Terracotta hex code is #E2725B. Copy hex codes for terracotta shades, see palette pairings with sage, cream and navy, and explore branding and UI examples.',
-  keywords: ['terracotta hex', '#E2725B', 'terracotta shades', 'palette', 'UI color', 'Theme & Color'],
+    'Terracotta hex code is #E2725B (RGB 226, 114, 91). Copy terracotta color code instantly. 10 shades, sage & cream pairings, UI examples. One-click copy.',
+  keywords: ['terracotta hex code', 'terracotta color code', 'terracotta hex', '#E2725B', 'terracotta shades', 'palette', 'UI color', 'Theme & Color'],
+  openGraphType: 'article',
+  openGraph: {
+    publishedTime: '2026-05-01T00:00:00.000Z',
+    modifiedTime: LAST_MODIFIED,
+  },
 });
 const articleSchema = getBlogArticleSchema(
-  'Terracotta Hex Code: #E2725B — Shades, Palettes & UI Examples',
-  'Terracotta hex code is #E2725B. Copy hex codes for terracotta shades, see palette pairings with sage, cream and navy, and explore branding and UI examples.',
+  'Terracotta Hex Code #E2725B — Copy Color Code & Shades',
+  'Terracotta hex code is #E2725B (RGB 226, 114, 91). Copy terracotta color code instantly. 10 shades, sage & cream pairings, UI examples. One-click copy.',
   'terracotta-hex-code',
   getBlogArticleDatePublished('terracotta-hex-code'),
   BLOG_ARTICLE_DATE_MODIFIED

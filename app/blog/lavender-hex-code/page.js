@@ -18,13 +18,13 @@ import {
 } from '../../../lib/getBlogArticleSchema';
 import BlogBreadcrumbs from '../components/BlogBreadcrumbs';
 
-const LAST_MODIFIED = '2026-06-11T00:00:00.000Z';
+const LAST_MODIFIED = '2026-06-15T00:00:00.000Z';
 
 export const metadata = buildPageMetadata({
   path: '/blog/lavender-hex-code',
-  title: 'Lavender Hex Code #E6E6FA — Copy + RGB, Shades & Pairings',
+  title: 'Lavender Hex Code #E6E6FA — Copy Color Code & Shades',
   description:
-    'Lavender hex code is #E6E6FA. Copy instantly. RGB(230,230,250), 10 lavender shades, palette pairings and purple color codes. One click copy.',
+    'Lavender hex code is #E6E6FA (RGB 230, 230, 250). Copy lavender color code instantly. 10 lavender shades, purple pairings & UI examples. One-click copy.',
   keywords: [
     'lavender hex code',
     'hex code for lavender purple',
@@ -42,8 +42,8 @@ export const metadata = buildPageMetadata({
   },
 });
 const articleSchema = getBlogArticleSchema(
-  'Lavender Hex Code #E6E6FA — Copy + RGB, Shades & Pairings',
-  'Lavender hex code is #E6E6FA. Copy instantly. RGB(230,230,250), 10 lavender shades, palette pairings and purple color codes. One click copy.',
+  'Lavender Hex Code #E6E6FA — Copy Color Code & Shades',
+  'Lavender hex code is #E6E6FA (RGB 230, 230, 250). Copy lavender color code instantly. 10 lavender shades, purple pairings & UI examples. One-click copy.',
   'lavender-hex-code',
   getBlogArticleDatePublished('lavender-hex-code'),
   BLOG_ARTICLE_DATE_MODIFIED

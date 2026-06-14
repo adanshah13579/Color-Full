@@ -17,13 +17,13 @@ import {
 import BlogBreadcrumbs from '../components/BlogBreadcrumbs';
 import NavyBlueHexCopyBox from './NavyBlueHexCopyBox';
 
-const LAST_MODIFIED = '2026-05-21T00:00:00.000Z';
+const LAST_MODIFIED = '2026-06-15T00:00:00.000Z';
 
 export const metadata = buildPageMetadata({
   path: '/blog/navy-blue-hex-code',
-  title: 'Navy Blue Hex Code: #000080 — Copy Code, Shades & Palettes',
+  title: 'Navy Blue Hex Code #000080 — Copy Color Code & Shades',
   description:
-    'Navy blue hex code is #000080. Copy it instantly, explore 10 shades from light to dark, and see palette pairings for web and brand design.',
+    'Navy blue hex code is #000080 (RGB 0, 0, 128). Copy navy color code instantly. 10 navy shades, gold & white pairings, palette schemes. One-click copy.',
   keywords: [
     'navy blue hex',
     'navy hex code',

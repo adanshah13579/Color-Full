@@ -12,13 +12,13 @@ import {
 } from '../../../lib/getBlogArticleSchema';
 import BlogBreadcrumbs from '../components/BlogBreadcrumbs';
 
-const LAST_MODIFIED = '2026-06-11T00:00:00.000Z';
+const LAST_MODIFIED = '2026-06-15T00:00:00.000Z';
 
 export const metadata = buildPageMetadata({
   path: '/blog/navy-blue-color-palette',
-  title: 'Navy Blue Color Palette: Hex Codes, Combos & Color Schemes',
+  title: 'Navy Blue Color Palette #000080 — Hex Codes & Schemes',
   description:
-    'Navy blue color palette hex codes with gold, white, coral and gray. 6 complete navy color schemes with copy-paste hex codes for web and brand design.',
+    'Navy blue color palette hex codes starting with #000080. Copy 6 complete navy schemes with gold, white, coral & gray. Navy hex code, RGB & pairings.',
   keywords: [
     'navy blue color palette',
     'navy blue palette',
@@ -40,8 +40,8 @@ export const metadata = buildPageMetadata({
   },
 });
 const articleSchema = getBlogArticleSchema(
-  'Navy Blue Color Palette: Hex Codes, Combos & Color Schemes',
-  'Navy blue color palette hex codes with gold, white, coral and gray. 6 complete navy color schemes with copy-paste hex codes for web and brand design.',
+  'Navy Blue Color Palette #000080 — Hex Codes & Schemes',
+  'Navy blue color palette hex codes starting with #000080. Copy 6 complete navy schemes with gold, white, coral & gray. Navy hex code, RGB & pairings.',
   'navy-blue-color-palette',
   getBlogArticleDatePublished('navy-blue-color-palette'),
   BLOG_ARTICLE_DATE_MODIFIED

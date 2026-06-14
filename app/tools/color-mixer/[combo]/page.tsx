@@ -143,13 +143,42 @@ export default async function ColorMixerCombinationPage({ params }: { params: Pr
   const related = (RELATED[combo] || COMBINATIONS.filter((c) => c !== combo)).slice(0, 4);
   const seo = getComboSeo(combo);
 
+  const faqSchema = seo
+    ? {
+        '@context': 'https://schema.org',
+        '@type': 'FAQPage',
+        mainEntity: [
+          {
+            '@type': 'Question',
+            name: `What color does ${c1.toLowerCase()} and ${c2.toLowerCase()} make?`,
+            acceptedAnswer: {
+              '@type': 'Answer',
+              text: `${seo.quickFormula}. The reference hex code is ${seo.quickHex}. Use the color mixer above to preview ratios and copy exact values.`,
+            },
+          },
+        ],
+      }
+    : null;
+
   return (
     <div className="min-h-screen bg-white dark:bg-gray-900 py-12">
+      {faqSchema ? (
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
+      ) : null}
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="max-w-5xl mx-auto">
           <h1 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4">
             {seo ? seo.h1 : `What Color Does ${c1} and ${c2} Make?`}
           </h1>
+
+          {seo ? (
+            <div className="rounded-2xl border border-purple-200 dark:border-purple-800 bg-purple-50/90 dark:bg-purple-950/40 p-5 sm:p-6 shadow-sm mb-6">
+              <p className="text-lg sm:text-xl font-semibold text-gray-900 dark:text-white">
+                {seo.quickFormula}{' '}
+                <span className="font-mono text-purple-700 dark:text-purple-300">{seo.quickHex}</span>
+              </p>
+            </div>
+          ) : null}
 
           <p className="text-gray-700 dark:text-gray-300 leading-relaxed mb-6">
             {seo ? seo.lead : getSpecificExplanation(parsed.color1, parsed.color2, mix.result.hex, mix.result.closestName)}

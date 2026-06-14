@@ -20,9 +20,9 @@ export type ComboSeoBundle = {
 /** Curated SEO + education blocks for high-index combo URLs (hexes are illustrative RGB mixes unless noted). */
 export const COMBO_SEO: Record<string, ComboSeoBundle> = {
   'red-and-yellow': {
-    metaTitle: 'What Color Does Red and Yellow Make? #FF8000 | Theme & Color',
+    metaTitle: 'Red + Yellow = Orange #FF8000 — Color Mixer Result',
     metaDescription:
-      'Red and yellow make orange. See true orange at #FF8000, five red-to-yellow mix ratios with hex swatches, and when to use the pair in UI and branding.',
+      'Red and yellow make orange #FF8000. Copy the hex code instantly. 5 red-to-yellow mix ratios with swatches, color theory, and UI tips with free color mixer.',
     h1: 'Red and Yellow Mixed: What Color Do You Get?',
     lead: 'Mix pure red (#FF0000) and pure yellow (#FFFF00) and you move along the warm side of the wheel toward orange. Use the simulator above, then compare ratio presets below.',
     quickFormula: 'Red + Yellow = Orange',
@@ -41,9 +41,9 @@ export const COMBO_SEO: Record<string, ComboSeoBundle> = {
       'Use red–orange for urgency and yellow–orange for optimism; keep one dominant temperature per screen so CTAs do not fight each other. Pair saturated oranges with charcoal text on white, or with cream backgrounds for editorial warmth. After locking a hero gradient, run button and link colors through accessibility checks before shipping.',
   },
   'blue-and-yellow': {
-    metaTitle: 'What Color Does Blue and Yellow Make? #00CC00 | Theme & Color',
+    metaTitle: 'Blue + Yellow = Green #00CC00 — Color Mixer Result',
     metaDescription:
-      'Blue and yellow make green. Anchor at #00CC00, explore five blue-heavy to yellow-heavy mixes, and learn UI and brand patterns plus tool links.',
+      'Blue and yellow make green #00CC00. Copy the hex code instantly. 5 blue-to-yellow mix ratios with swatches, color theory, and UI tips with free color mixer.',
     h1: 'Blue and Yellow Mixed: What Color Do You Get?',
     lead: 'Classic color lessons treat blue plus yellow as green. On screens, literal RGB averaging can look muddy, so the table uses a clear green ramp centered on #00CC00 for handoff-friendly discussion.',
     quickFormula: 'Blue + Yellow = Green',
@@ -125,9 +125,9 @@ export const COMBO_SEO: Record<string, ComboSeoBundle> = {
       'Use violet and magenta accents for creative tech, nightlife, and premium promos—pair with off-white or charcoal for readable type. Avoid stacking two saturated purples beside pure red CTAs without hierarchy. After picking a hero blend, extend semantic tokens in the palette generator and verify buttons and links in the contrast checker.',
   },
   'blue-and-green': {
-    metaTitle: 'What Color Does Blue and Green Make? | Theme & Color',
+    metaTitle: 'Blue + Green = Teal #008080 — Color Mixer Result',
     metaDescription:
-      'Blue and green make teal. Anchor at #008080, five ratio hex previews with swatches, color theory, and UI guidance with palette generator and contrast checker links.',
+      'Blue and green make teal #008080. Copy the hex code instantly. 5 blue-to-green mix ratios with swatches, color theory, and UI tips with free color mixer.',
     h1: 'What Color Does Blue and Green Make?',
     lead: 'Combining blue (#0000FF) with green (#008000) pulls hue toward teal—common for “trust + growth” palettes. Adjust sliders above, then map ratios below to tokens.',
     quickFormula: 'Blue + Green = Teal',
@@ -146,9 +146,9 @@ export const COMBO_SEO: Record<string, ComboSeoBundle> = {
       'Teals work for health, climate, and finance dashboards when you need calmer alternatives to pure blue. Use darker rows for navigation and lighter rows for chart fills. Keep long-form text on white or gray, and run every teal-on-gray pair through the contrast checker after you branch scales in the palette generator.',
   },
   'yellow-and-blue': {
-    metaTitle: 'What Color Does Yellow and Blue Make? | Theme & Color',
+    metaTitle: 'Yellow + Blue = Green #008000 — Color Mixer Result',
     metaDescription:
-      'Yellow and blue make green. Anchor at #008000, five yellow-heavy to blue-heavy hex ratios with swatches, color theory, and UI tips with Theme & Color tools.',
+      'Yellow and blue make green #008000. Copy the hex code instantly. 5 yellow-to-blue mix ratios with swatches, color theory, and UI tips with free color mixer.',
     h1: 'What Color Does Yellow and Blue Make?',
     lead: 'Yellow (#FFFF00) plus blue (#0000FF) is the classic primary pair for green. This page lists yellow first for search intent; use the simulator above, then compare ratio presets below.',
     quickFormula: 'Yellow + Blue = Green',
@@ -188,9 +188,9 @@ export const COMBO_SEO: Record<string, ComboSeoBundle> = {
       'Use desaturated red–green blends for earth-tone UI, photography overlays, and rustic packaging—not for small red text on saturated green (contrast fails fast). Prefer one vivid complementary accent at a time. After choosing a brown anchor, derive neutrals in the palette generator and validate focus rings and links with the contrast checker.',
   },
   'pink-and-purple': {
-    metaTitle: 'What Color Does Pink and Purple Make? | Theme & Color',
+    metaTitle: 'Pink + Purple = Fuchsia #C7498A — Color Mixer Result',
     metaDescription:
-      'Pink and purple make magenta and fuchsia. Anchor at #C7498A, five mix hex codes with swatches, color theory, and UI guidance with palette generator and contrast checker links.',
+      'Pink and purple make fuchsia #C7498A. Copy the hex code instantly. 5 pink-to-purple mix ratios with swatches, color theory, and UI tips with free color mixer.',
     h1: 'What Color Does Pink and Purple Make?',
     lead: 'Soft pink (#FFC0CB) with deep purple (#800080) produces rich magenta and fuchsia hues—popular for beauty, romance, and nightlife brands. Dial exact blends in the tool, then align marketing with the table.',
     quickFormula: 'Pink + Purple = Magenta/Fuchsia',
@@ -251,9 +251,9 @@ export const COMBO_SEO: Record<string, ComboSeoBundle> = {
       'Neutral ramps anchor typography, dividers, skeleton loaders, and elevation in both light and dark themes. Keep at least four distinguishable steps between background and border tokens. Generate extended cool or warm grays from these anchors in the palette generator, then prove legibility with the contrast checker on real content samples.',
   },
   'purple-and-yellow': {
-    metaTitle: 'What Color Does Purple and Yellow Make? #808000 | Theme & Color',
+    metaTitle: 'Purple + Yellow = Olive #808000 — Color Mixer Result',
     metaDescription:
-      'Purple and yellow mixed make brown or olive. See hex codes for 5 mix ratios, color swatches, and use our free color mixer tool.',
+      'Purple and yellow make olive #808000. Copy the hex code instantly. 5 purple-to-yellow mix ratios with swatches, color theory, and UI tips with free color mixer.',
     h1: 'What Color Does Purple and Yellow Make?',
     lead: 'Purple and yellow mixed make brown or olive. A 50/50 mix gives #808000.',
     quickFormula: 'Purple + Yellow = Brown/Olive',
@@ -272,9 +272,9 @@ export const COMBO_SEO: Record<string, ComboSeoBundle> = {
       'Olive and brown-olive mixes work for earthy dashboards, outdoor brands, and photography overlays—avoid using them for small error text on saturated green. Pair olive accents with cream or charcoal neutrals. After choosing an anchor, branch tints in the palette generator and validate every text pair with the contrast checker.',
   },
   'orange-and-blue': {
-    metaTitle: 'What Color Does Orange and Blue Make? #7B5E3A | Theme & Color',
+    metaTitle: 'Orange + Blue = Brown #7B5E3A — Color Mixer Result',
     metaDescription:
-      'Orange and blue mixed make brown. See hex codes for 5 mix ratios, color swatches, and use our free color mixer tool.',
+      'Orange and blue make brown #7B5E3A. Copy the hex code instantly. 5 orange-to-blue mix ratios with swatches, color theory, and UI tips with free color mixer.',
     h1: 'What Color Does Orange and Blue Make?',
     lead: 'Orange and blue mixed make brown. A 50/50 mix gives #7B5E3A.',
     quickFormula: 'Orange + Blue = Brown',
@@ -293,9 +293,9 @@ export const COMBO_SEO: Record<string, ComboSeoBundle> = {
       'Warm browns suit heritage logos, coffee brands, and rustic UI chrome. Keep saturated orange or blue for single primary CTAs rather than stacking both beside brown fills. Extend brown ramps in the palette generator and run contrast checks on white and cream text before shipping.',
   },
   'red-and-black': {
-    metaTitle: 'What Color Does Red and Black Make? #800000 | Theme & Color',
+    metaTitle: 'Red + Black = Maroon #800000 — Color Mixer Result',
     metaDescription:
-      'Red and black mixed make dark red or maroon. See hex codes for 5 mix ratios, color swatches, and use our free color mixer tool.',
+      'Red and black make maroon #800000. Copy the hex code instantly. 5 red-to-black mix ratios with swatches, color theory, and UI tips with free color mixer.',
     h1: 'What Color Does Red and Black Make?',
     lead: 'Red and black mixed make dark red or maroon. A 50/50 mix gives #800000.',
     quickFormula: 'Red + Black = Dark red / maroon',
@@ -398,9 +398,9 @@ export const COMBO_SEO: Record<string, ComboSeoBundle> = {
       'Use green-heavy rows for trustworthy data UI and yellow-heavy rows for campaign bursts. Keep body text on white or light gray; reserve chartreuse for icons and tags after contrast testing. Branch extended greens in the palette generator and regression-test states with the contrast checker.',
   },
   'pink-and-blue': {
-    metaTitle: 'What Color Does Pink and Blue Make? #C8A2C8 | Theme & Color',
+    metaTitle: 'Pink + Blue = Lavender #C8A2C8 — Color Mixer Result',
     metaDescription:
-      'Pink and blue mixed make lavender. See hex codes for 5 mix ratios, color swatches, and use our free color mixer tool.',
+      'Pink and blue make lavender #C8A2C8. Copy the hex code instantly. 5 pink-to-blue mix ratios with swatches, color theory, and UI tips with free color mixer.',
     h1: 'What Color Does Pink and Blue Make?',
     lead: 'Pink and blue mixed make lavender. A 50/50 mix gives #C8A2C8.',
     quickFormula: 'Pink + Blue = Lavender',

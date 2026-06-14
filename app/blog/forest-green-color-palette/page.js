@@ -14,6 +14,7 @@ import BlogBreadcrumbs from '../components/BlogBreadcrumbs';
 
 export const metadata = buildPageMetadata({
   path: '/blog/forest-green-color-palette',
+  canonicalPath: '/blog/forest-green-hex-code',
   title: 'Forest Green Color Palette: Hex Codes, Shades & Combinations',
   description:
     'Forest green color palette hex codes starting with #228B22. See shades, pairings with brown, cream and terracotta, and UI examples for eco and wellness brands.',

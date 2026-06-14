@@ -22,6 +22,7 @@ const LAST_MODIFIED = '2026-06-11T00:00:00.000Z';
 
 export const metadata = buildPageMetadata({
   path: '/blog/forest-green-rgb',
+  canonicalPath: '/blog/forest-green-hex-code',
   title: 'Forest Green RGB: RGB(34,139,34) — Color Code, Hex & HSL Values',
   description:
     'Forest green RGB value is RGB(34, 139, 34). Hex code #228B22 · HSL(120°,61%,34%) · CMYK(76,0,76,45). Copy all forest green color formats instantly.',

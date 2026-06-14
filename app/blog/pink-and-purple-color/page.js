@@ -11,6 +11,7 @@ const LAST_MODIFIED = '2026-06-01T00:00:00.000Z';
 
 export const metadata = buildPageMetadata({
   path: '/blog/pink-and-purple-color',
+  canonicalPath: '/blog/pink-purple-color-name',
   title: 'Pink and Purple Color: What They Make, Palettes & Hex Codes',
   description:
     'Pink and purple together make magenta or mauve. See hex codes for pink-purple mixes, palette combinations, and what colors go with pink and purple.',

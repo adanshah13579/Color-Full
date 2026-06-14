@@ -20,6 +20,7 @@ import BlogBreadcrumbs from '../components/BlogBreadcrumbs';
 
 export const metadata = buildPageMetadata({
   path: '/blog/sunset-vibes',
+  canonicalPath: '/blog/sunset-color-palette',
   title: 'Sunset Vibes Color Palette: Hex Codes, Shades & Pairings',
   description:
     'Sunset vibes palette hex codes: #F97316 (orange), #EF4444 (red), #EC4899 (pink), #8B5CF6 (purple). Copy codes, see shades, and explore UI examples.',

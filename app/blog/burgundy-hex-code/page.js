@@ -15,21 +15,23 @@ import BlogBreadcrumbs from '../components/BlogBreadcrumbs';
 import CopyableHex from '../forest-green-hex-code/CopyableHex';
 import { BurgundyQuickAnswer, BurgundyShadesTable } from './BurgundyHexLead';
 
+const LAST_MODIFIED = '2026-06-15T00:00:00.000Z';
+
 export const metadata = buildPageMetadata({
   path: '/blog/burgundy-hex-code',
-  title: 'Burgundy Hex Code: #800020 — Shades, Palettes & Copy-Paste',
+  title: 'Burgundy Hex Code #800020 — Copy Color Code & Shades',
   description:
-    'Burgundy hex code is #800020. Copy hex codes for burgundy shades, see palette pairings with gold, cream and navy, and explore branding examples.',
-  keywords: ['burgundy hex', '#800020', 'burgundy shades', 'wine red', 'RGB', 'HSL', 'Theme & Color'],
+    'Burgundy hex code is #800020 (RGB 128, 0, 32). Copy burgundy color code instantly. 8 shades, gold & cream pairings, wine red palette. One-click copy.',
+  keywords: ['burgundy hex code', 'burgundy color code', 'burgundy hex', '#800020', 'burgundy shades', 'wine red', 'RGB', 'HSL', 'Theme & Color'],
   openGraphType: 'article',
   openGraph: {
     publishedTime: '2026-05-21T00:00:00.000Z',
-    modifiedTime: '2026-05-21T00:00:00.000Z',
+    modifiedTime: LAST_MODIFIED,
   },
 });
 const articleSchema = getBlogArticleSchema(
-  'Burgundy Hex Code: #800020 — Shades, Palettes & Copy-Paste',
-  'Burgundy hex code is #800020. Copy hex codes for burgundy shades, see palette pairings with gold, cream and navy, and explore branding examples.',
+  'Burgundy Hex Code #800020 — Copy Color Code & Shades',
+  'Burgundy hex code is #800020 (RGB 128, 0, 32). Copy burgundy color code instantly. 8 shades, gold & cream pairings, wine red palette. One-click copy.',
   'burgundy-hex-code',
   getBlogArticleDatePublished('burgundy-hex-code'),
   BLOG_ARTICLE_DATE_MODIFIED

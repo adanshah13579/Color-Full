@@ -12,13 +12,13 @@ import {
 } from '../../../lib/getBlogArticleSchema';
 import BlogBreadcrumbs from '../components/BlogBreadcrumbs';
 
-const LAST_MODIFIED = '2026-06-11T00:00:00.000Z';
+const LAST_MODIFIED = '2026-06-15T00:00:00.000Z';
 
 export const metadata = buildPageMetadata({
   path: '/blog/sunset-color-palette',
-  title: 'Sunset Color Palette: Hex Codes #F97316 #EC4899 #8B5CF6 (Copy)',
+  title: 'Sunset Color Palette — Hex #F97316 #EC4899 #8B5CF6 (Copy)',
   description:
-    'Sunset palette hex codes: orange #F97316, coral #FF6B6B, pink #EC4899, purple #8B5CF6. Copy all sunset colors instantly with RGB values.',
+    'Sunset color palette hex codes: orange #F97316, coral #FF6B6B, pink #EC4899, purple #8B5CF6. Copy all sunset color codes & gradient RGB values.',
   keywords: [
     'sunset color palettes hex codes',
     'sunset colors rgb',
@@ -35,8 +35,8 @@ export const metadata = buildPageMetadata({
   },
 });
 const articleSchema = getBlogArticleSchema(
-  'Sunset Color Palette: Hex Codes #F97316 #EC4899 #8B5CF6 (Copy)',
-  'Sunset palette hex codes: orange #F97316, coral #FF6B6B, pink #EC4899, purple #8B5CF6. Copy all sunset colors instantly with RGB values.',
+  'Sunset Color Palette — Hex #F97316 #EC4899 #8B5CF6 (Copy)',
+  'Sunset color palette hex codes: orange #F97316, coral #FF6B6B, pink #EC4899, purple #8B5CF6. Copy all sunset color codes & gradient RGB values.',
   'sunset-color-palette',
   getBlogArticleDatePublished('sunset-color-palette'),
   BLOG_ARTICLE_DATE_MODIFIED

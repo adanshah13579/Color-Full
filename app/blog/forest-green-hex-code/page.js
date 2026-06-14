@@ -19,13 +19,13 @@ import {
   ForestGreenFormatCodesSection,
 } from './ForestGreenHexLead';
 
-const LAST_MODIFIED = '2026-06-11T00:00:00.000Z';
+const LAST_MODIFIED = '2026-06-15T00:00:00.000Z';
 
 export const metadata = buildPageMetadata({
   path: '/blog/forest-green-hex-code',
-  title: '#228B22 Forest Green — Copy Hex, RGB & HSL Instantly',
+  title: 'Forest Green Hex Code #228B22 — Copy RGB, Canva & Shades',
   description:
-    'Forest green = #228B22. Copy hex code in one click. RGB(34,139,34) · HSL(120,61%,34%) · 10 shades · Canva code · palette pairings. Faster than ColorHexa.',
+    'Forest green hex code is #228B22 (RGB 34, 139, 34). Copy forest green color code instantly. RGB, HSL, 10 shades, Canva code & palette pairings.',
   keywords: ['forest green hex', '#228B22', 'green shades', 'RGB', 'HSL', 'palette', 'Theme & Color'],
   openGraphType: 'article',
   openGraph: {
@@ -37,8 +37,8 @@ export const metadata = buildPageMetadata({
   },
 });
 const articleSchema = getBlogArticleSchema(
-  '#228B22 Forest Green — Copy Hex, RGB & HSL Instantly',
-  'Forest green = #228B22. Copy hex code in one click. RGB(34,139,34) · HSL(120,61%,34%) · 10 shades · Canva code · palette pairings. Faster than ColorHexa.',
+  'Forest Green Hex Code #228B22 — Copy RGB, Canva & Shades',
+  'Forest green hex code is #228B22 (RGB 34, 139, 34). Copy forest green color code instantly. RGB, HSL, 10 shades, Canva code & palette pairings.',
   'forest-green-hex-code',
   getBlogArticleDatePublished('forest-green-hex-code'),
   BLOG_ARTICLE_DATE_MODIFIED
@@ -176,7 +176,7 @@ export default function ForestGreenHexCodePage() {
               Back to Blog
             </Link>
             <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4 leading-tight">
-              #228B22 Forest Green — Copy Hex, RGB &amp; HSL Instantly
+              Forest Green Hex Code: #228B22
             </h1>
             <p className="text-emerald-100 text-lg max-w-3xl mb-6">
               Quick reference for forest green hex, RGB, HSL, and colour codes—plus named shades, a UI palette, scheme ideas, and Ocean Breeze colors in one place.

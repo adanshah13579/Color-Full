@@ -20,6 +20,7 @@ import BlogBreadcrumbs from '../components/BlogBreadcrumbs';
 
 export const metadata = buildPageMetadata({
   path: '/blog/forest-green',
+  canonicalPath: '/blog/forest-green-hex-code',
   title: 'Forest Green Color Palette: Hex Codes, Shades & Pairings',
   description:
     'Forest green palette hex codes starting with #228B22. Get all shades from light mint to deep hunter green, with UI examples and palette pairings.',

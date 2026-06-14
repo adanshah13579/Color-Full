@@ -11,13 +11,13 @@ import {
 } from '../../../lib/getBlogArticleSchema';
 import BlogBreadcrumbs from '../components/BlogBreadcrumbs';
 
-const LAST_MODIFIED = '2026-05-30T00:00:00.000Z';
+const LAST_MODIFIED = '2026-06-15T00:00:00.000Z';
 
 export const metadata = buildPageMetadata({
   path: '/blog/dark-mode-color-palette',
-  title: 'Dark Mode Color Palette: Hex Codes, Backgrounds & UI Examples',
+  title: 'Dark Mode Color Palette — Hex #121212 #1A1A1A #313338 (Copy)',
   description:
-    'Build a dark mode color palette with the right hex codes for backgrounds, surfaces, text and accents. WCAG-compliant dark mode examples included.',
+    'Dark mode color palette hex codes: background #121212, surface #1A1A1A, elevated #2D2D2D, text #E5E5E5. Copy WCAG-ready dark theme colors instantly.',
   keywords: [
     'dark mode color palette',
     'dark mode hex',
@@ -35,8 +35,8 @@ export const metadata = buildPageMetadata({
   },
 });
 const articleSchema = getBlogArticleSchema(
-  'Dark Mode Color Palette: Hex Codes, Backgrounds & UI Examples',
-  'Build a dark mode color palette with the right hex codes for backgrounds, surfaces, text and accents. WCAG-compliant dark mode examples included.',
+  'Dark Mode Color Palette — Hex #121212 #1A1A1A #313338 (Copy)',
+  'Dark mode color palette hex codes: background #121212, surface #1A1A1A, elevated #2D2D2D, text #E5E5E5. Copy WCAG-ready dark theme colors instantly.',
   'dark-mode-color-palette',
   getBlogArticleDatePublished('dark-mode-color-palette'),
   BLOG_ARTICLE_DATE_MODIFIED

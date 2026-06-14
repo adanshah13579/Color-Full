@@ -14,13 +14,13 @@ import {
 } from '../../../lib/getBlogArticleSchema';
 import BlogBreadcrumbs from '../components/BlogBreadcrumbs';
 
-const LAST_MODIFIED = '2026-06-11T00:00:00.000Z';
+const LAST_MODIFIED = '2026-06-15T00:00:00.000Z';
 
 export const metadata = buildPageMetadata({
   path: '/blog/discord-dark-mode-colors',
-  title: 'Discord Dark Mode Colors: Every Hex Code (Background, Chat & UI)',
+  title: 'Discord Dark Mode Hex Code #313338 — All UI Colors (Copy)',
   description:
-    'Discord dark mode hex codes: background #313338, darker #2B2D31, darkest #1E1F22, text #DBDEE1. Copy every Discord dark theme color instantly.',
+    'Discord dark mode hex code: background #313338, sidebar #2B2D31, darkest #1E1F22, text #DBDEE1. Copy every Discord dark theme color instantly.',
   keywords: [
     'discord dark mode color',
     'discord dark mode hex code',
@@ -40,8 +40,8 @@ export const metadata = buildPageMetadata({
   },
 });
 const articleSchema = getBlogArticleSchema(
-  'Discord Dark Mode Colors: Every Hex Code (Background, Chat & UI)',
-  'Discord dark mode hex codes: background #313338, darker #2B2D31, darkest #1E1F22, text #DBDEE1. Copy every Discord dark theme color instantly.',
+  'Discord Dark Mode Hex Code #313338 — All UI Colors (Copy)',
+  'Discord dark mode hex code: background #313338, sidebar #2B2D31, darkest #1E1F22, text #DBDEE1. Copy every Discord dark theme color instantly.',
   'discord-dark-mode-colors',
   getBlogArticleDatePublished('discord-dark-mode-colors'),
   BLOG_ARTICLE_DATE_MODIFIED
