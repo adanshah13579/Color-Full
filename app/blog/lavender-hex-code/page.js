@@ -274,7 +274,7 @@ export default function LavenderHexCodePage() {
                       <InlineTagLink href="/blog/c4b5fd-color">#C4B5FD Lavender Purple</InlineTagLink> — softer violet for UI tints and luxury brands
                     </li>
                     <li>
-                      <InlineTagLink href="/blog/pink-and-purple-color">Pink and Purple Color</InlineTagLink> — magenta and mauve mixes between pink and purple
+                      <InlineTagLink href="/blog/pink-purple-color-name">Pink and Purple Color Names</InlineTagLink> — magenta and mauve mixes between pink and purple
                     </li>
                     <li>
                       <InlineTagLink href="/blog/purple-dream">Purple Dream Palette</InlineTagLink> — full violet ramp from #7C3AED to #EDE9FE

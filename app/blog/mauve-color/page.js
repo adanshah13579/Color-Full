@@ -15,13 +15,13 @@ import BlogBreadcrumbs from '../components/BlogBreadcrumbs';
 import CopyableHex from '../forest-green-hex-code/CopyableHex';
 import { MauveQuickAnswer, MauveFormatCodesSection, MauveShadesTable } from './MauveColorLead';
 
-const LAST_MODIFIED = '2026-06-11T00:00:00.000Z';
+const LAST_MODIFIED = '2026-06-19T00:00:00.000Z';
 
 export const metadata = buildPageMetadata({
   path: '/blog/mauve-color',
-  title: 'Mauve Color: Hex Code #E0B0FF, RGB & What Makes It Pink-Purple',
+  title: 'Mauve Color #E0B0FF — Hex Code Between Pink & Purple',
   description:
-    'Mauve is a soft pink-purple color with hex code #E0B0FF. RGB(224,176,255). See mauve shades, palette pairings and why mauve sits between pink and purple.',
+    'Mauve color hex code #E0B0FF · RGB(224,176,255). Copy mauve colour code instantly. Is mauve pink or purple? Shades, pairings & palette ideas.',
   keywords: ['mauve color', 'mauve hex code', 'mauve colour', 'is mauve pink or purple', '#E0B0FF', 'mauve rgb', 'Theme & Color'],
   openGraphType: 'article',
   openGraph: {
@@ -33,8 +33,8 @@ export const metadata = buildPageMetadata({
   },
 });
 const articleSchema = getBlogArticleSchema(
-  'Mauve Color: Hex Code #E0B0FF, RGB & What Makes It Pink-Purple',
-  'Mauve is a soft pink-purple color with hex code #E0B0FF. RGB(224,176,255). See mauve shades, palette pairings and why mauve sits between pink and purple.',
+  'Mauve Color #E0B0FF — Hex Code Between Pink & Purple',
+  'Mauve color hex code #E0B0FF · RGB(224,176,255). Copy mauve colour code instantly. Is mauve pink or purple? Shades, pairings & palette ideas.',
   'mauve-color',
   getBlogArticleDatePublished('mauve-color'),
   BLOG_ARTICLE_DATE_MODIFIED

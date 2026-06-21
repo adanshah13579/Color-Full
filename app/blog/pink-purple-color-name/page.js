@@ -14,13 +14,13 @@ import {
 } from '../../../lib/getBlogArticleSchema';
 import BlogBreadcrumbs from '../components/BlogBreadcrumbs';
 
-const LAST_MODIFIED = '2026-06-15T00:00:00.000Z';
+const LAST_MODIFIED = '2026-06-19T00:00:00.000Z';
 
 export const metadata = buildPageMetadata({
   path: '/blog/pink-purple-color-name',
-  title: 'Pink Purple Color Name — Mauve #E0B0FF, Magenta & Fuchsia',
+  title: 'Pink Purple Color Name: Mauve, Magenta (#E0B0FF)',
   description:
-    'The color between pink and purple is mauve (#E0B0FF), magenta (#FF00FF) or fuchsia (#FF77FF). All pink-purple color names with hex codes. Copy instantly.',
+    'Pink purple color name: mauve #E0B0FF, magenta #FF00FF, fuchsia #FF77FF. What color is between pink and purple? Copy all hex codes instantly.',
   keywords: [
     'color between pink and purple',
     'what color is between pink and purple',
@@ -39,8 +39,8 @@ export const metadata = buildPageMetadata({
   },
 });
 const articleSchema = getBlogArticleSchema(
-  'Pink Purple Color Name — Mauve #E0B0FF, Magenta & Fuchsia',
-  'The color between pink and purple is mauve (#E0B0FF), magenta (#FF00FF) or fuchsia (#FF77FF). All pink-purple color names with hex codes. Copy instantly.',
+  'Pink Purple Color Name: Mauve, Magenta (#E0B0FF)',
+  'Pink purple color name: mauve #E0B0FF, magenta #FF00FF, fuchsia #FF77FF. What color is between pink and purple? Copy all hex codes instantly.',
   'pink-purple-color-name',
   getBlogArticleDatePublished('pink-purple-color-name'),
   BLOG_ARTICLE_DATE_MODIFIED
@@ -150,12 +150,12 @@ export default function PinkPurpleColorNamePage() {
               Back to Blog
             </Link>
             <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4 leading-tight">
-              What Colour is Between Pink and Purple? Mauve, Magenta &amp; More
+              Pink Purple Color Name: #E0B0FF Mauve, Magenta &amp; Fuchsia
             </h1>
             <PaletteQuickAnswer
               theme="purple"
               ariaLabel="Pink-purple colour names quick copy"
-              headline="Pink-Purple Colour Names — Copy Hex Instantly"
+              headline="Mauve #E0B0FF · Magenta #FF00FF · Fuchsia #FF77FF"
               subtext="The most searched colours between pink and purple. One-click copy for CSS, Figma, and Canva."
               namedColorRows={PINK_PURPLE_QUICK_COLORS}
             />
@@ -211,7 +211,7 @@ export default function PinkPurpleColorNamePage() {
           <div className="prose prose-lg max-w-none prose-headings:font-bold prose-headings:text-gray-900 dark:prose-headings:text-white prose-p:text-gray-700 dark:prose-p:text-gray-300 prose-p:leading-relaxed">
             <p className="mb-6">
               Searches like <strong className="text-gray-900 dark:text-white">color between pink and purple</strong>, <strong className="text-gray-900 dark:text-white">what is pink purple called</strong>, and <strong className="text-gray-900 dark:text-white">pinkish purple color name</strong> all point to the same design problem: stakeholders use poetic color words while engineers need hex. The table above maps everyday names—mauve, magenta, fuchsia, orchid, plum—to copy-ready values so handoffs stop drifting. For mixing ratios when blending pink and purple deliberately, see our{' '}
-              <InlineTagLink href="/blog/pink-and-purple-color">pink and purple mixing guide</InlineTagLink>.
+              <InlineTagLink href="/tools/color-mixer/pink-and-purple">pink and purple mixing guide</InlineTagLink>.
             </p>
             <p className="mb-6">
               When documenting tokens, separate “brand pink-purple” from “semantic error red” and “link blue”—magenta accents confuse users if every interactive hue competes. A practical system uses one pink-purple accent (often orchid or mauve for calm brands, magenta for energetic ones), one neutral text color, and one warm secondary accent such as gold or coral only where hierarchy demands it.
@@ -247,7 +247,7 @@ export default function PinkPurpleColorNamePage() {
 
           <p className="text-gray-600 dark:text-gray-400 text-sm leading-relaxed">
             <strong className="text-gray-800 dark:text-gray-200">Related:</strong>{' '}
-            <InlineTagLink href="/blog/pink-and-purple-color">Pink and Purple Color Mixing</InlineTagLink>
+            <InlineTagLink href="/tools/color-mixer/pink-and-purple">Pink and Purple Color Mixing</InlineTagLink>
             {' · '}
             <InlineTagLink href="/blog/lavender-hex-code">Lavender Hex Code</InlineTagLink>
             {' · '}

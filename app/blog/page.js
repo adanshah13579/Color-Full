@@ -88,52 +88,20 @@ const staticPosts = [
     publishedAt: '2025-02-09',
   },
   {
-    _id: '4',
-    title: 'Sunset Vibes Color Palette: Hex Codes, Shades & Pairings',
-    slug: { current: 'sunset-vibes' },
-    excerpt:
-      'Sunset vibes hex codes (#F97316, #EF4444, #EC4899, #8B5CF6), eight warm shades, pairings, and UI usage with accessibility reminders.',
-    publishedAt: '2025-02-10',
-  },
-  {
-    _id: '5',
-    title: 'Forest Green Color Palette: Hex Codes, Shades & Pairings',
-    slug: { current: 'forest-green' },
-    excerpt:
-      'Forest green palette from #228B22 through mint tints—shades table, pairings, UI guidance, and generator links for eco and fintech brands.',
-    publishedAt: '2025-02-11',
-  },
-  {
     _id: '12',
-    title: 'Forest Green Hex Code: #228B22, RGB & UI greens (copy-paste)',
+    title: 'Forest Green Hex Code #228B22 — Copy RGB Code & Shades',
     slug: { current: 'forest-green-hex-code' },
     excerpt:
-      'Forest green hex code (#228B22 for CSS), deeper UI greens, RGB, a five-color palette, scheme ideas, and Ocean Breeze pairings—with copy-ready swatches.',
+      'Forest green hex code #228B22 · RGB(34,139,34). Copy forest green color code, 10 shades, Canva code & palette pairings. One-click copy.',
     publishedAt: '2026-04-11',
   },
   {
     _id: '31',
-    title: 'Forest Green RGB: RGB(34,139,34) — Color Code, Hex & HSL Values',
-    slug: { current: 'forest-green-rgb' },
-    excerpt:
-      'Forest green RGB value is RGB(34, 139, 34). Hex #228B22 · HSL(120°,61%,34%) · CMYK(76,0,76,45). Copy all forest green color formats instantly.',
-    publishedAt: '2026-06-11',
-  },
-  {
-    _id: '32',
-    title: 'Mauve Color: Hex Code #E0B0FF, RGB & What Makes It Pink-Purple',
+    title: 'Mauve Color #E0B0FF — Hex Code Between Pink & Purple',
     slug: { current: 'mauve-color' },
     excerpt:
-      'Mauve is a soft pink-purple color with hex code #E0B0FF. RGB(224,176,255). See mauve shades, palette pairings and why mauve sits between pink and purple.',
+      'Mauve color hex code #E0B0FF · RGB(224,176,255). Copy mauve colour code, shades, pairings and why mauve sits between pink and purple.',
     publishedAt: '2026-06-11',
-  },
-  {
-    _id: '19',
-    title: 'Forest Green Color Palette: Hex Codes, Shades & Combinations',
-    slug: { current: 'forest-green-color-palette' },
-    excerpt:
-      'Forest green color palette from #228B22—five combinations with cream, terracotta, and sage, ten shades, UI examples, and branding tips for eco brands.',
-    publishedAt: '2026-05-21',
   },
   {
     _id: '20',
@@ -217,10 +185,10 @@ const staticPosts = [
   },
   {
     _id: '15',
-    title: 'Sage Green Hex Code: #B2AC88 — Copy Code, Shades & Canva Colors',
+    title: 'Sage Green Hex Code #B2AC88 — Copy for Canva',
     slug: { current: 'sage-green-hex-code' },
     excerpt:
-      'Sage green hex code is #B2AC88. Copy instantly. See 10 shades, RGB values, Canva color codes, and palette pairings for web and brand design.',
+      'Sage green hex code #B2AC88 · RGB(178,172,136). Copy for Canva, CSS & Figma. 10 sage shades + dark sage codes. Free one-click copy.',
     publishedAt: '2026-05-11',
   },
   {
@@ -317,14 +285,6 @@ const staticPosts = [
     publishedAt: '2026-05-21',
   },
   {
-    _id: '26',
-    title: 'Pink and Purple Color: What They Make, Palettes & Hex Codes',
-    slug: { current: 'pink-and-purple-color' },
-    excerpt:
-      'Pink and purple together make magenta or mauve. See hex codes for pink-purple mixes, palette combinations, and what colors go with pink and purple.',
-    publishedAt: '2026-06-01',
-  },
-  {
     _id: '27',
     title: 'Pink and Blue Color: What They Make, Palettes & Hex Codes',
     slug: { current: 'pink-and-blue-color' },
@@ -366,10 +326,10 @@ const staticPosts = [
   },
   {
     _id: '32',
-    title: 'What is the Color Between Pink and Purple Called? (Hex Codes)',
+    title: 'Pink Purple Color Name: Mauve, Magenta (#E0B0FF)',
     slug: { current: 'pink-purple-color-name' },
     excerpt:
-      'The color between pink and purple is called mauve, magenta or fuchsia depending on the shade. Get hex codes for every pink-purple color name.',
+      'Pink purple color name: mauve #E0B0FF, magenta #FF00FF, fuchsia #FF77FF. What color is between pink and purple? Copy all hex codes instantly.',
     publishedAt: '2026-06-05',
   },
   {
@@ -378,14 +338,6 @@ const staticPosts = [
     slug: { current: 'discord-dark-mode-colors' },
     excerpt:
       'Discord dark mode hex codes: background #313338, dark #2B2D31, darker #1E1F22, darkest #111214. Copy all Discord dark theme colors instantly.',
-    publishedAt: '2026-06-05',
-  },
-  {
-    _id: '34',
-    title: 'What Color Does Pink and Purple Make? Magenta & Hex Codes',
-    slug: { current: 'what-color-does-pink-and-purple-make' },
-    excerpt:
-      'Pink and purple mixed make magenta or mauve. See hex codes for every pink-purple mix ratio, color swatches, and palette combinations.',
     publishedAt: '2026-06-05',
   },
 ];

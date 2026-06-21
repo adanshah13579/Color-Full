@@ -12,13 +12,13 @@ import {
 } from '../../../lib/getBlogArticleSchema';
 import BlogBreadcrumbs from '../components/BlogBreadcrumbs';
 
-const LAST_MODIFIED = '2026-05-30T00:00:00.000Z';
+const LAST_MODIFIED = '2026-06-19T00:00:00.000Z';
 
 export const metadata = buildPageMetadata({
   path: '/blog/burgundy-color-palette',
-  title: 'Burgundy Color Palette: Hex Codes, Shades & Combinations',
+  title: 'Burgundy Color Palette #800020 — Copy Hex Codes',
   description:
-    'Burgundy color palette hex codes starting with #800020. See shades, pairings with gold, navy and cream, and UI examples for luxury and fashion brands.',
+    'Burgundy color palette #800020 · RGB(128,0,32). Copy burgundy hex codes, wine red shades, gold & cream pairings. Luxury palette for web & brand design.',
   keywords: [
     'burgundy color palette',
     'burgundy color code',
@@ -38,8 +38,8 @@ export const metadata = buildPageMetadata({
   },
 });
 const articleSchema = getBlogArticleSchema(
-  'Burgundy Color Palette: Hex Codes, Shades & Combinations',
-  'Burgundy color palette hex codes starting with #800020. See shades, pairings with gold, navy and cream, and UI examples for luxury and fashion brands.',
+  'Burgundy Color Palette #800020 — Copy Hex Codes',
+  'Burgundy color palette #800020 · RGB(128,0,32). Copy burgundy hex codes, wine red shades, gold & cream pairings. Luxury palette for web & brand design.',
   'burgundy-color-palette',
   getBlogArticleDatePublished('burgundy-color-palette'),
   BLOG_ARTICLE_DATE_MODIFIED

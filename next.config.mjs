@@ -45,6 +45,38 @@ const nextConfig = {
         destination: '/tools/color-mixer/black-and-white',
         permanent: true,
       },
+      // Consolidate forest green cluster → single canonical hex page
+      {
+        source: '/blog/forest-green',
+        destination: '/blog/forest-green-hex-code',
+        permanent: true,
+      },
+      {
+        source: '/blog/forest-green-color-palette',
+        destination: '/blog/forest-green-hex-code',
+        permanent: true,
+      },
+      {
+        source: '/blog/forest-green-rgb',
+        destination: '/blog/forest-green-hex-code',
+        permanent: true,
+      },
+      // Consolidate pink/purple duplicates
+      {
+        source: '/blog/pink-and-purple-color',
+        destination: '/blog/pink-purple-color-name',
+        permanent: true,
+      },
+      {
+        source: '/blog/what-color-does-pink-and-purple-make',
+        destination: '/tools/color-mixer/pink-and-purple',
+        permanent: true,
+      },
+      {
+        source: '/blog/sunset-vibes',
+        destination: '/blog/sunset-color-palette',
+        permanent: true,
+      },
     ];
   },
 };

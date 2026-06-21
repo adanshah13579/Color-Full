@@ -17,13 +17,13 @@ import {
 } from '../../../lib/getBlogArticleSchema';
 import BlogBreadcrumbs from '../components/BlogBreadcrumbs';
 
-const LAST_MODIFIED = '2026-06-15T00:00:00.000Z';
+const LAST_MODIFIED = '2026-06-19T00:00:00.000Z';
 
 export const metadata = buildPageMetadata({
   path: '/blog/sage-green-hex-code',
-  title: 'Sage Green Hex Code #B2AC88 — Canva, RGB & 10 Shades',
+  title: 'Sage Green Hex Code #B2AC88 — Copy for Canva',
   description:
-    'Sage green hex code is #B2AC88 (RGB 178, 172, 136). Copy for Canva, CSS & Figma. 10 sage shades, dark & light codes, palette pairings. One-click copy.',
+    'Sage green hex code #B2AC88 · RGB(178,172,136). Copy sage green color code for Canva, CSS & Figma. 10 shades + dark sage codes. Free one-click copy.',
   keywords: [
     'sage green hex code',
     'sage green hex code canva',
@@ -52,8 +52,8 @@ export const metadata = buildPageMetadata({
   },
 });
 const articleSchema = getBlogArticleSchema(
-  'Sage Green Hex Code #B2AC88 — Canva, RGB & 10 Shades',
-  'Sage green hex code is #B2AC88 (RGB 178, 172, 136). Copy for Canva, CSS & Figma. 10 sage shades, dark & light codes, palette pairings. One-click copy.',
+  'Sage Green Hex Code #B2AC88 — Copy for Canva',
+  'Sage green hex code #B2AC88 · RGB(178,172,136). Copy sage green color code for Canva, CSS & Figma. 10 shades + dark sage codes. Free one-click copy.',
   'sage-green-hex-code',
   getBlogArticleDatePublished('sage-green-hex-code'),
   BLOG_ARTICLE_DATE_MODIFIED
@@ -320,7 +320,7 @@ export default function SageGreenHexCodePage() {
               aria-label="Sage green color swatch hex B2AC88"
             />
             <div className="flex items-center gap-4 text-lime-100/85 text-sm">
-              <time dateTime="2026-06-15">Updated June 15, 2026</time>
+              <time dateTime="2026-06-19">Updated June 19, 2026</time>
               <span>•</span>
               <span>12 min read</span>
             </div>

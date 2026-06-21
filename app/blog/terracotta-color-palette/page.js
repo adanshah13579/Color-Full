@@ -12,13 +12,13 @@ import {
 } from '../../../lib/getBlogArticleSchema';
 import BlogBreadcrumbs from '../components/BlogBreadcrumbs';
 
-const LAST_MODIFIED = '2026-06-15T00:00:00.000Z';
+const LAST_MODIFIED = '2026-06-19T00:00:00.000Z';
 
 export const metadata = buildPageMetadata({
   path: '/blog/terracotta-color-palette',
-  title: 'Terracotta Color Palette #E2725B — Hex Codes & Combinations',
+  title: '#E2725B Terracotta Color Palette — Copy Hex Codes',
   description:
-    'Terracotta color palette hex codes starting with #E2725B. Copy terracotta color code, 10 shades, sage & navy combinations. Warm earthy palette for web & brand.',
+    'Terracotta color palette #E2725B · RGB(226,114,91). Copy terracotta hex codes, 10 shades, sage & navy combos. Warm earthy palette for web & brand design.',
   keywords: [
     'terracotta color palette',
     'terracotta color code',
@@ -38,8 +38,8 @@ export const metadata = buildPageMetadata({
   },
 });
 const articleSchema = getBlogArticleSchema(
-  'Terracotta Color Palette #E2725B — Hex Codes & Combinations',
-  'Terracotta color palette hex codes starting with #E2725B. Copy terracotta color code, 10 shades, sage & navy combinations. Warm earthy palette for web & brand.',
+  '#E2725B Terracotta Color Palette — Copy Hex Codes',
+  'Terracotta color palette #E2725B · RGB(226,114,91). Copy terracotta hex codes, 10 shades, sage & navy combos. Warm earthy palette for web & brand design.',
   'terracotta-color-palette',
   getBlogArticleDatePublished('terracotta-color-palette'),
   BLOG_ARTICLE_DATE_MODIFIED

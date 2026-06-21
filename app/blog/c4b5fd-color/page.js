@@ -309,7 +309,7 @@ export default function C4B5fdColorPage() {
                     <strong className="text-gray-900 dark:text-white">Related:</strong>{' '}
                     <InlineTagLink href="/blog/purple-dream">Purple Dream Palette</InlineTagLink>
                     {' · '}
-                    <InlineTagLink href="/blog/pink-and-purple-color">Pink and Purple Color Mix</InlineTagLink>
+                    <InlineTagLink href="/tools/color-mixer/pink-and-purple">Pink and Purple Color Mix</InlineTagLink>
                     {' · '}
                     <InlineTagLink href="/blog/navy-blue-hex-code">Navy Blue #000080</InlineTagLink>
                   </p>

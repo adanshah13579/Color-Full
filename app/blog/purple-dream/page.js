@@ -361,7 +361,7 @@ export default function PurpleDreamPage() {
                   </ul>
                   <p className="mb-8">
                     If the answer is &quot;yes,&quot; Purple Dream can anchor identity. If not, use it as accent and explore{' '}
-                    <InlineTagLink href="/blog/forest-green">Forest Green</InlineTagLink> or <InlineTagLink href="/blog/ocean-breeze">Ocean Breeze</InlineTagLink>{' '}
+                    <InlineTagLink href="/blog/forest-green-hex-code">Forest Green</InlineTagLink> or <InlineTagLink href="/blog/ocean-breeze">Ocean Breeze</InlineTagLink>{' '}
                     for calmer bases.
                   </p>
 

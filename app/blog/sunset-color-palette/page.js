@@ -383,7 +383,7 @@ export default function SunsetColorPalettePage() {
 
                   <p className="mt-8 mb-6 text-gray-700 dark:text-gray-300">
                     <strong className="text-gray-900 dark:text-white">Related:</strong>{' '}
-                    <InlineTagLink href="/blog/sunset-vibes">Sunset Vibes Palette</InlineTagLink>
+                    <InlineTagLink href="/blog/sunset-color-palette">Sunset Color Palette</InlineTagLink>
                     {' · '}
                     <InlineTagLink href="/blog/terracotta-hex-code">Terracotta Hex Code</InlineTagLink>
                     {' · '}
