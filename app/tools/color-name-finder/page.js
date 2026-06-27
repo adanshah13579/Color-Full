@@ -1,88 +1,82 @@
 import InlineTagLink from '../../components/InlineTagLink';
 import ColorNameFinderTool from './ColorNameFinderTool';
 import { buildPageMetadata } from '../../../lib/buildPageMetadata';
+import { buildFaqSchema, buildWebApplicationSchema } from '../../../lib/aeoSchema';
+import AeoDirectAnswer from '../../blog/components/AeoDirectAnswer';
 
 export const metadata = buildPageMetadata({
   path: '/tools/color-name-finder',
-  title: 'Color Name Finder — What Color is This Hex Code?',
+  title: 'Color Name Finder — Find Any Hex Code Color Name Free',
   description:
-    'Find the name of any color from its hex code instantly. Enter a hex code and get the closest color name, RGB, HSL and CMYK values. Free online tool.',
+    'Free color name finder: paste any hex code and get the closest color name instantly. RGB, HSL, CMYK values. Works for #228B22, #B2AC88, #E2725B & more.',
   keywords: [
     'color name finder',
     'hex to color name',
     'what color is this hex',
+    'color name from hex',
+    'find color name',
     'RGB HSL CMYK',
     'CSS named colors',
     'Theme & Color',
   ],
 });
 
-const softwareSchema = {
-  '@context': 'https://schema.org',
-  '@type': 'SoftwareApplication',
+const webAppSchema = buildWebApplicationSchema({
   name: 'Color Name Finder',
   description:
-    'Find the closest color name for any hex code. Get RGB, HSL, CMYK values and similar named colors instantly.',
-  url: 'https://themeandcolor.com/tools/color-name-finder',
-  applicationCategory: 'DesignApplication',
-  operatingSystem: 'Web',
-  offers: {
-    '@type': 'Offer',
-    price: '0',
-    priceCurrency: 'USD',
-  },
-};
-
-const faqSchema = {
-  '@context': 'https://schema.org',
-  '@type': 'FAQPage',
-  mainEntity: [
-    {
-      '@type': 'Question',
-      name: 'How do I find the name of a color from a hex code?',
-      acceptedAnswer: {
-        '@type': 'Answer',
-        text: 'Paste or type your hex code into the Color Name Finder. The tool matches your color against hundreds of named colors using RGB distance and shows the closest name plus RGB, HSL, and CMYK values you can copy.',
-      },
-    },
-    {
-      '@type': 'Question',
-      name: 'What is the closest color name to my hex code?',
-      acceptedAnswer: {
-        '@type': 'Answer',
-        text: 'The closest name is the named color in our database with the smallest Euclidean distance to your hex in RGB space. CSS named colors, Tailwind-style labels, and common design color names are all included.',
-      },
-    },
-    {
-      '@type': 'Question',
-      name: 'Can I find a color name from RGB values?',
-      acceptedAnswer: {
-        '@type': 'Answer',
-        text: 'Yes—convert RGB to hex first (or use the values shown in the results panel after entering hex). The finder works from hex; RGB and HSL outputs are generated from the same color for documentation.',
-      },
-    },
-    {
-      '@type': 'Question',
-      name: 'What are the most common named colors in CSS?',
-      acceptedAnswer: {
-        '@type': 'Answer',
-        text: 'CSS defines 140+ named colors such as navy (#000080), forestgreen (#228B22), tomato, steelblue, and rebeccapurple. Browsers resolve names like color: forestgreen to a fixed hex value.',
-      },
-    },
+    'Free online color name finder. Paste a hex code to get the closest named color, RGB, HSL, CMYK values, and similar swatches instantly.',
+  path: '/tools/color-name-finder',
+  featureList: [
+    'Hex to color name lookup',
+    'RGB, HSL, and CMYK conversion',
+    'Similar named color suggestions',
+    'One-click copy for design handoff',
   ],
-};
+});
+
+const faqSchema = buildFaqSchema([
+  {
+    name: 'What is a color name finder?',
+    text: 'A color name finder is a free tool that matches a hex code to the closest human-readable color name—such as forestgreen for #228B22 or sage for #B2AC88—plus RGB, HSL, and CMYK values you can copy.',
+  },
+  {
+    name: 'How do I find the name of a color from a hex code?',
+    text: 'Paste your hex code (with or without #) into the Color Name Finder. The tool compares your color to hundreds of named colors using RGB distance and returns the closest match with copy-ready values.',
+  },
+  {
+    name: 'What is the closest color name to #228B22?',
+    text: 'Hex #228B22 is the CSS named color forestgreen. In RGB it is (34, 139, 34)—a medium-dark green common in eco, outdoor, and finance branding.',
+  },
+  {
+    name: 'What is the closest color name to #B2AC88?',
+    text: 'Hex #B2AC88 is closest to sage green—a muted gray-green with RGB(178, 172, 136). Designers use it for wellness, organic food, and lifestyle palettes.',
+  },
+  {
+    name: 'Can I find a color name from RGB values?',
+    text: 'Convert RGB to hex first, then paste into the finder. The tool outputs RGB, HSL, and CMYK from the same hex so developers and print vendors stay aligned.',
+  },
+]);
 
 export default function ColorNameFinderPage() {
   return (
     <div className="min-h-screen bg-white dark:bg-gray-900 py-12">
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(softwareSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(webAppSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
 
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <header className="max-w-4xl mx-auto mb-8 text-center md:text-left">
           <h1 className="text-3xl md:text-4xl font-bold mb-3 text-gray-900 dark:text-white">
-            Color Name Finder — What is This Color Called?
+            Color Name Finder
           </h1>
+          <AeoDirectAnswer
+            question="What is a color name finder?"
+            answer="A color name finder matches any hex code to its closest color name—for example #228B22 is forestgreen and #B2AC88 is sage green. Paste a hex below to get the name, RGB, HSL, and CMYK instantly."
+            codes={[
+              { label: '#228B22', value: 'forestgreen' },
+              { label: '#B2AC88', value: 'sage green' },
+              { label: '#E2725B', value: 'terracotta' },
+            ]}
+          />
           <p className="text-gray-600 dark:text-gray-400 text-base leading-relaxed">
             Paste a hex code to get the closest color name, full RGB/HSL/CMYK values, and similar swatches—free, instant, no sign-up.
           </p>
@@ -91,13 +85,6 @@ export default function ColorNameFinderPage() {
         <ColorNameFinderTool />
 
         <div className="max-w-4xl mx-auto mt-16 space-y-8 text-gray-600 dark:text-gray-400">
-          <section>
-            <h2 className="text-2xl font-bold mb-4 text-gray-900 dark:text-white">What is a Color Name Finder?</h2>
-            <p className="leading-relaxed">
-              A color name finder answers “what is this color called?” when you only have a hex code from a design file, screenshot, or CSS snippet. You paste the hex; the tool compares it to a large database of named colors and returns the nearest match, plus copy-ready RGB, HSL, and CMYK values for handoff to developers or print vendors.
-            </p>
-          </section>
-
           <section>
             <h2 className="text-2xl font-bold mb-4 text-gray-900 dark:text-white">How to Find a Color Name from a Hex Code</h2>
             <ol className="list-decimal list-inside space-y-2 leading-relaxed">
@@ -109,9 +96,29 @@ export default function ColorNameFinderPage() {
           </section>
 
           <section>
-            <h2 className="text-2xl font-bold mb-4 text-gray-900 dark:text-white">Why Color Names Matter in Design</h2>
-            <p className="leading-relaxed">
-              Shared names reduce confusion in design systems, Figma libraries, and brand guidelines. When everyone references “Forest Green #228B22” instead of three slightly different greens, tokens stay aligned across web, app, and marketing. A name finder bridges the gap between an anonymous hex from a mood board and the vocabulary your team already uses in CSS and documentation.
+            <h2 className="text-2xl font-bold mb-4 text-gray-900 dark:text-white">Popular Hex Codes &amp; Color Names</h2>
+            <ul className="space-y-2 leading-relaxed">
+              <li>
+                <strong className="text-gray-900 dark:text-white">#228B22</strong> — forestgreen (forest green)
+              </li>
+              <li>
+                <strong className="text-gray-900 dark:text-white">#B2AC88</strong> — sage green
+              </li>
+              <li>
+                <strong className="text-gray-900 dark:text-white">#E2725B</strong> — terracotta
+              </li>
+              <li>
+                <strong className="text-gray-900 dark:text-white">#E0B0FF</strong> — mauve
+              </li>
+              <li>
+                <strong className="text-gray-900 dark:text-white">#F97316</strong> — sunset orange
+              </li>
+            </ul>
+            <p className="mt-4 leading-relaxed">
+              See full shade tables on our{' '}
+              <InlineTagLink href="/blog/sage-green-hex-code">sage green</InlineTagLink>,{' '}
+              <InlineTagLink href="/blog/forest-green-hex-code">forest green</InlineTagLink>, and{' '}
+              <InlineTagLink href="/blog/sunset-color-palette">sunset palette</InlineTagLink> guides.
             </p>
           </section>
 

@@ -11,6 +11,7 @@ import {
   BLOG_ARTICLE_DATE_MODIFIED,
 } from '../../../lib/getBlogArticleSchema';
 import BlogBreadcrumbs from '../components/BlogBreadcrumbs';
+import AeoDirectAnswer from '../components/AeoDirectAnswer';
 import CopyableHex from './CopyableHex';
 import {
   ForestGreenQuickAnswer,
@@ -19,13 +20,13 @@ import {
   ForestGreenFormatCodesSection,
 } from './ForestGreenHexLead';
 
-const LAST_MODIFIED = '2026-06-19T00:00:00.000Z';
+const LAST_MODIFIED = '2026-06-26T00:00:00.000Z';
 
 export const metadata = buildPageMetadata({
   path: '/blog/forest-green-hex-code',
-  title: 'Forest Green Hex Code #228B22 — Copy RGB Code',
+  title: 'Forest Green Hex Code #228B22 — Copy for Canva',
   description:
-    'Forest green hex code #228B22 · RGB(34,139,34). Copy forest green color code instantly. HSL, 10 shades, Canva code & palette pairings. One-click copy.',
+    'Forest green hex code #228B22 · RGB(34,139,34). Copy forest green color code for Canva, CSS & Figma. 10 shades, RGB & palette pairings.',
   keywords: ['forest green hex', '#228B22', 'green shades', 'RGB', 'HSL', 'palette', 'Theme & Color'],
   openGraphType: 'article',
   openGraph: {
@@ -37,8 +38,8 @@ export const metadata = buildPageMetadata({
   },
 });
 const articleSchema = getBlogArticleSchema(
-  'Forest Green Hex Code #228B22 — Copy RGB Code',
-  'Forest green hex code #228B22 · RGB(34,139,34). Copy forest green color code instantly. HSL, 10 shades, Canva code & palette pairings. One-click copy.',
+  'Forest Green Hex Code #228B22 — Copy for Canva',
+  'Forest green hex code #228B22 · RGB(34,139,34). Copy forest green color code for Canva, CSS & Figma. 10 shades, RGB & palette pairings.',
   'forest-green-hex-code',
   getBlogArticleDatePublished('forest-green-hex-code'),
   BLOG_ARTICLE_DATE_MODIFIED
@@ -71,6 +72,14 @@ const faqSchema = {
   '@context': 'https://schema.org',
   '@type': 'FAQPage',
   mainEntity: [
+    {
+      '@type': 'Question',
+      name: 'What is the forest green color code?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'The forest green color code is hex #228B22, RGB(34, 139, 34), matching the CSS named color forestgreen. For darker UI greens, use #065F46 or #166534.',
+      },
+    },
     {
       '@type': 'Question',
       name: 'What is the forest green hex code?',
@@ -178,8 +187,20 @@ export default function ForestGreenHexCodePage() {
             <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4 leading-tight">
               Forest Green Hex Code: #228B22
             </h1>
+            <AeoDirectAnswer
+              question="What is the forest green hex code?"
+              answer="The forest green hex code is #228B22 — RGB(34, 139, 34). This is the CSS color name forestgreen. Copy it for Canva, CSS, and Figma eco, outdoor, and finance palettes."
+              codes={[
+                { label: 'Hex', value: '#228B22' },
+                { label: 'RGB', value: '34, 139, 34' },
+              ]}
+            />
             <p className="text-emerald-100 text-lg max-w-3xl mb-6">
-              Quick reference for forest green hex, RGB, HSL, and colour codes—plus named shades, a UI palette, scheme ideas, and Ocean Breeze colors in one place.
+              Quick reference for forest green hex, RGB, HSL, and colour codes—plus named shades, a UI palette, scheme ideas, and Ocean Breeze colors. Look up the CSS color name with our{' '}
+              <InlineTagLink href="/tools/color-name-finder" className="text-emerald-200 hover:text-white underline underline-offset-2">
+                color name finder
+              </InlineTagLink>
+              .
             </p>
             <div
               className="w-full max-w-2xl h-36 md:h-44 rounded-2xl border-2 border-white/25 shadow-2xl mb-6 bg-[#228B22]"
@@ -189,7 +210,7 @@ export default function ForestGreenHexCodePage() {
             <div className="flex items-center gap-4 text-emerald-100 text-sm flex-wrap">
               <time dateTime="2026-04-11">Published April 11, 2026</time>
               <span>•</span>
-              <time dateTime="2026-06-19">Updated June 19, 2026</time>
+              <time dateTime="2026-06-26">Updated June 26, 2026</time>
               <span>•</span>
               <span>10 min read</span>
             </div>

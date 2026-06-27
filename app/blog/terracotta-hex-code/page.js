@@ -15,14 +15,15 @@ import {
   BLOG_ARTICLE_DATE_MODIFIED,
 } from '../../../lib/getBlogArticleSchema';
 import BlogBreadcrumbs from '../components/BlogBreadcrumbs';
+import AeoDirectAnswer from '../components/AeoDirectAnswer';
 
-const LAST_MODIFIED = '2026-06-15T00:00:00.000Z';
+const LAST_MODIFIED = '2026-06-26T00:00:00.000Z';
 
 export const metadata = buildPageMetadata({
   path: '/blog/terracotta-hex-code',
-  title: 'Terracotta Hex Code #E2725B — Copy Color Code & Shades',
+  title: 'Terracotta Hex Code #E2725B — Copy for Canva',
   description:
-    'Terracotta hex code is #E2725B (RGB 226, 114, 91). Copy terracotta color code instantly. 10 shades, sage & cream pairings, UI examples. One-click copy.',
+    'Terracotta hex code #E2725B · RGB(226,114,91). Copy terracotta color code for Canva, CSS & Figma. 10 shades, sage pairings. One-click copy.',
   keywords: ['terracotta hex code', 'terracotta color code', 'terracotta hex', '#E2725B', 'terracotta shades', 'palette', 'UI color', 'Theme & Color'],
   openGraphType: 'article',
   openGraph: {
@@ -31,8 +32,8 @@ export const metadata = buildPageMetadata({
   },
 });
 const articleSchema = getBlogArticleSchema(
-  'Terracotta Hex Code #E2725B — Copy Color Code & Shades',
-  'Terracotta hex code is #E2725B (RGB 226, 114, 91). Copy terracotta color code instantly. 10 shades, sage & cream pairings, UI examples. One-click copy.',
+  'Terracotta Hex Code #E2725B — Copy for Canva',
+  'Terracotta hex code #E2725B · RGB(226,114,91). Copy terracotta color code for Canva, CSS & Figma. 10 shades, sage pairings. One-click copy.',
   'terracotta-hex-code',
   getBlogArticleDatePublished('terracotta-hex-code'),
   BLOG_ARTICLE_DATE_MODIFIED
@@ -95,6 +96,14 @@ const faqSchema = {
   mainEntity: [
     {
       '@type': 'Question',
+      name: 'What is the terracotta color code?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'The terracotta color code is hex #E2725B, RGB(226, 114, 91), and HSL(11, 70%, 62%). In Canva, paste #E2725B under Custom colors to match this clay-orange tone.',
+      },
+    },
+    {
+      '@type': 'Question',
       name: 'What is the terracotta hex code?',
       acceptedAnswer: {
         '@type': 'Answer',
@@ -155,8 +164,16 @@ export default function TerracottaHexCodePage() {
               Back to Blog
             </Link>
             <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4 leading-tight">
-              Terracotta Hex Code: #E2725B — Shades, Palettes & UI Examples
+              Terracotta Hex Code: #E2725B
             </h1>
+            <AeoDirectAnswer
+              question="What is the terracotta hex code?"
+              answer="The terracotta hex code is #E2725B — RGB(226, 114, 91). Copy this terracotta color code for Canva, CSS, and Figma. It reads as a warm clay-orange for CTAs, ceramics, and earthy brand palettes."
+              codes={[
+                { label: 'Hex', value: '#E2725B' },
+                { label: 'RGB', value: '226, 114, 91' },
+              ]}
+            />
             <p className="text-orange-50/95 text-lg max-w-3xl mb-6">
               Sun-baked clay as a digital swatch—ten steps from linen to dark brown, four pairings for product and editorial UI, and notes on why terracotta keeps
               resurfacing in brand and interior trends.
@@ -167,7 +184,7 @@ export default function TerracottaHexCodePage() {
               aria-label="Terracotta color swatch hex E2725B"
             />
             <div className="flex items-center gap-4 text-orange-100/85 text-sm">
-              <time dateTime="2026-05-12">May 12, 2026</time>
+              <time dateTime="2026-06-26">Updated June 26, 2026</time>
               <span>•</span>
               <span>9 min read</span>
             </div>

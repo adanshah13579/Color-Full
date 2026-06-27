@@ -16,8 +16,9 @@ import {
   BLOG_ARTICLE_DATE_MODIFIED,
 } from '../../../lib/getBlogArticleSchema';
 import BlogBreadcrumbs from '../components/BlogBreadcrumbs';
+import AeoDirectAnswer from '../components/AeoDirectAnswer';
 
-const LAST_MODIFIED = '2026-06-19T00:00:00.000Z';
+const LAST_MODIFIED = '2026-06-26T00:00:00.000Z';
 
 export const metadata = buildPageMetadata({
   path: '/blog/sage-green-hex-code',
@@ -310,9 +311,21 @@ export default function SageGreenHexCodePage() {
             <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4 leading-tight">
               Sage Green Hex Code: #B2AC88
             </h1>
+            <AeoDirectAnswer
+              question="What is the sage green hex code?"
+              answer="The sage green hex code is #B2AC88 — RGB(178, 172, 136). Copy this sage green color code for Canva, CSS, and Figma. It is a muted gray-green for wellness, organic, and lifestyle brands."
+              codes={[
+                { label: 'Hex', value: '#B2AC88' },
+                { label: 'RGB', value: '178, 172, 136' },
+              ]}
+            />
             <p className="text-stone-200/95 text-lg max-w-3xl mb-6">
               Copy the canonical <strong className="text-white font-semibold">sage green hex code</strong> #B2AC88 instantly—plus dark and light sage shades,{' '}
-              <strong className="text-white font-semibold">sage green rgb code</strong> values, Canva custom-color steps, and palette pairings for web and brand design.
+              <strong className="text-white font-semibold">sage green rgb code</strong> values, Canva custom-color steps, and palette pairings. Need the color name? Try our{' '}
+              <InlineTagLink href="/tools/color-name-finder" className="text-lime-200 hover:text-white underline underline-offset-2">
+                color name finder
+              </InlineTagLink>
+              .
             </p>
             <div
               className="w-full max-w-2xl h-36 md:h-44 rounded-2xl border-2 border-white/15 shadow-2xl mb-6 bg-[#B2AC88]"
@@ -320,7 +333,7 @@ export default function SageGreenHexCodePage() {
               aria-label="Sage green color swatch hex B2AC88"
             />
             <div className="flex items-center gap-4 text-lime-100/85 text-sm">
-              <time dateTime="2026-06-19">Updated June 19, 2026</time>
+              <time dateTime="2026-06-26">Updated June 26, 2026</time>
               <span>•</span>
               <span>12 min read</span>
             </div>

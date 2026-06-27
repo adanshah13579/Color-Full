@@ -11,14 +11,15 @@ import {
   BLOG_ARTICLE_DATE_MODIFIED,
 } from '../../../lib/getBlogArticleSchema';
 import BlogBreadcrumbs from '../components/BlogBreadcrumbs';
+import AeoDirectAnswer from '../components/AeoDirectAnswer';
 
-const LAST_MODIFIED = '2026-06-15T00:00:00.000Z';
+const LAST_MODIFIED = '2026-06-26T00:00:00.000Z';
 
 export const metadata = buildPageMetadata({
   path: '/blog/sunset-color-palette',
-  title: 'Sunset Color Palette — Hex #F97316 #EC4899 #8B5CF6 (Copy)',
+  title: 'Sunset Color Palette #F97316 #EC4899 #8B5CF6 — Copy Hex Codes',
   description:
-    'Sunset color palette hex codes: orange #F97316, coral #FF6B6B, pink #EC4899, purple #8B5CF6. Copy all sunset color codes & gradient RGB values.',
+    'Sunset color palette hex codes: #F97316 orange, #EF4444 red, #EC4899 pink, #8B5CF6 purple. Copy sunset hex codes & RGB for Canva, CSS & Figma.',
   keywords: [
     'sunset color palettes hex codes',
     'sunset colors rgb',
@@ -35,8 +36,8 @@ export const metadata = buildPageMetadata({
   },
 });
 const articleSchema = getBlogArticleSchema(
-  'Sunset Color Palette — Hex #F97316 #EC4899 #8B5CF6 (Copy)',
-  'Sunset color palette hex codes: orange #F97316, coral #FF6B6B, pink #EC4899, purple #8B5CF6. Copy all sunset color codes & gradient RGB values.',
+  'Sunset Color Palette #F97316 #EC4899 #8B5CF6 — Copy Hex Codes',
+  'Sunset color palette hex codes: #F97316 orange, #EF4444 red, #EC4899 pink, #8B5CF6 purple. Copy sunset hex codes & RGB for Canva, CSS & Figma.',
   'sunset-color-palette',
   getBlogArticleDatePublished('sunset-color-palette'),
   BLOG_ARTICLE_DATE_MODIFIED
@@ -134,6 +135,14 @@ const faqSchema = {
   mainEntity: [
     {
       '@type': 'Question',
+      name: 'What is the sunset color hex code?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'The main sunset color hex codes are #F97316 (orange), #EF4444 (red), #EC4899 (pink), #8B5CF6 (purple), and #F59E0B (amber). Use them for gradients, heroes, and CTAs—not small body text without contrast testing.',
+      },
+    },
+    {
+      '@type': 'Question',
       name: 'What are the main sunset color palette hex codes?',
       acceptedAnswer: {
         '@type': 'Answer',
@@ -223,7 +232,13 @@ function BlogMixerPaletteCTA() {
       <div className="rounded-xl border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-900 p-6 md:p-7">
         <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-2">Build your sunset palette</h3>
         <p className="text-gray-600 dark:text-gray-400 mb-5">Mix warm hues or generate a full ramp for your brand.</p>
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
+          <Link
+            href="/tools/color-name-finder"
+            className="block rounded-lg border border-zinc-200 bg-zinc-100 px-4 py-3 text-sm font-semibold text-zinc-900 shadow-sm hover:border-violet-400 hover:bg-white hover:text-violet-900 dark:border-zinc-600 dark:bg-zinc-800 dark:text-zinc-50 dark:hover:border-violet-400 dark:hover:bg-zinc-700 transition-colors text-center"
+          >
+            Color Name Finder
+          </Link>
           <Link
             href="/tools/color-mixer"
             className="block rounded-lg border border-zinc-200 bg-zinc-100 px-4 py-3 text-sm font-semibold text-zinc-900 shadow-sm hover:border-orange-400 hover:bg-white hover:text-orange-800 dark:border-zinc-600 dark:bg-zinc-800 dark:text-zinc-50 dark:hover:border-orange-400 dark:hover:bg-zinc-700 transition-colors text-center"
@@ -266,15 +281,24 @@ export default function SunsetColorPalettePage() {
               Back to Blog
             </Link>
             <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4 leading-tight">
-              Sunset Color Palette: Hex Codes #F97316 #EC4899 #8B5CF6 (Copy)
+              Sunset Color Palette: #F97316 #EC4899 #8B5CF6
             </h1>
+            <AeoDirectAnswer
+              question="What is the sunset color hex code?"
+              answer="A sunset color palette uses warm hex codes #F97316 (orange), #EF4444 (red), #EC4899 (pink), and #8B5CF6 (purple). Copy each code for Canva, CSS, and Figma gradients or brand accents."
+              codes={[
+                { label: 'Orange', value: '#F97316' },
+                { label: 'Pink', value: '#EC4899' },
+                { label: 'Purple', value: '#8B5CF6' },
+              ]}
+            />
             <p className="text-amber-100 text-lg max-w-3xl mb-6">
               Copy <strong className="text-white font-semibold">sunset color palettes hex codes</strong>—orange #F97316,
               red #EF4444, pink #EC4899, purple #8B5CF6—and matching{' '}
               <strong className="text-white font-semibold">sunset colors rgb</strong> values for UI, social, and brand systems.
             </p>
             <div className="flex items-center gap-4 text-amber-100 text-sm">
-              <time dateTime="2026-06-11">Updated June 11, 2026</time>
+              <time dateTime="2026-06-26">Updated June 26, 2026</time>
               <span>•</span>
               <span>10 min read</span>
             </div>
